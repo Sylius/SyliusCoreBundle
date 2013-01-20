@@ -20,7 +20,8 @@
         "php":                      ">=5.3.3",
 
         "symfony/framework-bundle": "~2.1",
-        "sylius/taxation-bundle":   "0.1.*"
+        "sylius/taxation-bundle":   "0.1.*",
+        "jms/serializer-bundle":    "1.0.*"
     },
     "require-dev": {
         "phpspec/phpspec2":         "dev-develop"
