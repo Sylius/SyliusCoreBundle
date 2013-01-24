@@ -20,6 +20,7 @@
         "php":                      ">=5.3.3",
 
         "symfony/framework-bundle": "~2.1",
+        "sylius/assortment-bundle": "0.1.*",
         "sylius/taxation-bundle":   "0.1.*",
         "sylius/shipping-bundle":   "0.1.*",
         "sylius/addressing-bundle": "0.1.*",
