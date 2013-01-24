@@ -26,8 +26,11 @@ class LoadTaxationData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $taxableGoods = $this->createTaxCategory('Taxable goods', 'Default taxation category', 'Default');
-        $taxableGoods->addRate($this->createTaxRate('EU VAT', 0.23));
+        $taxableGoods = $this->createTaxCategory('Taxable goods', 'Default taxation category');
+
+        $taxableGoods->addRate($this->createTaxRate('EU VAT', 'EU', 0.23));
+        $taxableGoods->addRate($this->createTaxRate('US Sales Tax', 'USA', 0.08));
+        $taxableGoods->addRate($this->createTaxRate('No tax', 'Rest of World', 0.00));
 
         $manager->persist($taxableGoods);
         $manager->flush();
@@ -60,11 +63,14 @@ class LoadTaxationData extends DataFixture
      * Create tax rate.
      *
      * @param string  $name
+     * @param string  $zoneName
      * @param float   $amount
      * @param Boolean $includedInPrice
      * @param string  $calculator
+     *
+     * @return TaxRateInterface
      */
-    private function createTaxRate($name, $amount, $includedInPrice = false, $calculator = 'default')
+    private function createTaxRate($name, $zoneName, $amount, $includedInPrice = false, $calculator = 'default')
     {
         $rate = $this
             ->getTaxRateRepository()
@@ -72,6 +78,7 @@ class LoadTaxationData extends DataFixture
         ;
 
         $rate->setName($name);
+        $rate->setZone($this->getZoneByName($zoneName));
         $rate->setAmount($amount);
         $rate->setIncludedInPrice($includedInPrice);
         $rate->setCalculator($calculator);
@@ -86,26 +93,6 @@ class LoadTaxationData extends DataFixture
      */
     public function getOrder()
     {
-        return 1;
-    }
-
-    /**
-     * Get tax category repository.
-     *
-     * @return ObjectRepository
-     */
-    private function getTaxCategoryRepository()
-    {
-        return $this->get('sylius_taxation.repository.category');
-    }
-
-    /**
-     * Get tax rate repository.
-     *
-     * @return ObjectRepository
-     */
-    private function getTaxRateRepository()
-    {
-        return $this->get('sylius_taxation.repository.rate');
+        return 3;
     }
 }

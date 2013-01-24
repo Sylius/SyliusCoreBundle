@@ -34,47 +34,46 @@ class LoadZonesData extends DataFixture
             'GB'
         );
 
-        $this->createZone('EU', ZoneInterface::TYPE_COUNTRY, $euCountries);
+        $restOfWorldCountries = array_diff(Locale::getCountries(), $euCountries + array('US'));
 
-        $restOfWorldCountries = array_diff(Locale::getCountries(), $euCountries);
-
-        $this->createZone('Rest of world', ZoneInterface::TYPE_COUNTRY, $restOfWorldCountries);
-
-        $this->createZone('USA GMT-8', ZoneInterface::TYPE_PROVINCE, array('WA', 'OR', 'NV', 'ID', 'CA'));
-        $this->createZone('EU + USA GMT-8', ZoneInterface::TYPE_ZONE, array('EU', 'USA GMT-8'));
+        $manager->persist($this->createZone('EU', ZoneInterface::TYPE_COUNTRY, $euCountries));
+        $manager->persist($this->createZone('USA', ZoneInterface::TYPE_COUNTRY, array('US')));
+        $manager->persist($this->createZone('EU + USA', ZoneInterface::TYPE_ZONE, array('EU', 'USA')));
+        $manager->persist($this->createZone('Rest of World', ZoneInterface::TYPE_COUNTRY, $restOfWorldCountries));
 
         $manager->flush();
     }
 
+    /**
+     * Create a new zone instance of given type.
+     *
+     * @param string $name
+     * @param string $type
+     * @param array  $member
+     *
+     * @return ZoneInterface
+     */
     private function createZone($name, $type, array $members)
     {
         $zone = $this->getZoneRepository()->createNew();
+
         $zone->setName($name);
         $zone->setType($type);
 
         foreach ($members as $id) {
-            $zoneMember = $this->get('sylius_addressing.repository.zone_member_'.$type)->createNew();
+            $zoneMember = $this->getZoneMemberRepository($type)->createNew();
+
             call_user_func(array(
                 $zoneMember, 'set'.ucfirst($type)),
-                $this->getReference(ucfirst($type).'-'.$id)
+                $this->getReference('Sylius.'.ucfirst($type).'.'.$id)
             );
 
             $zone->addMember($zoneMember);
         }
 
-        $this->setReference('Zone-'.$name, $zone);
+        $this->setReference('Sylius.Zone.'.$name, $zone);
 
-        $this->getZoneManager()->persist($zone);
-    }
-
-    private function getZoneRepository()
-    {
-        return $this->get('sylius_addressing.repository.zone');
-    }
-
-    private function getZoneManager()
-    {
-        return $this->get('sylius_addressing.manager.zone');
+        return $zone;
     }
 
     /**
@@ -82,6 +81,6 @@ class LoadZonesData extends DataFixture
      */
     public function getOrder()
     {
-        return 3;
+        return 2;
     }
 }

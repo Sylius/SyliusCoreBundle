@@ -27,7 +27,8 @@
         "fzaninotto/faker":         "1.1.*"
     },
     "require-dev": {
-        "phpspec/phpspec2":         "dev-develop"
+        "phpspec/phpspec2":         "dev-develop",
+        "symfony/form":             "~2.1"
     },
     "config": {
         "bin-dir": "bin"

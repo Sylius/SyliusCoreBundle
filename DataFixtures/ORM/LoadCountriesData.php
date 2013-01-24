@@ -11,8 +11,9 @@
 
 namespace Sylius\Bundle\CoreBundle\DataFixtures\ORM;
 
-use Symfony\Component\Locale\Locale;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sylius\Bundle\AddressingBundle\Model\CountryInterface;
+use Symfony\Component\Locale\Locale;
 
 /**
  * Default country fixtures.
@@ -27,7 +28,6 @@ class LoadCountriesData extends DataFixture
     public function load(ObjectManager $manager)
     {
         $countryRepository = $this->getCountryRepository();
-
         $countries = Locale::getDisplayCountries('en');
 
         foreach ($countries as $isoName => $name) {
@@ -37,18 +37,23 @@ class LoadCountriesData extends DataFixture
             $country->setIsoName($isoName);
 
             if ('US' === $isoName) {
-                $this->loadProvinces($country);
+                $this->addUsStates($country);
             }
 
             $manager->persist($country);
 
-            $this->setReference('Country-'.$isoName, $country);
+            $this->setReference('Sylius.Country.'.$isoName, $country);
         }
 
         $manager->flush();
     }
 
-    private function loadProvinces($country)
+    /**
+     * Adds all US states as provinces to given country.
+     *
+     * @param CountryInterface $country
+     */
+    private function addUsStates(CountryInterface $country)
     {
         $states = array(
             'AL' => 'Alabama',
@@ -112,7 +117,7 @@ class LoadCountriesData extends DataFixture
 
             $country->addProvince($province);
 
-            $this->setReference('Province-'.$isoName, $province);
+            $this->setReference('Sylius.Province.'.$isoName, $province);
         }
     }
 
@@ -121,16 +126,6 @@ class LoadCountriesData extends DataFixture
      */
     public function getOrder()
     {
-        return 2;
-    }
-
-    private function getCountryRepository()
-    {
-        return $this->get('sylius_addressing.repository.country');
-    }
-
-    private function getProvinceRepository()
-    {
-        return $this->get('sylius_addressing.repository.province');
+        return 1;
     }
 }

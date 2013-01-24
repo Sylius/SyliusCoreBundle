@@ -31,6 +31,13 @@ class InventoryUnit implements ShipmentItemInterface
     protected $id;
 
     /**
+     * Shipment
+     *
+     * @var ShipmentInterface
+     */
+    protected $shipment;
+
+    /**
      * Shipping state.
      *
      * @var string ShipmentItemInterface::STATE_*
@@ -53,8 +60,6 @@ class InventoryUnit implements ShipmentItemInterface
 
     public function __construct()
     {
-        parent::__construct();
-
         $this->shippingState = ShipmentItemInterface::STATE_READY;
     }
 
@@ -63,12 +68,20 @@ class InventoryUnit implements ShipmentItemInterface
         return $this->id;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getShipment()
     {
+        return $this->shipment;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setShipment(ShipmentInterface $shipment = null)
     {
+        $this->shipment = $shipment;
     }
 
     public function getShippable()

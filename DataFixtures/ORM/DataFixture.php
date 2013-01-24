@@ -55,6 +55,98 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
     }
 
     /**
+     * Get country repository.
+     *
+     * @return ObjectRepository
+     */
+    protected function getCountryRepository()
+    {
+        return $this->get('sylius_addressing.repository.country');
+    }
+
+    /**
+     * Get province repository.
+     *
+     * @return ObjectRepository
+     */
+    protected function getProvinceRepository()
+    {
+        return $this->get('sylius_addressing.repository.province');
+    }
+
+    /**
+     * Get zone repository.
+     *
+     * @return ObjectRepository
+     */
+    protected function getZoneRepository()
+    {
+        return $this->get('sylius_addressing.repository.zone');
+    }
+
+    /**
+     * Get zone member repository.
+     *
+     * @return ObjectRepository
+     */
+    protected function getZoneMemberRepository($zoneType)
+    {
+        return $this->get('sylius_addressing.repository.zone_member_'.$zoneType);
+    }
+
+    /**
+     * Get shipping category repository.
+     *
+     * @return ObjectRepository
+     */
+    protected function getShippingCategoryRepository()
+    {
+        return $this->get('sylius_shipping.repository.category');
+    }
+
+    /**
+     * Get shipping method repository.
+     *
+     * @return ObjectRepository
+     */
+    protected function getShippingMethodRepository()
+    {
+        return $this->get('sylius_shipping.repository.method');
+    }
+
+    /**
+     * Get tax category repository.
+     *
+     * @return ObjectRepository
+     */
+    protected function getTaxCategoryRepository()
+    {
+        return $this->get('sylius_taxation.repository.category');
+    }
+
+    /**
+     * Get tax rate repository.
+     *
+     * @return ObjectRepository
+     */
+    protected function getTaxRateRepository()
+    {
+        return $this->get('sylius_taxation.repository.rate');
+    }
+
+    /**
+     * Get zone reference by its name.
+     *
+     * @param string $name
+     *
+     * @return ZoneInterface
+     */
+    protected function getZoneByName($name)
+    {
+        return $this->getReference('Sylius.Zone.'.$name);
+    }
+
+    /**
      * Get service by id.
      *
      * @param string $id
