@@ -21,6 +21,14 @@ use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
 class Product extends BaseProduct
 {
     /**
+     * Short product description.
+     * For lists displaying.
+     *
+     * @var string
+     */
+    protected $shortDescription;
+
+    /**
      * Constructor.
      */
     public function __construct()
@@ -28,5 +36,27 @@ class Product extends BaseProduct
         parent::__construct();
 
         $this->setMasterVariant(new Variant());
+    }
+
+    /**
+     * Get product short description.
+     *
+     * @return string
+     */
+    public function getShortDescription()
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * Set product short description.
+     *
+     * @param string $shortDescription
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->shortDescription = $shortDescription;
+
+        return $this;
     }
 }

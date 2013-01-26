@@ -9,6 +9,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
+        <field name="price" column="price" type="decimal" precision="10" scale="2" />
     </entity>
 
 </doctrine-mapping>
