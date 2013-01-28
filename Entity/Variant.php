@@ -12,6 +12,7 @@
 namespace Sylius\Bundle\CoreBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
+use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 
 /**
  * Sylius core product variant entity.
@@ -47,5 +48,15 @@ class Variant extends BaseVariant
         $this->price = $price;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setDefaults(VariantInterface $masterVariant)
+    {
+        parent::setDefaults($masterVariant);
+
+        $this->setPrice($masterVariant->getPrice());
     }
 }

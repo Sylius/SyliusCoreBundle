@@ -30,4 +30,18 @@ class Variant extends ObjectBehavior
         $this->setPrice(4.99);
         $this->getPrice()->shouldReturn(4.99);
     }
+
+    /**
+     * @param Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $masterVariant
+     */
+    function it_should_inherit_price_from_master_variant($masterVariant)
+    {
+        $masterVariant->isMaster()->willReturn(true);
+        $masterVariant->getAvailableOn()->willReturn(new \DateTime('yesterday'));
+        $masterVariant->getPrice()->willReturn(4.99);
+
+        $this->setDefaults($masterVariant);
+
+        $this->getPrice()->shouldReturn(4.99);
+    }
 }
