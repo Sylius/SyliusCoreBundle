@@ -12,13 +12,15 @@
 namespace Sylius\Bundle\CoreBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
+use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
+use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
 
 /**
  * Sylius core product entity.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class Product extends BaseProduct
+class Product extends BaseProduct implements TaxableInterface
 {
     /**
      * Short product description.
@@ -27,6 +29,13 @@ class Product extends BaseProduct
      * @var string
      */
     protected $shortDescription;
+
+    /**
+     * Tax category.
+     *
+     * @var TaxCategoryInterface
+     */
+    protected $taxCategory;
 
     /**
      * Constructor.
@@ -58,5 +67,21 @@ class Product extends BaseProduct
         $this->shortDescription = $shortDescription;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTaxCategory()
+    {
+        return $this->taxCategory;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setTaxCategory(TaxCategoryInterface $category = null)
+    {
+        $this->taxCategory = $category;
     }
 }

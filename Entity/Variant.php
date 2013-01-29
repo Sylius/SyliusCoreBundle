@@ -13,6 +13,8 @@ namespace Sylius\Bundle\CoreBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
+use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
+use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
 
 /**
  * Sylius core product variant entity.

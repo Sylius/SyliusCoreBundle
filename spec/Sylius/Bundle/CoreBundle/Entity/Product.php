@@ -40,4 +40,35 @@ class Product extends ObjectBehavior
         $this->setShortDescription('Amazing product...');
         $this->getShortDescription()->shouldReturn('Amazing product...');
     }
+
+    function it_should_be_taxable()
+    {
+        $this->shouldImplement('Sylius\Bundle\TaxationBundle\Model\TaxableInterface');
+    }
+
+    function it_should_not_have_tax_category_by_default()
+    {
+        $this->getTaxCategory()->shouldReturn(null);
+    }
+
+    /**
+     * @param Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface $taxCategory
+     */
+    function it_should_allow_setting_tax_category($taxCategory)
+    {
+        $this->setTaxCategory($taxCategory);
+        $this->getTaxCategory()->shouldReturn($taxCategory);
+    }
+
+    /**
+     * @param Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface $taxCategory
+     */
+    function it_should_allow_resetting_tax_category($taxCategory)
+    {
+        $this->setTaxCategory($taxCategory);
+        $this->getTaxCategory()->shouldReturn($taxCategory);
+
+        $this->setTaxCategory(null);
+        $this->getTaxCategory()->shouldReturn(null);
+    }
 }

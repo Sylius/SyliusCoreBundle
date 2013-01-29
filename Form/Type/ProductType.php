@@ -33,6 +33,11 @@ class ProductType extends BaseProductType
                 'required' => false,
                 'label'    => 'sylius.label.product.short_description'
             ))
+            ->add('taxCategory', 'sylius_taxation_category_choice', array(
+                'required'    => false,
+                'empty_value' => '---',
+                'label'       => 'sylius.label.product.tax_category'
+            ))
         ;
     }
 }
