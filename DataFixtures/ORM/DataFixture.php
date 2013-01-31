@@ -61,7 +61,7 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
      */
     protected function getCountryRepository()
     {
-        return $this->get('sylius_addressing.repository.country');
+        return $this->get('sylius.repository.country');
     }
 
     /**
@@ -71,7 +71,7 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
      */
     protected function getProvinceRepository()
     {
-        return $this->get('sylius_addressing.repository.province');
+        return $this->get('sylius.repository.province');
     }
 
     /**
@@ -81,7 +81,7 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
      */
     protected function getZoneRepository()
     {
-        return $this->get('sylius_addressing.repository.zone');
+        return $this->get('sylius.repository.zone');
     }
 
     /**
@@ -91,7 +91,7 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
      */
     protected function getZoneMemberRepository($zoneType)
     {
-        return $this->get('sylius_addressing.repository.zone_member_'.$zoneType);
+        return $this->get('sylius.repository.zone_member_'.$zoneType);
     }
 
     /**
@@ -101,7 +101,7 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
      */
     protected function getShippingCategoryRepository()
     {
-        return $this->get('sylius_shipping.repository.category');
+        return $this->get('sylius.repository.shipping_category');
     }
 
     /**
@@ -111,7 +111,7 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
      */
     protected function getShippingMethodRepository()
     {
-        return $this->get('sylius_shipping.repository.method');
+        return $this->get('sylius.repository.shipping_method');
     }
 
     /**
@@ -121,7 +121,7 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
      */
     protected function getTaxCategoryRepository()
     {
-        return $this->get('sylius_taxation.repository.category');
+        return $this->get('sylius.repository.tax_category');
     }
 
     /**
@@ -131,7 +131,7 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
      */
     protected function getTaxRateRepository()
     {
-        return $this->get('sylius_taxation.repository.rate');
+        return $this->get('sylius.repository.tax_rate');
     }
 
     /**
