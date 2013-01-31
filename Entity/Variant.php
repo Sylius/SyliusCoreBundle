@@ -11,7 +11,6 @@
 
 namespace Sylius\Bundle\CoreBundle\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 use Sylius\Bundle\SalesBundle\Model\SellableInterface;
@@ -36,9 +35,6 @@ class Variant extends BaseVariant implements StockableInterface, SellableInterfa
     /**
      * On hand stock.
      *
-     * @Assert\NotBlank
-     * @Assert\Min(0)
-     *
      * @var integer
      */
     protected $onHand;
@@ -57,7 +53,6 @@ class Variant extends BaseVariant implements StockableInterface, SellableInterfa
     {
         parent::__construct();
 
-        $this->price = 0.00;
         $this->onHand = 1;
         $this->availableOnDemand = true;
     }
