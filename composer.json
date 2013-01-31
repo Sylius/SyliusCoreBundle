@@ -24,6 +24,7 @@
         "sylius/taxation-bundle":   "0.1.*",
         "sylius/shipping-bundle":   "0.1.*",
         "sylius/addressing-bundle": "0.1.*",
+        "sylius/sales-bundle":      "0.1.*",
         "jms/serializer-bundle":    "1.0.*",
         "fsc/hateoas-bundle":       "0.3.x-dev",
         "fzaninotto/faker":         "1.1.*"
