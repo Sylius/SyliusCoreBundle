@@ -13,6 +13,7 @@ namespace Sylius\Bundle\CoreBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
+use Sylius\Bundle\SalesBundle\Model\SellableInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
 
@@ -21,7 +22,7 @@ use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class Variant extends BaseVariant
+class Variant extends BaseVariant implements SellableInterface
 {
     /**
      * The variant price.
@@ -60,5 +61,13 @@ class Variant extends BaseVariant
         parent::setDefaults($masterVariant);
 
         $this->setPrice($masterVariant->getPrice());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSellableName()
+    {
+        return $this->product->getName();
     }
 }

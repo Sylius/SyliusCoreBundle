@@ -20,6 +20,21 @@ class Variant extends ObjectBehavior
         $this->shouldHaveType('Sylius\Bundle\CoreBundle\Entity\Variant');
     }
 
+    function it_should_implement_Sylius_product_variant_interface()
+    {
+        $this->shouldImplement('Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface');
+    }
+
+    function it_should_extend_Sylius_product_variant_mapped_superclass()
+    {
+        $this->shouldHaveType('Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant');
+    }
+
+    function it_should_implement_Sylius_sellable_interface()
+    {
+        $this->shouldImplement('Sylius\Bundle\SalesBundle\Model\SellableInterface');
+    }
+
     function it_should_not_have_price_by_default()
     {
         $this->getPrice()->shouldReturn(null);

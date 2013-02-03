@@ -16,6 +16,15 @@
                     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
                                         http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
 
+    <class name="Sylius\Bundle\CoreBundle\Entity\Order">
+        <property name="shippingAddress">
+            <constraint name="Valid" />
+        </property>
+        <property name="billingAddress">
+            <constraint name="Valid" />
+        </property>
+    </class>
+
     <class name="Sylius\Bundle\CoreBundle\Entity\Variant">
         <property name="price">
             <constraint name="NotBlank">
