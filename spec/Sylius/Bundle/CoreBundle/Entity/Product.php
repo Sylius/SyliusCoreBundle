@@ -41,6 +41,11 @@ class Product extends ObjectBehavior
         $this->getShortDescription()->shouldReturn('Amazing product...');
     }
 
+    function its_price_should_be_mutable()
+    {
+        $this->setPrice(4.99)->getPrice()->shouldReturn(4.99);
+    }
+
     function it_should_be_taxable()
     {
         $this->shouldImplement('Sylius\Bundle\TaxationBundle\Model\TaxableInterface');

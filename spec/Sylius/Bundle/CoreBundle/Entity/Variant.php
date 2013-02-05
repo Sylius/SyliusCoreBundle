@@ -42,8 +42,7 @@ class Variant extends ObjectBehavior
 
     function its_price_should_be_mutable()
     {
-        $this->setPrice(4.99);
-        $this->getPrice()->shouldReturn(4.99);
+        $this->setPrice(4.99)->getPrice()->shouldReturn(4.99);
     }
 
     /**

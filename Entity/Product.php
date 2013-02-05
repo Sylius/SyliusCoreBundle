@@ -48,6 +48,30 @@ class Product extends BaseProduct implements TaxableInterface
     }
 
     /**
+     * Gets product price.
+     *
+     * @return float $price
+     */
+    public function getPrice()
+    {
+        return $this->getMasterVariant()->getPrice();
+    }
+
+    /**
+     * Sets product price.
+     *
+     * @param float $price
+     *
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->getMasterVariant()->setPrice($price);
+
+        return $this;
+    }
+
+    /**
      * Get product short description.
      *
      * @return string
@@ -61,6 +85,8 @@ class Product extends BaseProduct implements TaxableInterface
      * Set product short description.
      *
      * @param string $shortDescription
+     *
+     * @return Product
      */
     public function setShortDescription($shortDescription)
     {
