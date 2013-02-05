@@ -35,6 +35,15 @@
                 <option name="message">sylius.variant.price.min</option>
             </constraint>
         </property>
+        <property name="onHand">
+            <constraint name="NotBlank">
+                <option name="message">sylius.variant.onHand.not_blank</option>
+            </constraint>
+            <constraint name="Min">
+                <option name="limit">0</option>
+                <option name="message">sylius.variant.onHand.min</option>
+            </constraint>
+        </property>
     </class>
 
     <class name="Sylius\Bundle\CoreBundle\Entity\ShippingMethod">

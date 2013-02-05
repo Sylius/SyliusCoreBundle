@@ -3,6 +3,9 @@ sylius:
         price:
             not_blank: Please enter the price.
             min: Price must be greater than {{ limit }}.
+        onHand:
+            not_blank: Please enter on hand.
+            min: On hand must be greater than {{ limit }}.
 
 sylius_taxation:
     rate:
