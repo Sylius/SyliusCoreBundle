@@ -16,13 +16,14 @@ use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 use Sylius\Bundle\SalesBundle\Model\SellableInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
+use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 
 /**
  * Sylius core product variant entity.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class Variant extends BaseVariant implements SellableInterface
+class Variant extends BaseVariant implements StockableInterface, SellableInterface
 {
     /**
      * The variant price.
@@ -30,6 +31,31 @@ class Variant extends BaseVariant implements SellableInterface
      * @var float
      */
     protected $price;
+
+    /**
+     * On hand stock.
+     *
+     * @var integer
+     */
+    protected $onHand;
+
+    /**
+     * Is variant available on demand?
+     *
+     * @var Boolean
+     */
+    protected $availableOnDemand;
+
+    /**
+     * Override constructor to set on hand stock.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->onHand = 1;
+        $this->availableOnDemand = true;
+    }
 
     /**
      * Get price.
@@ -51,6 +77,49 @@ class Variant extends BaseVariant implements SellableInterface
         $this->price = $price;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isInStock()
+    {
+        return 0 < $this->onHand;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getOnHand()
+    {
+        return $this->onHand;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setOnHand($onHand)
+    {
+        $this->onHand = $onHand;
+
+        if (0 > $this->onHand) {
+            $this->onHand = 0;
+        }
+    }
+
+    public function getInventoryName()
+    {
+        return $this->product->getName();
+    }
+
+    public function isAvailableOnDemand()
+    {
+        return $this->availableOnDemand;
+    }
+
+    public function setAvailableOnDemand($availableOnDemand)
+    {
+        $this->availableOnDemand = (Boolean) $availableOnDemand;
     }
 
     /**
