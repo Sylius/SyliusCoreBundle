@@ -71,6 +71,8 @@ class Variant extends BaseVariant implements StockableInterface, SellableInterfa
      * Set variant price.
      *
      * @param float $price
+     *
+     * @return Variant
      */
     public function setPrice($price)
     {
