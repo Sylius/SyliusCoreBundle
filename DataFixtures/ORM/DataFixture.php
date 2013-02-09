@@ -137,9 +137,33 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
     /**
      * @return ObjectRepository
      */
+    protected function getProductRepository()
+    {
+        return $this->get('sylius.repository.product');
+    }
+
+    /**
+     * @return ObjectRepository
+     */
+    protected function getVariantRepository()
+    {
+        return $this->get('sylius.repository.variant');
+    }
+
+    /**
+     * @return ObjectRepository
+     */
     protected function getOptionRepository()
     {
         return $this->get('sylius.repository.option');
+    }
+
+    /**
+     * @return ObjectRepository
+     */
+    protected function getOptionValueRepository()
+    {
+        return $this->get('sylius.repository.option_value');
     }
 
     /**
@@ -153,17 +177,9 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
     /**
      * @return ObjectRepository
      */
-    protected function getProductRepository()
+    protected function getProductPropertyRepository()
     {
-        return $this->get('sylius.repository.product');
-    }
-
-    /**
-     * @return ObjectRepository
-     */
-    protected function getVariantRepository()
-    {
-        return $this->get('sylius.repository.variant');
+        return $this->get('sylius.repository.product_property');
     }
 
     /**

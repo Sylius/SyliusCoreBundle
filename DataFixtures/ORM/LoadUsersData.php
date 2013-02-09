@@ -28,9 +28,9 @@ class LoadUsersData extends DataFixture
     {
         $user = new User();
 
-        $user->setUsername('administrator');
-        $user->setEmail('administrator@example.com');
-        $user->setPlainPassword('abrakadabra');
+        $user->setUsername('sylius');
+        $user->setEmail('sylius@example.com');
+        $user->setPlainPassword('sylius');
         $user->setEnabled(true);
         $user->setRoles(array('ROLE_SYLIUS_ADMIN'));
 
@@ -51,7 +51,7 @@ class LoadUsersData extends DataFixture
 
             $manager->persist($user);
 
-            $this->setReference('User-'.$i, $user);
+            $this->setReference('Sylius.User-'.$i, $user);
         }
 
         $manager->flush();

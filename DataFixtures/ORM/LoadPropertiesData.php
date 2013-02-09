@@ -25,18 +25,32 @@ class LoadPropertiesData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $manager->persist($this->createProperty('T-Shirt brand', 'Brand', 'Property.T-Shirt.Brand'));
-        $manager->persist($this->createProperty('T-Shirt collection', 'Collection', 'Property.T-Shirt.Collection'));
-        $manager->persist($this->createProperty('T-Shirt material', 'Made of', 'Property.T-Shirt.Made-of'));
+        $property = $this->createProperty('T-Shirt brand', 'Brand');
+        $manager->persist($property);
 
-        $manager->persist($this->createProperty('Sticker print resolution', 'Print resolution', 'Property.Sticker.Resolution'));
-        $manager->persist($this->createProperty('Sticker paper', 'Paper', 'Property.Sticker.Paper'));
+        $property = $this->createProperty('T-Shirt collection', 'Collection');
+        $manager->persist($property);
 
-        $manager->persist($this->createProperty('Mug material', 'Material', 'Property.Mug.Material'));
+        $property = $this->createProperty('T-Shirt material', 'Made of');
+        $manager->persist($property);
 
-        $manager->persist($this->createProperty('Book author', 'Author', 'Property.Book.Author'));
-        $manager->persist($this->createProperty('Book ISBN', 'ISBN', 'Property.Book.ISBN'));
-        $manager->persist($this->createProperty('Book pages', 'Number of pages', 'Property.Book.Pages'));
+        $property = $this->createProperty('Sticker resolution', 'Print resolution');
+        $manager->persist($property);
+
+        $property = $this->createProperty('Sticker paper', 'Paper');
+        $manager->persist($property);
+
+        $property = $this->createProperty('Mug material', 'Material');
+        $manager->persist($property);
+
+        $property = $this->createProperty('Book author', 'Author');
+        $manager->persist($property);
+
+        $property = $this->createProperty('Book ISBN', 'ISBN');
+        $manager->persist($property);
+
+        $property = $this->createProperty('Book pages', 'Number of pages');
+        $manager->persist($property);
 
         $manager->flush();
     }
@@ -54,9 +68,8 @@ class LoadPropertiesData extends DataFixture
      *
      * @param string $name
      * @param string $presentation
-     * @param string $reference
      */
-    private function createProperty($name, $presentation, $reference)
+    private function createProperty($name, $presentation)
     {
         $repository = $this->getPropertyRepository();
 
@@ -64,7 +77,7 @@ class LoadPropertiesData extends DataFixture
         $property->setName($name);
         $property->setPresentation($presentation);
 
-        $this->setReference($reference, $property);
+        $this->setReference('Sylius.Property.'.$name, $property);
 
         return $property;
     }

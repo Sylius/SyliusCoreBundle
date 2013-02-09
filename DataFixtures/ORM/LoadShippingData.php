@@ -34,17 +34,17 @@ class LoadShippingData extends DataFixture
         $manager->persist($regular);
         $manager->persist($heavy);
 
-        $fedExConfiguration = array('first_item_cost' => 10.00, 'additional_item_cost' => 5.00, 'additional_item_limit' => 0);
-        $manager->persist($this->createShippingMethod('FedEx', 'USA', DefaultCalculators::FLEXIBLE_RATE, $fedExConfiguration));
+        $config = array('first_item_cost' => 10.00, 'additional_item_cost' => 5.00, 'additional_item_limit' => 0);
+        $manager->persist($this->createShippingMethod('FedEx', 'USA', DefaultCalculators::FLEXIBLE_RATE, $config));
 
-        $upsConfiguration = array('amount' => 25.00);
-        $manager->persist($this->createShippingMethod('UPS Ground', 'EU', DefaultCalculators::FLAT_RATE, $upsConfiguration));
+        $config = array('amount' => 25.00);
+        $manager->persist($this->createShippingMethod('UPS Ground', 'EU', DefaultCalculators::FLAT_RATE, $config));
 
-        $dhlConfiguration = array('amount' => 23.50);
-        $manager->persist($this->createShippingMethod('DHL', 'EU', DefaultCalculators::FLAT_RATE, $dhlConfiguration));
+        $config = array('amount' => 23.50);
+        $manager->persist($this->createShippingMethod('DHL', 'EU', DefaultCalculators::FLAT_RATE, $config));
 
-        $fedExWorldShippingConfiguration =  array('first_item_cost' => 40.00, 'additional_item_cost' => 5.00, 'additional_item_limit' => 10);
-        $manager->persist($this->createShippingMethod('FedEx World Shipping', 'Rest of World', DefaultCalculators::FLEXIBLE_RATE, $fedExWorldShippingConfiguration));
+        $config =  array('first_item_cost' => 40.00, 'additional_item_cost' => 5.00, 'additional_item_limit' => 10);
+        $manager->persist($this->createShippingMethod('FedEx World Shipping', 'Rest of World', DefaultCalculators::FLEXIBLE_RATE, $config));
 
         $manager->flush();
     }

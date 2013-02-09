@@ -25,57 +25,21 @@ class LoadOptionsData extends DataFixture
      */
     public function load(ObjectManager $manager)
     {
-        $this->optionValueClass = $this->container->getParameter('sylius.model.option_value.class');
-
         // T-Shirt size option.
-        $manager->persist($this->createOption(
-            'T-Shirt size',
-            'Size',
-            array(
-                'S',
-                'M',
-                'L',
-                'XL',
-                'XXL'
-            ),
-            'Option.T-Shirt.Size'
-        ));
+        $option = $this->createOption('T-Shirt size', 'Size', array('S', 'M', 'L', 'XL', 'XXL'));
+        $manager->persist($option);
 
         // T-Shirt color option.
-        $manager->persist($this->createOption(
-            'T-Shirt color',
-            'Color',
-            array(
-                'Red',
-                'Blue',
-                'Green'
-            ),
-            'Option.T-Shirt.Color'
-        ));
+        $option = $this->createOption('T-Shirt color', 'Color', array('Red', 'Blue', 'Green'));
+        $manager->persist($option);
 
         // Sticker size option.
-        $manager->persist($this->createOption(
-            'Sticker size',
-            'Size',
-            array(
-                '3"',
-                '5"',
-                '7"'
-            ),
-            'Option.Sticker.Size'
-        ));
+        $option = $this->createOption('Sticker size', 'Size', array('3"','5"','7"'));
+        $manager->persist($option);
 
         // Mug type option.
-        $manager->persist($this->createOption(
-            'Mug type',
-            'Type',
-            array(
-                'Medium mug',
-                'Double mug',
-                'MONSTER mug'
-            ),
-            'Option.Mug.Type'
-        ));
+        $option = $this->createOption('Mug type', 'Type', array('Medium mug','Double mug','MONSTER mug'));
+        $manager->persist($option);
 
         $manager->flush();
     }
@@ -94,9 +58,8 @@ class LoadOptionsData extends DataFixture
      * @param string $name
      * @param string $presentation
      * @param array  $values
-     * @param string $reference
      */
-    private function createOption($name, $presentation, array $values, $reference)
+    private function createOption($name, $presentation, array $values)
     {
         $option = $this
             ->getOptionRepository()
@@ -107,13 +70,13 @@ class LoadOptionsData extends DataFixture
         $option->setPresentation($presentation);
 
         foreach ($values as $text) {
-            $value = new $this->optionValueClass;
+            $value = $this->getOptionValueRepository()->createNew();
             $value->setValue($text);
 
             $option->addValue($value);
         }
 
-        $this->setReference($reference, $option);
+        $this->setReference('Sylius.Option.'.$name, $option);
 
         return $option;
     }
