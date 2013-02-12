@@ -54,132 +54,19 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
         $this->container = $container;
     }
 
-    /**
-     * Get country repository.
-     *
-     * @return ObjectRepository
-     */
-    protected function getCountryRepository()
+    public function __call($method, $arguments)
     {
-        return $this->get('sylius.repository.country');
+        $matches = array();
+        if (preg_match('/^get(.*)Repository$/', $method, $matches)) {
+            return $this->get('sylius.repository.'.$matches[1]);
+        }
+
+        return call_user_func_array(array($this, $method), $arguments);
     }
 
-    /**
-     * Get province repository.
-     *
-     * @return ObjectRepository
-     */
-    protected function getProvinceRepository()
-    {
-        return $this->get('sylius.repository.province');
-    }
-
-    /**
-     * Get zone repository.
-     *
-     * @return ObjectRepository
-     */
-    protected function getZoneRepository()
-    {
-        return $this->get('sylius.repository.zone');
-    }
-
-    /**
-     * Get zone member repository.
-     *
-     * @return ObjectRepository
-     */
     protected function getZoneMemberRepository($zoneType)
     {
         return $this->get('sylius.repository.zone_member_'.$zoneType);
-    }
-
-    /**
-     * Get shipping category repository.
-     *
-     * @return ObjectRepository
-     */
-    protected function getShippingCategoryRepository()
-    {
-        return $this->get('sylius.repository.shipping_category');
-    }
-
-    /**
-     * Get shipping method repository.
-     *
-     * @return ObjectRepository
-     */
-    protected function getShippingMethodRepository()
-    {
-        return $this->get('sylius.repository.shipping_method');
-    }
-
-    /**
-     * Get tax category repository.
-     *
-     * @return ObjectRepository
-     */
-    protected function getTaxCategoryRepository()
-    {
-        return $this->get('sylius.repository.tax_category');
-    }
-
-    /**
-     * Get tax rate repository.
-     *
-     * @return ObjectRepository
-     */
-    protected function getTaxRateRepository()
-    {
-        return $this->get('sylius.repository.tax_rate');
-    }
-
-    /**
-     * @return ObjectRepository
-     */
-    protected function getProductRepository()
-    {
-        return $this->get('sylius.repository.product');
-    }
-
-    /**
-     * @return ObjectRepository
-     */
-    protected function getVariantRepository()
-    {
-        return $this->get('sylius.repository.variant');
-    }
-
-    /**
-     * @return ObjectRepository
-     */
-    protected function getOptionRepository()
-    {
-        return $this->get('sylius.repository.option');
-    }
-
-    /**
-     * @return ObjectRepository
-     */
-    protected function getOptionValueRepository()
-    {
-        return $this->get('sylius.repository.option_value');
-    }
-
-    /**
-     * @return ObjectRepository
-     */
-    protected function getPropertyRepository()
-    {
-        return $this->get('sylius.repository.property');
-    }
-
-    /**
-     * @return ObjectRepository
-     */
-    protected function getProductPropertyRepository()
-    {
-        return $this->get('sylius.repository.product_property');
     }
 
     /**
