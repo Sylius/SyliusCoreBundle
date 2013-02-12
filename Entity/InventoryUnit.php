@@ -11,6 +11,7 @@
 
 namespace Sylius\Bundle\CoreBundle\Entity;
 
+use Sylius\Bundle\SalesBundle\Model\OrderInterface;
 use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
 use Sylius\Bundle\ShippingBundle\Model\ShipmentItemInterface;
 use Sylius\Bundle\ShippingBundle\Model\ShippableInterface;
@@ -29,6 +30,13 @@ class InventoryUnit implements ShipmentItemInterface
      * @var integer
      */
     protected $id;
+
+    /**
+     * Order.
+     *
+     * @var OrderInterface
+     */
+    protected $order;
 
     /**
      * Shipment
@@ -68,6 +76,16 @@ class InventoryUnit implements ShipmentItemInterface
         return $this->id;
     }
 
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    public function setOrder(OrderInterface $order = null)
+    {
+        $this->order = $order;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -86,10 +104,12 @@ class InventoryUnit implements ShipmentItemInterface
 
     public function getShippable()
     {
+        return $this->getStockable();
     }
 
     public function setShippable(ShippableInterface $shippable)
     {
+        $this->setStockable($shippable);
     }
 
     public function getShippingState()

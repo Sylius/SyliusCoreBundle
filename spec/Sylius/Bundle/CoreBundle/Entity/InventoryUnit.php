@@ -21,6 +21,32 @@ class InventoryUnit extends ObjectBehavior
         $this->shouldHaveType('Sylius\Bundle\CoreBundle\Entity\InventoryUnit');
     }
 
+    function it_should_not_belong_to_an_order_by_default()
+    {
+        $this->getOrder()->shouldReturn(null);
+    }
+
+    /**
+     * @param Sylius\Bundle\SalesBundle\Model\OrderInterface $order
+     */
+    function it_should_allow_attaching_itself_to_an_order($order)
+    {
+        $this->setOrder($order);
+        $this->getOrder()->shouldReturn($order);
+    }
+
+    /**
+     * @param Sylius\Bundle\SalesBundle\Model\OrderInterface $order
+     */
+    function it_should_allow_detaching_itself_from_an_order($order)
+    {
+        $this->setOrder($order);
+        $this->getOrder()->shouldReturn($order);
+
+        $this->setOrder(null);
+        $this->getOrder()->shouldReturn(null);
+    }
+
     function it_should_implement_Sylius_shipment_item_interface()
     {
         $this->shouldImplement('Sylius\Bundle\ShippingBundle\Model\ShipmentItemInterface');
