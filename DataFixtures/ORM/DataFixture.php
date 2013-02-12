@@ -114,6 +114,21 @@ abstract class DataFixture extends AbstractFixture implements ContainerAwareInte
         return $this->get('sylius.repository.shipping_method');
     }
 
+    protected function getPromotionRuleRepository()
+    {
+        return $this->get('sylius.repository.promotion_rule');
+    }
+
+    protected function getPromotionActionRepository()
+    {
+        return $this->get('sylius.repository.promotion_action');
+    }
+
+    protected function getPromotionRepository()
+    {
+        return $this->get('sylius.repository.promotion');
+    }
+
     /**
      * Get tax category repository.
      *
