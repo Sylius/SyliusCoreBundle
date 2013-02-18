@@ -1,0 +1,10 @@
+# This file is part of the Sylius package.
+# (c) Paweł Jędrzejewski
+
+sylius:
+    form:
+        settings:
+            general:
+                title: Page title
+                meta_description: Meta description
+                meta_keywords: Meta keywords

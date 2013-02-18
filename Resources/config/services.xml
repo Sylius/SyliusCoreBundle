@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sylius.settings_schema.general.class">Sylius\Bundle\CoreBundle\Settings\GeneralSettingsSchema</parameter>
+    </parameters>
+
+    <services>
+        <service id="sylius.settings_schema.general" class="%sylius.settings_schema.general.class%">
+            <tag name="sylius.settings_schema" namespace="general" />
+        </service>
+    </services>
+
+</container>
