@@ -51,7 +51,7 @@ class TaxationSettingsSchema implements SchemaInterface
                 'default_tax_zone'
             ))
             ->setAllowedTypes(array(
-                'default_tax_zone' => array('Sylius\Bundle\AddressingBundle\Model\ZoneInterface'),
+                'default_tax_zone' => array('null', 'Sylius\Bundle\AddressingBundle\Model\ZoneInterface'),
             ))
             ->setTransformer('default_tax_zone', new ObjectToIdentifierTransformer($this->zoneRepository))
         ;
