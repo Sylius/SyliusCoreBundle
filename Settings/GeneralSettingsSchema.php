@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Sylius package.
+ *
+ * (c) Paweł Jędrzejewski
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Sylius\Bundle\CoreBundle\Settings;
 
 use Sylius\Bundle\SettingsBundle\Schema\SchemaInterface;
@@ -8,7 +17,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
- * Example sandbox checkout process.
+ * General settings schema.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
@@ -57,6 +66,11 @@ class GeneralSettingsSchema implements SchemaInterface
                     new NotBlank()
                 )
             ))
+            ->add('foo', 'date')
+            ->add('a', 'time')
+            ->add('b', 'datetime')
+            ->add('fo', 'checkbox')
+            ->add('f', 'choice', array('choices' => array(1, 2 ,3), 'expanded' => false))
         ;
     }
 }
