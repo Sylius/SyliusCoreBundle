@@ -66,11 +66,6 @@ class GeneralSettingsSchema implements SchemaInterface
                     new NotBlank()
                 )
             ))
-            ->add('foo', 'date')
-            ->add('a', 'time')
-            ->add('b', 'datetime')
-            ->add('fo', 'checkbox')
-            ->add('f', 'choice', array('choices' => array(1, 2 ,3), 'expanded' => false))
         ;
     }
 }
