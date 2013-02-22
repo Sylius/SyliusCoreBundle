@@ -25,6 +25,7 @@
         "sylius/shipping-bundle":       "0.1.*",
         "sylius/addressing-bundle":     "0.1.*",
         "sylius/sales-bundle":          "0.1.*",
+        "sylius/promotions-bundle":     "0.1.*",
         "sylius/inventory-bundle":      "0.1.*",
         "sylius/taxonomies-bundle":     "0.1.*",
         "sylius/settings-bundle":       "0.1.*",
