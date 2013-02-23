@@ -38,6 +38,7 @@ class ProductType extends BaseProductType
                 'empty_value' => '---',
                 'label'       => 'sylius.label.product.tax_category'
             ))
+            ->add('taxons', 'sylius_taxon_selection')
         ;
     }
 }

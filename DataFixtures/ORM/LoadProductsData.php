@@ -105,6 +105,7 @@ class LoadProductsData extends DataFixture
         $product->setTaxCategory($this->getTaxCategory('Taxable goods'));
         $product->setName(sprintf('T-Shirt "%s" in different sizes and colors', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
+        $product->setShortDescription($this->faker->sentence);
 
         $this->addMasterVariant($product);
 
@@ -144,6 +145,7 @@ class LoadProductsData extends DataFixture
         $product->setTaxCategory($this->getTaxCategory('Taxable goods'));
         $product->setName(sprintf('Great sticker "%s" in different sizes', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
+        $product->setShortDescription($this->faker->sentence);
 
         $this->addMasterVariant($product);
 
@@ -178,6 +180,7 @@ class LoadProductsData extends DataFixture
         $product->setTaxCategory($this->getTaxCategory('Taxable goods'));
         $product->setName(sprintf('Mug "%s", many types available', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
+        $product->setShortDescription($this->faker->sentence);
 
         $this->addMasterVariant($product);
 
@@ -210,6 +213,7 @@ class LoadProductsData extends DataFixture
         $product->setTaxCategory($this->getTaxCategory('Taxable goods'));
         $product->setName(sprintf('Book "%s" by "%s", product wihout options', ucfirst($this->faker->word), $author));
         $product->setDescription($this->faker->paragraph);
+        $product->setShortDescription($this->faker->sentence);
 
         $this->addMasterVariant($product, $isbn);
 
@@ -297,8 +301,6 @@ class LoadProductsData extends DataFixture
      */
     private function setTaxons(CustomizableProductInterface $product, array $taxonNames)
     {
-        return; // TODO: enable when we add taxonomy bundle
-
         $taxons = new ArrayCollection();
 
         foreach ($taxonNames as $taxonName) {

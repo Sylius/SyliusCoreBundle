@@ -11,6 +11,8 @@
 
 namespace Sylius\Bundle\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
 use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
@@ -31,6 +33,13 @@ class Product extends BaseProduct implements TaxableInterface
     protected $shortDescription;
 
     /**
+     * Taxons.
+     *
+     * @var Collection
+     */
+    protected $taxons;
+
+    /**
      * Tax category.
      *
      * @var TaxCategoryInterface
@@ -45,6 +54,27 @@ class Product extends BaseProduct implements TaxableInterface
         parent::__construct();
 
         $this->setMasterVariant(new Variant());
+        $this->taxons = new ArrayCollection();
+    }
+
+    /**
+     * Get taxons.
+     *
+     * @return Collection
+     */
+    public function getTaxons()
+    {
+        return $this->taxons;
+    }
+
+    /**
+     * Set categorization taxons.
+     *
+     * @param Collection $taxons
+     */
+    public function setTaxons(Collection $taxons)
+    {
+        $this->taxons = $taxons;
     }
 
     /**

@@ -24,6 +24,7 @@ class LoadPromotionsData extends DataFixture
 {
     public function load(ObjectManager $manager)
     {
+        return;
         $promotion = $this->createPromotion(
             'New Year',
             'New Year Sale for 10 and more items',

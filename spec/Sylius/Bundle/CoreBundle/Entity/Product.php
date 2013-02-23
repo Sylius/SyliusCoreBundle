@@ -15,43 +15,58 @@ use PHPSpec2\ObjectBehavior;
 
 class Product extends ObjectBehavior
 {
-    function it_should_be_initializable()
+    function it_is_initializable()
     {
         $this->shouldHaveType('Sylius\Bundle\CoreBundle\Entity\Product');
     }
 
-    function it_should_implement_Sylius_customizable_product_interface()
+    function it_implements_Sylius_customizable_product_interface()
     {
         $this->shouldImplement('Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface');
     }
 
-    function it_should_extend_Sylius_customizable_product_entity()
+    function it_extends_Sylius_customizable_product_entity()
     {
         $this->shouldHaveType('Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct');
     }
 
-    function it_should_not_have_short_description_by_default()
+    function it_does_not_short_description_by_default()
     {
         $this->getShortDescription()->shouldReturn(null);
     }
 
-    function its_short_description_should_be_mutable()
+    function its_short_description_is_mutable()
     {
         $this->setShortDescription('Amazing product...');
         $this->getShortDescription()->shouldReturn('Amazing product...');
     }
 
-    function its_price_should_be_mutable()
+    function it_initializes_taxon_collection_by_default()
     {
-        $this->setPrice(4.99)->getPrice()->shouldReturn(4.99);
+        $this->getTaxons()->shouldHaveType('Doctrine\Common\Collections\Collection');
     }
 
-    function it_should_be_taxable()
+    /**
+     * @param Doctrine\Common\Collections\Collection $taxons
+     */
+    function its_taxons_are_mutable($taxons)
+    {
+        $this->setTaxons($taxons);
+        $this->getTaxons()->shouldReturn($taxons);
+    }
+
+    function its_price_is_mutable()
+    {
+        $this->setPrice(4.99);
+        $this->getPrice()->shouldReturn(4.99);
+    }
+
+    function it_implements_Sylius_taxable_interface()
     {
         $this->shouldImplement('Sylius\Bundle\TaxationBundle\Model\TaxableInterface');
     }
 
-    function it_should_not_have_tax_category_by_default()
+    function it_does_not_have_tax_category_by_default()
     {
         $this->getTaxCategory()->shouldReturn(null);
     }
@@ -59,7 +74,7 @@ class Product extends ObjectBehavior
     /**
      * @param Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface $taxCategory
      */
-    function it_should_allow_setting_tax_category($taxCategory)
+    function it_allows_setting_the_tax_category($taxCategory)
     {
         $this->setTaxCategory($taxCategory);
         $this->getTaxCategory()->shouldReturn($taxCategory);
@@ -68,7 +83,7 @@ class Product extends ObjectBehavior
     /**
      * @param Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface $taxCategory
      */
-    function it_should_allow_resetting_tax_category($taxCategory)
+    function it_allows_resetting_the_tax_category($taxCategory)
     {
         $this->setTaxCategory($taxCategory);
         $this->getTaxCategory()->shouldReturn($taxCategory);
