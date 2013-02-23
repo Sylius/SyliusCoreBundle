@@ -21,6 +21,7 @@
 
         "symfony/framework-bundle":     ">=2.2,<2.3-dev",
         "sylius/assortment-bundle":     "0.1.*",
+        "sylius/cart-bundle":           "0.3.*",
         "sylius/taxation-bundle":       "0.1.*",
         "sylius/shipping-bundle":       "0.1.*",
         "sylius/addressing-bundle":     "0.1.*",
