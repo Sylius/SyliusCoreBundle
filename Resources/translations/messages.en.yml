@@ -10,3 +10,10 @@ sylius:
                 meta_keywords: Meta keywords
             taxation:
                 default_tax_zone: Default tax zone
+        variant:
+            price: Price
+            available_on_demand: Available on demand
+            on_hand: Current stock
+        product:
+            short_description: Short description
+            tax_category: Tax category

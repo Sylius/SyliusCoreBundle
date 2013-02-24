@@ -31,11 +31,11 @@ class VariantType extends BaseVariantType
 
         $builder
             ->add('price', 'money', array(
-                'label' => 'sylius.label.variant.price'
+                'label' => 'sylius.form.variant.price'
             ))->add('availableOnDemand', 'checkbox', array(
-                'label' => 'sylius.label.variant.available_on_demand'
+                'label' => 'sylius.form.variant.available_on_demand'
             ))->add('onHand', 'integer', array(
-                'label' => 'sylius.label.variant.on_hand'
+                'label' => 'sylius.form.variant.on_hand'
             ))
         ;
     }

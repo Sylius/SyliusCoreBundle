@@ -31,12 +31,12 @@ class ProductType extends BaseProductType
         $builder
             ->add('shortDescription', 'textarea', array(
                 'required' => false,
-                'label'    => 'sylius.label.product.short_description'
+                'label'    => 'sylius.form.product.short_description'
             ))
             ->add('taxCategory', 'sylius_tax_category_choice', array(
                 'required'    => false,
                 'empty_value' => '---',
-                'label'       => 'sylius.label.product.tax_category'
+                'label'       => 'sylius.form.product.tax_category'
             ))
             ->add('taxons', 'sylius_taxon_selection')
         ;

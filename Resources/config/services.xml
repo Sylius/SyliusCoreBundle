@@ -8,6 +8,8 @@
     <parameters>
         <parameter key="sylius.settings_schema.general.class">Sylius\Bundle\CoreBundle\Settings\GeneralSettingsSchema</parameter>
         <parameter key="sylius.settings_schema.taxation.class">Sylius\Bundle\CoreBundle\Settings\TaxationSettingsSchema</parameter>
+
+        <parameter key="sylius.cart_item_resolver.default.class">Sylius\Bundle\CoreBundle\Cart\ItemResolver</parameter>
     </parameters>
 
     <services>
@@ -17,6 +19,12 @@
         <service id="sylius.settings_schema.taxation" class="%sylius.settings_schema.taxation.class%">
             <argument type="service" id="sylius.repository.zone" />
             <tag name="sylius.settings_schema" namespace="taxation" />
+        </service>
+
+        <service id="sylius.cart_item_resolver.default" class="%sylius.cart_item_resolver.default.class%">
+            <argument type="service" id="sylius.repository.product" />
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="sylius.availability_checker" />
         </service>
     </services>
 
