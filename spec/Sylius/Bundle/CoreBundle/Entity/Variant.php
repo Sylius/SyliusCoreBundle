@@ -40,6 +40,11 @@ class Variant extends ObjectBehavior
         $this->getPrice()->shouldReturn(null);
     }
 
+    function it_initializes_image_collection_by_default()
+    {
+        $this->getImages()->shouldHaveType('Doctrine\Common\Collections\Collection');
+    }
+
     function its_price_should_be_mutable()
     {
         $this->setPrice(4.99)->getPrice()->shouldReturn(4.99);

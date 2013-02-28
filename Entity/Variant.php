@@ -14,6 +14,12 @@ namespace Sylius\Bundle\CoreBundle\Entity;
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface as BaseVariantInterface;
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
 use Sylius\Bundle\CoreBundle\Model\VariantInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Sylius\Bundle\SalesBundle\Model\SellableInterface;
+use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
+use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
+use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 
 /**
  * Sylius core product variant entity.
@@ -44,6 +50,13 @@ class Variant extends BaseVariant implements VariantInterface
     protected $availableOnDemand;
 
     /**
+     * Images.
+     *
+     * @var Collection
+     */
+    protected $images;
+
+    /**
      * Override constructor to set on hand stock.
      */
     public function __construct()
@@ -52,6 +65,7 @@ class Variant extends BaseVariant implements VariantInterface
 
         $this->onHand = 1;
         $this->availableOnDemand = true;
+        $this->images = new ArrayCollection();
     }
 
     /**
@@ -145,5 +159,49 @@ class Variant extends BaseVariant implements VariantInterface
     public function getSellableName()
     {
         return $this->product->getName();
+    }
+
+    /**
+     * Checks if product has image.
+     *
+     * @return Boolean
+     */
+    public function hasImage(VariantImage $image)
+    {
+        return $this->images->contains($image);
+    }
+
+    /**
+     * Get images.
+     *
+     * @return Collection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Add image.
+     *
+     * @param VariantImage
+     */
+    public function addImage(VariantImage $image)
+    {
+        if (!$this->hasImage($image)) {
+            $image->setVariant($this);
+            $this->images->add($image);
+        }
+    }
+
+    /**
+     * Remove image.
+     *
+     * @param VariantImage
+     */
+    public function removeImage(VariantImage $image)
+    {
+        $image->setVariant(null);
+        $this->images->removeElement($image);
     }
 }
