@@ -32,6 +32,7 @@
         "sylius/taxonomies-bundle":     "0.1.*",
         "sylius/settings-bundle":       "0.1.*",
         "sylius/payments-bundle":       "0.1.*",
+        "sylius/flow-bundle":           "0.1.*",
         "jms/serializer-bundle":        "0.11.*",
         "friendsofsymfony/user-bundle": "1.3.1",
         "fsc/hateoas-bundle":           "0.3.x-dev",
