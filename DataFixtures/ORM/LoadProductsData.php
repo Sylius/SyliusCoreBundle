@@ -14,7 +14,7 @@ namespace Sylius\Bundle\CoreBundle\DataFixtures\ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface;
-use Sylius\Bundle\SandboxBundle\Entity\Product;
+use Sylius\Bundle\CoreBundle\Entity\Product;
 
 /**
  * Default assortment products to play with Sylius sandbox.
@@ -106,6 +106,7 @@ class LoadProductsData extends DataFixture
         $product->setName(sprintf('T-Shirt "%s" in different sizes and colors', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
+        $product->setVariantSelectionMethod(Product::VARIANT_SELECTION_MATCH);
 
         $this->addMasterVariant($product);
 
@@ -146,6 +147,7 @@ class LoadProductsData extends DataFixture
         $product->setName(sprintf('Great sticker "%s" in different sizes', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
+        $product->setVariantSelectionMethod(Product::VARIANT_SELECTION_MATCH);
 
         $this->addMasterVariant($product);
 

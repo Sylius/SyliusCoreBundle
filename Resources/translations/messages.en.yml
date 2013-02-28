@@ -17,3 +17,4 @@ sylius:
         product:
             short_description: Short description
             tax_category: Tax category
+            variant_selection_method: Variant selection method

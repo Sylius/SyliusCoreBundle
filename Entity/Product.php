@@ -24,6 +24,17 @@ use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
  */
 class Product extends BaseProduct implements TaxableInterface
 {
+    /*
+     * Variant selection methods.
+     *
+     * 1) Choice - A list of all variants is displayed to user.
+     *
+     * 2) Match  - Each product option is displayed as select field.
+     *             User selects the values and we match them to variant.
+     */
+    const VARIANT_SELECTION_CHOICE = 'choice';
+    const VARIANT_SELECTION_MATCH  = 'match';
+
     /**
      * Short product description.
      * For lists displaying.
@@ -31,6 +42,13 @@ class Product extends BaseProduct implements TaxableInterface
      * @var string
      */
     protected $shortDescription;
+
+    /**
+     * Variant selection method.
+     *
+     * @var string
+     */
+    protected $variantSelectionMethod;
 
     /**
      * Taxons.
@@ -55,6 +73,56 @@ class Product extends BaseProduct implements TaxableInterface
 
         $this->setMasterVariant(new Variant());
         $this->taxons = new ArrayCollection();
+
+        $this->variantSelectionMethod = self::VARIANT_SELECTION_CHOICE;
+    }
+
+    /**
+     * Get the variant selection method.
+     *
+     * @return string
+     */
+    public function getVariantSelectionMethod()
+    {
+        return $this->variantSelectionMethod;
+    }
+
+    /**
+     * Set variant selection method.
+     *
+     * @param string $variantSelectionMethod
+     */
+    public function setVariantSelectionMethod($variantSelectionMethod)
+    {
+        if (!in_array($variantSelectionMethod, array(self::VARIANT_SELECTION_CHOICE, self::VARIANT_SELECTION_MATCH))) {
+            throw new \InvalidArgumentException(sprintf('Wrong variant selection method "%s" given.', $variantSelectionMethod));
+        }
+
+        $this->variantSelectionMethod = $variantSelectionMethod;
+
+        return $this;
+    }
+
+    /**
+     * Check if variant is selectable by simple variant choice.
+     *
+     * @return Boolean
+     */
+    public function isVariantSelectionMethodChoice()
+    {
+        return self::VARIANT_SELECTION_CHOICE === $this->variantSelectionMethod;
+    }
+
+    /**
+     * Get pretty label for variant selection method.
+     *
+     * @return string
+     */
+    public function getVariantSelectionMethodLabel()
+    {
+        $labels = self::getVariantSelectionMethodLabels();
+
+        return $labels[$this->variantSelectionMethod];
     }
 
     /**
@@ -139,5 +207,18 @@ class Product extends BaseProduct implements TaxableInterface
     public function setTaxCategory(TaxCategoryInterface $category = null)
     {
         $this->taxCategory = $category;
+    }
+
+    /**
+     * Get hash of variant selection methods and labels.
+     *
+     * @return array
+     */
+    public static function getVariantSelectionMethodLabels()
+    {
+        return array(
+            self::VARIANT_SELECTION_CHOICE => 'Variant choice',
+            self::VARIANT_SELECTION_MATCH  => 'Options matching',
+        );
     }
 }

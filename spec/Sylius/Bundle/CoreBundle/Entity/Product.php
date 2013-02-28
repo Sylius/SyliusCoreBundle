@@ -11,6 +11,7 @@
 
 namespace spec\Sylius\Bundle\CoreBundle\Entity;
 
+use Sylius\Bundle\CoreBundle\Entity\Product as ProductClass;
 use PHPSpec2\ObjectBehavior;
 
 class Product extends ObjectBehavior
@@ -59,6 +60,24 @@ class Product extends ObjectBehavior
     {
         $this->setPrice(4.99);
         $this->getPrice()->shouldReturn(4.99);
+    }
+
+    function its_variant_selection_method_is_choice_by_default()
+    {
+        $this->getVariantSelectionMethod()->shouldReturn(ProductClass::VARIANT_SELECTION_CHOICE);
+    }
+
+    function its_variant_selection_method_can_be_changed_to_option_match()
+    {
+        $this->setVariantSelectionMethod(ProductClass::VARIANT_SELECTION_MATCH);
+    }
+
+    function it_throws_exception_if_any_other_value_is_given_as_variant_selection_method()
+    {
+        $this
+            ->shouldThrow('InvalidArgumentException')
+            ->duringSetVariantSelectionMethod('foo')
+        ;
     }
 
     function it_implements_Sylius_taxable_interface()

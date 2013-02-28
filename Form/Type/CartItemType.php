@@ -12,6 +12,7 @@
 namespace Sylius\Bundle\CoreBundle\Form\Type;
 
 use Sylius\Bundle\CartBundle\Form\Type\CartItemType as BaseCartItemType;
+use Sylius\Bundle\CoreBundle\Entity\Product;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -34,7 +35,7 @@ class CartItemType extends BaseCartItemType
         parent::buildForm($builder, $options);
 
         if (isset($options['product']) && $options['product']->hasOptions()) {
-            $type = $options['product']->isVariantPickingModeChoice() ? 'sylius_assortment_variant_choice' : 'sylius_assortment_variant_match';
+            $type = Product::VARIANT_SELECTION_CHOICE === $options['product']->getVariantSelectionMethod() ? 'sylius_variant_choice' : 'sylius_variant_match';
 
             $builder->add('variant', $type, array(
                 'product'  => $options['product']
@@ -53,16 +54,7 @@ class CartItemType extends BaseCartItemType
     {
         parent::setDefaultOptions($resolver);
 
-        $validationGroups = function (Options $options) {
-            if (isset($options['product'])) {
-                return $options['product']->hasOptions() ? 'CheckVariant' : null;
-            }
-        };
-
         $resolver
-            ->setDefaults(array(
-                'validation_groups' => $validationGroups
-            ))
             ->setOptional(array(
                 'product'
             ))

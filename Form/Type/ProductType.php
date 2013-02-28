@@ -12,6 +12,7 @@
 namespace Sylius\Bundle\CoreBundle\Form\Type;
 
 use Sylius\Bundle\AssortmentBundle\Form\Type\CustomizableProductType as BaseProductType;
+use Sylius\Bundle\CoreBundle\Entity\Product;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -39,6 +40,10 @@ class ProductType extends BaseProductType
                 'label'       => 'sylius.form.product.tax_category'
             ))
             ->add('taxons', 'sylius_taxon_selection')
+            ->add('variantSelectionMethod', 'choice', array(
+                'label'   => 'sylius.form.product.variant_selection_method',
+                'choices' => Product::getVariantSelectionMethodLabels()
+            ))
         ;
     }
 }
