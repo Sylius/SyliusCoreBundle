@@ -103,7 +103,7 @@ class LoadProductsData extends DataFixture
         $product = $this->createProduct();
 
         $product->setTaxCategory($this->getTaxCategory('Taxable goods'));
-        $product->setName(sprintf('T-Shirt "%s" in different sizes and colors', $this->faker->word));
+        $product->setName(sprintf('T-Shirt "%s"', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
         $product->setVariantSelectionMethod(Product::VARIANT_SELECTION_MATCH);
@@ -144,7 +144,7 @@ class LoadProductsData extends DataFixture
         $product = $this->createProduct();
 
         $product->setTaxCategory($this->getTaxCategory('Taxable goods'));
-        $product->setName(sprintf('Great sticker "%s" in different sizes', $this->faker->word));
+        $product->setName(sprintf('Sticker "%s"', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
         $product->setVariantSelectionMethod(Product::VARIANT_SELECTION_MATCH);
@@ -180,7 +180,7 @@ class LoadProductsData extends DataFixture
         $product = $this->createProduct();
 
         $product->setTaxCategory($this->getTaxCategory('Taxable goods'));
-        $product->setName(sprintf('Mug "%s", many types available', $this->faker->word));
+        $product->setName(sprintf('Mug "%s"', $this->faker->word));
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
 
@@ -213,7 +213,7 @@ class LoadProductsData extends DataFixture
         $isbn = $this->getUniqueISBN();
 
         $product->setTaxCategory($this->getTaxCategory('Taxable goods'));
-        $product->setName(sprintf('Book "%s" by "%s", product wihout options', ucfirst($this->faker->word), $author));
+        $product->setName(sprintf('Book "%s" by "%s"', ucfirst($this->faker->word), $author));
         $product->setDescription($this->faker->paragraph);
         $product->setShortDescription($this->faker->sentence);
 

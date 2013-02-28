@@ -49,4 +49,36 @@ class CartItem extends ObjectBehavior
         $this->setVariant($variant);
         $this->getVariant()->shouldReturn($variant);
     }
+
+    /**
+     * @param Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $variantA
+     * @param Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $variantB
+     * @param Sylius\Bundle\CoreBundle\Entity\CartItem                   $cartItem
+     */
+    function it_should_be_equal_to_item_with_same_variant($variantA, $variantB, $cartItem)
+    {
+        $variantA->getId()->willReturn(3);
+        $variantB->getId()->willReturn(3);
+
+        $cartItem->getVariant()->willReturn($variantB);
+        $this->setVariant($variantA);
+
+        $this->equals($cartItem)->shouldReturn(true);
+    }
+
+    /**
+     * @param Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $variantA
+     * @param Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface $variantB
+     * @param Sylius\Bundle\CoreBundle\Entity\CartItem                   $cartItem
+     */
+    function it_should_not_be_equal_to_item_with_different_variant($variantA, $variantB, $cartItem)
+    {
+        $variantA->getId()->willReturn(3);
+        $variantB->getId()->willReturn(6);
+
+        $cartItem->getVariant()->willReturn($variantB);
+        $this->setVariant($variantA);
+
+        $this->equals($cartItem)->shouldReturn(false);
+    }
 }

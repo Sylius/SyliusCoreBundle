@@ -13,6 +13,7 @@ namespace Sylius\Bundle\CoreBundle\Entity;
 
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 use Sylius\Bundle\CartBundle\Entity\CartItem as BaseCartItem;
+use Sylius\Bundle\CartBundle\Model\CartItemInterface;
 
 /**
  * Cart item with the product variant attached.
@@ -48,5 +49,13 @@ class CartItem extends BaseCartItem
         $this->variant = $variant;
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function equals(CartItemInterface $item)
+    {
+        return $this->getVariant()->getId() === $item->getVariant()->getId();
     }
 }
