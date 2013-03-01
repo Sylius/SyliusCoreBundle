@@ -14,6 +14,7 @@ namespace Sylius\Bundle\CoreBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
+use Sylius\Bundle\ShippingBundle\Model\ShippingCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
 
@@ -63,6 +64,13 @@ class Product extends BaseProduct implements TaxableInterface
      * @var TaxCategoryInterface
      */
     protected $taxCategory;
+
+    /**
+     * Shipping category.
+     *
+     * @var ShippingCategoryInterface
+     */
+    protected $shippingCategory;
 
     /**
      * Constructor.
@@ -207,6 +215,22 @@ class Product extends BaseProduct implements TaxableInterface
     public function setTaxCategory(TaxCategoryInterface $category = null)
     {
         $this->taxCategory = $category;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getShippingCategory()
+    {
+        return $this->shippingCategory;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setShippingCategory(ShippingCategoryInterface $category = null)
+    {
+        $this->shippingCategory = $category;
     }
 
     /**

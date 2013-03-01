@@ -9,6 +9,11 @@ sylius:
         onHand:
             not_blank: Please enter on hand.
             min: On hand must be greater than {{ limit }}.
+    checkout:
+        shipping_method:
+            not_blank: Please select shipping method.
+        payment_method:
+            not_blank: Please select payment method.
 
 sylius_taxation:
     rate:

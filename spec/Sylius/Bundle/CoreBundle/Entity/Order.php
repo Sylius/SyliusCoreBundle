@@ -83,7 +83,7 @@ class Order extends ObjectBehavior
     }
 
     /**
-     * @param Sylius\Bundle\InventoryBundle\Model\InventoryUnitInterface $unit
+     * @param Sylius\Bundle\CoreBundle\Model\InventoryUnitInterface $unit
      */
     function it_should_add_inventory_units_properly($unit)
     {
@@ -92,7 +92,7 @@ class Order extends ObjectBehavior
     }
 
     /**
-     * @param Sylius\Bundle\InventoryBundle\Model\InventoryUnitInterface $unit
+     * @param Sylius\Bundle\CoreBundle\Model\InventoryUnitInterface $unit
      */
     function it_should_remove_inventory_units_properly($unit)
     {

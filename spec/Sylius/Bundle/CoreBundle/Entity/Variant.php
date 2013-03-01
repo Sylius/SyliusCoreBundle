@@ -58,4 +58,32 @@ class Variant extends ObjectBehavior
 
         $this->getPrice()->shouldReturn(4.99);
     }
+
+    function it_implements_Sylius_shippable_interface()
+    {
+        $this->shouldImplement('Sylius\Bundle\ShippingBundle\Model\ShippableInterface');
+    }
+
+    /**
+     * @param Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface $product
+     */
+    function it_returns_null_if_product_has_no_shipping_category($product)
+    {
+        $this->setProduct($product);
+
+        $product->getShippingCategory()->willReturn(null)->shouldBeCalled();
+        $this->getShippingCategory()->shouldReturn(null);
+    }
+
+    /**
+     * @param Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface $product
+     * @param Sylius\Bundle\ShippingBundle\Model\ShippingCategorYInterface      $shippingCategory
+     */
+    function it_returns_the_product_shipping_category($product, $shippingCategory)
+    {
+        $this->setProduct($product);
+
+        $product->getShippingCategory()->willReturn($shippingCategory)->shouldBeCalled();
+        $this->getShippingCategory()->shouldReturn($shippingCategory);
+    }
 }

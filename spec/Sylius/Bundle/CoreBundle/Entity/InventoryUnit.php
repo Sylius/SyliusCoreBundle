@@ -16,29 +16,29 @@ use Sylius\Bundle\ShippingBundle\Model\ShipmentItemInterface;
 
 class InventoryUnit extends ObjectBehavior
 {
-    function it_should_be_initializable()
+    function it_is_initializable()
     {
         $this->shouldHaveType('Sylius\Bundle\CoreBundle\Entity\InventoryUnit');
     }
 
-    function it_should_not_belong_to_an_order_by_default()
+    function it_does_not_belong_to_an_order_by_default()
     {
         $this->getOrder()->shouldReturn(null);
     }
 
     /**
-     * @param Sylius\Bundle\SalesBundle\Model\OrderInterface $order
+     * @param Sylius\Bundle\CoreBundle\Model\OrderInterface $order
      */
-    function it_should_allow_attaching_itself_to_an_order($order)
+    function it_allows_attaching_itself_to_an_order($order)
     {
         $this->setOrder($order);
         $this->getOrder()->shouldReturn($order);
     }
 
     /**
-     * @param Sylius\Bundle\SalesBundle\Model\OrderInterface $order
+     * @param Sylius\Bundle\CoreBundle\Model\OrderInterface $order
      */
-    function it_should_allow_detaching_itself_from_an_order($order)
+    function it_allows_detaching_itself_from_an_order($order)
     {
         $this->setOrder($order);
         $this->getOrder()->shouldReturn($order);
@@ -47,12 +47,12 @@ class InventoryUnit extends ObjectBehavior
         $this->getOrder()->shouldReturn(null);
     }
 
-    function it_should_implement_Sylius_shipment_item_interface()
+    function it_implements_Sylius_shipment_item_interface()
     {
         $this->shouldImplement('Sylius\Bundle\ShippingBundle\Model\ShipmentItemInterface');
     }
 
-    function it_should_not_belong_to_any_shipment_by_default()
+    function it_does_not_belong_to_any_shipment_by_default()
     {
         $this->getShipment()->shouldReturn(null);
     }
@@ -60,7 +60,7 @@ class InventoryUnit extends ObjectBehavior
     /**
      * @param Sylius\Bundle\ShippingBundle\Model\ShipmentInterface $shipment
      */
-    function it_should_allow_assigning_itself_to_shipment($shipment)
+    function it_allows_assigning_itself_to_shipment($shipment)
     {
         $this->setShipment($shipment);
         $this->getShipment()->shouldReturn($shipment);
@@ -69,7 +69,7 @@ class InventoryUnit extends ObjectBehavior
     /**
      * @param Sylius\Bundle\ShippingBundle\Model\ShipmentInterface $shipment
      */
-    function it_should_allow_detaching_itself_from_shipment($shipment)
+    function it_allows_detaching_itself_from_shipment($shipment)
     {
         $this->setShipment($shipment);
         $this->getShipment()->shouldReturn($shipment);
@@ -78,12 +78,12 @@ class InventoryUnit extends ObjectBehavior
         $this->getShipment()->shouldReturn(null);
     }
 
-    function it_should_have_ready_shipping_state_by_default()
+    function it_has_ready_shipping_state_by_default()
     {
         $this->getShippingState()->shouldReturn(ShipmentItemInterface::STATE_READY);
     }
 
-    function its_shipping_state_should_be_mutable()
+    function its_shipping_state_is_mutable()
     {
         $this->setShippingState(ShipmentItemInterface::STATE_SHIPPED);
         $this->getShippingState()->shouldReturn(ShipmentItemInterface::STATE_SHIPPED);

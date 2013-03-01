@@ -11,7 +11,8 @@
 
 namespace Sylius\Bundle\CoreBundle\Entity;
 
-use Sylius\Bundle\SalesBundle\Model\OrderInterface;
+use Sylius\Bundle\CoreBundle\Model\InventoryUnitInterface;
+use Sylius\Bundle\CoreBundle\Model\OrderInterface;
 use Sylius\Bundle\InventoryBundle\Entity\InventoryUnit as BaseInventoryUnit;
 use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
 use Sylius\Bundle\ShippingBundle\Model\ShipmentItemInterface;
@@ -23,7 +24,7 @@ use Sylius\Bundle\ShippingBundle\Model\ShippableInterface;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class InventoryUnit extends BaseInventoryUnit implements ShipmentItemInterface
+class InventoryUnit extends BaseInventoryUnit implements InventoryUnitInterface
 {
     /**
      * Id.

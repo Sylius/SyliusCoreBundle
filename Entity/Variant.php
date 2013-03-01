@@ -11,19 +11,16 @@
 
 namespace Sylius\Bundle\CoreBundle\Entity;
 
+use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface as BaseVariantInterface;
 use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
-use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
-use Sylius\Bundle\SalesBundle\Model\SellableInterface;
-use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
-use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
-use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
+use Sylius\Bundle\CoreBundle\Model\VariantInterface;
 
 /**
  * Sylius core product variant entity.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class Variant extends BaseVariant implements StockableInterface, SellableInterface
+class Variant extends BaseVariant implements VariantInterface
 {
     /**
      * The variant price.
@@ -127,11 +124,19 @@ class Variant extends BaseVariant implements StockableInterface, SellableInterfa
     /**
      * {@inheritdoc}
      */
-    public function setDefaults(VariantInterface $masterVariant)
+    public function setDefaults(BaseVariantInterface $masterVariant)
     {
         parent::setDefaults($masterVariant);
 
         $this->setPrice($masterVariant->getPrice());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getShippingCategory()
+    {
+        return $this->product->getShippingCategory();
     }
 
     /**

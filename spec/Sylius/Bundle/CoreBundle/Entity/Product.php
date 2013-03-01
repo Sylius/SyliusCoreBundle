@@ -110,4 +110,18 @@ class Product extends ObjectBehavior
         $this->setTaxCategory(null);
         $this->getTaxCategory()->shouldReturn(null);
     }
+
+    function it_has_no_shipping_category_by_default()
+    {
+        $this->getShippingCategory()->shouldReturn(null);
+    }
+
+    /**
+     * @param Sylius\Bundle\ShippingBundle\Model\ShippingCategoryInterface $shippingCategory
+     */
+    function its_shipping_category_is_mutable($shippingCategory)
+    {
+        $this->setShippingCategory($shippingCategory);
+        $this->getShippingCategory()->shouldReturn($shippingCategory);
+    }
 }

@@ -15,7 +15,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
-use Sylius\Bundle\InventoryBundle\Model\InventoryUnitInterface;
+use Sylius\Bundle\CoreBundle\Model\OrderInterface;
+use Sylius\Bundle\CoreBundle\Model\InventoryUnitInterface;
 use Sylius\Bundle\SalesBundle\Entity\Order as BaseOrder;
 use Sylius\Bundle\SalesBundle\Model\AdjustmentInterface;
 use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
@@ -25,12 +26,8 @@ use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class Order extends BaseOrder
+class Order extends BaseOrder implements OrderInterface
 {
-    // Labels for tax and shipping adjustments.
-    const TAX_ADJUSTMENT      = 'Tax';
-    const SHIPPING_ADJUSTMENT = 'Shipping';
-
     /**
      * User.
      *
@@ -78,9 +75,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Get user.
-     *
-     * @return UserInterface
+     * {@inheritdoc}
      */
     public function getUser()
     {
@@ -88,9 +83,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Set user.
-     *
-     * @param UserInterface $user
+     * {@inheritdoc}
      */
     public function setUser(UserInterface $user)
     {
@@ -132,9 +125,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Get the tax total.
-     *
-     * @return float
+     * {@inheritdoc}
      */
     public function getTaxTotal()
     {
@@ -148,9 +139,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Get all tax adjustments.
-     *
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getTaxAdjustments()
     {
@@ -160,7 +149,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Remove all tax adjustments.
+     * {@inheritdoc}
      */
     public function removeTaxAdjustments()
     {
@@ -172,9 +161,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Get shipping total.
-     *
-     * @return float
+     * {@inheritdoc}
      */
     public function getShippingTotal()
     {
@@ -188,9 +175,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Get all shipping adjustments.
-     *
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getShippingAdjustments()
     {
@@ -200,7 +185,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Remove all shipping adjustments.
+     * {@inheritdoc}
      */
     public function removeShippingAdjustments()
     {
@@ -212,9 +197,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Get all inventory units.
-     *
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getInventoryUnits()
     {
@@ -222,9 +205,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Add inventory unit.
-     *
-     * @param InventoryUnitInterface $unit
+     * {@inheritdoc}
      */
     public function addInventoryUnit(InventoryUnitInterface $unit)
     {
@@ -237,9 +218,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Remove inventory unit.
-     *
-     * @param InventoryUnitInterface $unit
+     * {@inheritdoc}
      */
     public function removeInventoryUnit(InventoryUnitInterface $unit)
     {
@@ -252,9 +231,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Get all shipments associated with this order.
-     *
-     * @return Collection
+     * {@inheritdoc}
      */
     public function getShipments()
     {
@@ -262,9 +239,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Add a shipment.
-     *
-     * @param ShipmentInterface $shipment
+     * {@inheritdoc}
      */
     public function addShipment(ShipmentInterface $shipment)
     {
@@ -275,9 +250,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Remove shipment.
-     *
-     * @param ShipmentInterface $shipment
+     * {@inheritdoc}
      */
     public function removeShipment(ShipmentInterface $shipment)
     {
@@ -288,11 +261,7 @@ class Order extends BaseOrder
     }
 
     /**
-     * Has shipment?
-     *
-     * @param ShipmentInterface $shipment
-     *
-     * @return Boolean
+     * {@inheritdoc}
      */
     public function hasShipment(ShipmentInterface $shipment)
     {

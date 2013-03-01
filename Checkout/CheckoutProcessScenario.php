@@ -9,8 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\CoreBundle\Process\Scenario;
+namespace Sylius\Bundle\CoreBundle\Checkout;
 
+use Sylius\Bundle\CartBundle\Provider\CartProviderInterface;
 use Sylius\Bundle\FlowBundle\Process\Builder\ProcessBuilderInterface;
 use Sylius\Bundle\FlowBundle\Process\Scenario\ProcessScenarioInterface;
 
@@ -50,12 +51,13 @@ class CheckoutProcessScenario implements ProcessScenarioInterface
             ->add('addressing', 'sylius_checkout_addressing')
             ->add('shipping', 'sylius_checkout_shipping')
             ->add('payment', 'sylius_checkout_payment')
-            ->add('summary', 'sylius_checkout_summary')
+            ->add('finalize', 'sylius_checkout_finalize')
         ;
 
         $builder
             ->setDisplayRoute('sylius_checkout_display')
             ->setForwardRoute('sylius_checkout_forward')
+            ->setRedirect('sylius_homepage')
             ->validate(function () use ($cart) {
                 return !$cart->isEmpty();
             })
