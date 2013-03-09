@@ -35,4 +35,3 @@ class OrderType extends BaseOrderType
         ;
     }
 }
-

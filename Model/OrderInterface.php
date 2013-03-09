@@ -13,7 +13,6 @@ namespace Sylius\Bundle\CoreBundle\Model;
 
 use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
-use Sylius\Bundle\SalesBundle\Model\AdjustmentInterface;
 use Sylius\Bundle\SalesBundle\Model\OrderInterface as BaseOrderInterface;
 use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
 

@@ -129,4 +129,3 @@ class ItemResolver implements ItemResolverInterface
         return $this->availabilityChecker->isStockAvailable($variant);
     }
 }
-

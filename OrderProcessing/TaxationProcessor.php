@@ -63,11 +63,11 @@ class TaxationProcessor implements TaxationProcessorInterface
     /**
      * Constructor.
      *
-     * @param RepositoryInterface $adjustmentRepository
-     * @param CalculatorInterface $calculator
+     * @param RepositoryInterface      $adjustmentRepository
+     * @param CalculatorInterface      $calculator
      * @param TaxRateResolverInterface $taxRateResolver
-     * @param ZoneMatcherInterface $zoneMatcher
-     * @param Settings $taxationSettings
+     * @param ZoneMatcherInterface     $zoneMatcher
+     * @param Settings                 $taxationSettings
      */
     public function __construct(
         RepositoryInterface $adjustmentRepository,

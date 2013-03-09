@@ -12,8 +12,6 @@
 namespace Sylius\Bundle\CoreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Sylius\Bundle\PaymentBundle\Calculator\DefaultCalculators;
-use Sylius\Bundle\PaymentBundle\Model\PaymentCategoryInterface;
 
 /**
  * Sample payment methods.

@@ -63,4 +63,3 @@ class ProductController extends ResourceController
         return $this->get('sylius.controller.taxon');
     }
 }
-

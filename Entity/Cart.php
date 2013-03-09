@@ -29,7 +29,7 @@ class Cart extends BaseCart implements ShippablesAwareInterface
     {
         $shippables = new ArrayCollection();
 
-        foreach($this->items as $item) {
+        foreach ($this->items as $item) {
             $shippables->add($item->getVariant());
         }
 

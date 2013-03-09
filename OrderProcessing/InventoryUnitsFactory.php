@@ -11,7 +11,6 @@
 
 namespace Sylius\Bundle\CoreBundle\OrderProcessing;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Bundle\CoreBundle\Model\OrderInterface;
 use Sylius\Bundle\InventoryBundle\Operator\InventoryOperatorInterface;
 

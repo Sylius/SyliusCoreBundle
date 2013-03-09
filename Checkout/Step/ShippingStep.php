@@ -11,7 +11,6 @@
 
 namespace Sylius\Bundle\CoreBundle\Checkout\Step;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Symfony\Component\Form\FormInterface;
 
