@@ -244,7 +244,7 @@ class LoadProductsData extends DataFixture
 
         foreach ($product->getVariants() as $variant) {
             $variant->setAvailableOn($this->faker->dateTimeThisYear);
-            $variant->setPrice($this->faker->randomNumber(5) / 100);
+            $variant->setPrice($this->faker->randomNumber(4));
             $variant->setSku($this->getUniqueSku());
             $variant->setOnHand($this->faker->randomNumber(1));
 
@@ -267,7 +267,7 @@ class LoadProductsData extends DataFixture
 
         $variant = $product->getMasterVariant();
         $variant->setProduct($product);
-        $variant->setPrice($this->faker->randomNumber(5) / 100);
+        $variant->setPrice($this->faker->randomNumber(4));
         $variant->setSku($sku);
         $variant->setAvailableOn($this->faker->dateTimeThisYear);
         $variant->setOnHand($this->faker->randomNumber(1));

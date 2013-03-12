@@ -30,7 +30,7 @@ class VariantType extends BaseVariantType
         parent::buildForm($builder, $options);
 
         $builder
-            ->add('price', 'money', array(
+            ->add('price', 'sylius_money', array(
                 'label' => 'sylius.form.variant.price'
             ))->add('availableOnDemand', 'checkbox', array(
                 'label' => 'sylius.form.variant.available_on_demand'

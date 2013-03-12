@@ -25,7 +25,7 @@ class Variant extends BaseVariant implements VariantInterface
     /**
      * The variant price.
      *
-     * @var float
+     * @var integer
      */
     protected $price;
 
