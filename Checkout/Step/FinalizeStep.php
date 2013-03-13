@@ -94,6 +94,8 @@ class FinalizeStep extends CheckoutStep
 
         $this->get('event_dispatcher')->dispatch('sylius.order.pre_create', new GenericEvent($order));
 
+        $order->calculateTotal();
+
         return $order;
     }
 
