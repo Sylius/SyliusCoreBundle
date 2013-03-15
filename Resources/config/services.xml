@@ -30,6 +30,12 @@
         <parameter key="sylius.checkout_form.addressing.class">Sylius\Bundle\CoreBundle\Form\Type\Checkout\AddressingStepType</parameter>
         <parameter key="sylius.checkout_form.shipping.class">Sylius\Bundle\CoreBundle\Form\Type\Checkout\ShippingStepType</parameter>
         <parameter key="sylius.checkout_form.payment.class">Sylius\Bundle\CoreBundle\Form\Type\Checkout\PaymentStepType</parameter>
+
+        <parameter key="sylius.form.type.image.class">Sylius\Bundle\CoreBundle\Form\Type\ImageType</parameter>
+
+        <parameter key="sylius.listener.image_upload.class">Sylius\Bundle\CoreBundle\EventListener\ImageUploadListener</parameter>
+
+        <parameter key="sylius.image_uploader.class">Sylius\Bundle\CoreBundle\Uploader\ImageUploader</parameter>
     </parameters>
 
     <services>
@@ -136,6 +142,24 @@
             <tag name="kernel.event_listener" event="sylius.order.pre_update" method="processOrderShippingCharges" />
         </service>
 
+        <service id="sylius.form.type.image" class="%sylius.form.type.image.class%">
+            <argument>%sylius.model.variant_image.class%</argument>
+            <tag name="form.type" alias="sylius_image" />
+        </service>
+
+        <service id="sylius.listener.image_upload" class="%sylius.listener.image_upload.class%">
+            <argument type="service" id="sylius.image_uploader" />
+            <tag name="kernel.event_listener" event="sylius.product.pre_create" method="upload" />
+            <tag name="kernel.event_listener" event="sylius.product.pre_update" method="upload" />
+        </service>
+
+        <service id="sylius.image_uploader" class="%sylius.image_uploader.class%">
+            <argument type="service">
+                <service class="Gaufrette\Filesystem" factory-service="knp_gaufrette.filesystem_map" factory-method="get">
+                    <argument>variant_image</argument>
+                </service>
+            </argument>
+        </service>
     </services>
 
 </container>

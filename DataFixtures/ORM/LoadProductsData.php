@@ -272,6 +272,11 @@ class LoadProductsData extends DataFixture
         $variant->setAvailableOn($this->faker->dateTimeThisYear);
         $variant->setOnHand($this->faker->randomNumber(1));
 
+        $image = clone $this->getReference(
+            'Sylius.Image.'.strtolower(explode(' ', $product->getName())[0])
+        );
+        $variant->addImage($image);
+
         $this->setReference('Sylius.Variant-'.$this->totalVariants, $variant);
         $this->totalVariants++;
 

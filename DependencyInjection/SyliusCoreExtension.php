@@ -15,6 +15,8 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\Config\Definition\Processor;
+use Sylius\Bundle\CoreBundle\SyliusCoreBundle;
 
 /**
  * Core extension.
@@ -28,7 +30,22 @@ class SyliusCoreExtension extends Extension
      */
     public function load(array $config, ContainerBuilder $container)
     {
+        $processor = new Processor();
+        $configuration = new Configuration();
+
+        $config = $processor->processConfiguration($configuration, $config);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
+        $driver = $config['driver'];
+
+        if (!in_array($driver, SyliusCoreBundle::getSupportedDrivers())) {
+            throw new \InvalidArgumentException(sprintf('Driver "%s" is unsupported for SyliusCoreBundle', $driver));
+        }
+
+        $loader->load(sprintf('driver/%s.xml', $driver));
+
+        $container->setParameter('sylius_core.driver', $driver);
+
         $loader->load('services.xml');
     }
 }

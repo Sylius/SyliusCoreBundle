@@ -36,10 +36,11 @@
         "jms/serializer-bundle":        "0.11.*",
         "friendsofsymfony/user-bundle": "1.3.1",
         "fsc/hateoas-bundle":           "0.3.x-dev",
+        "knplabs/knp-gaufrette-bundle": "0.2.*",
         "fzaninotto/faker":             "1.1.*"
     },
     "require-dev": {
-        "phpspec/phpspec2":         "dev-develop",
+        "phpspec/phpspec2":         "1.0.*",
         "symfony/form":             ">=2.2,<2.3-dev"
     },
     "config": {
