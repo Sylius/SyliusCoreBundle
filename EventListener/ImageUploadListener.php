@@ -12,8 +12,8 @@
 namespace Sylius\Bundle\CoreBundle\EventListener;
 
 use Sylius\Bundle\CoreBundle\Uploader\ImageUploaderInterface;
-use Sylius\Bundle\CoreBundle\Model\ImageOwnerInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
+use Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface;
 
 class ImageUploadListener
 {
@@ -26,13 +26,15 @@ class ImageUploadListener
 
     public function upload(GenericEvent $event)
     {
-        $owner = $event->getSubject()->getMasterVariant();
-        if (!$owner instanceof ImageOwnerInterface) {
-            throw new \InvalidArgumentException(sprintf(
-                'Got %s ImageOwnerInterface expected.', get_class($owner)
-            ));
+        $product = $event->getSubject();
+        if (!$product instanceof CustomizableProductInterface) {
+            throw new \InvalidArgumentException('CustomizableProductInterface expected.');
         }
 
-        $this->uploader->uploadAll($owner);
+        foreach ($product->getMasterVariant()->getImages() as $image) {
+            if (null === $image->getId()) {
+                $this->uploader->upload($image);
+            }
+        }
     }
 }

@@ -12,7 +12,6 @@
 namespace Sylius\Bundle\CoreBundle\Uploader;
 
 use Sylius\Bundle\CoreBundle\Model\ImageInterface;
-use Sylius\Bundle\CoreBundle\Model\ImageOwnerInterface;
 use Gaufrette\Filesystem;
 
 class ImageUploader implements ImageUploaderInterface
@@ -41,15 +40,6 @@ class ImageUploader implements ImageUploaderInterface
             $image->getPath(),
             file_get_contents($image->getFile()->getPathname())
         );
-    }
-
-    public function uploadAll(ImageOwnerInterface $owner)
-    {
-        foreach ($owner->getImages() as $image) {
-            if (null === $image->getId()) {
-                $this->upload($image);
-            }
-        }
     }
 
     private function expandPath($path)

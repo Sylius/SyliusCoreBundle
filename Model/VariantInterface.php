@@ -25,7 +25,6 @@ interface VariantInterface extends
     BaseVariantInterface,
     ShippableInterface,
     StockableInterface,
-    SellableInterface,
-    ImageOwnerInterface
+    SellableInterface
 {
 }

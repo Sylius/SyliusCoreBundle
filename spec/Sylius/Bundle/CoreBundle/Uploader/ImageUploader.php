@@ -57,15 +57,4 @@ class ImageUploader extends ObjectBehavior
             ->duringUpload($image)
         ;
     }
-
-    /**
-     * @param Sylius\Bundle\CoreBundle\Model\ImageOwnerInterface $owner
-     */
-    function it_uploads_images($owner, $filesystem, $image)
-    {
-        $owner->getImages()->shouldBeCalled()->willReturn(array($image));
-        $filesystem->write(ANY_ARGUMENT, ANY_ARGUMENT)->shouldBeCalled();
-
-        $this->uploadAll($owner);
-    }
 }

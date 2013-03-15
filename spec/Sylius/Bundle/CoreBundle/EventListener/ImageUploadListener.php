@@ -29,24 +29,26 @@ class ImageUploadListener extends ObjectBehavior
     }
 
     /**
-     * @param Symfony\Component\EventDispatcher\GenericEvent        $event
-     * @param Sylius\Bundle\CoreBundle\Model\ImageOwnerInterface    $owner
-     * @param Sylius\Bundle\AssortmentBundle\Model\ProductInterface $product
+     * @param Symfony\Component\EventDispatcher\GenericEvent                    $event
+     * @param Sylius\Bundle\CoreBundle\Entity\Variant                           $variant
+     * @param Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface $product
+     * @param Sylius\Bundle\CoreBundle\Model\ImageInterface                     $image
      */
-    function it_uses_image_uploader_to_upload_images($event, $owner, $product, $uploader)
+    function it_uses_image_uploader_to_upload_images($event, $variant, $product, $image, $uploader)
     {
         $event->getSubject()->willReturn($product);
-        $product->getMasterVariant()->willReturn($owner);
-        $uploader->uploadAll($owner)->shouldBeCalled();
+        $product->getMasterVariant()->willReturn($variant);
+        $variant->getImages()->willReturn(array($image));
+        $image->getId()->willReturn(null);
+        $uploader->upload($image)->shouldBeCalled();
 
         $this->upload($event);
     }
 
     /**
-     * @param Symfony\Component\EventDispatcher\GenericEvent     $event
-     * @param Sylius\Bundle\CoreBundle\Model\ImageOwnerInterface $owner
+     * @param Symfony\Component\EventDispatcher\GenericEvent $event
      */
-    function it_throws_exception_if_event_subject_is_not_image_owner($event, $owner, $uploader)
+    function it_throws_exception_if_event_subject_is_not_customizable_product($event, $uploader)
     {
         $event->getSubject()->willReturn($uploader);
 
