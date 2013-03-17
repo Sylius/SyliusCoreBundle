@@ -17,6 +17,7 @@ use Sylius\Bundle\AssortmentBundle\Entity\CustomizableProduct as BaseProduct;
 use Sylius\Bundle\ShippingBundle\Model\ShippingCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
 use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
+use Sylius\Bundle\CoreBundle\Model\ProductInterface;
 
 /**
  * Sylius core product entity.

@@ -12,6 +12,11 @@
         <field name="price" column="price" type="integer" />
         <field name="onHand" column="on_hand" type="integer" />
         <field name="availableOnDemand" column="available_on_demand" type="boolean"/>
+        <one-to-many field="images" target-entity="Sylius\Bundle\CoreBundle\Entity\VariantImage" mapped-by="variant">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
     </entity>
 
 </doctrine-mapping>

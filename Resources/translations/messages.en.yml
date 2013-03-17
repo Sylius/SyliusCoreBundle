@@ -17,7 +17,10 @@ sylius:
             price: Price
             available_on_demand: Available on demand
             on_hand: Current stock
+            images: Images
         product:
             short_description: Short description
             tax_category: Tax category
             variant_selection_method: Variant selection method
+        image:
+            file: Image
