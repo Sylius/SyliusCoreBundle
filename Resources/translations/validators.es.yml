@@ -10,6 +10,11 @@ sylius:
         onHand:
             not_blank: Por favor ingresa las existencias.
             min: Las existencias deben ser mayores que {{ limit }}.
+    checkout:
+        shipping_method:
+            not_blank: Por favor, seleccione un modo de envío.
+        payment_method:
+            not_blank: Por favor, seleccione un modo de pago.
 
 sylius_taxation:
     rate:
