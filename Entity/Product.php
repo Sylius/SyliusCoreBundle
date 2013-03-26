@@ -235,6 +235,22 @@ class Product extends BaseProduct implements TaxableInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getImages()
+    {
+        return $this->getMasterVariant()->getImageS();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getImage()
+    {
+        return $this->getMasterVariant()->getImages()->first();
+    }
+
+    /**
      * Get hash of variant selection methods and labels.
      *
      * @return array

@@ -41,4 +41,16 @@ class ProductRepository extends CustomizableProductRepository
 
         return $this->getPaginator($queryBuilder);
     }
+
+    /**
+     * Find X recently added products.
+     *
+     * @param integer $limit
+     *
+     * @return ProductInterface[]
+     */
+    public function findLatest($limit = 10)
+    {
+        return $this->findBy(array(), array('createdAt' => 'desc'), $limit);
+    }
 }

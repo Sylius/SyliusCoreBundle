@@ -44,12 +44,9 @@ class ProductController extends ResourceController
         $paginator->setCurrentPage($request->query->get('page', 1));
         $paginator->setMaxPerPage($config->getPaginationMaxPerPage());
 
-        $products = $paginator->getCurrentPageResults();
-
         return $this->renderResponse('indexByTaxon.html', array(
-            'taxon'     => $taxon,
-            'products'  => $products,
-            'paginator' => $paginator
+            'taxon'    => $taxon,
+            'products' => $paginator,
         ));
     }
 
