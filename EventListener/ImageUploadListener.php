@@ -16,7 +16,6 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 use Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface;
 use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 
-
 class ImageUploadListener
 {
     protected $uploader;
@@ -29,10 +28,8 @@ class ImageUploadListener
     public function upload(GenericEvent $event)
     {
         $subject = $event->getSubject();
-        if (!$subject instanceof CustomizableProductInterface) {
-            if(!$subject instanceof VariantInterface){
-                throw new \InvalidArgumentException('CustomizableProductInterface or VariantInterface expected.');
-            }
+        if (!$subject instanceof CustomizableProductInterface && !$subject instanceof VariantInterface){
+            throw new \InvalidArgumentException('CustomizableProductInterface or VariantInterface expected.');
         }
 
         $variant = $subject instanceof VariantInterface ? $subject : $subject->getMasterVariant();
