@@ -45,4 +45,3 @@ class ImageType extends AbstractType
         return 'sylius_image';
     }
 }
-

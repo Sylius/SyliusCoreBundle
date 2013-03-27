@@ -16,10 +16,6 @@ use Sylius\Bundle\AssortmentBundle\Entity\Variant\Variant as BaseVariant;
 use Sylius\Bundle\CoreBundle\Model\VariantInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Sylius\Bundle\SalesBundle\Model\SellableInterface;
-use Sylius\Bundle\TaxationBundle\Model\TaxCategoryInterface;
-use Sylius\Bundle\TaxationBundle\Model\TaxableInterface;
-use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 
 /**
  * Sylius core product variant entity.
