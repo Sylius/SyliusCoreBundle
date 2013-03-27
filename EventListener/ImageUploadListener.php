@@ -14,6 +14,7 @@ namespace Sylius\Bundle\CoreBundle\EventListener;
 use Sylius\Bundle\CoreBundle\Uploader\ImageUploaderInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Sylius\Bundle\AssortmentBundle\Model\CustomizableProductInterface;
+use Sylius\Bundle\AssortmentBundle\Model\Variant\VariantInterface;
 
 class ImageUploadListener
 {
@@ -26,12 +27,14 @@ class ImageUploadListener
 
     public function upload(GenericEvent $event)
     {
-        $product = $event->getSubject();
-        if (!$product instanceof CustomizableProductInterface) {
-            throw new \InvalidArgumentException('CustomizableProductInterface expected.');
+        $subject = $event->getSubject();
+        if (!$subject instanceof CustomizableProductInterface && !$subject instanceof VariantInterface){
+            throw new \InvalidArgumentException('CustomizableProductInterface or VariantInterface expected.');
         }
 
-        foreach ($product->getMasterVariant()->getImages() as $image) {
+        $variant = $subject instanceof VariantInterface ? $subject : $subject->getMasterVariant();
+
+        foreach ($variant->getImages() as $image) {
             if (null === $image->getId()) {
                 $this->uploader->upload($image);
             }
