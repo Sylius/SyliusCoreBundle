@@ -32,6 +32,7 @@
         <parameter key="sylius.checkout_form.payment.class">Sylius\Bundle\CoreBundle\Form\Type\Checkout\PaymentStepType</parameter>
 
         <parameter key="sylius.form.type.image.class">Sylius\Bundle\CoreBundle\Form\Type\ImageType</parameter>
+        <parameter key="sylius.form.type.product_filter.class">Sylius\Bundle\CoreBundle\Form\Type\Filter\ProductFilterType</parameter>
 
         <parameter key="sylius.listener.image_upload.class">Sylius\Bundle\CoreBundle\EventListener\ImageUploadListener</parameter>
 
@@ -161,6 +162,10 @@
                     <argument>variant_image</argument>
                 </service>
             </argument>
+        </service>
+
+        <service id="sylius.form.type.product_filter" class="%sylius.form.type.product_filter.class%">
+            <tag name="form.type" alias="sylius_product_filter" />
         </service>
     </services>
 

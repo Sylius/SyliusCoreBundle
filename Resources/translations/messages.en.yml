@@ -24,3 +24,6 @@ sylius:
             variant_selection_method: Variant selection method
         image:
             file: Image
+        product_filter:
+            name: Name
+            sku: SKU

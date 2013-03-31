@@ -86,6 +86,24 @@ class Product extends BaseProduct implements TaxableInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getSku()
+    {
+        return $this->getMasterVariant()->getSku();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setSku($sku)
+    {
+        $this->getMasterVariant()->setSku($sku);
+
+        return $this;
+    }
+
+    /**
      * Get the variant selection method.
      *
      * @return string

@@ -43,6 +43,39 @@ class ProductRepository extends CustomizableProductRepository
     }
 
     /**
+     * Create filter paginator.
+     *
+     * @param array $criteria
+     * @param array $sorting
+     *
+     * @return PagerfantaInterface
+     */
+    public function createFilterPaginator(array $criteria = array(), array $sorting = array())
+    {
+        $queryBuilder = parent::getCollectionQueryBuilder()
+            ->select('product, variant')
+            ->leftJoin('product.variants', 'variant')
+        ;
+
+        if (!empty($criteria['name'])) {
+            $queryBuilder
+                ->andWhere('product.name LIKE :name')
+                ->setParameter('name', '%'.$criteria['name'].'%')
+            ;
+        }
+        if (!empty($criteria['sku'])) {
+            $queryBuilder
+                ->andWhere('variant.sku = :sku')
+                ->setParameter('sku', $criteria['sku'])
+            ;
+        }
+
+        $this->applySorting($queryBuilder, $sorting);
+
+        return $this->getPaginator($queryBuilder);
+    }
+
+    /**
      * Find X recently added products.
      *
      * @param integer $limit

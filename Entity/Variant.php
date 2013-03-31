@@ -25,6 +25,13 @@ use Doctrine\Common\Collections\Collection;
 class Variant extends BaseVariant implements VariantInterface
 {
     /**
+     * Variant SKU.
+     *
+     * @var string
+     */
+    protected $sku;
+
+    /**
      * The variant price.
      *
      * @var integer
@@ -62,6 +69,24 @@ class Variant extends BaseVariant implements VariantInterface
         $this->onHand = 1;
         $this->availableOnDemand = true;
         $this->images = new ArrayCollection();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setSku($sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
     }
 
     /**

@@ -51,6 +51,25 @@ class ProductController extends ResourceController
     }
 
     /**
+     * Render product filter form.
+     *
+     * @param Request
+     */
+    public function filterFormAction()
+    {
+        $form = $this->getFormFactory()->createNamed('criteria', 'sylius_product_filter');
+
+        return $this->renderResponse('filterForm.html', array(
+            'form' => $form->createView()
+        ));
+    }
+
+    private function getFormFactory()
+    {
+        return $this->get('form.factory');
+    }
+
+    /**
      * Get taxon controller.
      *
      * @return ResourceController
