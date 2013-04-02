@@ -267,4 +267,9 @@ class Order extends BaseOrder implements OrderInterface
     {
         return $this->shipments->contains($shipment);
     }
+
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
 }
