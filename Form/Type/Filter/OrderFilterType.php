@@ -31,6 +31,16 @@ class OrderFilterType extends AbstractType
                 'required' => false,
                 'label'    => 'sylius.form.order_filter.total_to'
             ))
+            ->add('createdAtFrom', 'date', array(
+                'required' => false,
+                'widget'   => 'single_text',
+                'label'    => 'sylius.form.order_filter.created_at_from'
+            ))
+            ->add('createdAtTo', 'date', array(
+                'required' => false,
+                'widget'   => 'single_text',
+                'label'    => 'sylius.form.order_filter.created_at_to'
+            ))
         ;
     }
 

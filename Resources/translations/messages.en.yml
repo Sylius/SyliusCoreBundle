@@ -31,3 +31,5 @@ sylius:
             number: Number
             total_from: From
             total_to: To
+            created_at_from: From
+            created_at_to: To

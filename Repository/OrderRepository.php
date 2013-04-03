@@ -45,6 +45,18 @@ class OrderRepository extends EntityRepository
                 ->setParameter('totalTo', $criteria['totalTo'] * 100)
             ;
         }
+        if (!empty($criteria['createdAtFrom'])) {
+            $queryBuilder
+                ->andWhere($queryBuilder->expr()->gte('o.createdAt', ':createdAtFrom'))
+                ->setParameter('createdAtFrom', $criteria['createdAtFrom'])
+            ;
+        }
+        if (!empty($criteria['createdAtTo'])) {
+            $queryBuilder
+                ->andWhere($queryBuilder->expr()->lte('o.createdAt', ':createdAtTo'))
+                ->setParameter('createdAtTo', $criteria['createdAtTo'])
+            ;
+        }
 
         $this->applySorting($queryBuilder, $sorting);
 
