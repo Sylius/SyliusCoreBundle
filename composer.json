@@ -43,6 +43,9 @@
         "phpspec/phpspec2":         "1.0.*",
         "symfony/form":             ">=2.2,<2.3-dev"
     },
+    "suggest": {
+        "sylius/web-bundle": "Provides default twig templates"
+    },
     "config": {
         "bin-dir": "bin"
     },

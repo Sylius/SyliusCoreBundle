@@ -27,3 +27,9 @@ sylius:
         product_filter:
             name: Name
             sku: SKU
+        order_filter:
+            number: Number
+            total_from: From
+            total_to: To
+            created_at_from: From
+            created_at_to: To

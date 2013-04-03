@@ -33,6 +33,7 @@
 
         <parameter key="sylius.form.type.image.class">Sylius\Bundle\CoreBundle\Form\Type\ImageType</parameter>
         <parameter key="sylius.form.type.product_filter.class">Sylius\Bundle\CoreBundle\Form\Type\Filter\ProductFilterType</parameter>
+        <parameter key="sylius.form.type.order_filter.class">Sylius\Bundle\CoreBundle\Form\Type\Filter\OrderFilterType</parameter>
 
         <parameter key="sylius.listener.image_upload.class">Sylius\Bundle\CoreBundle\EventListener\ImageUploadListener</parameter>
 
@@ -166,6 +167,9 @@
 
         <service id="sylius.form.type.product_filter" class="%sylius.form.type.product_filter.class%">
             <tag name="form.type" alias="sylius_product_filter" />
+        </service>
+        <service id="sylius.form.type.order_filter" class="%sylius.form.type.order_filter.class%">
+            <tag name="form.type" alias="sylius_order_filter" />
         </service>
     </services>
 
