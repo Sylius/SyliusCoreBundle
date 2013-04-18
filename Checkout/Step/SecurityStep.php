@@ -78,6 +78,6 @@ class SecurityStep extends CheckoutStep
     {
         $url = $this->generateUrl('sylius_checkout_start', array(), true);
 
-        $this->get('session')->set('_security.target_path', $url);
+        $this->get('session')->set('_security.main.target_path', $url);
     }
 }
