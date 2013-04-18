@@ -77,7 +77,8 @@ class SecurityStep extends CheckoutStep
     private function overrideSecurityTargetPath()
     {
         $url = $this->generateUrl('sylius_checkout_start', array(), true);
+        $providerKey = $this->container->getParameter('fos_user.firewall_name');
 
-        $this->get('session')->set('_security.target_path', $url);
+        $this->get('session')->set('_security.'.$providerKey.'.target_path', $url);
     }
 }
