@@ -23,9 +23,10 @@ use Sylius\Bundle\ShippingBundle\Model\ShipmentInterface;
  */
 interface OrderInterface extends BaseOrderInterface
 {
-    // Labels for tax and shipping adjustments.
+    // Labels for tax, shipping and promotion adjustments.
     const TAX_ADJUSTMENT      = 'Tax';
     const SHIPPING_ADJUSTMENT = 'Shipping';
+    const PROMOTION_ADJUSTMENT = 'Promotion';
 
     /**
      * Get user.
@@ -87,6 +88,25 @@ interface OrderInterface extends BaseOrderInterface
      * Remove all tax adjustments.
      */
     public function removeTaxAdjustments();
+
+    /**
+     * Get the promotion total.
+     *
+     * @return float
+     */
+    public function getPromotionTotal();
+
+    /**
+     * Get all promotion adjustments.
+     *
+     * @return Collection
+     */
+    public function getPromotionAdjustments();
+
+    /**
+     * Remove all promotion adjustments.
+     */
+    public function removePromotionAdjustments();
 
     /**
      * Get shipping total.
