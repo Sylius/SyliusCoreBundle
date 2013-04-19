@@ -22,7 +22,6 @@ use Sylius\Bundle\ShippingBundle\Model\ShippableInterface;
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 interface VariantInterface extends
-    BaseVariantInterface,
     ShippableInterface,
     StockableInterface,
     SellableInterface

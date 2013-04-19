@@ -20,7 +20,6 @@ use Sylius\Bundle\ShippingBundle\Model\ShipmentItemInterface;
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
 interface InventoryUnitInterface extends
-    BaseInventoryUnitInterface,
     ShipmentItemInterface
 {
 }
