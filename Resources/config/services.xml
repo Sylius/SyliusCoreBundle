@@ -26,6 +26,7 @@
 
         <parameter key="sylius.listener.order_taxation.class">Sylius\Bundle\CoreBundle\EventListener\OrderTaxationListener</parameter>
         <parameter key="sylius.listener.order_shipping.class">Sylius\Bundle\CoreBundle\EventListener\OrderShippingListener</parameter>
+        <parameter key="sylius.listener.order_promotion.class">Sylius\Bundle\CoreBundle\EventListener\OrderPromotionListener</parameter>
 
         <parameter key="sylius.checkout_form.addressing.class">Sylius\Bundle\CoreBundle\Form\Type\Checkout\AddressingStepType</parameter>
         <parameter key="sylius.checkout_form.shipping.class">Sylius\Bundle\CoreBundle\Form\Type\Checkout\ShippingStepType</parameter>
@@ -142,6 +143,11 @@
             <argument type="service" id="sylius.order_processing.shipping_processor" />
             <tag name="kernel.event_listener" event="sylius.order.pre_create" method="processOrderShippingCharges" />
             <tag name="kernel.event_listener" event="sylius.order.pre_update" method="processOrderShippingCharges" />
+        </service>
+        <service id="sylius.listener.order_promotion" class="%sylius.listener.order_promotion.class%">
+            <argument type="service" id="sylius.promotion_processor" />
+            <tag name="kernel.event_listener" event="sylius.order.pre_create" method="processOrderPromotion" />
+            <tag name="kernel.event_listener" event="sylius.order.pre_update" method="processOrderPromotion" />
         </service>
 
         <service id="sylius.form.type.image" class="%sylius.form.type.image.class%">

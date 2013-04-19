@@ -163,6 +163,42 @@ class Order extends BaseOrder implements OrderInterface
     /**
      * {@inheritdoc}
      */
+    public function getPromotionTotal()
+    {
+        $promotionTotal = 0;
+
+        foreach ($this->getPromotionAdjustments() as $adjustment) {
+            $promotionTotal += $adjustment->getAmount();
+        }
+
+        return $promotionTotal;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPromotionAdjustments()
+    {
+        return $this->adjustments->filter(function (AdjustmentInterface $adjustment) {
+            return Order::PROMOTION_ADJUSTMENT === $adjustment->getLabel();
+        });
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removePromotionAdjustments()
+    {
+        foreach ($this->getPromotionAdjustments() as $adjustment) {
+            $this->removeAdjustment($adjustment);
+        }
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getShippingTotal()
     {
         $shippingTotal = 0;
