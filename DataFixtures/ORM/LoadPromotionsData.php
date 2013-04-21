@@ -29,18 +29,18 @@ class LoadPromotionsData extends DataFixture
     {
         $promotion = $this->createPromotion(
             'New Year',
-            'New Year Sale for 10 and more items',
-            array($this->createRule(RuleInterface::TYPE_ITEM_COUNT, array('count' => 10, 'equal' => true))),
-            array($this->createAction(ActionInterface::TYPE_FIXED_DISCOUNT, array('amount' => 300)))
+            'New Year Sale for 3 and more items.',
+            array($this->createRule(RuleInterface::TYPE_ITEM_COUNT, array('count' => 3, 'equal' => true))),
+            array($this->createAction(ActionInterface::TYPE_FIXED_DISCOUNT, array('amount' => 500)))
         );
 
         $manager->persist($promotion);
 
         $promotion = $this->createPromotion(
             'Christmas',
-            'Christmas Sale for orders over 5000 EUR',
-            array($this->createRule(RuleInterface::TYPE_ORDER_TOTAL, array('amount' => 5000, 'equal' => true))),
-            array($this->createAction(ActionInterface::TYPE_FIXED_DISCOUNT, array('count' => 200)))
+            'Christmas Sale for orders over 100 EUR.',
+            array($this->createRule(RuleInterface::TYPE_ORDER_TOTAL, array('amount' => 10000, 'equal' => true))),
+            array($this->createAction(ActionInterface::TYPE_FIXED_DISCOUNT, array('amount' => 250)))
         );
 
         $manager->persist($promotion);
