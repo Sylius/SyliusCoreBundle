@@ -19,10 +19,17 @@ class OrderController extends ResourceController
     /**
      * Render order filter form.
      */
-    public function filterFormAction()
+    public function filterFormAction(Request $request)
     {
+        $form = $this->getFormFactory()->createNamed('criteria', 'sylius_order_filter');
+
         return $this->renderResponse('SyliusWebBundle:Backend/Order:filterForm.html', array(
-            'form' => $this->get('form.factory')->createNamed('criteria', 'sylius_order_filter')->createView()
+            'form' => $form->createView()
         ));
+    }
+
+    private function getFormFactory()
+    {
+        return $this->get('form.factory');
     }
 }

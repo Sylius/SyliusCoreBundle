@@ -55,7 +55,7 @@ class ProductController extends ResourceController
      *
      * @param Request
      */
-    public function filterFormAction()
+    public function filterFormAction(Request $request)
     {
         $form = $this->getFormFactory()->createNamed('criteria', 'sylius_product_filter');
 
