@@ -95,6 +95,11 @@ class FinalizeStep extends CheckoutStep
         $this->get('event_dispatcher')->dispatch('sylius.order.pre_create', new GenericEvent($order));
 
         $order->calculateTotal();
+        
+        if( $this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED') )
+        {
+            $order->setUser($this->container->get('security.context')->getToken()->getUser());
+        }
 
         return $order;
     }
