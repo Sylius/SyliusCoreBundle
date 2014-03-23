@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\CoreBundle\Repository;
+namespace Sylius\Bundle\CoreBundle\Doctrine\ORM;
 
-use Sylius\Bundle\VariableProductBundle\Doctrine\ORM\VariantRepository as BaseVariantRepository;
+use Sylius\Bundle\ProductBundle\Doctrine\ORM\VariantRepository as BaseVariantRepository;
 
 /**
- * Variant repository.
+ * Product variant repository.
  *
  * @author Alexandre Bacco <alexandre.bacco@gmail.com>
  */
-class VariantRepository extends BaseVariantRepository
+class ProductVariantRepository extends BaseVariantRepository
 {
     public function getFormQueryBuilder()
     {

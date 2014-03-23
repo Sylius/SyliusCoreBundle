@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\CoreBundle\Repository;
+namespace Sylius\Bundle\CoreBundle\Doctrine\ODM\PHPCR;
 
 use Sylius\Bundle\ResourceBundle\Doctrine\ODM\PHPCR\DocumentRepository;
 

@@ -13,16 +13,16 @@ namespace spec\Sylius\Bundle\CoreBundle\Form\Type;
 
 use PhpSpec\ObjectBehavior;
 
-class VariantTypeSpec extends ObjectBehavior
+class ProductVariantTypeSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith('Variant', array());
+        $this->beConstructedWith('product', 'Variant', array());
     }
 
     function it_should_be_initializable()
     {
-        $this->shouldHaveType('Sylius\Bundle\CoreBundle\Form\Type\VariantType');
+        $this->shouldHaveType('Sylius\Bundle\CoreBundle\Form\Type\ProductVariantType');
     }
 
     function it_should_be_a_form_type()
@@ -32,6 +32,6 @@ class VariantTypeSpec extends ObjectBehavior
 
     function it_should_extend_Sylius_variant_form_type()
     {
-        $this->shouldHaveType('Sylius\Bundle\VariableProductBundle\Form\Type\VariantType');
+        $this->shouldHaveType('Sylius\Bundle\VariationBundle\Form\Type\VariantType');
     }
 }

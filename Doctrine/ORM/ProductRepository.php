@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\CoreBundle\Repository;
+namespace Sylius\Bundle\CoreBundle\Doctrine\ORM;
 
-use Sylius\Bundle\VariableProductBundle\Doctrine\ORM\VariableProductRepository;
+use Sylius\Bundle\ProductBundle\Doctrine\ORM\ProductRepository as BaseProductRepository;
 use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
@@ -20,7 +20,7 @@ use Sylius\Component\Taxonomy\Model\TaxonInterface;
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class ProductRepository extends VariableProductRepository
+class ProductRepository extends BaseProductRepository
 {
     /**
      * Create paginator for products categorized

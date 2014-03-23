@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Sylius\Bundle\CoreBundle\Repository;
+namespace Sylius\Bundle\CoreBundle\Doctrine\ORM;
 
 use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\CartBundle\Doctrine\ORM\CartRepository;
@@ -69,7 +69,7 @@ class OrderRepository extends CartRepository
             ->leftJoin('payment.method', 'paymentMethod')
             ->leftJoin('item.variant', 'variant')
             ->leftJoin('variant.images', 'image')
-            ->leftJoin('variant.product', 'product')
+            ->leftJoin('variant.object', 'product')
             ->leftJoin('variant.options', 'optionValue')
             ->leftJoin('optionValue.option', 'option')
             ->leftJoin('o.billingAddress', 'billingAddress')

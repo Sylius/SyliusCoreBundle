@@ -11,16 +11,15 @@
 
 namespace Sylius\Bundle\CoreBundle\Form\Type;
 
-use Sylius\Bundle\VariableProductBundle\Form\Type\VariantType as BaseVariantType;
+use Sylius\Bundle\ProductBundle\Form\Type\VariantType as BaseVariantType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Product variant type.
- * We need to add only simple price field.
  *
  * @author Paweł Jędrzejewski <pjedrzejewski@diweb.pl>
  */
-class VariantType extends BaseVariantType
+class ProductVariantType extends BaseVariantType
 {
     /**
      * {@inheritdoc}
