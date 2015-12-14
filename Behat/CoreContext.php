@@ -115,7 +115,6 @@ class CoreContext extends DefaultContext
     {
         $manager = $this->getEntityManager();
         $finite = $this->getService('sm.factory');
-        $orderRepository = $this->getRepository('order');
         $orderFactory = $this->getFactory('order');
         $shipmentProcessor = $this->getService('sylius.processor.shipment_processor');
 
