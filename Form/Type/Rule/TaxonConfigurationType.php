@@ -17,7 +17,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  * @author Saša Stamenković <umpirsky@gmail.com>
  */
-class TaxonomyConfigurationType extends AbstractType
+class TaxonConfigurationType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -25,11 +25,8 @@ class TaxonomyConfigurationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('taxons', 'sylius_taxon_selection', [
-                'label' => 'sylius.form.rule.taxonomy_configuration.taxons',
-                'model_transformer' => [
-                    'save_objects' => false,
-                ],
+            ->add('taxons', 'sylius_taxon_choice', [
+                'label' => 'sylius.form.rule.taxon_configuration.taxons',
             ])
             ->add('exclude', 'checkbox', [
                 'label' => 'sylius.form.rule.taxonomy_configuration.exclude',
@@ -42,6 +39,6 @@ class TaxonomyConfigurationType extends AbstractType
      */
     public function getName()
     {
-        return 'sylius_promotion_rule_taxonomy_configuration';
+        return 'sylius_promotion_rule_taxon_configuration';
     }
 }
