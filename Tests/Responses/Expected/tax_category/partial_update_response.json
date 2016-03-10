@@ -1,7 +1,7 @@
 {
     "id": @integer@,
-    "code": "SC1",
-    "name": "Shipping Category 1",
+    "code": "TC1",
+    "name": "Clothing & Accessories",
     "description": "@string@",
     "created_at": "@string@.isDateTime()",
     "updated_at": "@string@.isDateTime()",

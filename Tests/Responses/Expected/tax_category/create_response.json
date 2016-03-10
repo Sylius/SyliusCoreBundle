@@ -1,8 +1,8 @@
 {
     "id": @integer@,
-    "code": "SC1",
-    "name": "Shipping Category 1",
-    "description": "@string@",
+    "code": "clothing",
+    "name": "Clothing",
+    "description": "All items classified as clothing.",
     "created_at": "@string@.isDateTime()",
     "updated_at": "@string@.isDateTime()",
     "_links": {
