@@ -2,11 +2,6 @@
 # (c) Paweł Jędrzejewski
 
 sylius:
-    form:
-        order_filter:
-            payment_state: Стање плаћања
-        product_variant:
-            tax_category: Категорија производа
     installer:
         extensions:
             "off": false
