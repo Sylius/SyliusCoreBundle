@@ -4,10 +4,10 @@ Sylius\Component\Core\Model\ChannelPricing:
     properties:
         channel:
             expose: true
-            groups: [Default, Detailed]
+            groups: [Default, Detailed, DetailedCart]
         price:
             expose: true
-            groups: [Default, Detailed]
+            groups: [Default, Detailed, DetailedCart]
         productVariant:
             expose: true
-            groups: [Default, Detailed]
+            groups: [Default, Detailed, DetailedCart]
