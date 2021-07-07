@@ -27,7 +27,7 @@ sylius:
         channel:
             billing_data:
                 city: Miestas
-                company: įmonė
+                company: Įmonė
                 country: Šalis
                 postcode: Pašto kodas
                 street: Gatvė
@@ -35,7 +35,7 @@ sylius:
             countries: Šalys
             currencies: Valiutos
             currency_base: Bazinė valiuta
-            account_verification_required: Ar reikalingas sąskaitos patikrinimas?
+            account_verification_required: Ar reikalingas paskyros patvirtinimas?
             hostname: Pagrindinio kompiuterio vardas
             locale_default: Numatytoji lokalė
             locales: Lokalės
