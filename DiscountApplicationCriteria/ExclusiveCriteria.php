@@ -11,17 +11,16 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Applicator;
+namespace Sylius\Bundle\CoreBundle\DiscountApplicationCriteria;
 
 use Sylius\Component\Core\Model\CatalogPromotionInterface;
 use Sylius\Component\Core\Model\ChannelPricingInterface;
 use Sylius\Component\Promotion\Model\CatalogPromotionActionInterface;
 
-interface ActionBasedDiscountApplicatorInterface
+final class ExclusiveCriteria implements DiscountApplicationCriteriaInterface
 {
-    public function applyDiscountOnChannelPricing(
-        CatalogPromotionInterface $catalogPromotion,
-        CatalogPromotionActionInterface $action,
-        ChannelPricingInterface $channelPricing
-    ): void;
+    public function isApplicable(CatalogPromotionInterface $catalogPromotion, CatalogPromotionActionInterface $action, ChannelPricingInterface $channelPricing): bool
+    {
+        return !$channelPricing->hasExclusiveCatalogPromotionApplied();
+    }
 }
