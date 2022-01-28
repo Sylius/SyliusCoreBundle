@@ -11,9 +11,11 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Commander;
+namespace Sylius\Bundle\CoreBundle\Command;
 
-interface UpdateVariantsCommanderInterface
+final class ApplyCatalogPromotionsOnVariants
 {
-    public function updateVariants(array $variants): void;
+    public function __construct(public array $variantsCodes)
+    {
+    }
 }
