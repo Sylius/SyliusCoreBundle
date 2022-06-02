@@ -22,30 +22,37 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 final class UserImpersonator implements UserImpersonatorInterface
 {
-    private SessionInterface $session;
-
     private string $sessionTokenParameter;
 
     private string $firewallContextName;
 
-    private EventDispatcherInterface $eventDispatcher;
-
-    public function __construct(SessionInterface $session, string $firewallContextName, EventDispatcherInterface $eventDispatcher)
-    {
-        $this->session = $session;
+    public function __construct(
+        private SessionInterface $session,
+        string $firewallContextName,
+        private EventDispatcherInterface $eventDispatcher
+    ) {
         $this->sessionTokenParameter = sprintf('_security_%s', $firewallContextName);
         $this->firewallContextName = $firewallContextName;
-        $this->eventDispatcher = $eventDispatcher;
     }
 
     public function impersonate(UserInterface $user): void
     {
-        $token = new UsernamePasswordToken(
-            $user,
-            $user->getPassword(),
-            $this->firewallContextName,
-            array_map(/** @param object|string $role */ static function ($role): string { return (string) $role; }, $user->getRoles())
-        );
+        /** @deprecated parameter credential was deprecated in Symfony 5.4, so in Sylius 1.11 too, in Sylius 2.0 providing 4 arguments will be prohibited. */
+        if (3 === (new \ReflectionClass(UsernamePasswordToken::class))->getConstructor()->getNumberOfParameters()) {
+            $token = new UsernamePasswordToken(
+                $user,
+                $this->firewallContextName,
+                array_map(/** @param object|string $role */ static fn ($role): string => (string) $role, $user->getRoles())
+            );
+        } else {
+            $token = new UsernamePasswordToken(
+                $user,
+                $user->getPassword(),
+                $this->firewallContextName,
+                array_map(/** @param object|string $role */ static fn ($role): string => (string) $role, $user->getRoles())
+            );
+        }
+
         $this->session->set($this->sessionTokenParameter, serialize($token));
         $this->session->save();
 

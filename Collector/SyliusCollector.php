@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Collector;
 
-use Sylius\Bundle\CoreBundle\Application\Kernel;
+use Sylius\Bundle\CoreBundle\SyliusCoreBundle;
 use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Sylius\Component\Core\Context\ShopperContextInterface;
 use Sylius\Component\Core\Model\ChannelInterface;
@@ -25,17 +25,13 @@ use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 final class SyliusCollector extends DataCollector
 {
-    private ShopperContextInterface $shopperContext;
-
     public function __construct(
-        ShopperContextInterface $shopperContext,
+        private ShopperContextInterface $shopperContext,
         array $bundles,
         string $defaultLocaleCode
     ) {
-        $this->shopperContext = $shopperContext;
-
         $this->data = [
-            'version' => Kernel::VERSION,
+            'version' => SyliusCoreBundle::VERSION,
             'base_currency_code' => null,
             'currency_code' => null,
             'default_locale_code' => $defaultLocaleCode,
@@ -104,12 +100,12 @@ final class SyliusCollector extends DataCollector
 
             $this->data['base_currency_code'] = $channel->getBaseCurrency()->getCode();
             $this->data['currency_code'] = $this->shopperContext->getCurrencyCode();
-        } catch (ChannelNotFoundException | CurrencyNotFoundException $exception) {
+        } catch (ChannelNotFoundException | CurrencyNotFoundException) {
         }
 
         try {
             $this->data['locale_code'] = $this->shopperContext->getLocaleCode();
-        } catch (LocaleNotFoundException $exception) {
+        } catch (LocaleNotFoundException) {
         }
     }
 

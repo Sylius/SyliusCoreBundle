@@ -16,6 +16,7 @@ namespace Sylius\Bundle\CoreBundle\DependencyInjection;
 use Sylius\Bundle\ResourceBundle\DependencyInjection\Extension\AbstractResourceExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
@@ -54,10 +55,18 @@ final class SyliusCoreExtension extends AbstractResourceExtension implements Pre
         $loader->load('services.xml');
 
         $container->setParameter('sylius_core.taxation.shipping_address_based_taxation', $config['shipping_address_based_taxation']);
+        $container->setParameter('sylius_core.catalog_promotions.batch_size', $config['catalog_promotions']['batch_size']);
 
         $env = $container->getParameter('kernel.environment');
         if ('test' === $env || 'test_cached' === $env) {
             $loader->load('test_services.xml');
+        }
+
+        if ($config['process_shipments_before_recalculating_prices']) {
+            $this->switchOrderProcessorsPriorities(
+                $container->getDefinition('sylius.order_processing.order_shipment_processor'),
+                $container->getDefinition('sylius.order_processing.order_prices_recalculator')
+            );
         }
     }
 
@@ -136,5 +145,25 @@ final class SyliusCoreExtension extends AbstractResourceExtension implements Pre
                 'id' => 'jms_serializer.identical_property_naming_strategy',
             ],
         ]);
+    }
+
+    private function switchOrderProcessorsPriorities(
+        Definition $firstServiceDefinition,
+        Definition $secondServiceDefinition
+    ) {
+        $firstServicePriority = $firstServiceDefinition->getTag('sylius.order_processor')[0]['priority'];
+        $secondServicePriority = $secondServiceDefinition->getTag('sylius.order_processor')[0]['priority'];
+
+        $firstServiceDefinition->clearTag('sylius.order_processor');
+        $secondServiceDefinition->clearTag('sylius.order_processor');
+
+        $firstServiceDefinition->addTag(
+            'sylius.order_processor',
+            ['priority' => $secondServicePriority]
+        );
+        $secondServiceDefinition->addTag(
+            'sylius.order_processor',
+            ['priority' => $firstServicePriority]
+        );
     }
 }

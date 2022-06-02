@@ -1,5 +1,9 @@
 sylius:
     email:
+        contact_request:
+            content: 'Content'
+            message_from: 'Message from'
+            subject: 'Contact request'
         order_confirmation:
             has_been_successfully_placed: 'has been successfully placed.'
             subject: 'Order confirmation'
@@ -39,7 +43,9 @@ sylius:
             coupon: Coupon
         catalog_promotion:
             channels: Channels
-            rule:
+            scope:
+                for_products: For products
+                for_taxons: For taxons
                 for_variants: For variants
         checkout:
             addressing:

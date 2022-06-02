@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Component\Core\Model\AdminUserInterface;
 use Sylius\Component\Core\Model\AvatarImage;
 use Sylius\Component\Core\Uploader\ImageUploaderInterface;
@@ -26,29 +26,17 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private FactoryInterface $userFactory;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
-    private string $localeCode;
-
-    private ?FileLocatorInterface $fileLocator;
-
-    private ?ImageUploaderInterface $imageUploader;
-
     public function __construct(
-        FactoryInterface $userFactory,
-        string $localeCode,
-        ?FileLocatorInterface $fileLocator = null,
-        ?ImageUploaderInterface $imageUploader = null
+        private FactoryInterface $userFactory,
+        private string $localeCode,
+        private ?FileLocatorInterface $fileLocator = null,
+        private ?ImageUploaderInterface $imageUploader = null,
+        private ?FactoryInterface $avatarImageFactory = null
     ) {
-        $this->userFactory = $userFactory;
-        $this->localeCode = $localeCode;
-        $this->fileLocator = $fileLocator;
-        $this->imageUploader = $imageUploader;
-
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -56,6 +44,10 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
 
         if ($this->fileLocator === null || $this->imageUploader === null) {
             @trigger_error(sprintf('Not passing a $fileLocator or/and $imageUploader to %s constructor is deprecated since Sylius 1.6 and will be removed in Sylius 2.0.', self::class), \E_USER_DEPRECATED);
+        }
+
+        if ($this->avatarImageFactory === null) {
+            @trigger_error(sprintf('Not passing a $avatarImageFactory to %s constructor is deprecated since Sylius 1.10 and will be removed in Sylius 2.0.', self::class), \E_USER_DEPRECATED);
         }
     }
 
@@ -93,12 +85,8 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('email', function (Options $options): string {
-                return $this->faker->email;
-            })
-            ->setDefault('username', function (Options $options): string {
-                return $this->faker->firstName . ' ' . $this->faker->lastName;
-            })
+            ->setDefault('email', fn (Options $options): string => $this->faker->email)
+            ->setDefault('username', fn (Options $options): string => $this->faker->firstName . ' ' . $this->faker->lastName)
             ->setDefault('enabled', true)
             ->setAllowedTypes('enabled', 'bool')
             ->setDefault('password', 'password123')
@@ -120,7 +108,13 @@ class AdminUserExampleFactory extends AbstractExampleFactory implements ExampleF
         $imagePath = $this->fileLocator->locate($options['avatar']);
         $uploadedImage = new UploadedFile($imagePath, basename($imagePath));
 
-        $avatarImage = new AvatarImage();
+        /** @var AvatarImage $avatarImage */
+        if ($this->avatarImageFactory === null) {
+            $avatarImage = new AvatarImage();
+        } else {
+            $avatarImage = $this->avatarImageFactory->createNew();
+        }
+
         $avatarImage->setFile($uploadedImage);
 
         $this->imageUploader->upload($avatarImage);

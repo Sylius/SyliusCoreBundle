@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Component\Core\Factory\PromotionRuleFactoryInterface;
 use Sylius\Component\Promotion\Checker\Rule\CartQuantityRuleChecker;
 use Sylius\Component\Promotion\Model\PromotionRuleInterface;
@@ -23,16 +23,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PromotionRuleExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private PromotionRuleFactoryInterface $promotionRuleFactory;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
-    public function __construct(PromotionRuleFactoryInterface $promotionRuleFactory)
+    public function __construct(private PromotionRuleFactoryInterface $promotionRuleFactory)
     {
-        $this->promotionRuleFactory = $promotionRuleFactory;
-
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 

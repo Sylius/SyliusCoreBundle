@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Addressing\Model\ZoneInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
@@ -27,25 +27,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TaxRateExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private FactoryInterface $taxRateFactory;
-
-    private RepositoryInterface $zoneRepository;
-
-    private RepositoryInterface $taxCategoryRepository;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        FactoryInterface $taxRateFactory,
-        RepositoryInterface $zoneRepository,
-        RepositoryInterface $taxCategoryRepository
+        private FactoryInterface $taxRateFactory,
+        private RepositoryInterface $zoneRepository,
+        private RepositoryInterface $taxCategoryRepository
     ) {
-        $this->taxRateFactory = $taxRateFactory;
-        $this->zoneRepository = $zoneRepository;
-        $this->taxCategoryRepository = $taxCategoryRepository;
-
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -73,22 +63,16 @@ class TaxRateExampleFactory extends AbstractExampleFactory implements ExampleFac
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('code', function (Options $options): string {
-                return StringInflector::nameToCode($options['name']);
-            })
+            ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
             ->setDefault('name', function (Options $options): string {
                 /** @var string $words */
                 $words = $this->faker->words(3, true);
 
                 return $words;
             })
-            ->setDefault('amount', function (Options $options): float {
-                return $this->faker->randomFloat(2, 0, 0.4);
-            })
+            ->setDefault('amount', fn (Options $options): float => $this->faker->randomFloat(2, 0, 0.4))
             ->setAllowedTypes('amount', 'float')
-            ->setDefault('included_in_price', function (Options $options): bool {
-                return $this->faker->boolean();
-            })
+            ->setDefault('included_in_price', fn (Options $options): bool => $this->faker->boolean())
             ->setAllowedTypes('included_in_price', 'bool')
             ->setDefault('calculator', 'default')
             ->setDefault('zone', LazyOption::randomOne($this->zoneRepository))

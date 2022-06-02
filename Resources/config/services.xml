@@ -13,6 +13,8 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <imports>
+        <import resource="services/calculators.xml" />
+        <import resource="services/catalog_promotion.xml" />
         <import resource="services/checkers.xml" />
         <import resource="services/checkout.xml" />
         <import resource="services/commands.xml" />
@@ -20,6 +22,7 @@
         <import resource="services/dashboard.xml" />
         <import resource="services/emails.xml" />
         <import resource="services/fixtures.xml" />
+        <import resource="services/fixtures_listeners.xml" />
         <import resource="services/fixtures_factories.xml" />
         <import resource="services/form.xml" />
         <import resource="services/installer.xml" />
@@ -37,6 +40,8 @@
 
     <parameters>
         <parameter key="sylius.order_item_quantity_modifier.limit">9999</parameter>
+        <parameter key="env(SYLIUS_UNSECURED_URLS)">true</parameter>
+        <parameter key="sylius.unsecured_urls">%env(bool:SYLIUS_UNSECURED_URLS)%</parameter>
     </parameters>
 
     <services>
@@ -49,6 +54,10 @@
 
         <service id="sylius.proportional_integer_distributor" class="Sylius\Component\Core\Distributor\ProportionalIntegerDistributor" />
         <service id="Sylius\Component\Core\Distributor\ProportionalIntegerDistributorInterface" alias="sylius.proportional_integer_distributor" />
+
+        <service id="Sylius\Component\Core\Distributor\MinimumPriceDistributorInterface" class="Sylius\Component\Core\Distributor\MinimumPriceDistributor">
+            <argument type="service" id="sylius.proportional_integer_distributor" />
+        </service>
 
         <service id="sylius.invoice_number_generator" class="Sylius\Component\Core\Payment\IdBasedInvoiceNumberGenerator" />
         <service id="Sylius\Component\Core\Payment\InvoiceNumberGeneratorInterface" alias="sylius.invoice_number_generator" />
@@ -249,58 +258,14 @@
             <argument type="service" id="sylius.email_sender" />
         </service>
 
-        <service
-            id="Sylius\Bundle\CoreBundle\Formatter\AppliedPromotionInformationFormatterInterface"
-            class="Sylius\Bundle\CoreBundle\Formatter\AppliedPromotionInformationFormatter"
-        />
+        <service id="security.authentication_manager" alias="security.authentication.manager" />
 
-        <service
-            id="Sylius\Bundle\CoreBundle\Applicator\CatalogPromotionApplicatorInterface"
-            class="Sylius\Bundle\CoreBundle\Applicator\CatalogPromotionApplicator"
-        >
-            <argument type="service" id="Sylius\Bundle\CoreBundle\Formatter\AppliedPromotionInformationFormatterInterface" />
+        <service id="Sylius\Component\Core\Cart\Resolver\CreatedByGuestFlagResolverInterface" class="Sylius\Component\Core\Cart\Resolver\CreatedByGuestFlagResolver">
+            <argument type="service" id="security.token_storage" />
         </service>
 
-        <service
-            id="Sylius\Component\Core\Provider\CatalogPromotionVariantsProviderInterface"
-            class="Sylius\Bundle\CoreBundle\Provider\CatalogPromotionVariantsProvider"
-        >
-            <argument type="tagged_iterator" tag="sylius.catalog_promotion.variants_provider" />
-        </service>
-
-        <service id="Sylius\Bundle\CoreBundle\Provider\ForVariantsRuleVariantsProvider">
-            <argument type="service" id="sylius.repository.product_variant" />
-            <tag name="sylius.catalog_promotion.variants_provider" />
-        </service>
-
-        <service id="Sylius\Bundle\CoreBundle\Provider\ForTaxonsRuleVariantsProvider">
-            <argument type="service" id="sylius.repository.taxon" />
-            <argument type="service" id="sylius.repository.product_variant" />
-            <tag name="sylius.catalog_promotion.variants_provider" />
-        </service>
-
-        <service
-            id="Sylius\Bundle\CoreBundle\Processor\CatalogPromotionProcessorInterface"
-            class="Sylius\Bundle\CoreBundle\Processor\CatalogPromotionProcessor"
-        >
-            <argument type="service" id="Sylius\Component\Core\Provider\CatalogPromotionVariantsProviderInterface" />
-            <argument type="service" id="Sylius\Bundle\CoreBundle\Applicator\CatalogPromotionApplicatorInterface" />
-        </service>
-
-        <service
-            id="Sylius\Bundle\CoreBundle\Processor\AllCatalogPromotionsProcessor"
-            class="Sylius\Bundle\CoreBundle\Processor\AllCatalogPromotionsProcessor"
-        >
-            <argument type="service" id="Sylius\Bundle\CoreBundle\Processor\CatalogPromotionClearerInterface" />
-            <argument type="service" id="Sylius\Bundle\CoreBundle\Processor\CatalogPromotionProcessorInterface" />
-            <argument type="service" id="sylius.repository.catalog_promotion" />
-        </service>
-
-        <service
-            id="Sylius\Bundle\CoreBundle\Processor\CatalogPromotionClearerInterface"
-            class="Sylius\Bundle\CoreBundle\Processor\CatalogPromotionClearer"
-        >
-            <argument type="service" id="sylius.repository.channel_pricing" />
+        <service id="Sylius\Bundle\CoreBundle\Order\Checker\OrderPromotionsIntegrityCheckerInterface" class="Sylius\Bundle\CoreBundle\Order\Checker\OrderPromotionsIntegrityChecker">
+            <argument type="service" id="sylius.order_processing.order_processor" />
         </service>
     </services>
 </container>

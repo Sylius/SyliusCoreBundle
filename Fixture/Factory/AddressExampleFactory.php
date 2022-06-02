@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
-use Faker\Factory;
 use Doctrine\Common\Collections\Collection;
+use Faker\Factory;
+use Faker\Generator;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Addressing\Model\CountryInterface;
 use Sylius\Component\Addressing\Model\ProvinceInterface;
@@ -29,25 +29,15 @@ use Webmozart\Assert\Assert;
 
 class AddressExampleFactory extends AbstractExampleFactory
 {
-    private FactoryInterface $addressFactory;
-
-    private RepositoryInterface $countryRepository;
-
-    private RepositoryInterface $customerRepository;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        FactoryInterface $addressFactory,
-        RepositoryInterface $countryRepository,
-        RepositoryInterface $customerRepository
+        private FactoryInterface $addressFactory,
+        private RepositoryInterface $countryRepository,
+        private RepositoryInterface $customerRepository
     ) {
-        $this->addressFactory = $addressFactory;
-        $this->countryRepository = $countryRepository;
-        $this->customerRepository = $customerRepository;
-
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -57,27 +47,13 @@ class AddressExampleFactory extends AbstractExampleFactory
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('first_name', function (Options $options): string {
-                return $this->faker->firstName;
-            })
-            ->setDefault('last_name', function (Options $options): string {
-                return $this->faker->lastName;
-            })
-            ->setDefault('phone_number', function (Options $options): ?string {
-                return random_int(1, 100) > 50 ? $this->faker->phoneNumber : null;
-            })
-            ->setDefault('company', function (Options $options): ?string {
-                return random_int(1, 100) > 50 ? $this->faker->company : null;
-            })
-            ->setDefault('street', function (Options $options): string {
-                return $this->faker->streetAddress;
-            })
-            ->setDefault('city', function (Options $options): string {
-                return $this->faker->city;
-            })
-            ->setDefault('postcode', function (Options $options): string {
-                return $this->faker->postcode;
-            })
+            ->setDefault('first_name', fn (Options $options): string => $this->faker->firstName)
+            ->setDefault('last_name', fn (Options $options): string => $this->faker->lastName)
+            ->setDefault('phone_number', fn (Options $options): ?string => random_int(1, 100) > 50 ? $this->faker->phoneNumber : null)
+            ->setDefault('company', fn (Options $options): ?string => random_int(1, 100) > 50 ? $this->faker->company : null)
+            ->setDefault('street', fn (Options $options): string => $this->faker->streetAddress)
+            ->setDefault('city', fn (Options $options): string => $this->faker->city)
+            ->setDefault('postcode', fn (Options $options): string => $this->faker->postcode)
             ->setDefault('country_code', function (Options $options): string {
                 $countries = $this->countryRepository->findAll();
                 shuffle($countries);

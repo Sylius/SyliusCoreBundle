@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
 use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Core\Repository\ProductRepositoryInterface;
@@ -23,25 +23,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SimilarProductAssociationFixture extends AbstractFixture
 {
-    private AbstractResourceFixture $productAssociationTypeFixture;
-
-    private AbstractResourceFixture $productAssociationFixture;
-
-    private ProductRepositoryInterface $productRepository;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        AbstractResourceFixture $productAssociationTypeFixture,
-        AbstractResourceFixture $productAssociationFixture,
-        ProductRepositoryInterface $productRepository
+        private AbstractResourceFixture $productAssociationTypeFixture,
+        private AbstractResourceFixture $productAssociationFixture,
+        private ProductRepositoryInterface $productRepository
     ) {
-        $this->productAssociationTypeFixture = $productAssociationTypeFixture;
-        $this->productAssociationFixture = $productAssociationFixture;
-        $this->productRepository = $productRepository;
-
         $this->faker = Factory::create();
         $this->optionsResolver =
             (new OptionsResolver())

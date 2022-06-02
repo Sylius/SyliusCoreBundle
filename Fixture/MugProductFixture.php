@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
+
 @trigger_error('The "MugProductFixture" class is deprecated since Sylius 1.5 Use new product fixtures class located at "src/Sylius/Bundle/CoreBundle/Fixture/" instead.', \E_USER_DEPRECATED);
 
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
@@ -24,33 +25,17 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MugProductFixture extends AbstractFixture
 {
-    private AbstractResourceFixture $taxonFixture;
-
-    private AbstractResourceFixture $productAttributeFixture;
-
-    private AbstractResourceFixture $productOptionFixture;
-
-    private AbstractResourceFixture $productFixture;
-
-    private string $baseLocaleCode;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        AbstractResourceFixture $taxonFixture,
-        AbstractResourceFixture $productAttributeFixture,
-        AbstractResourceFixture $productOptionFixture,
-        AbstractResourceFixture $productFixture,
-        string $baseLocaleCode
+        private AbstractResourceFixture $taxonFixture,
+        private AbstractResourceFixture $productAttributeFixture,
+        private AbstractResourceFixture $productOptionFixture,
+        private AbstractResourceFixture $productFixture,
+        private string $baseLocaleCode
     ) {
-        $this->taxonFixture = $taxonFixture;
-        $this->productAttributeFixture = $productAttributeFixture;
-        $this->productOptionFixture = $productOptionFixture;
-        $this->productFixture = $productFixture;
-        $this->baseLocaleCode = $baseLocaleCode;
-
         $this->faker = Factory::create();
         $this->optionsResolver =
             (new OptionsResolver())

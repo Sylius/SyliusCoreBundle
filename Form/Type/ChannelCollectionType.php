@@ -21,20 +21,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ChannelCollectionType extends AbstractType
 {
-    private ChannelRepositoryInterface $channelRepository;
-
-    public function __construct(ChannelRepositoryInterface $channelRepository)
+    public function __construct(private ChannelRepositoryInterface $channelRepository)
     {
-        $this->channelRepository = $channelRepository;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'entries' => $this->channelRepository->findAll(),
-            'entry_name' => function (ChannelInterface $channel) {
-                return $channel->getCode();
-            },
+            'entry_name' => fn (ChannelInterface $channel) => $channel->getCode(),
             'error_bubbling' => false,
         ]);
     }

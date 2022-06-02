@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Component\Attribute\Factory\AttributeFactoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Locale\Model\LocaleInterface;
@@ -25,25 +25,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProductAttributeExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private AttributeFactoryInterface $productAttributeFactory;
-
-    private RepositoryInterface $localeRepository;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
-    private array $attributeTypes;
-
     public function __construct(
-        AttributeFactoryInterface $productAttributeFactory,
-        RepositoryInterface $localeRepository,
-        array $attributeTypes
+        private AttributeFactoryInterface $productAttributeFactory,
+        private RepositoryInterface $localeRepository,
+        private array $attributeTypes
     ) {
-        $this->productAttributeFactory = $productAttributeFactory;
-        $this->localeRepository = $localeRepository;
-        $this->attributeTypes = $attributeTypes;
-
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -81,15 +71,9 @@ class ProductAttributeExampleFactory extends AbstractExampleFactory implements E
                 return $words;
             })
             ->setDefault('translatable', true)
-            ->setDefault('code', function (Options $options): string {
-                return StringInflector::nameToCode($options['name']);
-            })
-            ->setDefault('type', function (Options $options): string {
-                return $this->faker->randomElement(array_keys($this->attributeTypes));
-            })
-            ->setDefault('configuration', function (Options $options): array {
-                return [];
-            })
+            ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
+            ->setDefault('type', fn (Options $options): string => $this->faker->randomElement(array_keys($this->attributeTypes)))
+            ->setDefault('configuration', fn (Options $options): array => [])
             ->setAllowedValues('type', array_keys($this->attributeTypes))
         ;
     }

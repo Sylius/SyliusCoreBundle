@@ -17,14 +17,14 @@ use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Liip\ImagineBundle\Templating\FilterExtension as BaseFilterExtension;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
+/**
+ * @psalm-suppress DeprecatedClass
+ */
 final class FilterExtension extends BaseFilterExtension
 {
-    private string $imagesPath;
-
-    public function __construct(string $imagesPath, CacheManager $cache)
+    public function __construct(private string $imagesPath, CacheManager $cache)
     {
-        $this->imagesPath = $imagesPath;
-
+        /** @psalm-suppress DeprecatedClass */
         parent::__construct($cache);
     }
 
@@ -39,11 +39,12 @@ final class FilterExtension extends BaseFilterExtension
             return $this->imagesPath . $path;
         }
 
+        /** @psalm-suppress DeprecatedClass */
         return parent::filter($path, $filter, $config, $resolver, $referenceType);
     }
 
     private function canImageBeFiltered(string $path): bool
     {
-        return substr($path, -4) !== '.svg';
+        return !str_ends_with($path, '.svg');
     }
 }

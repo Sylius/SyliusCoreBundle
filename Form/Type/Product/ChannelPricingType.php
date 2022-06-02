@@ -18,7 +18,6 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\ChannelPricingInterface;
 use Sylius\Component\Core\Model\ProductVariantInterface;
-use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -27,16 +26,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ChannelPricingType extends AbstractResourceType
 {
-    private ?RepositoryInterface $channelPricingRepository;
-
     public function __construct(
         string $dataClass,
         array $validationGroups,
-        ?RepositoryInterface $channelPricingRepository = null
+        private ?\Sylius\Component\Resource\Repository\RepositoryInterface $channelPricingRepository = null
     ) {
         parent::__construct($dataClass, $validationGroups);
-
-        $this->channelPricingRepository = $channelPricingRepository;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -48,6 +43,11 @@ final class ChannelPricingType extends AbstractResourceType
             ])
             ->add('originalPrice', MoneyType::class, [
                 'label' => 'sylius.ui.original_price',
+                'required' => false,
+                'currency' => $options['channel']->getBaseCurrency()->getCode(),
+            ])
+            ->add('minimumPrice', MoneyType::class, [
+                'label' => 'sylius.ui.minimum_price',
                 'required' => false,
                 'currency' => $options['channel']->getBaseCurrency()->getCode(),
             ])
@@ -91,9 +91,7 @@ final class ChannelPricingType extends AbstractResourceType
             ->setAllowedTypes('product_variant', ['null', ProductVariantInterface::class])
 
             ->setDefaults([
-                'label' => function (Options $options): string {
-                    return $options['channel']->getName();
-                },
+                'label' => fn (Options $options): string => $options['channel']->getName(),
             ])
         ;
     }

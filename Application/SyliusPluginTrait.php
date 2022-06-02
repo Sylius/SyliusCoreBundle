@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Application;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * @mixin Bundle
@@ -44,7 +44,7 @@ trait SyliusPluginTrait
 
             if (null !== $extension) {
                 if (!$extension instanceof ExtensionInterface) {
-                    throw new \LogicException(sprintf('Extension %s must implement %s.', get_class($extension), ExtensionInterface::class));
+                    throw new \LogicException(sprintf('Extension %s must implement %s.', $extension::class, ExtensionInterface::class));
                 }
 
                 // check naming convention for Sylius Plugins

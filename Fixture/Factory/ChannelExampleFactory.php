@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Addressing\Model\Scope as AddressingScope;
 use Sylius\Component\Addressing\Model\ZoneInterface;
@@ -34,14 +34,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private ChannelFactoryInterface $channelFactory;
-
-    private RepositoryInterface $localeRepository;
-
-    private RepositoryInterface $currencyRepository;
-
-    private RepositoryInterface $zoneRepository;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
@@ -51,10 +43,10 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
     private ?FactoryInterface $shopBillingDataFactory;
 
     public function __construct(
-        ChannelFactoryInterface $channelFactory,
-        RepositoryInterface $localeRepository,
-        RepositoryInterface $currencyRepository,
-        RepositoryInterface $zoneRepository,
+        private ChannelFactoryInterface $channelFactory,
+        private RepositoryInterface $localeRepository,
+        private RepositoryInterface $currencyRepository,
+        private RepositoryInterface $zoneRepository,
         ?TaxonRepositoryInterface $taxonRepository = null,
         ?FactoryInterface $shopBillingDataFactory = null
     ) {
@@ -65,11 +57,6 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
         if (null === $shopBillingDataFactory) {
             @trigger_error('Passing RouterInterface as the sixth argument is deprecated since 1.8 and will be prohibited in 2.0', \E_USER_DEPRECATED);
         }
-
-        $this->channelFactory = $channelFactory;
-        $this->localeRepository = $localeRepository;
-        $this->currencyRepository = $currencyRepository;
-        $this->zoneRepository = $zoneRepository;
         $this->taxonRepository = $taxonRepository;
         $this->shopBillingDataFactory = $shopBillingDataFactory;
 
@@ -136,18 +123,10 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
 
                 return $words;
             })
-            ->setDefault('code', function (Options $options): string {
-                return StringInflector::nameToCode($options['name']);
-            })
-            ->setDefault('hostname', function (Options $options): string {
-                return $options['code'] . '.localhost';
-            })
-            ->setDefault('color', function (Options $options): string {
-                return $this->faker->colorName;
-            })
-            ->setDefault('enabled', function (Options $options): bool {
-                return $this->faker->boolean(90);
-            })
+            ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
+            ->setDefault('hostname', fn (Options $options): string => $options['code'] . '.localhost')
+            ->setDefault('color', fn (Options $options): string => $this->faker->colorName)
+            ->setDefault('enabled', fn (Options $options): bool => $this->faker->boolean(90))
             ->setAllowedTypes('enabled', 'bool')
             ->setDefault('skipping_shipping_step_allowed', false)
             ->setAllowedTypes('skipping_shipping_step_allowed', 'bool')
@@ -166,17 +145,13 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
             )
             ->setDefault('tax_calculation_strategy', 'order_items_based')
             ->setAllowedTypes('tax_calculation_strategy', 'string')
-            ->setDefault('default_locale', function (Options $options): LocaleInterface {
-                return $this->faker->randomElement($options['locales']);
-            })
+            ->setDefault('default_locale', fn (Options $options): LocaleInterface => $this->faker->randomElement($options['locales']))
             ->setAllowedTypes('default_locale', ['string', LocaleInterface::class])
             ->setNormalizer('default_locale', LazyOption::getOneBy($this->localeRepository, 'code'))
             ->setDefault('locales', LazyOption::all($this->localeRepository))
             ->setAllowedTypes('locales', 'array')
             ->setNormalizer('locales', LazyOption::findBy($this->localeRepository, 'code'))
-            ->setDefault('base_currency', function (Options $options): CurrencyInterface {
-                return $this->faker->randomElement($options['currencies']);
-            })
+            ->setDefault('base_currency', fn (Options $options): CurrencyInterface => $this->faker->randomElement($options['currencies']))
             ->setAllowedTypes('base_currency', ['string', CurrencyInterface::class])
             ->setNormalizer('base_currency', LazyOption::getOneBy($this->currencyRepository, 'code'))
             ->setDefault('currencies', LazyOption::all($this->currencyRepository))

@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use SM\Factory\FactoryInterface;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Core\Repository\CustomerRepositoryInterface;
@@ -27,29 +27,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProductReviewExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private ReviewFactoryInterface $productReviewFactory;
-
-    private ProductRepositoryInterface $productRepository;
-
-    private CustomerRepositoryInterface $customerRepository;
-
-    private FactoryInterface $stateMachineFactory;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        ReviewFactoryInterface $productReviewFactory,
-        ProductRepositoryInterface $productRepository,
-        CustomerRepositoryInterface $customerRepository,
-        FactoryInterface $stateMachineFactory
+        private ReviewFactoryInterface $productReviewFactory,
+        private ProductRepositoryInterface $productRepository,
+        private CustomerRepositoryInterface $customerRepository,
+        private FactoryInterface $stateMachineFactory
     ) {
-        $this->productReviewFactory = $productReviewFactory;
-        $this->productRepository = $productRepository;
-        $this->customerRepository = $customerRepository;
-        $this->stateMachineFactory = $stateMachineFactory;
-
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -84,9 +71,7 @@ class ProductReviewExampleFactory extends AbstractExampleFactory implements Exam
 
                 return $words;
             })
-            ->setDefault('rating', function (Options $options): int {
-                return $this->faker->numberBetween(1, 5);
-            })
+            ->setDefault('rating', fn (Options $options): int => $this->faker->numberBetween(1, 5))
             ->setDefault('comment', function (Options $options): string {
                 /** @var string $sentences */
                 $sentences = $this->faker->sentences(3, true);

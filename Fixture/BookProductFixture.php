@@ -15,8 +15,8 @@ namespace Sylius\Bundle\CoreBundle\Fixture;
 
 @trigger_error('The "BookProductFixture" class is deprecated since Sylius 1.5 Use new product fixtures class located at "src/Sylius/Bundle/CoreBundle/Fixture/" instead.', \E_USER_DEPRECATED);
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
 use Sylius\Component\Attribute\AttributeType\IntegerAttributeType;
 use Sylius\Component\Attribute\AttributeType\SelectAttributeType;
@@ -26,29 +26,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BookProductFixture extends AbstractFixture
 {
-    private AbstractResourceFixture $taxonFixture;
-
-    private AbstractResourceFixture $productAttributeFixture;
-
-    private AbstractResourceFixture $productFixture;
-
-    private string $baseLocaleCode;
-
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
     public function __construct(
-        AbstractResourceFixture $taxonFixture,
-        AbstractResourceFixture $productAttributeFixture,
-        AbstractResourceFixture $productFixture,
-        string $baseLocaleCode
+        private AbstractResourceFixture $taxonFixture,
+        private AbstractResourceFixture $productAttributeFixture,
+        private AbstractResourceFixture $productFixture,
+        private string $baseLocaleCode
     ) {
-        $this->taxonFixture = $taxonFixture;
-        $this->productAttributeFixture = $productAttributeFixture;
-        $this->productFixture = $productFixture;
-        $this->baseLocaleCode = $baseLocaleCode;
-
         $this->faker = Factory::create();
         $this->optionsResolver =
             (new OptionsResolver())
@@ -117,7 +104,7 @@ class BookProductFixture extends AbstractFixture
                 'taxons' => ['books'],
                 'product_attributes' => [
                     'book_author' => $authorName,
-                    'book_isbn' => $this->faker->isbn13,
+                    'book_isbn' => $this->faker->isbn13(),
                     'book_pages' => $this->faker->numberBetween(42, 1024),
                     'book_genre' => $this->faker->randomElements(array_keys($bookGenres), $this->faker->numberBetween(1, count($bookGenres))),
                 ],

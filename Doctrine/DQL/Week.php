@@ -38,13 +38,10 @@ final class Week extends FunctionNode
     {
         $platformName = $sqlWalker->getConnection()->getDatabasePlatform()->getName();
 
-        switch ($platformName) {
-            case 'mysql':
-                return sprintf('WEEK(%s)', $sqlWalker->walkArithmeticPrimary($this->date));
-            case 'postgresql':
-                return sprintf('EXTRACT(WEEK FROM %s)', $sqlWalker->walkArithmeticPrimary($this->date));
-        }
-
-        throw new \RuntimeException(sprintf('Platform "%s" is not supported!', $platformName));
+        return match ($platformName) {
+            'mysql' => sprintf('WEEK(%s)', $sqlWalker->walkArithmeticPrimary($this->date)),
+            'postgresql' => sprintf('EXTRACT(WEEK FROM %s)', $sqlWalker->walkArithmeticPrimary($this->date)),
+            default => throw new \RuntimeException(sprintf('Platform "%s" is not supported!', $platformName)),
+        };
     }
 }
