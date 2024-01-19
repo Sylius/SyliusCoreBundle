@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Command;
+namespace Sylius\Bundle\CoreBundle\Console\Command;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Bundle\CoreBundle\Installer\Executor\CommandExecutor;
@@ -24,10 +24,22 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class AbstractInstallCommand extends ContainerAwareCommand
 {
+    /** @deprecated */
+    public const WEB_ASSETS_DIRECTORY = 'web/assets/';
+
+    /** @deprecated */
+    public const WEB_BUNDLES_DIRECTORY = 'web/bundles/';
+
+    /** @deprecated */
+    public const WEB_MEDIA_DIRECTORY = 'web/media/';
+
+    /** @deprecated */
+    public const WEB_MEDIA_IMAGE_DIRECTORY = 'web/media/image/';
+
     /** @var CommandExecutor|null */
     protected $commandExecutor;
 
-    protected function initialize(InputInterface $input, OutputInterface $output)
+    protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         $application = $this->getApplication();
         $application->setCatchExceptions(false);
@@ -53,6 +65,10 @@ abstract class AbstractInstallCommand extends ContainerAwareCommand
         return (bool) $this->getContainer()->getParameter('kernel.debug');
     }
 
+    /**
+     * @param array<array-key, mixed>   $headers
+     * @param array<array-key, mixed>   $rows
+     */
     protected function renderTable(array $headers, array $rows, OutputInterface $output): void
     {
         $table = new Table($output);
@@ -76,6 +92,7 @@ abstract class AbstractInstallCommand extends ContainerAwareCommand
         return $progress;
     }
 
+    /** @param array<array-key, mixed> $commands */
     protected function runCommands(array $commands, OutputInterface $output, bool $displayProgress = true): void
     {
         $progress = $this->createProgressBar($displayProgress ? $output : new NullOutput(), count($commands));

@@ -11,8 +11,11 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\StateMachine\Exception;
+namespace Sylius\Bundle\CoreBundle\MessageDispatcher;
 
-class StateMachineExecutionException extends \Exception
+use Sylius\Component\Core\Model\OrderInterface;
+
+interface ResendOrderConfirmationEmailDispatcherInterface
 {
+    public function dispatch(OrderInterface $order): void;
 }
