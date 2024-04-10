@@ -49,7 +49,6 @@ final class ProductImageType extends ImageType
                             ->setParameter('product', $options['product'])
                         ;
                     },
-                    'autocomplete' => true,
                 ])
             ;
         }
