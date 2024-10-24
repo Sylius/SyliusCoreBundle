@@ -47,6 +47,10 @@ final class InstallCommand extends Command
             'message' => 'Configuring JWT token.',
         ],
         [
+            'command' => 'sylius:payment:generate-key',
+            'message' => 'Generating payment encryption key.',
+        ],
+        [
             'command' => 'sylius:install:assets',
             'message' => 'Installing assets.',
         ],
