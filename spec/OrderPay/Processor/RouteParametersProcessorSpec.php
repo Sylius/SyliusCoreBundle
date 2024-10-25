@@ -15,6 +15,7 @@ namespace spec\Sylius\Bundle\CoreBundle\OrderPay\Processor;
 
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 final class RouteParametersProcessorSpec extends ObjectBehavior
@@ -32,9 +33,9 @@ final class RouteParametersProcessorSpec extends ObjectBehavior
     function it_processes_from_a_route(
         RouterInterface $router,
     ): void {
-        $router->generate('a_route', [])->willReturn('https://localhost/a_route');
+        $router->generate('a_route', [], UrlGeneratorInterface::ABSOLUTE_PATH)->willReturn('/a_route');
 
-        $this->process('a_route')->shouldReturn('https://localhost/a_route');
+        $this->process('a_route')->shouldReturn('/a_route');
     }
 
     function it_processes_from_a_route_and_parameters(
@@ -46,12 +47,13 @@ final class RouteParametersProcessorSpec extends ObjectBehavior
         $router->generate(
             'a_route',
             ['aParam' => 'value'],
-        )->willReturn('https://localhost/a_route?aParam=value');
+            UrlGeneratorInterface::ABSOLUTE_PATH,
+        )->willReturn('/a_route?aParam=value');
 
         $this->process(
             'a_route',
             ['aParam' => 'value'],
-        )->shouldReturn('https://localhost/a_route?aParam=value');
+        )->shouldReturn('/a_route?aParam=value');
     }
 
     function it_processes_from_a_route_and_parameters_and_context(
@@ -65,12 +67,13 @@ final class RouteParametersProcessorSpec extends ObjectBehavior
         $router->generate(
             'a_route',
             ['aParam' => '1'],
-        )->willReturn('https://localhost/a_route?aParam=1');
+            UrlGeneratorInterface::ABSOLUTE_PATH,
+        )->willReturn('/a_route?aParam=1');
 
         $this->process(
             'a_route',
             ['aParam' => 'value'],
-            ['value' => '1'],
-        )->shouldReturn('https://localhost/a_route?aParam=1');
+            context: ['value' => '1'],
+        )->shouldReturn('/a_route?aParam=1');
     }
 }

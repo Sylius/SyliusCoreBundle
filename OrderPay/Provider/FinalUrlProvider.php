@@ -16,6 +16,7 @@ namespace Sylius\Bundle\CoreBundle\OrderPay\Provider;
 use Sylius\Bundle\CoreBundle\OrderPay\Processor\RouteParametersProcessorInterface;
 use Sylius\Component\Core\Model\PaymentInterface;
 use Sylius\Component\Payment\Model\PaymentInterface as BasePaymentInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /** @experimental */
 final class FinalUrlProvider implements FinalUrlProviderInterface
@@ -33,8 +34,10 @@ final class FinalUrlProvider implements FinalUrlProviderInterface
     ) {
     }
 
-    public function getUrl(?PaymentInterface $payment): string
-    {
+    public function getUrl(
+        ?PaymentInterface $payment,
+        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH
+    ): string {
         $context = [
             'payment' => $payment,
             'order' => $payment?->getOrder(),
@@ -48,6 +51,7 @@ final class FinalUrlProvider implements FinalUrlProviderInterface
             return $this->routeParametersProcessor->process(
                 $this->finalRoute,
                 $this->finalRouteParameters,
+                $referenceType,
                 $context,
             );
         }
@@ -55,6 +59,7 @@ final class FinalUrlProvider implements FinalUrlProviderInterface
         return $this->routeParametersProcessor->process(
             $this->retryRoute,
             $this->retryRouteParameters,
+            $referenceType,
             $context,
         );
     }

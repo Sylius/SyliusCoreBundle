@@ -14,9 +14,13 @@ declare(strict_types=1);
 namespace Sylius\Bundle\CoreBundle\OrderPay\Provider;
 
 use Sylius\Component\Core\Model\PaymentInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /** @experimental */
 interface FinalUrlProviderInterface
 {
-    public function getUrl(?PaymentInterface $payment): string;
+    public function getUrl(
+        ?PaymentInterface $payment,
+        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH
+    ): string;
 }

@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\OrderPay\Processor;
 
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+
 /** @experimental */
 interface RouteParametersProcessorInterface
 {
@@ -20,5 +22,10 @@ interface RouteParametersProcessorInterface
      * @param array<string, string|int|bool> $rawParameters
      * @param array<string, mixed> $context
      */
-    public function process(string $route, array $rawParameters = [], array $context = []): string;
+    public function process(
+        string $route,
+        array $rawParameters = [],
+        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH,
+        array $context = []
+    ): string;
 }
