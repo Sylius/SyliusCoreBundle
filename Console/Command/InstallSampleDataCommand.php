@@ -33,7 +33,7 @@ final class InstallSampleDataCommand extends AbstractInstallCommand
     public function __construct(
         protected readonly EntityManagerInterface $entityManager,
         protected readonly CommandDirectoryChecker $commandDirectoryChecker,
-        protected readonly bool $publicDir,
+        protected readonly string $publicDir,
     ) {
         parent::__construct($this->entityManager, $this->commandDirectoryChecker);
     }
