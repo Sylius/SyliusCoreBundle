@@ -760,5 +760,4 @@ final class Version20160101084139 extends AbstractPostgreSQLMigration
             'new' => Types::STRING,
         ]);
     }
-
 }
