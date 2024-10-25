@@ -42,7 +42,7 @@ final class PaymentRequestPayResponseProvider implements PayResponseProviderInte
         private DefaultActionProviderInterface $defaultActionProvider,
         private DefaultPayloadProviderInterface $defaultPayloadProvider,
         private PaymentToPayResolverInterface $paymentToPayResolver,
-        private AfterPayUrlProvider $afterPayUrlProvider,
+        private AfterPayUrlProviderInterface $afterPayUrlProvider,
     ) {
     }
 
