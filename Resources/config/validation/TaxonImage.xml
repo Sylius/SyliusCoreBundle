@@ -18,6 +18,7 @@
                 <option name="maxSize">10M</option>
                 <option name="maxSizeMessage">sylius.taxon_image.file.max_size</option>
                 <option name="uploadIniSizeErrorMessage">sylius.taxon_image.file.upload_ini_size</option>
+                <option name="mimeTypes">image/png, image/jpeg, image/jpg, image/gif, image/webp</option>
                 <option name="groups">sylius</option>
             </constraint>
             <constraint name="Sylius\Bundle\CoreBundle\Validator\Constraints\AllowedImageMimeTypes">
