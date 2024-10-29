@@ -30,7 +30,7 @@ final class RouteParametersProcessor implements RouteParametersProcessorInterfac
         string $route,
         array $rawParameters = [],
         int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH,
-        array $context = []
+        array $context = [],
     ): string {
         $parameters = [];
         foreach ($rawParameters as $key => $rawParameter) {

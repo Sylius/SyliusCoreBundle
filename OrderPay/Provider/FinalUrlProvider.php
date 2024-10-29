@@ -36,7 +36,7 @@ final class FinalUrlProvider implements FinalUrlProviderInterface
 
     public function getUrl(
         ?PaymentInterface $payment,
-        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH
+        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH,
     ): string {
         $context = [
             'payment' => $payment,

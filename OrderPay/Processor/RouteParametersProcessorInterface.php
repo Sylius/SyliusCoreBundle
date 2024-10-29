@@ -26,6 +26,6 @@ interface RouteParametersProcessorInterface
         string $route,
         array $rawParameters = [],
         int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH,
-        array $context = []
+        array $context = [],
     ): string;
 }

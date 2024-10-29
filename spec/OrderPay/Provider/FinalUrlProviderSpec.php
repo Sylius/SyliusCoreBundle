@@ -43,7 +43,7 @@ final class FinalUrlProviderSpec extends ObjectBehavior
             [
                 'payment' => null,
                 'order' => null,
-            ]
+            ],
         )->willReturn('/final_route');
 
         $this->getUrl(null)->shouldReturn('/final_route');
@@ -63,7 +63,7 @@ final class FinalUrlProviderSpec extends ObjectBehavior
             [
                 'payment' => $payment->getWrappedObject(),
                 'order' => null,
-            ]
+            ],
         )->willReturn('/final_route');
 
         $this->getUrl($payment)->shouldReturn('/final_route');
@@ -83,7 +83,8 @@ final class FinalUrlProviderSpec extends ObjectBehavior
             [
                 'payment' => $payment->getWrappedObject(),
                 'order' => null,
-            ])->willReturn('/final_route');
+            ],
+        )->willReturn('/final_route');
 
         $this->getUrl($payment)->shouldReturn('/final_route');
     }
@@ -102,7 +103,7 @@ final class FinalUrlProviderSpec extends ObjectBehavior
             [
                 'payment' => $payment->getWrappedObject(),
                 'order' => null,
-            ]
+            ],
         )->willReturn('/retry_route');
 
         $this->getUrl($payment)->shouldReturn('/retry_route');

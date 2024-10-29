@@ -32,7 +32,7 @@ final class AfterPayUrlProvider implements AfterPayUrlProviderInterface
 
     public function getUrl(
         PaymentRequestInterface $paymentRequest,
-        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH
+        int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH,
     ): string {
         $context = [
             'paymentRequest' => $paymentRequest,
