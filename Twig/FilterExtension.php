@@ -24,6 +24,9 @@ trigger_deprecation(
     FilterExtension::class,
 );
 
+/**
+ * @deprecated
+ */
 final class FilterExtension extends BaseFilterExtension
 {
     public function __construct(private string $imagesPath, CacheManager $cache)

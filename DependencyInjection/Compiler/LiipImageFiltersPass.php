@@ -27,6 +27,8 @@ trigger_deprecation(
 );
 /**
  * @internal
+ *
+ * @deprecated
  */
 final class LiipImageFiltersPass implements CompilerPassInterface
 {
