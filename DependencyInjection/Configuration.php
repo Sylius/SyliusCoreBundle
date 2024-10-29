@@ -131,6 +131,10 @@ final class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->arrayNode('allowed_images_mime_types')
+                    ->prototype('scalar')->end()
+                    ->defaultValue(['image/jpeg', 'image/png', 'image/gif', 'image/webp'])
+                ->end()
             ->end()
         ;
 

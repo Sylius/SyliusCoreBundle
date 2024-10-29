@@ -121,6 +121,9 @@ sylius:
             not_exist: Product with code {{ code }} does not exist.
     product_attribute:
         invalid: Position must be an integer.
+    image:
+        file:
+            allowed_mime_types: The file is not a valid image. Allowed types are %types%.
     product_image:
         file:
             max_size: The image is too big - {{ size }}{{ suffix }}. Maximum allowed size is {{ limit }}{{ suffix }}.
