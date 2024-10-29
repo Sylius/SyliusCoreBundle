@@ -134,5 +134,9 @@
             <tag name="validator.constraint_validator" alias="sylius_max_integer" />
         </service>
         <service id="sylius.validator.max_integer" alias="Sylius\Bundle\CoreBundle\Validator\Constraints\MaxIntegerValidator" />
+        <service id="sylius.validator.allowed_mime_types" class="Sylius\Bundle\CoreBundle\Validator\Constraints\AllowedImageMimeTypesValidator">
+            <argument>%sylius_core.allowed_images_mime_types%</argument>
+            <tag name="validator.constraint_validator" alias="sylius_image_allowed_mime_types_validator" />
+        </service>
     </services>
 </container>
