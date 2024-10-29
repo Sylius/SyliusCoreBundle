@@ -262,6 +262,26 @@ final class ConfigurationTest extends TestCase
         );
     }
 
+    /** @test */
+    public function it_sets_default_allowed_images_mime_types(): void
+    {
+        $this->assertProcessedConfigurationEquals(
+            [[]],
+            ['allowed_images_mime_types' => ['image/jpeg', 'image/png', 'image/gif', 'image/webp']],
+            'allowed_images_mime_types',
+        );
+    }
+
+    /** @test */
+    public function it_allows_setting_custom_allowed_images_mime_types(): void
+    {
+        $this->assertProcessedConfigurationEquals(
+            [['allowed_images_mime_types' => ['image/svg+xml', 'image/bmp']]],
+            ['allowed_images_mime_types' => ['image/svg+xml', 'image/bmp']],
+            'allowed_images_mime_types',
+        );
+    }
+
     protected function getConfiguration(): ConfigurationInterface
     {
         return new Configuration();

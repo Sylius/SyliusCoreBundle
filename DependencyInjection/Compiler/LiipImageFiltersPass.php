@@ -19,6 +19,12 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 
+trigger_deprecation(
+    'sylius/sylius',
+    '1.14',
+    'The "%s" class is deprecated and will be removed in Sylius 2.0.',
+    LiipImageFiltersPass::class,
+);
 /**
  * @internal
  */

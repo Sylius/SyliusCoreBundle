@@ -17,6 +17,13 @@ use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Liip\ImagineBundle\Templating\FilterExtension as BaseFilterExtension;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
+trigger_deprecation(
+    'sylius/sylius',
+    '1.14',
+    'The "%s" class is deprecated and will be removed in Sylius 2.0.',
+    FilterExtension::class,
+);
+
 final class FilterExtension extends BaseFilterExtension
 {
     public function __construct(private string $imagesPath, CacheManager $cache)
