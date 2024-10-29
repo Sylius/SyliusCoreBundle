@@ -19,8 +19,14 @@ final class AsCatalogPromotionPriceCalculator
     public const SERVICE_TAG = 'sylius.catalog_promotion.price_calculator';
 
     public function __construct(
+        private string $type,
         private int $priority = 0,
     ) {
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
     }
 
     public function getPriority(): int

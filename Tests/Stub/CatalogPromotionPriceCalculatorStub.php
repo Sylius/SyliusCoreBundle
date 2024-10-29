@@ -18,7 +18,7 @@ use Sylius\Bundle\CoreBundle\CatalogPromotion\Calculator\CatalogPromotionPriceCa
 use Sylius\Component\Core\Model\ChannelPricingInterface;
 use Sylius\Component\Promotion\Model\CatalogPromotionActionInterface;
 
-#[AsCatalogPromotionPriceCalculator(priority: 9)]
+#[AsCatalogPromotionPriceCalculator(type: 'custom', priority: 9)]
 final class CatalogPromotionPriceCalculatorStub implements CatalogPromotionPriceCalculatorInterface
 {
     public function calculate(ChannelPricingInterface $channelPricing, CatalogPromotionActionInterface $action): int

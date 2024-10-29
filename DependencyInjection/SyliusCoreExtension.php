@@ -151,7 +151,10 @@ final class SyliusCoreExtension extends AbstractResourceExtension implements Pre
         $container->registerAttributeForAutoconfiguration(
             AsCatalogPromotionPriceCalculator::class,
             static function (ChildDefinition $definition, AsCatalogPromotionPriceCalculator $attribute): void {
-                $definition->addTag(AsCatalogPromotionPriceCalculator::SERVICE_TAG, ['priority' => $attribute->getPriority()]);
+                $definition->addTag(AsCatalogPromotionPriceCalculator::SERVICE_TAG, [
+                    'type' => $attribute->getType(),
+                    'priority' => $attribute->getPriority(),
+                ]);
             },
         );
 

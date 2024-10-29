@@ -188,7 +188,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasServiceDefinitionWithTag(
             'acme.catalog_promotion_price_calculator_with_attribute',
             AsCatalogPromotionPriceCalculator::SERVICE_TAG,
-            ['priority' => 9],
+            ['type' => 'custom', 'priority' => 9],
         );
     }
 
