@@ -36,6 +36,7 @@
             <argument type="service" id="sylius.repository.payment_request" />
             <argument type="service" id="sylius.provider.default_action" />
             <argument type="service" id="sylius.provider.default_payload" />
+            <argument type="service" id="sylius.checker.finalized_payment_request" />
         </service>
 
         <service abstract="true" id="sylius.provider.order_pay.pay_response.no_payment" class="Sylius\Bundle\CoreBundle\OrderPay\Provider\NoPaymentPayResponseProvider" />
