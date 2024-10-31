@@ -36,6 +36,7 @@
             <argument type="service" id="sylius.factory.zone" />
             <argument>%locale%</argument>
         </service>
+
         <service id="sylius.behat.factory.default_channel" class="Sylius\Component\Core\Test\Services\DefaultChannelFactory">
             <argument type="service" id="sylius.factory.channel" />
             <argument type="service" id="sylius.factory.currency" />
@@ -44,6 +45,7 @@
             <argument type="service" id="sylius.repository.currency" />
             <argument type="service" id="sylius.repository.locale" />
             <argument>%locale%</argument>
+            <argument type="service" id="sylius.factory.shop_billing_data" />
         </service>
 
         <service id="sylius.liip.filter_service" alias="liip_imagine.service.filter" public="true" />
