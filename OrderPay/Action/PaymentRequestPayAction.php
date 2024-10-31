@@ -49,10 +49,7 @@ final class PaymentRequestPayAction
         }
 
         $response = $this->httpResponseProcessor->process($requestConfiguration, $paymentRequest);
-        if (null !== $response) {
-            return $response;
-        }
 
-        return new RedirectResponse($this->afterPayUrlProvider->getUrl($paymentRequest));
+        return $response ?? new RedirectResponse($this->afterPayUrlProvider->getUrl($paymentRequest));
     }
 }
