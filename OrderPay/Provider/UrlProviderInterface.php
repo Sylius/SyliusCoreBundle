@@ -17,7 +17,7 @@ use Sylius\Component\Payment\Model\PaymentRequestInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /** @experimental */
-interface AfterPayUrlProviderInterface
+interface UrlProviderInterface
 {
     public function getUrl(
         PaymentRequestInterface $paymentRequest,

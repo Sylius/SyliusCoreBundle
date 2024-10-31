@@ -14,9 +14,7 @@ declare(strict_types=1);
 namespace Sylius\Bundle\CoreBundle\OrderPay\Provider;
 
 use Sylius\Bundle\CoreBundle\OrderPay\Handler\PaymentStateFlashHandlerInterface;
-use Sylius\Bundle\PaymentBundle\Announcer\PaymentRequestAnnouncerInterface;
-use Sylius\Bundle\PaymentBundle\CommandProvider\PaymentRequestCommandProviderInterface;
-use Sylius\Bundle\PaymentBundle\Provider\ServiceProviderAwareProviderInterface;
+use Sylius\Bundle\PaymentBundle\Processor\HttpResponseProcessorInterface;
 use Sylius\Bundle\ResourceBundle\Controller\RequestConfiguration;
 use Sylius\Component\Core\Model\PaymentInterface;
 use Sylius\Component\Payment\Factory\PaymentRequestFactoryInterface;
@@ -36,10 +34,8 @@ final class PaymentRequestAfterPayResponseProvider implements AfterPayResponsePr
      */
     public function __construct(
         private PaymentRequestFactoryInterface $paymentRequestFactory,
-        private PaymentRequestAnnouncerInterface $paymentRequestAnnouncer,
-        private ServiceProviderAwareProviderInterface $httpResponseProvider,
+        private HttpResponseProcessorInterface $httpResponseProcessor,
         private PaymentRequestRepositoryInterface $paymentRequestRepository,
-        private PaymentRequestCommandProviderInterface $paymentRequestCommandProvider,
         private PaymentStateFlashHandlerInterface $paymentStateFlashHandler,
         private FinalUrlProviderInterface $orderPayFinalUrlProvider,
     ) {
@@ -59,20 +55,15 @@ final class PaymentRequestAfterPayResponseProvider implements AfterPayResponsePr
         $paymentRequest = $this->paymentRequestFactory->createFromPaymentRequest($previousPaymentRequest);
         $paymentRequest->setAction(PaymentRequestInterface::ACTION_STATUS);
 
-        if ($this->paymentRequestCommandProvider->supports($paymentRequest)) {
-            $this->paymentRequestRepository->add($paymentRequest);
-            $this->paymentRequestAnnouncer->dispatchPaymentRequestCommand($paymentRequest);
-        }
+        $this->paymentRequestRepository->add($paymentRequest);
 
-        if ($this->httpResponseProvider->supports($requestConfiguration, $paymentRequest)) {
-            return $this->httpResponseProvider->getResponse($requestConfiguration, $paymentRequest);
-        }
+        $response = $this->httpResponseProcessor->process($requestConfiguration, $paymentRequest);
 
         /** @var PaymentInterface $payment */
         $payment = $paymentRequest->getPayment();
         $this->paymentStateFlashHandler->handle($requestConfiguration, $payment->getState());
 
-        return new RedirectResponse($this->orderPayFinalUrlProvider->getUrl($payment));
+        return $response ?? new RedirectResponse($this->orderPayFinalUrlProvider->getUrl($payment));
     }
 
     public function supports(RequestConfiguration $requestConfiguration): bool
