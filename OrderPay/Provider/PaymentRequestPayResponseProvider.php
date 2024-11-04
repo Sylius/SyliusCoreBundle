@@ -83,6 +83,7 @@ final class PaymentRequestPayResponseProvider implements PayResponseProviderInte
 
         if (null === $existingPaymentRequest || $this->finalizedPaymentRequestChecker->isFinal($existingPaymentRequest)) {
             $paymentRequest->setPayload($this->defaultPayloadProvider->getPayload($paymentRequest));
+
             return $paymentRequest;
         }
 
