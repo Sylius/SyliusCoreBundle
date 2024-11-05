@@ -29,6 +29,7 @@ use Sylius\Component\Core\Model\ChannelPricing;
 use Sylius\Component\Core\Model\ChannelPricingInterface;
 use Sylius\Component\Core\Model\ChannelPricingLogEntry;
 use Sylius\Component\Core\Model\ChannelPricingLogEntryInterface;
+use Sylius\Component\Core\Model\PaymentInterface;
 use Sylius\Component\Core\Model\ProductImage;
 use Sylius\Component\Core\Model\ProductImageInterface;
 use Sylius\Component\Core\Model\ProductTaxon;
@@ -134,6 +135,20 @@ final class Configuration implements ConfigurationInterface
                 ->arrayNode('allowed_images_mime_types')
                     ->prototype('scalar')->end()
                     ->defaultValue(['image/jpeg', 'image/png', 'image/gif', 'image/webp'])
+                ->end()
+                ->arrayNode('checkout')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->arrayNode('payment')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->arrayNode('allowed_states')
+                                    ->prototype('scalar')->end()
+                                    ->defaultValue([PaymentInterface::STATE_NEW, PaymentInterface::STATE_CART])
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
                 ->end()
             ->end()
         ;
