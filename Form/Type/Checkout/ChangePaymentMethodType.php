@@ -22,6 +22,7 @@ use Symfony\Component\Form\FormEvents;
 
 final class ChangePaymentMethodType extends AbstractType
 {
+    /** @param array<string> $allowedPaymentStates */
     public function __construct(private readonly array $allowedPaymentStates = [PaymentInterface::STATE_NEW, PaymentInterface::STATE_CART])
     {
     }
