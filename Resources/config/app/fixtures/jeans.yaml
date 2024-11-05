@@ -78,7 +78,7 @@ sylius_fixtures:
                     name: product
                     options:
                         custom:
-                            -   name: '911M regular fit jeans'
+                            -   name: '911M Light breeze jeans'
                                 tax_category: 'clothing'
                                 channels:
                                     - 'FASHION_WEB'
@@ -87,15 +87,17 @@ sylius_fixtures:
                                     - 'jeans'
                                     - 'mens_jeans'
                                 product_attributes:
-                                    jeans_brand: 'You are breathtaking'
-                                    jeans_collection: 'Sylius Winter 2019'
-                                    jeans_material: '100% jeans'
+                                    jeans_brand: 'Solar Flare'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_01.jpg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_3.jpeg' }
 
-                            -   name: '330M slim fit jeans'
+                            -   name: '330M Oceanic dreams jeans'
                                 tax_category: 'clothing'
                                 channels:
                                     - 'FASHION_WEB'
@@ -104,15 +106,17 @@ sylius_fixtures:
                                     - 'jeans'
                                     - 'mens_jeans'
                                 product_attributes:
-                                    jeans_brand: 'Modern Wear'
-                                    jeans_collection: 'Sylius Winter 2019'
-                                    jeans_material: '100% jeans'
+                                    jeans_brand: 'Azure Waves'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_02.jpg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_3.jpeg' }
 
-                            -   name: '990M regular fit jeans'
+                            -   name: '440M Sunlit path jeans'
                                 tax_category: 'clothing'
                                 channels:
                                     - 'FASHION_WEB'
@@ -121,15 +125,17 @@ sylius_fixtures:
                                     - 'jeans'
                                     - 'mens_jeans'
                                 product_attributes:
-                                    jeans_brand: 'Celsius Small'
-                                    jeans_collection: 'Sylius Winter 2019'
-                                    jeans_material: '100% jeans'
+                                    jeans_brand: 'Radiant Rays'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03.jpg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_3.jpeg' }
 
-                            -   name: '007M black elegance jeans'
+                            -   name: '550M Tropical sunset jeans'
                                 tax_category: 'clothing'
                                 channels:
                                     - 'FASHION_WEB'
@@ -138,14 +144,168 @@ sylius_fixtures:
                                     - 'jeans'
                                     - 'mens_jeans'
                                 product_attributes:
-                                    jeans_brand: 'Date & Banana'
-                                    jeans_collection: 'Sylius summer 2019'
-                                    jeans_material: '100% jeans'
+                                    jeans_brand: 'Island Breeze'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04.jpg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_3.jpeg' }
 
+                            -   name: '660M Coastal breeze jeans'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_jeans'
+                                taxons:
+                                    - 'jeans'
+                                    - 'mens_jeans'
+                                product_attributes:
+                                    jeans_brand: 'Seaside Serenity'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
+                                product_options:
+                                    - 'jeans_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_3.jpeg' }
+
+                            -   name: '770M Summer twilight jeans'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_jeans'
+                                taxons:
+                                    - 'jeans'
+                                    - 'mens_jeans'
+                                product_attributes:
+                                    jeans_brand: 'Evening Glow'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
+                                product_options:
+                                    - 'jeans_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_3.jpeg' }
+
+                            -   name: '880M Beachside paradise jeans'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_jeans'
+                                taxons:
+                                    - 'jeans'
+                                    - 'mens_jeans'
+                                product_attributes:
+                                    jeans_brand: 'Shoreline Bliss'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
+                                product_options:
+                                    - 'jeans_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_3.jpeg' }
+
+                            -   name: '990M Sunflower field jeans'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_jeans'
+                                taxons:
+                                    - 'jeans'
+                                    - 'mens_jeans'
+                                product_attributes:
+                                    jeans_brand: 'Golden Petals'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
+                                product_options:
+                                    - 'jeans_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_3.jpeg' }
+
+                            -   name: '1010M Summer solstice jeans'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_jeans'
+                                taxons:
+                                    - 'jeans'
+                                    - 'mens_jeans'
+                                product_attributes:
+                                    jeans_brand: 'Solstice Spark'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
+                                product_options:
+                                    - 'jeans_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_3.jpeg' }
+
+                            -   name: '1110M Ocean breeze jeans'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_jeans'
+                                taxons:
+                                    - 'jeans'
+                                    - 'mens_jeans'
+                                product_attributes:
+                                    jeans_brand: 'Marine Whisper'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
+                                product_options:
+                                    - 'jeans_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_3.jpeg' }
+
+                            -   name: '1210M Palm tree paradise jeans'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_jeans'
+                                taxons:
+                                    - 'jeans'
+                                    - 'mens_jeans'
+                                product_attributes:
+                                    jeans_brand: 'Tropical Haven'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
+                                product_options:
+                                    - 'jeans_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_3.jpeg' }
+
+                            -   name: '1310M Seaside sunrise jeans'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_jeans'
+                                taxons:
+                                    - 'jeans'
+                                    - 'mens_jeans'
+                                product_attributes:
+                                    jeans_brand: 'Morning Glory'
+                                    jeans_collection: 'Sylius Summer 2024'
+                                    jeans_material: '100% cotton'
+                                product_options:
+                                    - 'jeans_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_3.jpeg' }
+                                                                
                             -   name: '727F patched cropped jeans'
                                 tax_category: 'clothing'
                                 channels:
