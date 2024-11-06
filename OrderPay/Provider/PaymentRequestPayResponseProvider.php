@@ -69,7 +69,7 @@ final class PaymentRequestPayResponseProvider implements PayResponseProviderInte
 
     private function getPaymentRequest(
         PaymentInterface $payment,
-        PaymentMethodInterface $paymentMethod
+        PaymentMethodInterface $paymentMethod,
     ): PaymentRequestInterface {
         $paymentRequest = $this->paymentRequestFactory->create($payment, $paymentMethod);
         $action = $this->defaultActionProvider->getAction($paymentRequest);
@@ -78,7 +78,7 @@ final class PaymentRequestPayResponseProvider implements PayResponseProviderInte
         $existingPaymentRequest = $this->paymentRequestRepository->findOneByActionPaymentAndMethod(
             $action,
             $payment,
-            $paymentMethod
+            $paymentMethod,
         );
 
         if (null === $existingPaymentRequest || $this->finalizedPaymentRequestChecker->isFinal($existingPaymentRequest)) {
