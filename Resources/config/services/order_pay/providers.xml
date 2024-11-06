@@ -34,8 +34,8 @@
         <service abstract="true" id="sylius.provider.order_pay.pay_response.payment_request" class="Sylius\Bundle\CoreBundle\OrderPay\Provider\PaymentRequestPayResponseProvider">
             <argument type="service" id="sylius.factory.payment_request" />
             <argument type="service" id="sylius.repository.payment_request" />
-            <argument type="service" id="sylius.provider.default_action" />
-            <argument type="service" id="sylius.provider.default_payload" />
+            <argument type="service" id="sylius.provider.payment_request.default_action" />
+            <argument type="service" id="sylius.provider.payment_request.default_payload" />
             <argument type="service" id="sylius.checker.finalized_payment_request" />
         </service>
 
@@ -45,7 +45,7 @@
 
         <service abstract="true" id="sylius.provider.order_pay.after_pay_response.payment_request" class="Sylius\Bundle\CoreBundle\OrderPay\Provider\PaymentRequestAfterPayResponseProvider">
             <argument type="service" id="sylius.factory.payment_request" />
-            <argument type="service" id="sylius.processor.http_response" />
+            <argument type="service" id="sylius.processor.payment_request.http_response" />
             <argument type="service" id="sylius.repository.payment_request" />
         </service>
     </services>

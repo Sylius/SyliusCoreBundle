@@ -38,7 +38,7 @@
             </argument>
             <argument type="service" id="sylius.resource_controller.request_configuration_factory" />
             <argument type="service" id="sylius.repository.payment_request" />
-            <argument type="service" id="sylius.processor.http_response" />
+            <argument type="service" id="sylius.processor.payment_request.http_response" />
         </service>
 
     </services>
