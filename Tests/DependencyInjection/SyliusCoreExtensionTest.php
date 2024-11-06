@@ -374,6 +374,16 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         ]);
     }
 
+    /** @test */
+    public function it_loads_checkout_payment_allowed_states_configuration_properly(): void
+    {
+        $this->container->setParameter('kernel.environment', 'dev');
+
+        $this->load(['checkout' => ['payment' => ['allowed_states' => ['new', 'test']]]]);
+
+        $this->assertContainerBuilderHasParameter('sylius_core.checkout.payment.allowed_states', ['new', 'test']);
+    }
+
     protected function getContainerExtensions(): array
     {
         return [new SyliusCoreExtension()];

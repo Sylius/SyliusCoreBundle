@@ -74,5 +74,10 @@
             <argument>%sylius.form.type.checkout_complete.validation_groups%</argument>
             <tag name="form.type" />
         </service>
+
+        <service id="sylius.form.type.checkout.change_payment_method" class="Sylius\Bundle\CoreBundle\Form\Type\Checkout\ChangePaymentMethodType">
+            <argument>%sylius_core.checkout.payment.allowed_states%</argument>
+            <tag name="form.type" />
+        </service>
     </services>
 </container>

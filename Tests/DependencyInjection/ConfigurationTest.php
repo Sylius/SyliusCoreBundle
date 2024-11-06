@@ -214,6 +214,26 @@ final class ConfigurationTest extends TestCase
         );
     }
 
+    /** @test */
+    public function it_sets_default_checkout_payment_allowed_states(): void
+    {
+        $this->assertProcessedConfigurationEquals(
+            [[]],
+            ['checkout' => ['payment' => ['allowed_states' => ['new', 'cart']]]],
+            'checkout',
+        );
+    }
+
+    /** @test */
+    public function it_allows_setting_custom_checkout_payment_allowed_states(): void
+    {
+        $this->assertProcessedConfigurationEquals(
+            [['checkout' => ['payment' => ['allowed_states' => ['new', 'cart', 'pending']]]]],
+            ['checkout' => ['payment' => ['allowed_states' => ['new', 'cart', 'pending']]]],
+            'checkout',
+        );
+    }
+
     protected function getConfiguration(): ConfigurationInterface
     {
         return new Configuration();
