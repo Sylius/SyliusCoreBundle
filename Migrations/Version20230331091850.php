@@ -42,7 +42,7 @@ final class Version20230331091850 extends AbstractMigration
         $this->addSql('ALTER TABLE sylius_channel_pricing ADD lowest_price_before_discount INT DEFAULT NULL');
 
         /** Create an initial log state based on the price of products at the time of migration processing */
-        $this->addSql('INSERT INTO `sylius_channel_pricing_log_entry` (`channel_pricing_id`, `price`, `original_price`, `logged_at`) SELECT `id`, `price`, `original_price`, NOW() FROM `sylius_channel_pricing`');
+        $this->addSql('INSERT INTO `sylius_channel_pricing_log_entry` (`channel_pricing_id`, `price`, `original_price`, `logged_at`) SELECT `id`, COALESCE(`price`, `original_price`, 0), `original_price`, NOW() FROM `sylius_channel_pricing`');
     }
 
     public function postUp(Schema $schema): void
