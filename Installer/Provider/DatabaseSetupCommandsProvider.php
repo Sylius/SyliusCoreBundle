@@ -122,7 +122,7 @@ final class DatabaseSetupCommandsProvider implements DatabaseSetupCommandsProvid
         return $this->schemaManager;
     }
 
-    protected function isSQLite(): bool
+    private function isSQLite(): bool
     {
         $platform = $this->entityManager->getConnection()->getDatabasePlatform();
 
