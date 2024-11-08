@@ -270,7 +270,6 @@ sylius_fixtures:
                                 images:
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_13_1.jpeg', type: 'main' }
                                     - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_13_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_13_3.jpeg' }
 
                             -   name: 'Adventurous Aurora Cap'
                                 tax_category: 'other'
