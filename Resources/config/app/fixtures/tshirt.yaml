@@ -83,7 +83,7 @@ sylius_fixtures:
                     name: product
                     options:
                         custom:
-                            -   name: 'Everyday white basic T-Shirt'
+                            -   name: 'Ethereal Drift T-Shirt'
                                 tax_category: 'clothing'
                                 channels:
                                     - 'FASHION_WEB'
@@ -93,15 +93,18 @@ sylius_fixtures:
                                     - 'womens_t_shirts'
                                 product_attributes:
                                     t_shirt_brand: 'You are breathtaking'
-                                    t_shirt_collection: 'Sylius Summer 2019'
+                                    t_shirt_collection: 'Sylius Summer 2024'
                                     t_shirt_material: '100% cotton'
                                     damage_reduction: 0.1
                                 product_options:
                                     - 't_shirt_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_01.jpg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_01_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_01_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_01_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_01_4.jpeg' }
 
-                            -   name: 'Loose white designer T-Shirt'
+                            -   name: 'Quantum Pulse T-Shirt'
                                 tax_category: 'clothing'
                                 channels:
                                     - 'FASHION_WEB'
@@ -111,14 +114,15 @@ sylius_fixtures:
                                     - 'womens_t_shirts'
                                 product_attributes:
                                     t_shirt_brand: 'Modern Wear'
-                                    t_shirt_collection: 'Sylius Summer 2019'
+                                    t_shirt_collection: 'Sylius Summer 2024'
                                     t_shirt_material: '100% cotton'
                                 product_options:
                                     - 't_shirt_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_02.jpg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_02_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_02_2.jpeg' }
 
-                            -   name: 'Ribbed copper slim fit Tee'
+                            -   name: 'Celestial Harmony T-Shirt'
                                 tax_category: 'clothing'
                                 channels:
                                     - 'FASHION_WEB'
@@ -126,50 +130,306 @@ sylius_fixtures:
                                 taxons:
                                     - 't_shirts'
                                     - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Swan Small'
+                                    t_shirt_collection: 'Sylius Summer 2024'
+                                    t_shirt_material: '100% viscose'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_03_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_03_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_03_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_03_4.jpeg' }
+                                        
+                            -   name: 'Nebula Dream T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Modern Wear'
+                                    t_shirt_collection: 'Sylius Spring 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_04_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_04_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_04_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_04_4.jpeg' }
+                            
+                            -   name: 'Starlight Whisper T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'You are breathtaking'
+                                    t_shirt_collection: 'Sylius Summer 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_05_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_05_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_05_3.jpeg' }
+                            
+                            -   name: 'Swantastic T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Swan Small'
+                                    t_shirt_collection: 'Sylius Fall 2024'
+                                    t_shirt_material: '100% polyester'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_06_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_06_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_06_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_06_4.jpeg' }
+                            
+                            -   name: 'Lunar Echo T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Modern Wear'
+                                    t_shirt_collection: 'Sylius Winter 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_07_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_07_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_07_3.jpeg' }
+                            
+                            -   name: 'Galactic Breeze T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'You are breathtaking'
+                                    t_shirt_collection: 'Sylius Spring 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_08_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_08_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_08_3.jpeg' }
+                            
+                            -   name: 'Solar Flare T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Modern Wear'
+                                    t_shirt_collection: 'Sylius Summer 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_09_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_09_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_09_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_09_4.jpeg' }
+                            
+                            -   name: 'Print Screen T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Swan Small'
+                                    t_shirt_collection: 'Sylius Fall 2024'
+                                    t_shirt_material: '100% polyester'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_10_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_10_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_10_3.jpeg' }
+                            
+                            -   name: 'Meteor Shower T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'You are breathtaking'
+                                    t_shirt_collection: 'Sylius Summer 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_11_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_11_2.jpeg' }
+                            
+                            -   name: 'Stellar Fusion T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'womens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'womens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Modern Wear'
+                                    t_shirt_collection: 'Sylius Spring 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_12_1.jpeg', type: 'main' }                                     
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_12_2.jpeg' }                                     
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_12_3.jpeg' }                                     
+
+                            -   name: 'Stellar Drift T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'You are breathtaking'
+                                    t_shirt_collection: 'Sylius Winter 2024'
+                                    t_shirt_material: '100% viscose'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_01_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_01_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_01_3.jpeg' }
+
+                            -   name: 'Comet Pulse T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'You are breathtaking'
+                                    t_shirt_collection: 'Sylius Winter 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_02_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_02_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_02_3.jpeg' }
+
+                            -   name: 'Apollo T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Modern Wear'
+                                    t_shirt_collection: 'Sylius Summer 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_03_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_03_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_03_3.jpeg' }
+
+                            -   name: 'Nebula Surge T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Modern Wear'
+                                    t_shirt_collection: 'Sylius Spring 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_04_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_04_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_04_3.jpeg' }
+
+                            -   name: 'Starlight Echo T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'You are breathtaking'
+                                    t_shirt_collection: 'Sylius Summer 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_05_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_05_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_05_3.jpeg' }
+
+                            -   name: 'Cosmic Drift T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
                                 product_attributes:
                                     t_shirt_brand: 'Celsius Small'
-                                    t_shirt_collection: 'Sylius Summer 2019'
-                                    t_shirt_material: '100% viscose'
+                                    t_shirt_collection: 'Sylius Fall 2024'
+                                    t_shirt_material: '100% polyester'
                                 product_options:
                                     - 't_shirt_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/woman/t-shirt_03.jpg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_06_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_06_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_06_3.jpeg' }
 
-                            -   name: 'Sport basic white T-Shirt'
-                                tax_category: 'clothing'
-                                channels:
-                                    - 'FASHION_WEB'
-                                main_taxon: 'mens_t_shirts'
-                                taxons:
-                                    - 't_shirts'
-                                    - 'mens_t_shirts'
-                                product_attributes:
-                                    t_shirt_brand: 'You are breathtaking'
-                                    t_shirt_collection: 'Sylius Winter 2019'
-                                    t_shirt_material: '100% viscose'
-                                product_options:
-                                    - 't_shirt_size'
-                                images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_01.jpg', type: 'main' }
-
-                            -   name: 'Raglan grey & black Tee'
-                                tax_category: 'clothing'
-                                channels:
-                                    - 'FASHION_WEB'
-                                main_taxon: 'mens_t_shirts'
-                                taxons:
-                                    - 't_shirts'
-                                    - 'mens_t_shirts'
-                                product_attributes:
-                                    t_shirt_brand: 'You are breathtaking'
-                                    t_shirt_collection: 'Sylius Winter 2019'
-                                    t_shirt_material: '100% cotton'
-                                product_options:
-                                    - 't_shirt_size'
-                                images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_02.jpg', type: 'main' }
-
-                            -   name: 'Oversize white cotton T-Shirt'
+                            -   name: 'Lunar Wave T-Shirt'
                                 tax_category: 'clothing'
                                 channels:
                                     - 'FASHION_WEB'
@@ -179,9 +439,87 @@ sylius_fixtures:
                                     - 'mens_t_shirts'
                                 product_attributes:
                                     t_shirt_brand: 'Modern Wear'
-                                    t_shirt_collection: 'Sylius Summer 2019'
+                                    t_shirt_collection: 'Sylius Winter 2024'
                                     t_shirt_material: '100% cotton'
                                 product_options:
                                     - 't_shirt_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_03.jpg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_07_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_07_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_07_3.jpeg' }
+
+                            -   name: 'Galactic Pulse T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'You are breathtaking'
+                                    t_shirt_collection: 'Sylius Spring 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_08_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_08_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_08_3.jpeg' }
+
+                            -   name: 'Solar Echo T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Modern Wear'
+                                    t_shirt_collection: 'Sylius Summer 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_09_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_09_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_09_3.jpeg' }
+
+                            -   name: 'Aurora Surge T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'Celsius Small'
+                                    t_shirt_collection: 'Sylius Fall 2024'
+                                    t_shirt_material: '100% polyester'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_10_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_10_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_10_3.jpeg' }
+
+                            -   name: 'Meteor Echo T-Shirt'
+                                tax_category: 'clothing'
+                                channels:
+                                    - 'FASHION_WEB'
+                                main_taxon: 'mens_t_shirts'
+                                taxons:
+                                    - 't_shirts'
+                                    - 'mens_t_shirts'
+                                product_attributes:
+                                    t_shirt_brand: 'You are breathtaking'
+                                    t_shirt_collection: 'Sylius Summer 2024'
+                                    t_shirt_material: '100% cotton'
+                                product_options:
+                                    - 't_shirt_size'
+                                images:
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_11_1.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_11_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/t-shirts/man/t-shirt_11_3.jpeg' }
