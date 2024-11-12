@@ -51,7 +51,7 @@ final class SyliusCoreBundle extends AbstractResourceBundle
 
     public const MINOR_VERSION = '14';
 
-    public const RELEASE_VERSION = '0';
+    public const RELEASE_VERSION = '1';
 
     public const EXTRA_VERSION = 'DEV';
 
