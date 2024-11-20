@@ -85,7 +85,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_01.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_01.webp', type: 'main' }
 
                             -   name: 'Boho Beach Breeze'
                                 tax_category: 'clothing'
@@ -102,7 +102,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_02.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_02.webp', type: 'main' }
 
                             -   name: 'Festival Ruffle Wrap'
                                 tax_category: 'clothing'
@@ -120,7 +120,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_03.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_03.webp', type: 'main' }
                                         
                             -   name: 'Floral Garden Party'
                                 tax_category: 'clothing'
@@ -137,7 +137,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_04.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_04.webp', type: 'main' }
 
                             -   name: 'Evening Star Gown'
                                 tax_category: 'clothing'
@@ -154,7 +154,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_05.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_05.webp', type: 'main' }
 
                             -   name: 'Denim Daydream'
                                 tax_category: 'clothing'
@@ -171,7 +171,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_06.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_06.webp', type: 'main' }
 
                             -   name: 'Classic Summer Elegance'
                                 tax_category: 'clothing'
@@ -188,7 +188,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_07.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_07.webp', type: 'main' }
 
                             -   name: 'Tropical Sunset Maxi'
                                 tax_category: 'clothing'
@@ -205,7 +205,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_08.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_08.webp', type: 'main' }
 
                             -   name: 'Seaside Stroll Midi'
                                 tax_category: 'clothing'
@@ -222,7 +222,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_09.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_09.webp', type: 'main' }
 
                             -   name: 'Beach Bonfire Beauty'
                                 tax_category: 'clothing'
@@ -239,7 +239,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_10.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_10.webp', type: 'main' }
 
                             -   name: 'Summer Picnic Charm'
                                 tax_category: 'clothing'
@@ -256,7 +256,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_11.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_11.webp', type: 'main' }
 
                             -   name: 'Sun-Kissed Sundress'
                                 tax_category: 'clothing'
@@ -273,7 +273,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_12.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_12.webp', type: 'main' }
 
                             -   name: 'Palm Tree Paradise'
                                 tax_category: 'clothing'
@@ -290,7 +290,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_13.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_13.webp', type: 'main' }
 
                             -   name: 'Lemonade Stand Sweetheart'
                                 tax_category: 'clothing'
@@ -307,7 +307,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_14.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_14.webp', type: 'main' }
 
                             -   name: 'Ocean Breeze Beauty'
                                 tax_category: 'clothing'
@@ -324,7 +324,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_15.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_15.webp', type: 'main' }
 
                             -   name: 'Sunflower Fields Forever'
                                 tax_category: 'clothing'
@@ -341,7 +341,7 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_16.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_16.webp', type: 'main' }
 
                             -   name: 'Coral Reef Chic'
                                 tax_category: 'clothing'
@@ -358,4 +358,4 @@ sylius_fixtures:
                                     - 'dress_size'
                                     - 'dress_height'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_17.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/dresses/dress_17.webp', type: 'main' }

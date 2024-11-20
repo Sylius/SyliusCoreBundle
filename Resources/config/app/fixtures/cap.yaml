@@ -78,7 +78,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Euphoria 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_01.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_01.webp', type: 'main' }
 
                             -   name: 'Blissful Breeze Cap'
                                 tax_category: 'other'
@@ -93,7 +93,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Bliss 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_02.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_02.webp', type: 'main' }
 
                             -   name: 'Serene Sunshine Cap'
                                 tax_category: 'other'
@@ -108,7 +108,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Serenity 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_03.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_03.webp', type: 'main' }
 
                             -   name: 'Vibrant Voyage Cap'
                                 tax_category: 'other'
@@ -123,7 +123,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Vibrant 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_04.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_04.webp', type: 'main' }
 
                             -   name: 'Elegant Escape Cap'
                                 tax_category: 'other'
@@ -138,9 +138,9 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Elegance 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_05_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_05_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_05_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_05_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_05_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_05_3.webp' }
 
                             -   name: 'Classic Coastal Cap'
                                 tax_category: 'other'
@@ -155,9 +155,9 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Classic 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_06_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_06_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_06_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_06_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_06_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_06_3.webp' }
 
                             -   name: 'Dynamic Dawn Cap'
                                 tax_category: 'other'
@@ -172,9 +172,9 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Dynamic 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_07_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_07_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_07_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_07_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_07_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_07_3.webp' }
 
                             -   name: 'Lively Luminous Cap'
                                 tax_category: 'other'
@@ -189,9 +189,9 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Lively 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_08_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_08_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_08_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_08_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_08_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_08_3.webp' }
 
                             -   name: 'Playful Paradise Cap'
                                 tax_category: 'other'
@@ -206,9 +206,9 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Playful 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_09_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_09_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_09_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_09_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_09_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_09_3.webp' }
 
                             -   name: 'Inspiring Illumination Cap'
                                 tax_category: 'other'
@@ -223,7 +223,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Inspiring 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_10.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_10.webp', type: 'main' }
 
                             -   name: 'Casual Coastal Cap'
                                 tax_category: 'other'
@@ -238,7 +238,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Casual 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_11.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_11.webp', type: 'main' }
 
                             -   name: 'Bold Beach Cap'
                                 tax_category: 'other'
@@ -253,7 +253,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Bold 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_12.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_12.webp', type: 'main' }
 
                             -   name: 'Sophisticated Sunset Cap'
                                 tax_category: 'other'
@@ -268,8 +268,8 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Sophisticated 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_13_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_13_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_13_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_13_2.webp' }
 
                             -   name: 'Adventurous Aurora Cap'
                                 tax_category: 'other'
@@ -284,7 +284,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Adventurous 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_14.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_14.webp', type: 'main' }
 
                             -   name: 'Tranquil Twilight Cap'
                                 tax_category: 'other'
@@ -299,7 +299,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Tranquil 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_15.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_15.webp', type: 'main' }
 
                             -   name: 'Harmonious Horizon Cap'
                                 tax_category: 'other'
@@ -314,7 +314,7 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Harmonious 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_16.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_16.webp', type: 'main' }
 
                             -   name: 'Radiant Reflection Cap'
                                 tax_category: 'other'
@@ -329,4 +329,4 @@ sylius_fixtures:
                                     cap_collection: 'Sylius Radiant 2024'
                                     cap_material: '100% cotton'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_17.jpeg', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/caps/cap_17.webp', type: 'main' }

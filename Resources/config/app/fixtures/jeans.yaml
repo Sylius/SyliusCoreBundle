@@ -93,9 +93,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_03_3.webp' }
 
                             -   name: 'Azure Dream Jeans'
                                 tax_category: 'clothing'
@@ -112,9 +112,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_04_3.webp' }
 
                             -   name: 'Golden Horizon Jeans'
                                 tax_category: 'clothing'
@@ -131,9 +131,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_05_3.webp' }
 
                             -   name: 'Tropical Sunset Jeans'
                                 tax_category: 'clothing'
@@ -150,9 +150,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_06_3.webp' }
 
                             -   name: 'Coastal Bliss Jeans'
                                 tax_category: 'clothing'
@@ -169,9 +169,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_07_3.webp' }
 
                             -   name: 'Twilight Glow Jeans'
                                 tax_category: 'clothing'
@@ -188,9 +188,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_08_3.webp' }
 
                             -   name: 'Shoreline Serenity Jeans'
                                 tax_category: 'clothing'
@@ -207,9 +207,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_09_3.webp' }
 
                             -   name: 'Sunflower Radiance Jeans'
                                 tax_category: 'clothing'
@@ -226,9 +226,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_10_3.webp' }
 
                             -   name: 'Minty Fresh Jeans'
                                 tax_category: 'clothing'
@@ -245,9 +245,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_11_3.webp' }
 
                             -   name: 'Ocean Whisper Jeans'
                                 tax_category: 'clothing'
@@ -264,9 +264,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_12_3.webp' }
 
                             -   name: 'Palm Paradise Jeans'
                                 tax_category: 'clothing'
@@ -283,9 +283,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_13_3.webp' }
 
                             -   name: 'Sunrise Splendor Jeans'
                                 tax_category: 'clothing'
@@ -302,9 +302,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_3.jpeg' }                                        
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/man/jeans_14_3.webp' }                                        
                                         
                             -   name: 'Sunlit Reverie Jeans'
                                 tax_category: 'clothing'
@@ -321,9 +321,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_01_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_01_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_01_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_01_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_01_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_01_3.webp' }
 
                             -   name: 'Seaside Tranquility Jeans'
                                 tax_category: 'clothing'
@@ -340,9 +340,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_02_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_02_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_02_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_02_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_02_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_02_3.webp' }
 
                             -   name: 'Sunflower Sunset Jeans'
                                 tax_category: 'clothing'
@@ -359,9 +359,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_03_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_03_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_03_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_03_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_03_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_03_3.webp' }
 
                             -   name: 'Ocean Wave Jeans'
                                 tax_category: 'clothing'
@@ -378,9 +378,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_04_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_04_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_04_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_04_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_04_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_04_3.webp' }
 
                             -   name: 'Tropical Breeze Jeans'
                                 tax_category: 'clothing'
@@ -397,9 +397,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_05_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_05_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_05_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_05_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_05_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_05_3.webp' }
 
                             -   name: 'Summer Bloom Jeans'
                                 tax_category: 'clothing'
@@ -416,9 +416,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_06_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_06_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_06_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_06_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_06_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_06_3.webp' }
 
                             -   name: 'Beachside Bliss Jeans'
                                 tax_category: 'clothing'
@@ -435,9 +435,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_07_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_07_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_07_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_07_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_07_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_07_3.webp' }
 
                             -   name: 'Summer Solstice Jeans'
                                 tax_category: 'clothing'
@@ -454,9 +454,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_08_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_08_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_08_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_08_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_08_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_08_3.webp' }
 
                             -   name: 'Cool Breeze Jeans'
                                 tax_category: 'clothing'
@@ -473,9 +473,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_09_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_09_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_09_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_09_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_09_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_09_3.webp' }
 
                             -   name: 'Paradise Island Jeans'
                                 tax_category: 'clothing'
@@ -492,9 +492,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_10_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_10_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_10_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_10_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_10_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_10_3.webp' }
 
                             -   name: 'Sun Path Jeans'
                                 tax_category: 'clothing'
@@ -511,9 +511,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_11_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_11_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_11_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_11_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_11_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_11_3.webp' }
 
                             -   name: 'Oceanic Harmony Jeans'
                                 tax_category: 'clothing'
@@ -530,9 +530,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_12_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_12_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_12_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_12_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_12_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_12_3.webp' }
 
                             -   name: 'Skyline Bliss Jeans'
                                 tax_category: 'clothing'
@@ -549,9 +549,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_13_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_13_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_13_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_13_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_13_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_13_3.webp' }
 
                             -   name: 'Radiant Sunshine Jeans'
                                 tax_category: 'clothing'
@@ -568,9 +568,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_14_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_14_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_14_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_14_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_14_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_14_3.webp' }
                                     
                             -   name: 'Seashell Harmony Jeans'
                                 tax_category: 'clothing'
@@ -587,9 +587,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_15_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_15_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_15_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_15_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_15_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_15_3.webp' }
 
                             -   name: 'Tropical Dawn Jeans'
                                 tax_category: 'clothing'
@@ -606,9 +606,9 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_16_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_16_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_16_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_16_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_16_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_16_3.webp' }
 
                             -   name: 'Beachside Twilight Jeans'
                                 tax_category: 'clothing'
@@ -625,8 +625,8 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_17_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_17_2.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_17_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_17_2.webp' }
 
                             -   name: 'Summer Zephyr Jeans'
                                 tax_category: 'clothing'
@@ -643,6 +643,6 @@ sylius_fixtures:
                                 product_options:
                                     - 'jeans_size'
                                 images:
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_18_1.jpeg', type: 'main' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_18_2.jpeg' }
-                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_18_3.jpeg' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_18_1.webp', type: 'main' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_18_2.webp' }
+                                    - { path: '@SyliusCoreBundle/Resources/fixtures/jeans/woman/jeans_18_3.webp' }

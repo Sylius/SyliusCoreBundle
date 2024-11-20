@@ -83,12 +83,18 @@ liip_imagine:
     filter_sets:
         sylius_original: ~
         sylius_small:
+            format: webp
+            quality: 80
             filters:
                 thumbnail: { size: [120, 90], mode: outbound }
         sylius_medium:
+            format: webp
+            quality: 80
             filters:
                 thumbnail: { size: [240, 180], mode: outbound }
         sylius_large:
+            format: webp
+            quality: 80
             filters:
                 thumbnail: { size: [640, 480], mode: outbound }
 
