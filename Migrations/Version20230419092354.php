@@ -26,7 +26,7 @@ final class Version20230419092354 extends AbstractPostgreSQLMigration
     public function up(Schema $schema): void
     {
         if ($schema->hasTable('sylius_address')) {
-            $this->markAsExecuted($this->getVersion());
+            $this->setMarkCompletedWhenSkip();
             $this->skipIf(true, 'This migration is marked as completed.');
         }
 

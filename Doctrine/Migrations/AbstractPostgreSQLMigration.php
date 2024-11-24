@@ -19,10 +19,12 @@ use Doctrine\Migrations\AbstractMigration as BaseAbstractMigration;
 
 abstract class AbstractPostgreSQLMigration extends BaseAbstractMigration
 {
+    private bool $markCompletedWhenSkip = false;
+
     public function preUp(Schema $schema): void
     {
         if (!$this->isPostgreSQL()) {
-            $this->markAsExecuted($this->getVersion());
+            $this->setMarkCompletedWhenSkip();
             $this->skipIf(true, 'This migration can only be executed on \'PostgreSQL\'.');
         }
     }
@@ -40,6 +42,9 @@ abstract class AbstractPostgreSQLMigration extends BaseAbstractMigration
         ;
     }
 
+    /**
+     * @deprecated
+     */
     protected function markAsExecuted(string $version): void
     {
         $this->connection->executeQuery(
@@ -51,5 +56,15 @@ abstract class AbstractPostgreSQLMigration extends BaseAbstractMigration
     protected function getVersion(): string
     {
         return addslashes((new \ReflectionClass($this))->getName());
+    }
+
+    public function isMarkCompletedWhenSkip(): bool
+    {
+        return $this->markCompletedWhenSkip;
+    }
+
+    protected function setMarkCompletedWhenSkip(): void
+    {
+        $this->markCompletedWhenSkip = true;
     }
 }
