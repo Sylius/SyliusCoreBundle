@@ -31,7 +31,7 @@
                  class="Sylius\Bundle\CoreBundle\CommandHandler\ResendShipmentConfirmationEmailHandler"
         >
             <argument type="service" id="sylius.repository.shipment" />
-            <argument type="service" id="Sylius\Bundle\CoreBundle\Mailer\ShipmentEmailManagerInterface" />
+            <argument type="service" id="sylius.mailer.shipment_email_manager" />
             <tag name="messenger.message_handler" bus="sylius.command_bus" />
         </service>
 
@@ -46,7 +46,7 @@
         <service id="sylius.command_handler.resend_order_confirmation_email"
                  class="Sylius\Bundle\CoreBundle\CommandHandler\ResendOrderConfirmationEmailHandler"
         >
-            <argument type="service" id="Sylius\Bundle\CoreBundle\Mailer\OrderEmailManagerInterface" />
+            <argument type="service" id="sylius.mailer.order_email_manager" />
             <argument type="service" id="sylius.repository.order" />
             <tag name="messenger.message_handler" bus="sylius.command_bus" />
         </service>
@@ -55,7 +55,7 @@
                  class="Sylius\Bundle\CoreBundle\CommandHandler\Admin\Account\SendResetPasswordEmailHandler"
         >
             <argument type="service" id="sylius.repository.admin_user"/>
-            <argument type="service" id="Sylius\Bundle\CoreBundle\Mailer\ResetPasswordEmailManagerInterface" />
+            <argument type="service" id="sylius.mailer.reset_password_email_manager" />
 
             <tag name="messenger.message_handler" bus="sylius.command_bus" />
         </service>

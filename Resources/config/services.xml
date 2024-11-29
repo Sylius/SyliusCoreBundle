@@ -260,13 +260,13 @@
 
         <service id="sylius.resetter.user_password.admin" class="Sylius\Bundle\CoreBundle\Security\UserPasswordResetter">
             <argument type="service" id="sylius.repository.admin_user" />
-            <argument type="service" id="Sylius\Component\User\Security\PasswordUpdaterInterface" />
+            <argument type="service" id="sylius.security.password_updater" />
             <argument type="string">%sylius.admin_user.token.password_reset.ttl%</argument>
         </service>
 
         <service id="sylius.resetter.user_password.shop" class="Sylius\Bundle\CoreBundle\Security\UserPasswordResetter">
             <argument type="service" id="sylius.repository.shop_user" />
-            <argument type="service" id="Sylius\Component\User\Security\PasswordUpdaterInterface" />
+            <argument type="service" id="sylius.security.password_updater" />
             <argument type="string">%sylius.shop_user.token.password_reset.ttl%</argument>
         </service>
 

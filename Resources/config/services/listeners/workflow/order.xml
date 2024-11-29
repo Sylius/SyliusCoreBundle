@@ -18,12 +18,12 @@
 >
     <services>
         <service id="sylius.listener.workflow.order.assign_order_number" class="Sylius\Bundle\CoreBundle\EventListener\Workflow\Order\AssignOrderNumberListener">
-            <argument type="service" id="Sylius\Bundle\OrderBundle\NumberAssigner\OrderNumberAssignerInterface"/>
+            <argument type="service" id="sylius.number_assigner.order_number"/>
             <tag name="kernel.event_listener" event="workflow.sylius_order.transition.create" priority="200"/>
         </service>
 
         <service id="sylius.listener.workflow.order.assign_order_token" class="Sylius\Bundle\CoreBundle\EventListener\Workflow\Order\AssignOrderTokenListener">
-            <argument type="service" id="Sylius\Component\Core\TokenAssigner\OrderTokenAssignerInterface" />
+            <argument type="service" id="sylius.assigner.order_token.unique_id_based" />
             <tag name="kernel.event_listener" event="workflow.sylius_order.transition.create" priority="100"/>
         </service>
 
@@ -38,12 +38,12 @@
         </service>
 
         <service id="sylius.listener.workflow.order.decrement_promotion_usages" class="Sylius\Bundle\CoreBundle\EventListener\Workflow\Order\DecrementPromotionUsagesListener">
-            <argument type="service" id="Sylius\Component\Core\Promotion\Modifier\OrderPromotionsUsageModifierInterface"/>
+            <argument type="service" id="sylius.modifier.promotion.order_usage"/>
             <tag name="kernel.event_listener" event="workflow.sylius_order.completed.cancel" priority="100"/>
         </service>
 
         <service id="sylius.listener.workflow.order.increment_promotion_usages" class="Sylius\Bundle\CoreBundle\EventListener\Workflow\Order\IncrementPromotionUsagesListener">
-            <argument type="service" id="Sylius\Component\Core\Promotion\Modifier\OrderPromotionsUsageModifierInterface"/>
+            <argument type="service" id="sylius.modifier.promotion.order_usage"/>
             <tag name="kernel.event_listener" event="workflow.sylius_order.completed.create" priority="300"/>
         </service>
 
@@ -53,7 +53,7 @@
         </service>
 
         <service id="sylius.listener.workflow.order.give_back_inventory" class="Sylius\Bundle\CoreBundle\EventListener\Workflow\Order\GiveBackInventoryListener">
-            <argument type="service" id="Sylius\Component\Core\Inventory\Operator\OrderInventoryOperatorInterface"/>
+            <argument type="service" id="sylius.operator.inventory.order_inventory"/>
             <tag name="kernel.event_listener" event="workflow.sylius_order.completed.cancel" priority="200"/>
         </service>
 
@@ -68,12 +68,12 @@
         </service>
 
         <service id="sylius.listener.workflow.order.save_customer_addresses" class="Sylius\Bundle\CoreBundle\EventListener\Workflow\Order\SaveCustomerAddressesListener">
-            <argument type="service" id="Sylius\Component\Core\Customer\OrderAddressesSaverInterface" />
+            <argument type="service" id="sylius.saver.customer.order_addresses" />
             <tag name="kernel.event_listener" event="workflow.sylius_order.completed.create" priority="200"/>
         </service>
 
         <service id="sylius.listener.workflow.order.set_immutable_names" class="Sylius\Bundle\CoreBundle\EventListener\Workflow\Order\SetImmutableNamesListener">
-            <argument type="service" id="Sylius\Component\Core\Order\OrderItemNamesSetterInterface" />
+            <argument type="service" id="sylius.setter.order.item_names" />
             <tag name="kernel.event_listener" event="workflow.sylius_order.completed.create" priority="100"/>
         </service>
 
