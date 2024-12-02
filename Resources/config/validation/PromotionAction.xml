@@ -92,6 +92,7 @@
                             <value key="filters">
                                 <constraint name="Optional">
                                     <constraint name="Collection">
+                                        <option name="allowExtraFields">true</option>
                                         <option name="fields">
                                             <value key="price_range_filter">
                                                 <constraint name="Optional">
@@ -199,6 +200,7 @@
                             <value key="filters">
                                 <constraint name="Optional">
                                     <constraint name="Collection">
+                                        <option name="allowExtraFields">true</option>
                                         <option name="fields">
                                             <value key="price_range_filter">
                                                 <constraint name="Optional">
