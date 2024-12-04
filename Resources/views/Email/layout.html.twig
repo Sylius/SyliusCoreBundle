@@ -1,7 +1,7 @@
 {% block body %}
     {% autoescape false %}
         {% if use_webpack %}
-            {% set logo = sylius_channel_url(asset('build/shop/images/logo.png', 'shop'), channel) %}
+            {% set logo = sylius_channel_url(asset('bundles/syliuscore/images/sylius-logo.png'), channel) %}
         {% else %}
             {% set logo = sylius_channel_url(asset('assets/shop/img/logo.png'), channel) %}
         {% endif %}
