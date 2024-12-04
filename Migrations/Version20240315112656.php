@@ -82,7 +82,7 @@ final class Version20240315112656 extends AbstractMigration
             $data = $row[$dataColumn];
 
             $decodedData = json_decode($data, true);
-            $this->skipIf(json_last_error() !== JSON_ERROR_NONE, sprintf('Data in %s is not json', $table));
+            $this->skipIf(json_last_error() !== \JSON_ERROR_NONE, sprintf('Data in %s is not json', $table));
             $decodedData = serialize($decodedData);
 
             $connection->UPDATE($table, [$dataColumn => $decodedData], ['id' => $id]);
