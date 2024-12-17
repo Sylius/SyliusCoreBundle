@@ -21,12 +21,12 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 final class UrlProvider implements UrlProviderInterface
 {
     /**
-     * @param array<string, string> $afterPayRouteParameters
+     * @param array<string, string> $routeParameters
      */
     public function __construct(
         private RouteParametersProcessorInterface $routeParametersProcessor,
-        private string $afterPayRoute,
-        private array $afterPayRouteParameters,
+        private string $route,
+        private array $routeParameters,
     ) {
     }
 
@@ -41,8 +41,8 @@ final class UrlProvider implements UrlProviderInterface
         ];
 
         return $this->routeParametersProcessor->process(
-            $this->afterPayRoute,
-            $this->afterPayRouteParameters,
+            $this->route,
+            $this->routeParameters,
             $referenceType,
             $context,
         );
