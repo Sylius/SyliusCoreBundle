@@ -124,7 +124,7 @@
             <tag name="doctrine.event_listener" event="postGenerateSchema" method="postGenerateSchema" lazy="true" />
         </service>
 
-        <service id="Sylius\Bundle\CoreBundle\EventListener\PostgreSQLSkipMigration">
+        <service id="sylius.listener.migration_skip" class="Sylius\Bundle\CoreBundle\EventListener\MigrationSkipListener">
             <argument type="service" id="doctrine.migrations.dependency_factory"/>
             <tag name="doctrine.event_listener" event="onMigrationsVersionSkipped" method="onMigrationsVersionSkipped" lazy="true" />
         </service>

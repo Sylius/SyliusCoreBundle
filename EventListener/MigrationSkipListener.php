@@ -16,13 +16,12 @@ namespace Sylius\Bundle\CoreBundle\EventListener;
 use Doctrine\Migrations\DependencyFactory;
 use Doctrine\Migrations\Event\MigrationsVersionEventArgs;
 use Doctrine\Migrations\Version\Direction;
-use Sylius\Bundle\CoreBundle\Doctrine\Migrations\AbstractPostgreSQLMigration;
+use Sylius\Bundle\CoreBundle\Doctrine\Migrations\MigrationSkipInterface;
 
-final class PostgreSQLSkipMigration
+final class MigrationSkipListener
 {
-    public function __construct(
-        private readonly DependencyFactory $dependencyFactory,
-    ) {
+    public function __construct(private readonly DependencyFactory $dependencyFactory)
+    {
     }
 
     public function onMigrationsVersionSkipped(MigrationsVersionEventArgs $event): void
@@ -33,9 +32,8 @@ final class PostgreSQLSkipMigration
 
         if (
             $direction === Direction::UP &&
-            $migration instanceof AbstractPostgreSQLMigration &&
-            $result->isSkipped() &&
-            $migration->isMarkCompletedWhenSkip()
+            $migration instanceof MigrationSkipInterface &&
+            $result->isSkipped()
         ) {
             $metadataStorage = $this->dependencyFactory->getMetadataStorage();
             $metadataStorage->complete($event->getPlan()->result);

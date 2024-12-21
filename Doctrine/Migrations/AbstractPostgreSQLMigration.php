@@ -17,16 +17,11 @@ use Doctrine\DBAL\Platforms\PostgreSQLPlatform;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration as BaseAbstractMigration;
 
-abstract class AbstractPostgreSQLMigration extends BaseAbstractMigration
+abstract class AbstractPostgreSQLMigration extends BaseAbstractMigration implements MigrationSkipInterface
 {
-    private bool $markCompletedWhenSkip = false;
-
     public function preUp(Schema $schema): void
     {
-        if (!$this->isPostgreSQL()) {
-            $this->setMarkCompletedWhenSkip();
-            $this->skipIf(true, 'This migration can only be executed on \'PostgreSQL\'.');
-        }
+        $this->skipIf(!$this->isPostgreSQL(), 'This migration can only be executed on \'PostgreSQL\'.');
     }
 
     public function preDown(Schema $schema): void
@@ -42,9 +37,7 @@ abstract class AbstractPostgreSQLMigration extends BaseAbstractMigration
         ;
     }
 
-    /**
-     * @deprecated
-     */
+    /** @deprecated This method is deprecated and will be removed in Sylius 3.0 */
     protected function markAsExecuted(string $version): void
     {
         $this->connection->executeQuery(
@@ -53,18 +46,9 @@ abstract class AbstractPostgreSQLMigration extends BaseAbstractMigration
         $this->connection->commit();
     }
 
+    /** @deprecated This method is deprecated and will be removed in Sylius 3.0 */
     protected function getVersion(): string
     {
         return addslashes((new \ReflectionClass($this))->getName());
-    }
-
-    public function isMarkCompletedWhenSkip(): bool
-    {
-        return $this->markCompletedWhenSkip;
-    }
-
-    protected function setMarkCompletedWhenSkip(): void
-    {
-        $this->markCompletedWhenSkip = true;
     }
 }
