@@ -26,17 +26,16 @@ final class MigrationSkipListener
 
     public function onMigrationsVersionSkipped(MigrationsVersionEventArgs $event): void
     {
-        $migration = $event->getPlan()->getMigration();
-        $result = $event->getPlan()->result;
-        $direction = $event->getPlan()->getDirection();
+        $plan = $event->getPlan();
+        $result = $plan->getResult();
 
         if (
-            $direction === Direction::UP &&
-            $migration instanceof MigrationSkipInterface &&
+            $plan->getDirection() === Direction::UP &&
+            $plan->getMigration() instanceof MigrationSkipInterface &&
             $result->isSkipped()
         ) {
             $metadataStorage = $this->dependencyFactory->getMetadataStorage();
-            $metadataStorage->complete($event->getPlan()->result);
+            $metadataStorage->complete($result);
         }
     }
 }

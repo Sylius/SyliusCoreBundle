@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Tests\Listener;
+namespace Sylius\Bundle\CoreBundle\Tests\EventListener;
 
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
