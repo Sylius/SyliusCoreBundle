@@ -25,19 +25,20 @@
             <parameter type="constant">Sylius\Component\Order\Model\OrderInterface::STATE_CANCELLED</parameter>
             <parameter type="constant">Sylius\Component\Order\Model\OrderInterface::STATE_FULFILLED</parameter>
         </parameter>
+        <parameter key="sylius.order_processing.adjustment_clearing_types" type="collection">
+            <parameter type="constant">Sylius\Component\Core\Model\AdjustmentInterface::ORDER_ITEM_PROMOTION_ADJUSTMENT</parameter>
+            <parameter type="constant">Sylius\Component\Core\Model\AdjustmentInterface::ORDER_PROMOTION_ADJUSTMENT</parameter>
+            <parameter type="constant">Sylius\Component\Core\Model\AdjustmentInterface::ORDER_SHIPPING_PROMOTION_ADJUSTMENT</parameter>
+            <parameter type="constant">Sylius\Component\Core\Model\AdjustmentInterface::ORDER_UNIT_PROMOTION_ADJUSTMENT</parameter>
+            <parameter type="constant">Sylius\Component\Core\Model\AdjustmentInterface::SHIPPING_ADJUSTMENT</parameter>
+            <parameter type="constant">Sylius\Component\Core\Model\AdjustmentInterface::TAX_ADJUSTMENT</parameter>
+        </parameter>
     </parameters>
     <services>
         <defaults public="true" />
 
         <service id="sylius.order_processing.order_adjustments_clearer" class="Sylius\Component\Core\OrderProcessing\OrderAdjustmentsClearer">
-            <argument type="collection">
-                <argument type="constant">Sylius\Component\Core\Model\AdjustmentInterface::ORDER_ITEM_PROMOTION_ADJUSTMENT</argument>
-                <argument type="constant">Sylius\Component\Core\Model\AdjustmentInterface::ORDER_PROMOTION_ADJUSTMENT</argument>
-                <argument type="constant">Sylius\Component\Core\Model\AdjustmentInterface::ORDER_SHIPPING_PROMOTION_ADJUSTMENT</argument>
-                <argument type="constant">Sylius\Component\Core\Model\AdjustmentInterface::ORDER_UNIT_PROMOTION_ADJUSTMENT</argument>
-                <argument type="constant">Sylius\Component\Core\Model\AdjustmentInterface::SHIPPING_ADJUSTMENT</argument>
-                <argument type="constant">Sylius\Component\Core\Model\AdjustmentInterface::TAX_ADJUSTMENT</argument>
-            </argument>
+            <argument>%sylius.order_processing.adjustment_clearing_types%</argument>
             <tag name="sylius.order_processor" priority="60"/>
         </service>
 
