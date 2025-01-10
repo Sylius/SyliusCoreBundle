@@ -16,14 +16,11 @@ namespace Sylius\Bundle\CoreBundle\Doctrine\Migrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration as BaseAbstractMigration;
 
-abstract class AbstractMigration extends BaseAbstractMigration
+abstract class AbstractMigration extends BaseAbstractMigration implements MigrationSkipInterface
 {
     public function preUp(Schema $schema): void
     {
-        if (!$this->isMySql()) {
-            $this->markAsExecuted($this->getVersion());
-            $this->skipIf(true, 'This migration can only be executed on \'MySQL\'.');
-        }
+        $this->skipIf(!$this->isMySql(), 'This migration can only be executed on \'MySQL\'.');
     }
 
     public function preDown(Schema $schema): void
@@ -63,11 +60,7 @@ abstract class AbstractMigration extends BaseAbstractMigration
         return false;
     }
 
-    private function getVersion(): string
-    {
-        return (new \ReflectionClass($this))->getName();
-    }
-
+    /** @deprecated */
     protected function markAsExecuted(string $version): void
     {
         $this->connection->executeQuery(
