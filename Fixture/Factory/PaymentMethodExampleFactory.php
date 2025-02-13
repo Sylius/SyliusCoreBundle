@@ -94,6 +94,7 @@ class PaymentMethodExampleFactory extends AbstractExampleFactory
             ->setDefault('gatewayFactory', 'offline')
             ->setDefault('gatewayConfig', [])
             ->setDefault('usePayum', true)
+            ->setAllowedTypes('usePayum', 'bool')
             ->setDefault('enabled', fn (Options $options): bool => $this->faker->boolean(90))
             ->setDefault('channels', LazyOption::all($this->channelRepository))
             ->setAllowedTypes('channels', 'array')
