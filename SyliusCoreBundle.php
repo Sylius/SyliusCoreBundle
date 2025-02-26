@@ -42,7 +42,7 @@ final class SyliusCoreBundle extends AbstractResourceBundle
 {
     public const VERSION = '2.0.4-DEV';
 
-    public const VERSION_ID = '20003';
+    public const VERSION_ID = '20004';
 
     public const MAJOR_VERSION = '2';
 
