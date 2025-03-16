@@ -13,10 +13,13 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
+/** @template T of object */
 interface ExampleFactoryInterface
 {
     /**
-     * @return object
+     * @param array<string, mixed> $options
+     *
+     * @return T
      */
     public function create(array $options = []);
 }
