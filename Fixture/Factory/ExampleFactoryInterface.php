@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-/** @template T of object */
+use Sylius\Resource\Model\ResourceInterface;
+
+/** @template T of ResourceInterface */
 interface ExampleFactoryInterface
 {
     /**
