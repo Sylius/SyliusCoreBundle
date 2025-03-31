@@ -276,7 +276,7 @@ sylius:
                 auto_start_help: عيّن 'session.auto_start = Off' في ملف php.ini الخاص بك
             short_open_tag: short_open_tag
             timezone: المنطقة الزمنية
-            timezone_help: "عيّن 'date.timezone' في ملف php.ini (مثال: date.timezone = "Europe/Amsterdam")"
+            timezone_help: 'عيّن "date.timezone" في ملف php.ini (مثال: date.timezone = "Europe/Amsterdam")'
             timezone_deprecated:
                 header: منطقة زمنية مهملة
                 help: "مهمة. عدل ملف php.ini الخاص بك (%timezone% المنطقة الزمنية المهملة). http://php.net/manual/en/timezones.others.php"
