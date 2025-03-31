@@ -25,7 +25,6 @@ use Sylius\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<ShopUserInterface> */
 class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
@@ -38,9 +37,9 @@ class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFa
      * @param RepositoryInterface<CustomerGroupInterface> $customerGroupRepository
      */
     public function __construct(
-        private readonly FactoryInterface $shopUserFactory,
-        private readonly FactoryInterface $customerFactory,
-        private readonly RepositoryInterface $customerGroupRepository,
+        private FactoryInterface $shopUserFactory,
+        private FactoryInterface $customerFactory,
+        private RepositoryInterface $customerGroupRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -81,7 +80,7 @@ class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFa
             ->setDefault('enabled', true)
             ->setAllowedTypes('enabled', 'bool')
             ->setDefault('password', 'password123')
-            ->setDefault('customer_group', LazyOption::randomOneOrNull($this->customerGroupRepository))
+            ->setDefault('customer_group', LazyOption::randomOneOrNull($this->customerGroupRepository, 100))
             ->setAllowedTypes('customer_group', ['null', 'string', CustomerGroupInterface::class])
             ->setNormalizer('customer_group', LazyOption::findOneBy($this->customerGroupRepository, 'code'))
             ->setDefault('gender', CustomerComponent::UNKNOWN_GENDER)

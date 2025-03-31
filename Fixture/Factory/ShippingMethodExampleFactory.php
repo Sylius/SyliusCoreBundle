@@ -30,7 +30,6 @@ use Sylius\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<ShippingMethodInterface> */
 class ShippingMethodExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
@@ -45,12 +44,12 @@ class ShippingMethodExampleFactory extends AbstractExampleFactory implements Exa
      * @param RepositoryInterface<TaxCategoryInterface> $taxCategoryRepository
      */
     public function __construct(
-        private readonly FactoryInterface $shippingMethodFactory,
-        private readonly RepositoryInterface $zoneRepository,
-        private readonly RepositoryInterface $shippingCategoryRepository,
-        private readonly RepositoryInterface $localeRepository,
-        private readonly ChannelRepositoryInterface $channelRepository,
-        private readonly RepositoryInterface $taxCategoryRepository,
+        private FactoryInterface $shippingMethodFactory,
+        private RepositoryInterface $zoneRepository,
+        private RepositoryInterface $shippingCategoryRepository,
+        private RepositoryInterface $localeRepository,
+        private ChannelRepositoryInterface $channelRepository,
+        private RepositoryInterface $taxCategoryRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -98,7 +97,7 @@ class ShippingMethodExampleFactory extends AbstractExampleFactory implements Exa
     {
         $resolver
             ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
-            ->setDefault('name', function (): string {
+            ->setDefault('name', function (Options $options): string {
                 /** @var string $words */
                 $words = $this->faker->words(3, true);
 

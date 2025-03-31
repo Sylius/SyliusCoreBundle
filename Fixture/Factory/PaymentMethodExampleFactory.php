@@ -20,15 +20,13 @@ use Sylius\Bundle\PayumBundle\Model\GatewayConfigInterface;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Core\Factory\PaymentMethodFactoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
-use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\PaymentMethodInterface;
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<PaymentMethodInterface> */
-class PaymentMethodExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
+class PaymentMethodExampleFactory extends AbstractExampleFactory
 {
     public const DEFAULT_LOCALE = 'en_US';
 
@@ -36,15 +34,11 @@ class PaymentMethodExampleFactory extends AbstractExampleFactory implements Exam
 
     private OptionsResolver $optionsResolver;
 
-    /**
-     * @param PaymentMethodFactoryInterface<PaymentMethodInterface> $paymentMethodFactory
-     * @param RepositoryInterface<LocaleInterface> $localeRepository
-     * @param ChannelRepositoryInterface<ChannelInterface> $channelRepository
-     */
+    /** @param RepositoryInterface<LocaleInterface> $localeRepository */
     public function __construct(
-        private readonly PaymentMethodFactoryInterface $paymentMethodFactory,
-        private readonly RepositoryInterface $localeRepository,
-        private readonly ChannelRepositoryInterface $channelRepository,
+        private PaymentMethodFactoryInterface $paymentMethodFactory,
+        private RepositoryInterface $localeRepository,
+        private ChannelRepositoryInterface $channelRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -56,6 +50,7 @@ class PaymentMethodExampleFactory extends AbstractExampleFactory implements Exam
     {
         $options = $this->optionsResolver->resolve($options);
 
+        /** @var PaymentMethodInterface $paymentMethod */
         $paymentMethod = $this->paymentMethodFactory->createWithGateway($options['gatewayFactory']);
         /** @var GatewayConfigInterface $gatewayConfig */
         $gatewayConfig = $paymentMethod->getGatewayConfig();
@@ -85,7 +80,7 @@ class PaymentMethodExampleFactory extends AbstractExampleFactory implements Exam
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
+            ->setDefault('name', function (Options $options): string {
                 /** @var string $words */
                 $words = $this->faker->words(3, true);
 
@@ -108,7 +103,6 @@ class PaymentMethodExampleFactory extends AbstractExampleFactory implements Exam
         ;
     }
 
-    /** @return iterable<string> */
     private function getLocales(): iterable
     {
         /** @var LocaleInterface[] $locales */

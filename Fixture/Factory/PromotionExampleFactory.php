@@ -18,7 +18,6 @@ use Faker\Generator;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
-use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\PromotionCouponInterface;
 use Sylius\Component\Core\Model\PromotionInterface;
 use Sylius\Component\Locale\Model\LocaleInterface;
@@ -30,7 +29,6 @@ use Symfony\Component\OptionsResolver\Exception\InvalidArgumentException;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<PromotionInterface> */
 class PromotionExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
@@ -38,20 +36,17 @@ class PromotionExampleFactory extends AbstractExampleFactory implements ExampleF
     private OptionsResolver $optionsResolver;
 
     /**
-     * @param ChannelRepositoryInterface<ChannelInterface> $channelRepository
-     * @param ExampleFactoryInterface<PromotionActionInterface> $promotionActionExampleFactory
-     * @param ExampleFactoryInterface<PromotionRuleInterface> $promotionRuleExampleFactory
-     * @param FactoryInterface<PromotionCouponInterface> $couponFactory
      * @param FactoryInterface<PromotionInterface> $promotionFactory
+     * @param FactoryInterface<PromotionCouponInterface> $couponFactory
      * @param RepositoryInterface<LocaleInterface> $localeRepository
      */
     public function __construct(
-        private readonly FactoryInterface $promotionFactory,
-        private readonly ExampleFactoryInterface $promotionRuleExampleFactory,
-        private readonly ExampleFactoryInterface $promotionActionExampleFactory,
-        private readonly ChannelRepositoryInterface $channelRepository,
-        private readonly FactoryInterface $couponFactory,
-        private readonly RepositoryInterface $localeRepository,
+        private FactoryInterface $promotionFactory,
+        private ExampleFactoryInterface $promotionRuleExampleFactory,
+        private ExampleFactoryInterface $promotionActionExampleFactory,
+        private ChannelRepositoryInterface $channelRepository,
+        private FactoryInterface $couponFactory,
+        private RepositoryInterface $localeRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();

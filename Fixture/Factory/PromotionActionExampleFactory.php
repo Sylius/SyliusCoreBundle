@@ -21,15 +21,13 @@ use Sylius\Component\Promotion\Model\PromotionActionInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<PromotionActionInterface> */
 class PromotionActionExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
 
     private OptionsResolver $optionsResolver;
 
-    /** @param PromotionActionFactoryInterface<PromotionActionInterface> $promotionActionFactory */
-    public function __construct(private readonly PromotionActionFactoryInterface $promotionActionFactory)
+    public function __construct(private PromotionActionFactoryInterface $promotionActionFactory)
     {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -60,7 +58,7 @@ class PromotionActionExampleFactory extends AbstractExampleFactory implements Ex
             ->setNormalizer('configuration', function (Options $options, array $configuration): array {
                 foreach ($configuration as $channelCode => $channelConfiguration) {
                     if (isset($channelConfiguration['amount'])) {
-                        $configuration[$channelCode]['amount'] = (int) ($channelConfiguration['amount'] * 100);
+                        $configuration[$channelCode]['amount'] = (int) ($configuration[$channelCode]['amount'] * 100);
                     }
 
                     if (isset($channelConfiguration['percentage'])) {

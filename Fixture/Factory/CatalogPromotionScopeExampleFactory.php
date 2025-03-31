@@ -18,13 +18,12 @@ use Sylius\Component\Promotion\Model\CatalogPromotionScopeInterface;
 use Sylius\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<CatalogPromotionScopeInterface> */
 final class CatalogPromotionScopeExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private OptionsResolver $optionsResolver;
 
     /** @param FactoryInterface<CatalogPromotionScopeInterface> $catalogPromotionScopeFactory */
-    public function __construct(private readonly FactoryInterface $catalogPromotionScopeFactory)
+    public function __construct(private FactoryInterface $catalogPromotionScopeFactory)
     {
         $this->optionsResolver = new OptionsResolver();
 

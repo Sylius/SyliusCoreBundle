@@ -17,7 +17,6 @@ use Faker\Factory;
 use Faker\Generator;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Attribute\AttributeType\SelectAttributeType;
-use Sylius\Component\Attribute\Model\AttributeValueInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\ChannelPricingInterface;
@@ -46,7 +45,6 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Webmozart\Assert\Assert;
 
-/** @implements ExampleFactoryInterface<ProductInterface> */
 class ProductExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
@@ -68,22 +66,22 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
      * @param RepositoryInterface<TaxCategoryInterface> $taxCategoryRepository
      */
     public function __construct(
-        private readonly FactoryInterface $productFactory,
-        private readonly FactoryInterface $productVariantFactory,
-        private readonly FactoryInterface $channelPricingFactory,
-        private readonly ProductVariantGeneratorInterface $variantGenerator,
-        private readonly FactoryInterface $productAttributeValueFactory,
-        private readonly FactoryInterface $productImageFactory,
-        private readonly FactoryInterface $productTaxonFactory,
-        private readonly ImageUploaderInterface $imageUploader,
-        private readonly SlugGeneratorInterface $slugGenerator,
-        private readonly RepositoryInterface $taxonRepository,
-        private readonly RepositoryInterface $productAttributeRepository,
-        private readonly RepositoryInterface $productOptionRepository,
-        private readonly RepositoryInterface $channelRepository,
-        private readonly RepositoryInterface $localeRepository,
-        private readonly RepositoryInterface $taxCategoryRepository,
-        private readonly FileLocatorInterface $fileLocator,
+        private FactoryInterface $productFactory,
+        private FactoryInterface $productVariantFactory,
+        private FactoryInterface $channelPricingFactory,
+        private ProductVariantGeneratorInterface $variantGenerator,
+        private FactoryInterface $productAttributeValueFactory,
+        private FactoryInterface $productImageFactory,
+        private FactoryInterface $productTaxonFactory,
+        private ImageUploaderInterface $imageUploader,
+        private SlugGeneratorInterface $slugGenerator,
+        private RepositoryInterface $taxonRepository,
+        private RepositoryInterface $productAttributeRepository,
+        private RepositoryInterface $productOptionRepository,
+        private RepositoryInterface $channelRepository,
+        private RepositoryInterface $localeRepository,
+        private RepositoryInterface $taxCategoryRepository,
+        private FileLocatorInterface $fileLocator,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -101,7 +99,7 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         $product->setCode($options['code']);
         $product->setEnabled($options['enabled']);
         $product->setMainTaxon($options['main_taxon']);
-        $product->setCreatedAt($this->faker->dateTimeBetween('-1 week'));
+        $product->setCreatedAt($this->faker->dateTimeBetween('-1 week', 'now'));
 
         $this->createTranslations($product, $options);
         $this->createRelations($product, $options);
@@ -115,7 +113,7 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
+            ->setDefault('name', function (Options $options): string {
                 /** @var string $words */
                 $words = $this->faker->words(3, true);
 
@@ -134,7 +132,12 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
 
             ->setDefault('short_description', fn (Options $options): string => $this->faker->paragraph)
 
-            ->setDefault('description', fn(Options $options): string => $this->faker->paragraphs(3, true))
+            ->setDefault('description', function (Options $options): string {
+                /** @var string $paragraphs */
+                $paragraphs = $this->faker->paragraphs(3, true);
+
+                return $paragraphs;
+            })
 
             ->setDefault('main_taxon', LazyOption::randomOne($this->taxonRepository))
             ->setAllowedTypes('main_taxon', ['null', 'string', TaxonInterface::class])
@@ -172,7 +175,6 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         $resolver->setNormalizer('tax_category', LazyOption::findOneBy($this->taxCategoryRepository, 'code'));
     }
 
-    /** @param array<string, mixed> $options */
     private function createTranslations(ProductInterface $product, array $options): void
     {
         foreach ($this->getLocales() as $localeCode) {
@@ -186,7 +188,6 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         }
     }
 
-    /** @param array<string, mixed> $options */
     private function createRelations(ProductInterface $product, array $options): void
     {
         foreach ($options['channels'] as $channel) {
@@ -202,7 +203,6 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         }
     }
 
-    /** @param array<string, mixed> $options */
     private function createVariants(ProductInterface $product, array $options): void
     {
         try {
@@ -245,7 +245,6 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         $productVariant->addChannelPricing($channelPricing);
     }
 
-    /** @param array<string, mixed> $options */
     private function createImages(ProductInterface $product, array $options): void
     {
         foreach ($options['images'] as $image) {
@@ -266,7 +265,6 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         }
     }
 
-    /** @param array<string, mixed> $options */
     private function createProductTaxons(ProductInterface $product, array $options): void
     {
         foreach ($options['taxons'] as $taxon) {
@@ -279,7 +277,6 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         }
     }
 
-    /** @return iterable<string> */
     private function getLocales(): iterable
     {
         /** @var LocaleInterface[] $locales */
@@ -289,11 +286,6 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         }
     }
 
-    /**
-     * @param array<string, mixed> $productAttributes
-     *
-     * @return ProductAttributeValueInterface[]
-     */
     private function setAttributeValues(array $productAttributes): array
     {
         $productAttributesValues = [];
@@ -317,13 +309,13 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
         return $productAttributesValues;
     }
 
-    private function configureProductAttributeValue(ProductAttributeInterface $productAttribute, ?string $localeCode, mixed $value): ProductAttributeValueInterface
+    private function configureProductAttributeValue(ProductAttributeInterface $productAttribute, ?string $localeCode, $value): ProductAttributeValueInterface
     {
         /** @var ProductAttributeValueInterface $productAttributeValue */
         $productAttributeValue = $this->productAttributeValueFactory->createNew();
         $productAttributeValue->setAttribute($productAttribute);
 
-        if ($value !== null && in_array($productAttribute->getStorageType(), [AttributeValueInterface::STORAGE_DATE, AttributeValueInterface::STORAGE_DATETIME], true)) {
+        if ($value !== null && in_array($productAttribute->getStorageType(), [ProductAttributeValueInterface::STORAGE_DATE, ProductAttributeValueInterface::STORAGE_DATETIME], true)) {
             $value = new \DateTime($value);
         }
 
@@ -336,21 +328,21 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
     /**
      * @throws \BadMethodCallException
      */
-    private function getRandomValueForProductAttribute(ProductAttributeInterface $productAttribute): mixed
+    private function getRandomValueForProductAttribute(ProductAttributeInterface $productAttribute)
     {
         switch ($productAttribute->getStorageType()) {
-            case AttributeValueInterface::STORAGE_BOOLEAN:
+            case ProductAttributeValueInterface::STORAGE_BOOLEAN:
                 return $this->faker->boolean;
-            case AttributeValueInterface::STORAGE_INTEGER:
+            case ProductAttributeValueInterface::STORAGE_INTEGER:
                 return $this->faker->numberBetween(0, 10000);
-            case AttributeValueInterface::STORAGE_FLOAT:
+            case ProductAttributeValueInterface::STORAGE_FLOAT:
                 return $this->faker->randomFloat(4, 0, 10000);
-            case AttributeValueInterface::STORAGE_TEXT:
+            case ProductAttributeValueInterface::STORAGE_TEXT:
                 return $this->faker->sentence;
-            case AttributeValueInterface::STORAGE_DATE:
-            case AttributeValueInterface::STORAGE_DATETIME:
+            case ProductAttributeValueInterface::STORAGE_DATE:
+            case ProductAttributeValueInterface::STORAGE_DATETIME:
                 return $this->faker->dateTimeThisCentury;
-            case AttributeValueInterface::STORAGE_JSON:
+            case ProductAttributeValueInterface::STORAGE_JSON:
                 if ($productAttribute->getType() === SelectAttributeType::TYPE) {
                     if ($productAttribute->getConfiguration()['multiple']) {
                         return $this->faker->randomElements(

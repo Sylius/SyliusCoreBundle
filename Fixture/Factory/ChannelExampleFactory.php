@@ -32,7 +32,6 @@ use Sylius\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<ChannelInterface> */
 class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
@@ -40,20 +39,18 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
     private OptionsResolver $optionsResolver;
 
     /**
-     * @param ChannelFactoryInterface<ChannelInterface> $channelFactory
      * @param RepositoryInterface<LocaleInterface> $localeRepository
      * @param RepositoryInterface<CurrencyInterface> $currencyRepository
      * @param RepositoryInterface<ZoneInterface> $zoneRepository
-     * @param TaxonRepositoryInterface<TaxonInterface> $taxonRepository
      * @param FactoryInterface<ShopBillingDataInterface> $shopBillingDataFactory
      */
     public function __construct(
-        private readonly ChannelFactoryInterface $channelFactory,
-        private readonly RepositoryInterface $localeRepository,
-        private readonly RepositoryInterface $currencyRepository,
-        private readonly RepositoryInterface $zoneRepository,
-        private readonly TaxonRepositoryInterface $taxonRepository,
-        private readonly FactoryInterface $shopBillingDataFactory,
+        private ChannelFactoryInterface $channelFactory,
+        private RepositoryInterface $localeRepository,
+        private RepositoryInterface $currencyRepository,
+        private RepositoryInterface $zoneRepository,
+        private TaxonRepositoryInterface $taxonRepository,
+        private FactoryInterface $shopBillingDataFactory,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -92,7 +89,7 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
             $channel->addCurrency($currency);
         }
 
-        if (isset($options['shop_billing_data'])) {
+        if (isset($options['shop_billing_data']) && null !== $options['shop_billing_data']) {
             $shopBillingData = $this->shopBillingDataFactory->createNew();
             $shopBillingData->setCompany($options['shop_billing_data']['company'] ?? null);
             $shopBillingData->setTaxId($options['shop_billing_data']['tax_id'] ?? null);
@@ -110,7 +107,7 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
+            ->setDefault('name', function (Options $options): string {
                 /** @var string $words */
                 $words = $this->faker->words(3, true);
 

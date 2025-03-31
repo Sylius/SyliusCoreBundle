@@ -23,7 +23,6 @@ use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<ProductAttributeInterface> */
 class ProductAttributeExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
@@ -31,14 +30,13 @@ class ProductAttributeExampleFactory extends AbstractExampleFactory implements E
     private OptionsResolver $optionsResolver;
 
     /**
-     * @param AttributeFactoryInterface<ProductAttributeInterface> $productAttributeFactory
      * @param RepositoryInterface<LocaleInterface> $localeRepository
      * @param array<string, string> $attributeTypes
      */
     public function __construct(
-        private readonly AttributeFactoryInterface $productAttributeFactory,
-        private readonly RepositoryInterface $localeRepository,
-        private readonly array $attributeTypes,
+        private AttributeFactoryInterface $productAttributeFactory,
+        private RepositoryInterface $localeRepository,
+        private array $attributeTypes,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -70,7 +68,7 @@ class ProductAttributeExampleFactory extends AbstractExampleFactory implements E
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
+            ->setDefault('name', function (Options $options): string {
                 /** @var string $words */
                 $words = $this->faker->words(3, true);
 
@@ -84,7 +82,6 @@ class ProductAttributeExampleFactory extends AbstractExampleFactory implements E
         ;
     }
 
-    /** @return iterable<string> */
     private function getLocales(): iterable
     {
         /** @var LocaleInterface[] $locales */

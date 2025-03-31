@@ -26,9 +26,7 @@ use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\CustomerInterface;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\OrderItemInterface;
-use Sylius\Component\Core\Model\PaymentMethodInterface;
 use Sylius\Component\Core\Model\ProductInterface;
-use Sylius\Component\Core\Model\ShippingMethodInterface;
 use Sylius\Component\Core\OrderCheckoutStates;
 use Sylius\Component\Core\OrderCheckoutTransitions;
 use Sylius\Component\Core\Repository\PaymentMethodRepositoryInterface;
@@ -43,12 +41,13 @@ use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Webmozart\Assert\Assert;
 
-/** @implements ExampleFactoryInterface<OrderInterface> */
 class OrderExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    protected OptionsResolver $optionsResolver;
+    /** @var OptionsResolver */
+    protected $optionsResolver;
 
-    protected Generator $faker;
+    /** @var Generator */
+    protected $faker;
 
     /**
      * @param FactoryInterface<OrderInterface> $orderFactory
@@ -56,9 +55,6 @@ class OrderExampleFactory extends AbstractExampleFactory implements ExampleFacto
      * @param RepositoryInterface<ChannelInterface> $channelRepository
      * @param RepositoryInterface<CustomerInterface> $customerRepository
      * @param RepositoryInterface<CountryInterface> $countryRepository
-     * @param ProductRepositoryInterface<ProductInterface> $productRepository
-     * @param PaymentMethodRepositoryInterface<PaymentMethodInterface> $paymentMethodRepository
-     * @param ShippingMethodRepositoryInterface<ShippingMethodInterface> $shippingMethodRepository
      * @param FactoryInterface<AddressInterface> $addressFactory
      */
     public function __construct(
@@ -120,7 +116,7 @@ class OrderExampleFactory extends AbstractExampleFactory implements ExampleFacto
             ->setAllowedTypes('country', ['null', 'string', CountryInterface::class])
             ->setNormalizer('country', LazyOption::findOneBy($this->countryRepository, 'code'))
 
-            ->setDefault('complete_date', fn (Options $options): \DateTimeInterface => $this->faker->dateTimeBetween('-1 years'))
+            ->setDefault('complete_date', fn (Options $options): \DateTimeInterface => $this->faker->dateTimeBetween('-1 years', 'now'))
             ->setAllowedTypes('complete_date', ['null', \DateTime::class])
 
             ->setDefault('fulfilled', false)

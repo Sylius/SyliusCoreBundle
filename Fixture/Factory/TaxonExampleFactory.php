@@ -25,7 +25,6 @@ use Sylius\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<TaxonInterface> */
 class TaxonExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
@@ -34,14 +33,13 @@ class TaxonExampleFactory extends AbstractExampleFactory implements ExampleFacto
 
     /**
      * @param FactoryInterface<TaxonInterface> $taxonFactory
-     * @param TaxonRepositoryInterface<TaxonInterface> $taxonRepository
      * @param RepositoryInterface<LocaleInterface> $localeRepository
      */
     public function __construct(
-        private readonly FactoryInterface $taxonFactory,
-        private readonly TaxonRepositoryInterface $taxonRepository,
-        private readonly RepositoryInterface $localeRepository,
-        private readonly TaxonSlugGeneratorInterface $taxonSlugGenerator,
+        private FactoryInterface $taxonFactory,
+        private TaxonRepositoryInterface $taxonRepository,
+        private RepositoryInterface $localeRepository,
+        private TaxonSlugGeneratorInterface $taxonSlugGenerator,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -54,7 +52,6 @@ class TaxonExampleFactory extends AbstractExampleFactory implements ExampleFacto
         return $this->createTaxon($options);
     }
 
-    /** @param array<string, mixed> $options */
     protected function createTaxon(array $options = [], ?TaxonInterface $parentTaxon = null): ?TaxonInterface
     {
         $options = $this->optionsResolver->resolve($options);
@@ -90,7 +87,6 @@ class TaxonExampleFactory extends AbstractExampleFactory implements ExampleFacto
         return $taxon;
     }
 
-    /** @param array<string, mixed> $options */
     protected function createTranslation(TaxonInterface $taxon, string $localeCode, array $options = []): void
     {
         $options = $this->optionsResolver->resolve($options);
@@ -106,7 +102,12 @@ class TaxonExampleFactory extends AbstractExampleFactory implements ExampleFacto
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', fn (Options $options): string => $this->faker->words(3, true))
+            ->setDefault('name', function (Options $options): string {
+                /** @var string $words */
+                $words = $this->faker->words(3, true);
+
+                return $words;
+            })
             ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
             ->setDefault('slug', null)
             ->setDefault('description', fn (Options $options): string => $this->faker->paragraph)
@@ -117,7 +118,6 @@ class TaxonExampleFactory extends AbstractExampleFactory implements ExampleFacto
         ;
     }
 
-    /** @return iterable<string> */
     private function getLocales(): iterable
     {
         /** @var LocaleInterface[] $locales */

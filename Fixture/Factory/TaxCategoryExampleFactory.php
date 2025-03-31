@@ -21,7 +21,6 @@ use Sylius\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/** @implements ExampleFactoryInterface<TaxCategoryInterface> */
 class TaxCategoryExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
     private Generator $faker;
@@ -29,7 +28,7 @@ class TaxCategoryExampleFactory extends AbstractExampleFactory implements Exampl
     private OptionsResolver $optionsResolver;
 
     /** @param FactoryInterface<TaxCategoryInterface> $taxCategoryFactory */
-    public function __construct(private readonly FactoryInterface $taxCategoryFactory)
+    public function __construct(private FactoryInterface $taxCategoryFactory)
     {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -54,7 +53,7 @@ class TaxCategoryExampleFactory extends AbstractExampleFactory implements Exampl
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
+            ->setDefault('name', function (Options $options): string {
                 /** @var string $words */
                 $words = $this->faker->words(3, true);
 
