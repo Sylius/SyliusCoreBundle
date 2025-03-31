@@ -2,18 +2,72 @@
 # (c) Sylius Sp. z o.o.
 
 sylius:
+    email:
+        admin_password_reset:
+            hello: 'مرحبًا'
+            subject: 'إعادة تعيين كلمة مرور المسؤول'
+            reset_your_password: 'إعادة تعيين كلمة المرور الخاصة بك'
+            to_reset_your_password: 'لإعادة تعيين كلمة المرور الخاصة بك - انقر على الرابط أدناه'
+            to_reset_your_password_token: 'لإعادة تعيين كلمة المرور الخاصة بك - استخدم الرمز أدناه'
+            token: 'رمز إعادة تعيين كلمة المرور الخاص بك هو'
+        contact_request:
+            content: 'المحتوى'
+            message_from: 'رسالة من'
+            subject: 'طلب الاتصال'
+        order_confirmation:
+            has_been_successfully_placed: 'تم تقديم الطلب بنجاح.'
+            subject: 'تأكيد الطلب'
+            view_order_or_change_payment_method: 'عرض الطلب أو تغيير طريقة الدفع'
+            thank_you: 'شكرًا لك على التسوق في متجرنا!'
+            your_order_number: 'رقم طلبك'
+        password_reset:
+            hello: 'مرحبًا'
+            reset_your_password: 'إعادة تعيين كلمة المرور الخاصة بك'
+            subject: 'إعادة تعيين كلمة المرور'
+            to_reset_your_password: 'لإعادة تعيين كلمة المرور الخاصة بك - انقر على الرابط أدناه'
+            to_reset_your_password_token: 'لإعادة تعيين كلمة المرور الخاصة بك - استخدم الرمز أدناه'
+            token: 'رمز إعادة تعيين كلمة المرور الخاص بك هو'
+        shipment_confirmation:
+            has_been_sent_using: 'تم إرساله باستخدام'
+            subject: 'تأكيد الشحنة'
+            thank_you_for_transaction: 'شكرًا لك على المعاملة الناجحة.'
+            you_can_check_its_location_with_the_tracking_code: 'يمكنك التحقق من موقعه باستخدام رمز التتبع %tracking_code%.'
+            your_order_with_number: 'طلبك رقم'
+        user_registration:
+            start_shopping: 'ابدأ التسوق'
+            subject: 'تسجيل المستخدم'
+            welcome_to_our_store: 'مرحبًا بك في متجرنا!'
+            you_have_just_been_registered: 'تم تسجيلك للتو. شكرًا لك'
+        verification_token:
+            hello: 'مرحبًا'
+            message: 'تحقق من حسابك باستخدام الرمز: '
+            subject: 'التحقق من عنوان البريد الإلكتروني'
+            to_verify_your_email_address: 'للتحقق من عنوان بريدك الإلكتروني - انقر على الرابط أدناه'
+            verify_your_email_address: 'تحقق من عنوان بريدك الإلكتروني'
+        user:
+            account_verification:
+                greeting: 'مرحبًا'
+                message: 'تحقق من حسابك باستخدام الرمز: '
+                statement: 'تحقق من عنوان بريدك الإلكتروني'
+                strategy: 'للتحقق من عنوان بريدك الإلكتروني - انقر على الرابط أدناه'
+                subject: 'التحقق من عنوان البريد الإلكتروني'
     form:
         block:
-            body: المحتوى
-            id: معرف
-            title: عنوان
+            body: الجسم
+            id: المعرف
+            title: العنوان
         cart:
-            coupon: قسيمة شرائية
+            coupon: قسيمة
         catalog_promotion:
             channels: القنوات
+            scope:
+                for_products: للمنتجات
+                for_taxons: للفئات الضريبية
+                for_variants: للمتغيرات
         checkout:
             addressing:
                 different_billing_address: استخدام عنوان مختلف للفوترة؟
+                different_shipping_address: استخدام عنوان مختلف للشحن؟
             payment_method: طريقة الدفع
             shipping_method: طريقة الشحن
         promotion:
@@ -22,8 +76,8 @@ sylius:
             add_product_configuration:
                 product: المنتج
         promotion_coupon:
-            per_customer_usage_limit: حد استخدام لكل عميل
-            reusable_from_cancelled_orders: قابل لاعادة الاستخدام من الطلبات الملغاة
+            per_customer_usage_limit: حد الاستخدام لكل عميل
+            reusable_from_cancelled_orders: قابل لإعادة الاستخدام من الطلبات الملغاة
         group:
             name: الاسم
             roles: الأدوار
@@ -32,85 +86,89 @@ sylius:
                 city: المدينة
                 company: الشركة
                 country: الدولة
-                postcode: الرقم البريدي
+                postcode: الرمز البريدي
                 street: الشارع
-                tax_id: معرّف الضريبة
-            contact_email: البريد الإلكتروني لجهة الإتصال
-            countries: البلدان
+                tax_id: رقم الضريبة
+            contact_email: البريد الإلكتروني للتواصل
+            contact_phone_number: رقم الهاتف للتواصل
+            countries: الدول
             currencies: العملات
             currency_base: العملة الأساسية
-            account_verification_required: هل التحقق من الحساب مطلوب؟
+            account_verification_required: هل يتطلب التحقق من الحساب؟
             hostname: اسم المضيف
-            locale_default: المحلي الافتراضي
-            locales: محلي
+            locale_default: اللغة الافتراضية
+            locales: اللغات
+            menu_taxon: فئة القائمة
             payment_methods: طرق الدفع
+            shipping_address_in_checkout_required: هل يتطلب العنوان في عملية الدفع؟
             shipping_methods: طرق الشحن
-            shop_billing_data: بيانات الدفع
-            skipping_shipping_step_allowed: تخطي الخطوة الشحن إلا إذا كان يتوفر أسلوب الشحن واحد؟
-            skipping_payment_step_allowed: تخطي الخطوة الشحن إلا إذا كان يتوفر أسلوب الشحن واحد؟
+            shop_billing_data: بيانات فواتير المتجر
+            skipping_shipping_step_allowed: هل يسمح بتخطي خطوة الشحن إذا كانت هناك طريقة شحن واحدة فقط؟
+            skipping_payment_step_allowed: هل يسمح بتخطي خطوة الدفع إذا كانت هناك طريقة دفع واحدة فقط؟
             tax_calculation_strategy: استراتيجية حساب الضرائب
-            tax_zone_default: <المنطقة الزمنية الافتراضية>
-            taxonomies: تصنيف
-            theme: السمة
+            tax_zone_default: منطقة الضرائب الافتراضية
+            taxonomies: التصنيفات
+            theme: القالب
         image:
-            type: نوع
+            type: النوع
             file: صورة
         locale:
-            code: رمز
-            enabled: تفعيل
+            code: الرمز
+            enabled: مفعل
         order_filter:
-            created_at_from: التي تم إنشاؤها بعد
-            created_at_to: التي تم إنشاؤها قبل
-            number: عدد
+            created_at_from: أنشئ بعد
+            created_at_to: أنشئ قبل
+            number: الرقم
             total_from: من
             total_to: إلى
             payment_state: حالة الدفع
             channel: جميع القنوات
         page:
-            body: المحتوى
-            id: معرف
-            title: عنوان
+            body: الجسم
+            id: المعرف
+            title: العنوان
         product:
-            images: الصّور
-            restricted_zone: منطقة محظورة
-            short_description: وصف مختصر
-            variant_selection_method: أسلوب اختيار البديل
-            main_taxon: الأصناف الرئيسية
-            channels: قنوات
-            enabled: تفعيل
+            images: الصور
+            restricted_zone: المنطقة المقيدة
+            short_description: الوصف المختصر
+            variant_selection_method: طريقة اختيار المتغير
+            main_taxon: الفئة الضريبية الرئيسية
+            channels: القنوات
+            enabled: مفعل
         product_filter:
             name: الاسم
-            code: رمز
+            code: الرمز
         product_variant:
-            tax_category: أقسام الضريبة
-            shipping_category: قسم الشحن
+            tax_category: فئة الضرائب
+            shipping_category: فئة الشحن
         shipment_filter:
             created_at_from: من
             created_at_to: إلى
             number: رقم الطلب
-            shipping_address: الشحن إلى اسم
+            shipping_address: اسم العنوان المرسل إليه
             channel: جميع القنوات
         payment_filter:
             created_at_from: من
             created_at_to: إلى
             number: رقم الطلب
-            billing_address: فاتورة باسم
+            billing_address: اسم العنوان الفاتورة
             channel: جميع القنوات
         shipping_method:
             zone: المنطقة
         taxon:
-            code: رمز
-            file: قم بإختيارالصورة
-            images: الصّور
+            code: الرمز
+            file: اختر صورة
+            images: الصور
         taxonomy:
-            file: قم بإختيارالصورة
+            file: اختر صورة
         user:
-            billing_address: عنوان الفاتورة
-            enabled: تمكين
+            billing_address: عنوان الفواتير
+            different_shipping_address: استخدام عنوان مختلف للشحن؟
+            enabled: مفعل
             first_name: الاسم الأول
             groups: المجموعات
             roles: الأدوار
-            last_name: اسم العائلة
+            last_name: الاسم الأخير
             password: كلمة المرور
             shipping_address: عنوان الشحن
         user_filter:
@@ -120,10 +178,11 @@ sylius:
             height: الارتفاع
             on_hand: المخزون الحالي
             price: السعر
-            sku: عدد الوحدات بالمخزون (SKU)
-            shipping_required: الشحن المطلوبة؟
+            sku: SKU
+            shipping_required: هل الشحن مطلوب؟
             weight: الوزن
             width: العرض
+            tracked_help: إذا تم تمكين هذا الخيار، سيقوم Sylius بتتبع المخزون وسيتوقف عن بيع المنتج عندما يصل المخزون إلى 0.
         attribute:
             product_attribute_value:
                 attribute: السمة
@@ -131,93 +190,100 @@ sylius:
         guest:
             email: البريد الإلكتروني
         product_association:
-            product: المنتجات المرتبط بها
-            type: أنواع الرابطة
+            product: المنتج المرتبط
+            type: نوع الارتباط
         product_association_type:
             name: الاسم
         promotion_filter:
-            products: فلتر المنتج
-            taxons: فلتر تاكسون
+            products: تصفية المنتجات
+            taxons: تصفية الفئات الضريبية
         promotion_rule:
             customer_group:
-                group: مجموعة العميل
+                group: مجموعة العملاء
             has_taxon:
-                taxons: الاصناف
+                taxons: الفئات الضريبية
             product:
                 products: المنتجات
             total_of_items_from_taxon:
-                taxon: تاكسون
-                amount: القيمة
+                taxon: الفئة الضريبية
+                amount: المبلغ
         payment_method:
-            channels: قنوات
+            channels: القنوات
         product_attribute:
-            position: المهنة
+            position: الموقع
         zone:
             scopes:
                 shipping: الشحن
-                tax: الضريبة
+                tax: الضرائب
+
     installer:
         extensions:
-            header: إضافات
+            header: الإضافات
             accelerator:
-                header: مسرع
-                help: تمكين zend OpCache (موصى به بشدة).
-            apc: آسيا والمحيط الهادئ
+                header: تسريع
+                help: تمكين Zend OpCache (موصى به بشدة).
+            apc: APC
             ctype: Ctype
             gd: GD
-            help: تثبيت وتمكين إضافة %extension%.
+            help: تثبيت وتمكين الإضافة %extension%.
             iconv: Iconv
-            exif: اكسيف
-            fileinfo: معلومات الملف
-            icu: ICO
-            intl: انتل
+            exif: Exif
+            fileinfo: Fileinfo
+            icu: ICU
+            intl: Intl
             json_encode: JSON
-            mbstring: أوتار متعددة
-            off: false
-            on: true
+            mbstring: Multibyte String
+            off: إيقاف
+            on: تشغيل
             pcre: PCRE
             pdo: PDO
             php_xml: PHP-XML
-            session_start: Session
+            session_start: الجلسة
             simplexml_import_dom: SimpleXML
             token_get_all: Tokenizer
         filesystem:
-            header: ملفات النظام
+            header: النظام الملفات
             cache:
-                header: الكاتش
-                help: "لتعيين أذونات تشغيل: سودو سيتفاكل-R-م u:www-يو-م بيانات: rwX: 'whoami': rwX %path% آند آند سودو سيتفاكل-د-م u:www-البيانات: rwx-م ش: 'whoami': rwx %path%"
-            exists: مخرج
+                header: الكاش
+                help: "لتعيين الأذونات، قم بتشغيل: sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX %path% && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx %path%"
+            exists: موجود
             logs:
                 header: السجلات
-                help: "لتعيين أذونات تشغيل: سودو سيتفاكل-R-م u:www-يو-م بيانات: rwX: 'whoami': rwX %path% آند آند سودو سيتفاكل-د-م u:www-البيانات: rwx-م ش: 'whoami': rwx %path%"
+                help: "لتعيين الأذونات، قم بتشغيل: sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX %path% && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx %path%"
             not_exists: غير موجود
             not_writable: غير قابل للكتابة
             parameters:
                 header: parameters.yml
-                help: "لتعيين أذونات تشغيل: سودو chmod + w %path%"
-            vendors: المزود
+                help: "لتعيين الأذونات، قم بتشغيل: sudo chmod a+w %path%"
+            vendors: الموردين
             writable: قابل للكتابة
         settings:
-            header: إصدار البي إتش بي والإعدادات
+            header: إصدار PHP والإعدادات
             any: أي
             detect_unicode: detect_unicode
+            detect_unicode_help: تعيين 'detect_unicode = Off' في ملف php.ini
             magic_quotes_gpc: magic_quotes_gpc
-            non_deprecated: عدم إهمالها
-            off: false
-            on: true
-            register_globals: تسجيل
+            non_deprecated: غير مهمل
+            off: إيقاف
+            on: تشغيل
+            register_globals: register_globals
             session:
                 auto_start: session.auto_start
+                auto_start_help: تعيين 'session.auto_start  = Off' في ملف php.ini
             short_open_tag: short_open_tag
             timezone: المنطقة الزمنية
+            timezone_help: تعيين 'date.timezone' في ملف php.ini (مثل date.timezone = "Europe/Amsterdam")
             timezone_deprecated:
-                header: انتقدت التوقيت
-                help: تم إهمال هذا الزمن %timezone%. إصلاح الملف php.ini (قائمة المناطق الزمنية المهملة http://php.net/manual/en/timezones.others.php).
-            version: PHP نسخة ال
-            version_recommended: أوصى بي إتش بي الإصدار
+                header: المنطقة الزمنية المهملة
+                help: المنطقة الزمنية %timezone% مهملة. يرجى إصلاح ملف php.ini (قائمة المناطق الزمنية المهملة http://php.net/manual/en/timezones.others.php).
+            version: إصدار PHP
+            version_recommended: إصدار PHP الموصى به
+            version_help: Sylius يوصي بإصدار PHP %recommended%، والإصدار الحالي لديك هو %current%. يرجى التحديث.
+
     payum_gateway:
-        cash_on_delivery: الدفع نقدا عند التسليم
-        offline: غير مُتصل
-        paypal_express_checkout: إنهاء الطلب عبر إكسبريس باي بال
+        cash_on_delivery: الدفع عند الاستلام
+        offline: غير متصل
+        paypal_express_checkout: PayPal Express Checkout
+
     shipping_method_resolver:
         by_zones_and_channel: حسب المناطق والقناة
