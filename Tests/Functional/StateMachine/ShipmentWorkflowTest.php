@@ -38,11 +38,9 @@ final class ShipmentWorkflowTest extends KernelTestCase
         $this->shipment->setOrder($this->order);
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider availableTransitionsFromReadyState
-     */
+    
+    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsFromReadyState')]
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_applies_all_available_transitions_for_create_state(string $transition, string $expectedStatus): void
     {
         $stateMachine = $this->getStateMachine();
@@ -53,7 +51,7 @@ final class ShipmentWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $this->shipment->getState());
     }
 
-    public function availableTransitionsFromReadyState(): iterable
+    public static function availableTransitionsFromReadyState(): iterable
     {
         yield ['cancel', 'cancelled'];
         yield ['ship', 'shipped'];

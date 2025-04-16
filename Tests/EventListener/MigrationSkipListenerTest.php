@@ -50,11 +50,9 @@ final class MigrationSkipListenerTest extends TestCase
         $this->listener = new MigrationSkipListener($this->dependencyFactory->reveal());
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider getInvalidSkipConditions
-     */
+    
+    #[\PHPUnit\Framework\Attributes\DataProvider('getInvalidSkipConditions')]
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_nothing_when_conditions_are_not_met(bool $isUp, bool $isMigrationSkip, bool $skipped): void
     {
         $this->dependencyFactory->getMetadataStorage()->shouldNotBeCalled();
@@ -67,7 +65,7 @@ final class MigrationSkipListenerTest extends TestCase
         ));
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_completed_the_skipped_migration(): void
     {
         $this->dependencyFactory->getMetadataStorage()->shouldBeCalled();

@@ -48,11 +48,9 @@ final class OrderWorkflowTest extends KernelTestCase
         $this->order = $order;
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider availableTransitionsForOrder
-     */
+    
+    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForOrder')]
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_applies_all_available_transitions_for_order(
         string $initialState,
         string $transition,
@@ -67,7 +65,7 @@ final class OrderWorkflowTest extends KernelTestCase
         $this->assertSame($expectedState, $order->getState());
     }
 
-    public function availableTransitionsForOrder(): iterable
+    public static function availableTransitionsForOrder(): iterable
     {
         yield [OrderTransitions::TRANSITION_CREATE, OrderTransitions::TRANSITION_CANCEL, OrderInterface::STATE_CANCELLED];
         yield [OrderTransitions::TRANSITION_CREATE, OrderTransitions::TRANSITION_FULFILL, OrderInterface::STATE_FULFILLED];

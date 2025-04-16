@@ -23,9 +23,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class RegisterUriBasedSectionResolverPassTest extends AbstractCompilerPassTestCase
 {
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_adds_method_call_to_uri_based_section_resolver_in_order(): void
     {
         $uriBasedSectionResolver = new Definition(UriBasedSectionProvider::class);
@@ -59,9 +57,7 @@ final class RegisterUriBasedSectionResolverPassTest extends AbstractCompilerPass
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_not_add_method_call_if_there_are_no_tagged_processors(): void
     {
         $uriBasedSectionResolver = new Definition(UriBasedSectionProvider::class);

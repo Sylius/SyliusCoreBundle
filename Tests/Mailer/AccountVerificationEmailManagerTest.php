@@ -25,7 +25,7 @@ final class AccountVerificationEmailManagerTest extends KernelTestCase
 {
     use ProphecyTrait;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_sends_account_verification_token_email(): void
     {
         $container = self::getContainer();

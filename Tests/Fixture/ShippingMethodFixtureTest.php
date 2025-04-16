@@ -23,58 +23,44 @@ final class ShippingMethodFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_methods_are_optional(): void
     {
         $this->assertConfigurationIsValid([[]], 'custom');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_methods_can_be_generated_randomly(): void
     {
         $this->assertConfigurationIsValid([['random' => 4]], 'random');
         $this->assertPartialConfigurationIsInvalid([['random' => -1]], 'random');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_method_code_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['code' => 'CUSTOM']]]], 'custom.*.code');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_method_may_be_toggled(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['enabled' => false]]]], 'custom.*.enabled');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_method_zone_code_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['zone' => 'EUROPE']]]], 'custom.*.zone');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_method_category_code_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['category' => 'BOOKS']]]], 'custom.*.category');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_method_channels_are_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['channels' => ['CHN-1', 'CHN-2']]]]], 'custom.*.channels');
@@ -90,9 +76,7 @@ final class ShippingMethodFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_method_calculator_configuration_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['calculator' => [
@@ -101,9 +85,7 @@ final class ShippingMethodFixtureTest extends TestCase
         ]]]]], 'custom.*.calculator');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_method_calculator_must_define_its_type(): void
     {
         $this->assertPartialConfigurationIsInvalid([['custom' => [['calculator' => null]]]], 'custom.*.calculator');
@@ -113,9 +95,7 @@ final class ShippingMethodFixtureTest extends TestCase
         ]]]]], 'custom.*.calculator');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function shipping_method_tax_category(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['tax_category' => 'BOOKS']]]], 'custom.*.tax_category');

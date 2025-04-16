@@ -20,9 +20,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class SyliusPluginTraitTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_not_crash(): void
     {
         $class = new class() extends Bundle {

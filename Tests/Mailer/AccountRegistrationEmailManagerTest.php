@@ -25,7 +25,7 @@ final class AccountRegistrationEmailManagerTest extends KernelTestCase
 {
     use ProphecyTrait;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_sends_account_registration_email(): void
     {
         $container = self::getContainer();

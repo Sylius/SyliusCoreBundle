@@ -23,34 +23,26 @@ final class ProductAssociationTypeFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_assoiation_types_are_optional(): void
     {
         $this->assertConfigurationIsValid([[]], 'custom');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_association_types_can_be_generated_randomly(): void
     {
         $this->assertConfigurationIsValid([['random' => 4]], 'random');
         $this->assertPartialConfigurationIsInvalid([['random' => -1]], 'random');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_association_type_name_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['name' => 'name']]]], 'custom.*.name');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_association_type_code_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['code' => 'code']]]], 'custom.*.code');

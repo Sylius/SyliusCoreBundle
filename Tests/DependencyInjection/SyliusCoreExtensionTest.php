@@ -40,43 +40,43 @@ use Symfony\Component\DependencyInjection\Definition;
 
 final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
 {
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_prepending_doctrine_migrations_with_proper_migrations_path_for_test_env(): void
     {
         $this->testPrependingDoctrineMigrations('test');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_prepending_doctrine_migrations_with_proper_migrations_path_for_test_cached_env(): void
     {
         $this->testPrependingDoctrineMigrations('test_cached');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_prepending_doctrine_migrations_with_proper_migrations_path_for_dev_env(): void
     {
         $this->testPrependingDoctrineMigrations('dev');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_not_autoconfigure_prepending_doctrine_migrations_if_it_is_disabled_for_test_env(): void
     {
         $this->testNotPrependingDoctrineMigrations('test');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_not_autoconfigure_prepending_doctrine_migrations_if_it_is_disabled_for_test_cached_env(): void
     {
         $this->testNotPrependingDoctrineMigrations('test_cached');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_not_autoconfigure_prepending_doctrine_migrations_if_it_is_disabled_for_dev_env(): void
     {
         $this->testNotPrependingDoctrineMigrations('dev');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_loads_default_order_by_identifier_parameter_value_properly(): void
     {
         $this->container->setParameter('kernel.environment', 'dev');
@@ -86,7 +86,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('sylius_core.order_by_identifier', true);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_loads_order_by_identifier_parameter_value_properly(): void
     {
         $this->container->setParameter('kernel.environment', 'dev');
@@ -98,7 +98,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('sylius_core.order_by_identifier', false);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_loads_batch_size_parameter_value_properly(): void
     {
         $this->container->setParameter('kernel.environment', 'dev');
@@ -108,7 +108,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('sylius_core.catalog_promotions.batch_size', 200);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_loads_max_int_value_properly(): void
     {
         $this->container->setParameter('kernel.environment', 'dev');
@@ -118,7 +118,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('sylius_core.max_int_value', 200);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_loads_default_batch_size_properly(): void
     {
         $this->container->setParameter('kernel.environment', 'dev');
@@ -128,7 +128,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('sylius_core.catalog_promotions.batch_size', 100);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_aliases_default_filesystem_adapter_properly(): void
     {
         $this->container->setParameter('kernel.environment', 'dev');
@@ -139,7 +139,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasAlias(FilesystemAdapterInterface::class, 'sylius.adapter.filesystem.default');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_aliases_flysystem_filesystem_adapter_properly(): void
     {
         $this->container->setParameter('kernel.environment', 'dev');
@@ -150,7 +150,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasAlias(FilesystemAdapterInterface::class, 'sylius.adapter.filesystem.default');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_catalog_promotion_applicator_criteria_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -171,7 +171,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_catalog_promotion_price_calculator_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -192,7 +192,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_entity_observer_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -213,7 +213,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_order_items_taxes_applicator_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -234,7 +234,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_order_item_units_taxes_applicator_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -255,7 +255,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_product_variant_map_provider_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -276,7 +276,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_tax_calculation_strategy_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -301,7 +301,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_uri_based_section_resolver_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -322,7 +322,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_autoconfigures_orders_totals_provider_with_attribute(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -343,7 +343,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_sets_the_orders_statistics_intervals_map_parameter(): void
     {
         $this->container->setParameter('kernel.environment', 'prod');
@@ -374,7 +374,7 @@ final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
         ]);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_loads_checkout_payment_allowed_states_configuration_properly(): void
     {
         $this->container->setParameter('kernel.environment', 'dev');

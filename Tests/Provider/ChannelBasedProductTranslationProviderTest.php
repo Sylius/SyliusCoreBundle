@@ -34,7 +34,7 @@ final class ChannelBasedProductTranslationProviderTest extends TestCase
         $this->localeContext = $this->createMock(LocaleContextInterface::class);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_provides_product_translation_using_administrator_locale(): void
     {
         $product = new Product();
@@ -56,7 +56,7 @@ final class ChannelBasedProductTranslationProviderTest extends TestCase
         $this->assertSame('pl_PL', $productTranslation->getLocale());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_generates_url_using_channel_default_locale_translations(): void
     {
         $product = new Product();
@@ -78,7 +78,7 @@ final class ChannelBasedProductTranslationProviderTest extends TestCase
         $this->assertSame('en_US', $productTranslation->getLocale());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_generates_url_using_any_translation_enabled_in_channel_if_administrator_and_channel_default_translations_does_not_exist(): void
     {
         $product = new Product();
@@ -107,7 +107,7 @@ final class ChannelBasedProductTranslationProviderTest extends TestCase
         $this->assertSame('de_DE', $productTranslation->getLocale());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_generates_null_when_no_translations_available(): void
     {
         $product = new Product();

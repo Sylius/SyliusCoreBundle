@@ -32,7 +32,7 @@ final class OrderEmailManagerTest extends KernelTestCase
 
     private const ORDER_NUMBER = '#000001';
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_sends_order_confirmation_email(): void
     {
         $container = self::getContainer();

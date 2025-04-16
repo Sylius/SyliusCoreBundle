@@ -21,7 +21,7 @@ final class SyliusCoreConfigurationTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_sets_default_filesystem_adapter(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -31,7 +31,7 @@ final class SyliusCoreConfigurationTest extends TestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_allows_to_define_filesystem_adapter(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -47,7 +47,7 @@ final class SyliusCoreConfigurationTest extends TestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_not_allow_to_define_invalid_filesystem_adapter(): void
     {
         $this->assertConfigurationIsInvalid(

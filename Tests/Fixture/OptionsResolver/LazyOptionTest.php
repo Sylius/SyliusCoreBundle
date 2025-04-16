@@ -27,9 +27,7 @@ final class LazyOptionTest extends TestCase
 {
     use ProphecyTrait;
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_gets_object_from_provided_repository(): void
     {
         /** @var RepositoryInterface|ObjectProphecy $repository */
@@ -44,9 +42,7 @@ final class LazyOptionTest extends TestCase
         self::assertSame($resource->reveal(), $closure($options->reveal(), 'OBJECT_CODE'));
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_finds_an_object_from_provided_repository_or_returns_null(): void
     {
         /** @var RepositoryInterface|ObjectProphecy $repository */
@@ -63,9 +59,7 @@ final class LazyOptionTest extends TestCase
         self::assertNull($closure($options->reveal(), 'NOT_EXISTING_OBJECT_CODE'));
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_returns_previous_value_if_it_is_an_object_null_or_empty_array(): void
     {
         /** @var RepositoryInterface|ObjectProphecy $repository */
@@ -88,9 +82,7 @@ final class LazyOptionTest extends TestCase
         self::assertNull($findOneByClosure($options->reveal(), null));
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_throws_an_exception_if_object_cannot_be_found(): void
     {
         $this->expectException(ResourceNotFoundException::class);

@@ -20,11 +20,9 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 final class OrderShippingWorkflowTest extends KernelTestCase
 {
-    /**
-     * @test
-     *
-     * @dataProvider availableTransitionsFromReadyState
-     */
+    
+    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsFromReadyState')]
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_applies_all_available_transitions_for_ready_status(string $transition, string $expectedStatus): void
     {
         $stateMachine = $this->getStateMachine();
@@ -35,7 +33,7 @@ final class OrderShippingWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $subject->getShippingState());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_applies_ship_transition_if_order_is_partially_shipped(): void
     {
         $stateMachine = $this->getStateMachine();
@@ -50,7 +48,7 @@ final class OrderShippingWorkflowTest extends KernelTestCase
         $this->assertSame(OrderShippingStates::STATE_SHIPPED, $subject->getShippingState());
     }
 
-    public function availableTransitionsFromReadyState(): iterable
+    public static function availableTransitionsFromReadyState(): iterable
     {
         yield ['cancel', 'cancelled'];
         yield ['partially_ship', 'partially_shipped'];

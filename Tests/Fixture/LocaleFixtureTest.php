@@ -23,25 +23,19 @@ final class LocaleFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function locales_are_not_required(): void
     {
         $this->assertConfigurationIsValid([[]], 'locales');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function locales_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['locales' => ['en_US', 'pl_PL', 'es_ES']]], 'locales');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function default_locale_may_not_be_loaded(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -51,9 +45,7 @@ final class LocaleFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function default_locale_is_added_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(

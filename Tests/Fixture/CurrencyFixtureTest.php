@@ -23,17 +23,13 @@ final class CurrencyFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function currencies_are_optional(): void
     {
         $this->assertConfigurationIsValid([[]], 'currencies');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function currencies_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['currencies' => ['EUR', 'USD', 'PLN']]], 'currencies');

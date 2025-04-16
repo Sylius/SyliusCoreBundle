@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class RegisterTaxCalculationStrategiesPassTest extends AbstractCompilerPassTestCase
 {
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_registers_strategies_in_the_registry(): void
     {
         $this->setDefinition('sylius.registry.tax_calculation_strategy', new Definition());
@@ -46,7 +46,7 @@ final class RegisterTaxCalculationStrategiesPassTest extends AbstractCompilerPas
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_creates_parameter_which_maps_strategies(): void
     {
         $this->setDefinition('sylius.registry.tax_calculation_strategy', new Definition());

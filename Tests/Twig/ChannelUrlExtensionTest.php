@@ -23,9 +23,7 @@ use Symfony\Component\HttpFoundation\UrlHelper;
 
 final class ChannelUrlExtensionTest extends TestCase
 {
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_generates_channel_url_with_channel_hostname(): void
     {
         $stack = new RequestStack();

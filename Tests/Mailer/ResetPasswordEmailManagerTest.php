@@ -38,7 +38,7 @@ final class ResetPasswordEmailManagerTest extends KernelTestCase
         $this->adminUser->setEmail(self::RECIPIENT_EMAIL);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_sends_admin_reset_password_email(): void
     {
         $this->resetPasswordEmailManager->sendAdminResetPasswordEmail($this->adminUser, 'en_US');

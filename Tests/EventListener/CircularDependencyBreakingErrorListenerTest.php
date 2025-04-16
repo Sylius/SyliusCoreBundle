@@ -23,7 +23,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 final class CircularDependencyBreakingErrorListenerTest extends TestCase
 {
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_breaks_circular_dependencies_in_exceptions(): void
     {
         // Arrange
@@ -57,7 +57,7 @@ final class CircularDependencyBreakingErrorListenerTest extends TestCase
         Assert::assertSame(null, $secondException->getPrevious());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_breaks_more_complex_circular_dependencies_in_exceptions(): void
     {
         // Arrange
@@ -97,7 +97,7 @@ final class CircularDependencyBreakingErrorListenerTest extends TestCase
         Assert::assertSame(null, $fourthException->getPrevious());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_nothing_when_circular_dependencies_are_not_found(): void
     {
         // Arrange

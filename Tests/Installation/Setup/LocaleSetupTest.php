@@ -59,7 +59,7 @@ final class LocaleSetupTest extends KernelTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_updates_locale_with_a_given_one_if_it_is_different_than_default_one(): void
     {
         $questionHelper = $this->prophesize(QuestionHelper::class);
@@ -83,7 +83,7 @@ final class LocaleSetupTest extends KernelTestCase
         unlink($this->localeParameterFilePath);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_not_update_locale_with_existing_locale(): void
     {
         $questionHelper = $this->prophesize(QuestionHelper::class);
@@ -106,7 +106,7 @@ final class LocaleSetupTest extends KernelTestCase
         unlink($this->localeParameterFilePath);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_shows_message_at_output_when_the_file_does_not_exists_or_path_is_null(): void
     {
         unlink($this->localeParameterFilePath);
@@ -132,7 +132,7 @@ final class LocaleSetupTest extends KernelTestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_does_not_update_locale_if_file_is_not_writable(): void
     {
         $this->localeSetup = new LocaleSetup(

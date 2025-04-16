@@ -37,11 +37,9 @@ final class PaymentRequestWorkflowTest extends KernelTestCase
         );
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider availableTransitions
-     */
+    
+    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitions')]
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_applies_all_available_transitions(
         string $fromState,
         string $transition,
@@ -55,7 +53,7 @@ final class PaymentRequestWorkflowTest extends KernelTestCase
         $this->assertSame($toState, $this->paymentRequest->getState());
     }
 
-    public function availableTransitions(): iterable
+    public static function availableTransitions(): iterable
     {
         yield [PaymentRequestInterface::STATE_NEW, PaymentRequestTransitions::TRANSITION_PROCESS, PaymentRequestInterface::STATE_PROCESSING];
         yield [PaymentRequestInterface::STATE_NEW, PaymentRequestTransitions::TRANSITION_COMPLETE, PaymentRequestInterface::STATE_COMPLETED];

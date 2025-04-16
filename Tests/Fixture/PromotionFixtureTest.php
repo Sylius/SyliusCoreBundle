@@ -23,82 +23,62 @@ final class PromotionFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotions_are_optional(): void
     {
         $this->assertConfigurationIsValid([[]], 'custom');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotions_can_be_generated_randomly(): void
     {
         $this->assertConfigurationIsValid([['random' => 4]], 'random');
         $this->assertPartialConfigurationIsInvalid([['random' => -1]], 'random');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_code_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['code' => 'code']]]], 'custom.*.code');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_name_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['name' => 'name']]]], 'custom.*.name');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_description_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['description' => 'description']]]], 'custom.*.description');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_usage_limit_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['usage_limit' => 10]]]], 'custom.*.usage_limit');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_coupon_based_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['coupon_based' => false]]]], 'custom.*.coupon_based');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_exclusive_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['exclusive' => false]]]], 'custom.*.exclusive');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_priority_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['priority' => 0]]]], 'custom.*.priority');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_channels_are_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['channels' => ['channel_1', 'channel_2']]]]], 'custom.*.channels');
@@ -114,25 +94,19 @@ final class PromotionFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_starts_at_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['starts_at' => '-7 day']]]], 'custom.*.starts_at');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_ends_at_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['ends_at' => '7 day']]]], 'custom.*.ends_at');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_rules_are_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['rules' => [[
@@ -143,9 +117,7 @@ final class PromotionFixtureTest extends TestCase
         ]]]]]], 'custom.*.rules');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function promotion_actions_are_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['actions' => [[

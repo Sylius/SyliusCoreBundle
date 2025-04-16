@@ -39,7 +39,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
 
     private ObjectProphecy $channelRepository;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_updates_amount_of_fixed_discount(): void
     {
         $fixedDiscount = $this->setupFixedDiscount();
@@ -66,7 +66,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
         $this->assertSame(['WEB_US' => ['amount' => 2000]], $catalogPromotionAction->getConfiguration());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_updates_amount_of_percentage_discount(): void
     {
         $percentageDiscount = $this->setupPercentageDiscount();
@@ -91,7 +91,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
         $this->assertSame(['amount' => 0.1], $catalogPromotionAction->getConfiguration());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_changes_action_to_fixed_discount(): void
     {
         $percentageDiscount = $this->setupPercentageDiscount();
@@ -118,7 +118,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
         $this->assertSame(['WEB_US' => ['amount' => 1000]], $catalogPromotionAction->getConfiguration());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_changes_action_to_percentage_discount(): void
     {
         $fixedDiscount = $this->setupFixedDiscount();
@@ -143,7 +143,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
         $this->assertSame(['amount' => 0.1], $catalogPromotionAction->getConfiguration());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_changes_action_to_percentage_discount_with_empty_amount(): void
     {
         $fixedDiscount = $this->setupFixedDiscount();
@@ -168,7 +168,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
         $this->assertSame(['amount' => null], $catalogPromotionAction->getConfiguration());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_changes_action_to_fixed_discount_with_empty_amount(): void
     {
         $percentageDiscount = $this->setupPercentageDiscount();
@@ -195,7 +195,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
         $this->assertSame(['WEB_US' => ['amount' => null]], $catalogPromotionAction->getConfiguration());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_updates_fixed_discount_with_not_valid_amount(): void
     {
         $fixedDiscount = $this->setupFixedDiscount();
@@ -222,7 +222,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
         $this->assertSame(['WEB_US' => ['amount' => 10]], $catalogPromotionAction->getConfiguration());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_updates_fixed_discount_with_float_amount(): void
     {
         $fixedDiscount = $this->setupFixedDiscount();
@@ -249,7 +249,7 @@ final class CatalogPromotionActionTypeTest extends TypeTestCase
         $this->assertSame(['WEB_US' => ['amount' => 2054]], $catalogPromotionAction->getConfiguration());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_updates_percentage_discount_with_not_valid_amount(): void
     {
         $percentageDiscount = $this->setupPercentageDiscount();

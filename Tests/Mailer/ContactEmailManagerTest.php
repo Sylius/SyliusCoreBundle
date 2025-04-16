@@ -25,7 +25,7 @@ final class ContactEmailManagerTest extends KernelTestCase
 {
     use ProphecyTrait;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_sends_contact_request(): void
     {
         $container = self::getContainer();

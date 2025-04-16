@@ -23,66 +23,50 @@ final class ProductReviewFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_reviews_are_optional(): void
     {
         $this->assertConfigurationIsValid([[]], 'custom');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_reviews_can_be_generated_randomly(): void
     {
         $this->assertConfigurationIsValid([['random' => 4]], 'random');
         $this->assertPartialConfigurationIsInvalid([['random' => -1]], 'random');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_review_title_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['title' => 'CUSTOM']]]], 'custom.*.title');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_review_rating_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['rating' => 10]]]], 'custom.*.rating');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_review_comment_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['comment' => 'CUSTOM']]]], 'custom.*.comment');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_review_author_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['author' => 'test@example.com']]]], 'custom.*.author');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_review_product_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['product' => 'MARVEL_T_SHIRT']]]], 'custom.*.product');
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function product_review_status_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['status' => 'new']]]], 'custom.*.status');

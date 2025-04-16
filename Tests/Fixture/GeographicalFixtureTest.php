@@ -25,17 +25,13 @@ final class GeographicalFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function fixture_does_not_need_to_be_configured(): void
     {
         $this->assertConfigurationIsValid([[]]);
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function countries_are_set_to_all_known_countries_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -45,9 +41,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function countries_can_be_replaced_with_custom_ones(): void
     {
         $this->assertConfigurationIsValid(
@@ -56,9 +50,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function provinces_are_empty_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -68,9 +60,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function provinces_can_be_set(): void
     {
         $this->assertConfigurationIsValid(
@@ -79,9 +69,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function zones_are_empty_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -91,9 +79,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function zones_can_be_defined_as_country_based(): void
     {
         $this->assertConfigurationIsValid(
@@ -102,9 +88,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function zones_can_have_scopes_based(): void
     {
         $this->assertConfigurationIsValid(
@@ -113,9 +97,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function zones_can_be_defined_as_province_based(): void
     {
         $this->assertConfigurationIsValid(
@@ -124,9 +106,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function zones_can_be_defined_as_zone_based(): void
     {
         $this->assertConfigurationIsValid(
@@ -135,9 +115,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function zone_can_be_defined_with_exactly_one_kind_of_members(): void
     {
         $this->assertPartialConfigurationIsInvalid(

@@ -23,62 +23,62 @@ final class CatalogPromotionFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotions_are_optional(): void
     {
         $this->assertConfigurationIsValid([[]], 'custom');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotions_can_be_generated_randomly(): void
     {
         $this->assertConfigurationIsValid([['random' => 4]], 'random');
         $this->assertPartialConfigurationIsInvalid([['random' => -1]], 'random');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_code_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['code' => 'CODE']]]], 'custom.*.code');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_name_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['name' => 'Name']]]], 'custom.*.name');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_exclusiveness_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['exclusive' => true]]]], 'custom.*.exclusive');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_priority_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['priority' => 4]]]], 'custom.*.priority');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_start_date_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['start_date' => '2020-01-02']]]], 'custom.*.start_date');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_end_date_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['end_date' => '2022-01-02']]]], 'custom.*.end_date');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_description_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['description' => 'Description']]]], 'custom.*.description');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_channels_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['channels' => ['first_channel', 'second_channel']]]]], 'custom.*.channels');
@@ -94,13 +94,13 @@ final class CatalogPromotionFixtureTest extends TestCase
         );
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_scopes_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['scopes' => [['type' => 'some_scope_type', 'configuration' => ['first_variant', 'second_variant']]]]]]], 'custom.*.scopes');
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function catalog_promotion_actions_can_be_set(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['actions' => [['type' => 'some_action_type', 'configuration' => ['amount' => 500]]]]]]], 'custom.*.actions');

@@ -19,11 +19,9 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 final class ProductReviewWorkflowTest extends KernelTestCase
 {
-    /**
-     * @test
-     *
-     * @dataProvider availableTransitionsForNewStatus
-     */
+    
+    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForNewStatus')]
+    #[\PHPUnit\Framework\Attributes\Test]
     public function it_applies_all_available_transitions_for_new_status(string $transition, string $expectedStatus): void
     {
         $stateMachine = $this->getStateMachine();
@@ -33,7 +31,7 @@ final class ProductReviewWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $subject->getStatus());
     }
 
-    public function availableTransitionsForNewStatus(): iterable
+    public static function availableTransitionsForNewStatus(): iterable
     {
         yield ['accept', 'accepted'];
         yield ['reject', 'rejected'];
