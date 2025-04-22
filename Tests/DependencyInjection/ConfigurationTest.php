@@ -163,12 +163,12 @@ final class ConfigurationTest extends TestCase
         $this->assertConfigurationIsInvalid([['order_token_length' => 'string']]);
         $this->assertConfigurationIsInvalid(
             [['order_token_length' => 0]],
-            '/Should be greater than or equal to 1$/',
+            '/\. Should be greater than or equal to 1/',
             true,
         );
         $this->assertConfigurationIsInvalid(
             [['order_token_length' => 256]],
-            '/Should be less than or equal to 255$/',
+            '/\. Should be less than or equal to 255/',
             true,
         );
     }
