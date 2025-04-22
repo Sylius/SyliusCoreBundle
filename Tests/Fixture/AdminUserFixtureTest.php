@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Fixture;
 
+use PHPUnit\Framework\Attributes\Test;
 use Doctrine\Persistence\ObjectManager;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
@@ -23,32 +24,32 @@ final class AdminUserFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function users_are_optional(): void
     {
         $this->assertConfigurationIsValid([[]], 'custom');
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function users_can_be_generated_randomly(): void
     {
         $this->assertConfigurationIsValid([['random' => 4]], 'random');
         $this->assertPartialConfigurationIsInvalid([['random' => -1]], 'random');
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function user_username_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['username' => 'John Doe']]]], 'custom.*.username');
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function user_may_be_toggled(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['enabled' => false]]]], 'custom.*.enabled');
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function user_password_code_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['password' => 'I.<3.Krzysztof.Krawczyk']]]], 'custom.*.password');

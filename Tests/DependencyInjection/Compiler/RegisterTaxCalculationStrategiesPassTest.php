@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\DependencyInjection\Compiler;
 
+use PHPUnit\Framework\Attributes\Test;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractCompilerPassTestCase;
 use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\RegisterTaxCalculationStrategiesPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -21,7 +22,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class RegisterTaxCalculationStrategiesPassTest extends AbstractCompilerPassTestCase
 {
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_registers_strategies_in_the_registry(): void
     {
         $this->setDefinition('sylius.registry.tax_calculation_strategy', new Definition());
@@ -46,7 +47,7 @@ final class RegisterTaxCalculationStrategiesPassTest extends AbstractCompilerPas
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_creates_parameter_which_maps_strategies(): void
     {
         $this->setDefinition('sylius.registry.tax_calculation_strategy', new Definition());

@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Fixture;
 
+use PHPUnit\Framework\Attributes\Test;
 use Doctrine\Persistence\ObjectManager;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
@@ -23,26 +24,26 @@ final class CustomerGroupFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function customer_groups_are_optional(): void
     {
         $this->assertConfigurationIsValid([[]], 'custom');
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function customer_groups_can_be_generated_randomly(): void
     {
         $this->assertConfigurationIsValid([['random' => 4]], 'random');
         $this->assertPartialConfigurationIsInvalid([['random' => -1]], 'random');
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function customer_group_code_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['code' => 'code']]]], 'custom.*.code');
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function customer_group_name_is_optional(): void
     {
         $this->assertConfigurationIsValid([['custom' => [['name' => 'name']]]], 'custom.*.name');

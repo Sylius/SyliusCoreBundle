@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Form\Type\Taxon;
 
+use PHPUnit\Framework\Attributes\Test;
 use Doctrine\Common\Collections\ArrayCollection;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -60,7 +61,7 @@ final class ProductTaxonAutocompleteChoiceTypeTest extends TypeTestCase
         ];
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_creates_new_product_taxons_based_on_given_product_and_passed_taxon_codes(): void
     {
         $taxon = $this->prophesize(TaxonInterface::class);
@@ -88,7 +89,7 @@ final class ProductTaxonAutocompleteChoiceTypeTest extends TypeTestCase
         $this->assertEquals(new ArrayCollection([$productTaxon->reveal(), $productTaxon->reveal()]), $form->getData());
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_returns_existing_product_taxons_based_on_given_product_and_passed_taxon_codes(): void
     {
         $taxon = $this->prophesize(TaxonInterface::class);
@@ -113,7 +114,7 @@ final class ProductTaxonAutocompleteChoiceTypeTest extends TypeTestCase
         $this->assertEquals(new ArrayCollection([$productTaxon->reveal(), $productTaxon->reveal()]), $form->getData());
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_returns_new_product_taxon_based_on_given_product_and_passed_taxon_code(): void
     {
         $taxon = $this->prophesize(TaxonInterface::class);
@@ -140,7 +141,7 @@ final class ProductTaxonAutocompleteChoiceTypeTest extends TypeTestCase
         $this->assertEquals($productTaxon->reveal(), $form->getData());
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_returns_existing_product_taxon_based_on_given_product_and_passed_taxon_code(): void
     {
         $taxon = $this->prophesize(TaxonInterface::class);

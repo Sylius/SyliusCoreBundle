@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Fixture;
 
+use PHPUnit\Framework\Attributes\Test;
 use Doctrine\Persistence\ObjectManager;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
@@ -25,13 +26,13 @@ final class GeographicalFixtureTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function fixture_does_not_need_to_be_configured(): void
     {
         $this->assertConfigurationIsValid([[]]);
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function countries_are_set_to_all_known_countries_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -41,7 +42,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function countries_can_be_replaced_with_custom_ones(): void
     {
         $this->assertConfigurationIsValid(
@@ -50,7 +51,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function provinces_are_empty_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -60,7 +61,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function provinces_can_be_set(): void
     {
         $this->assertConfigurationIsValid(
@@ -69,7 +70,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function zones_are_empty_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -79,7 +80,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function zones_can_be_defined_as_country_based(): void
     {
         $this->assertConfigurationIsValid(
@@ -88,7 +89,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function zones_can_have_scopes_based(): void
     {
         $this->assertConfigurationIsValid(
@@ -97,7 +98,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function zones_can_be_defined_as_province_based(): void
     {
         $this->assertConfigurationIsValid(
@@ -106,7 +107,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function zones_can_be_defined_as_zone_based(): void
     {
         $this->assertConfigurationIsValid(
@@ -115,7 +116,7 @@ final class GeographicalFixtureTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function zone_can_be_defined_with_exactly_one_kind_of_members(): void
     {
         $this->assertPartialConfigurationIsInvalid(

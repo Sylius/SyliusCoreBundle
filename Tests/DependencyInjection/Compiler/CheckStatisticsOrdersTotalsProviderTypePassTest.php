@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\DependencyInjection\Compiler;
 
+use PHPUnit\Framework\Attributes\Test;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractCompilerPassTestCase;
 use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\CheckStatisticsOrdersTotalsProviderTypePass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -20,7 +21,7 @@ use Symfony\Component\DependencyInjection\Definition;
 
 final class CheckStatisticsOrdersTotalsProviderTypePassTest extends AbstractCompilerPassTestCase
 {
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_passes_when_all_providers_are_present(): void
     {
         $this->setParameter('sylius_core.orders_statistics.intervals_map', ['daily' => 'Daily', 'monthly' => 'Monthly']);
@@ -40,7 +41,7 @@ final class CheckStatisticsOrdersTotalsProviderTypePassTest extends AbstractComp
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_throws_exception_if_statistics_orders_totals_provider_type_is_not_defined(): void
     {
         $this->setParameter('sylius_core.orders_statistics.intervals_map', ['daily' => 'Daily', 'monthly' => 'Monthly']);
@@ -57,7 +58,7 @@ final class CheckStatisticsOrdersTotalsProviderTypePassTest extends AbstractComp
         $this->compile();
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_throws_exception_if_statistics_orders_totals_provider_type_is_incorrect(): void
     {
         $this->setParameter('sylius_core.orders_statistics.intervals_map', ['daily' => 'Daily', 'monthly' => 'Monthly']);

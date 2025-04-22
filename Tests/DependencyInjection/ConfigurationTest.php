@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\DependencyInjection;
 
+use PHPUnit\Framework\Attributes\Test;
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\DependencyInjection\Configuration;
@@ -22,7 +23,7 @@ final class ConfigurationTest extends TestCase
 {
     use ConfigurationTestCaseTrait;
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_configures_batch_size_to_100_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -32,7 +33,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_allows_for_assigning_integer_as_batch_size(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -42,7 +43,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_enables_order_by_identifier_by_default(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -52,7 +53,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_allows_to_enable_order_by_identifier(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -62,7 +63,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_allows_to_disable_order_by_identifier(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -109,7 +110,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_throws_an_exception_if_orders_statistics_intervals_map_interval_is_empty(): void
     {
         $this->assertConfigurationIsInvalid(
@@ -118,7 +119,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_throws_an_exception_if_orders_statistics_intervals_map_interval_is_invalid(): void
     {
         $this->assertConfigurationIsInvalid(
@@ -127,7 +128,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_throws_an_exception_if_orders_statistics_intervals_map_period_format_is_empty(): void
     {
         $this->assertConfigurationIsInvalid(
@@ -136,7 +137,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_has_a_set_default_order_token_length(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -146,7 +147,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_allows_changing_the_order_token_length(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -156,7 +157,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_throws_exception_when_order_token_length_is_invalid(): void
     {
         $this->assertConfigurationIsInvalid([['order_token_length' => 'string']]);
@@ -172,7 +173,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_throws_an_exception_if_value_other_then_integer_is_declared_as_batch_size(): void
     {
         $this->assertConfigurationIsInvalid([['catalog_promotions' => ['batch_size' => 'rep']]]);
@@ -180,7 +181,7 @@ final class ConfigurationTest extends TestCase
         $this->assertConfigurationIsInvalid([['catalog_promotions' => ['batch_size' => 10.1]]]);
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_throws_an_exception_if_value_of_batch_size_is_lower_then_1(): void
     {
         $this->assertConfigurationIsInvalid(
@@ -194,7 +195,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_sets_default_allowed_images_mime_types(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -204,7 +205,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_allows_setting_custom_allowed_images_mime_types(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -214,7 +215,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_sets_default_checkout_payment_allowed_states(): void
     {
         $this->assertProcessedConfigurationEquals(
@@ -224,7 +225,7 @@ final class ConfigurationTest extends TestCase
         );
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_allows_setting_custom_checkout_payment_allowed_states(): void
     {
         $this->assertProcessedConfigurationEquals(

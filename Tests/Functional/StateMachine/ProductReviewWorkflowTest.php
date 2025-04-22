@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Functional\StateMachine;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Core\Model\ProductReview;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -20,8 +22,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 final class ProductReviewWorkflowTest extends KernelTestCase
 {
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForNewStatus')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForNewStatus')]
+    #[Test]
     public function it_applies_all_available_transitions_for_new_status(string $transition, string $expectedStatus): void
     {
         $stateMachine = $this->getStateMachine();

@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Functional\StateMachine;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\MockObject\MockObject;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Core\Checker\OrderPaymentMethodSelectionRequirementCheckerInterface;
@@ -58,8 +60,8 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForCartState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForCartState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_cart_state(
         string $transition,
         bool $isShippingMethodSelectionRequired,
@@ -77,8 +79,8 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForAddressedState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForAddressedState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_addressed_state(string $transition, string $expectedState): void
     {
         $this->setShippingMethodSelectionRequired(true);
@@ -92,8 +94,8 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForShippingSelectedState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForShippingSelectedState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_shipping_selected_state(string $transition, string $expectedState): void
     {
         $this->setShippingMethodSelectionRequired(true);
@@ -107,8 +109,8 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForShippingSkippedState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForShippingSkippedState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_shipping_skipped_state(string $transition, string $expectedState): void
     {
         $this->setShippingMethodSelectionRequired(true);
@@ -122,8 +124,8 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForPaymentSkippedState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForPaymentSkippedState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_payment_skipped_state(string $transition, string $expectedState): void
     {
         $this->setShippingMethodSelectionRequired(true);
@@ -137,8 +139,8 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForPaymentSelectedState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForPaymentSelectedState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_payment_selected_state(string $transition, string $expectedState): void
     {
         $this->setShippingMethodSelectionRequired(true);

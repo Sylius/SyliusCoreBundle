@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\EventListener;
 
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\EventListener\CircularDependencyBreakingErrorListener;
@@ -23,7 +24,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 final class CircularDependencyBreakingErrorListenerTest extends TestCase
 {
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_breaks_circular_dependencies_in_exceptions(): void
     {
         // Arrange
@@ -57,7 +58,7 @@ final class CircularDependencyBreakingErrorListenerTest extends TestCase
         Assert::assertSame(null, $secondException->getPrevious());
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_breaks_more_complex_circular_dependencies_in_exceptions(): void
     {
         // Arrange
@@ -97,7 +98,7 @@ final class CircularDependencyBreakingErrorListenerTest extends TestCase
         Assert::assertSame(null, $fourthException->getPrevious());
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_does_nothing_when_circular_dependencies_are_not_found(): void
     {
         // Arrange

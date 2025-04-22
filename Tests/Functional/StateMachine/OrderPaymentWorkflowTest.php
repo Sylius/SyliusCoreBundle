@@ -13,13 +13,15 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Functional\StateMachine;
 
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Core\Model\Order;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 final class OrderPaymentWorkflowTest extends KernelTestCase
 {
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_applies_available_transition_for_order_payment_cart_status(): void
     {
         $stateMachine = $this->getStateMachine();
@@ -31,8 +33,8 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForAwaitingPaymentState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForAwaitingPaymentState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_payment_awaiting_payment_state(
         string $transition,
         string $expectedStatus,
@@ -46,8 +48,8 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForPartiallyAuthorizedState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForPartiallyAuthorizedState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_payment_partially_authorized_state(
         string $transition,
         string $expectedStatus,
@@ -61,8 +63,8 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForAuthorizedState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForAuthorizedState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_payment_authorized_state(
         string $transition,
         string $expectedStatus,
@@ -76,8 +78,8 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForPartiallyPaidState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForPartiallyPaidState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_payment_partially_paid_state(
         string $transition,
         string $expectedStatus,
@@ -91,8 +93,8 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForPaidState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForPaidState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_payment_paid_state(
         string $transition,
         string $expectedStatus,
@@ -106,8 +108,8 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForPartiallyRefundedState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForPartiallyRefundedState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order_partially_refunded_state(
         string $transition,
         string $expectedStatus,

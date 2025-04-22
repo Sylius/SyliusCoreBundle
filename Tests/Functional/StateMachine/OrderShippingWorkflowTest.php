@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Functional\StateMachine;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Core\Model\Order;
 use Sylius\Component\Core\OrderShippingStates;
@@ -21,8 +23,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 final class OrderShippingWorkflowTest extends KernelTestCase
 {
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsFromReadyState')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsFromReadyState')]
+    #[Test]
     public function it_applies_all_available_transitions_for_ready_status(string $transition, string $expectedStatus): void
     {
         $stateMachine = $this->getStateMachine();
@@ -33,7 +35,7 @@ final class OrderShippingWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $subject->getShippingState());
     }
 
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[Test]
     public function it_applies_ship_transition_if_order_is_partially_shipped(): void
     {
         $stateMachine = $this->getStateMachine();

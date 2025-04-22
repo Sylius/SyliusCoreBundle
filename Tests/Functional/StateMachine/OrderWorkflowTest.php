@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Functional\StateMachine;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\Customer;
@@ -49,8 +51,8 @@ final class OrderWorkflowTest extends KernelTestCase
     }
 
     
-    #[\PHPUnit\Framework\Attributes\DataProvider('availableTransitionsForOrder')]
-    #[\PHPUnit\Framework\Attributes\Test]
+    #[DataProvider('availableTransitionsForOrder')]
+    #[Test]
     public function it_applies_all_available_transitions_for_order(
         string $initialState,
         string $transition,
