@@ -134,7 +134,7 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
 
             ->setDefault('short_description', fn (Options $options): string => $this->faker->paragraph)
 
-            ->setDefault('description', fn(Options $options): string => $this->faker->paragraphs(3, true))
+            ->setDefault('description', fn (Options $options): string => $this->faker->paragraphs(3, true))
 
             ->setDefault('main_taxon', LazyOption::randomOne($this->taxonRepository))
             ->setAllowedTypes('main_taxon', ['null', 'string', TaxonInterface::class])
