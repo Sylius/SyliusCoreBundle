@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\EventListener;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Doctrine\DBAL\Connection;
 use Doctrine\Migrations\AbstractMigration;
 use Doctrine\Migrations\DependencyFactory;
@@ -50,11 +52,9 @@ final class MigrationSkipListenerTest extends TestCase
         $this->listener = new MigrationSkipListener($this->dependencyFactory->reveal());
     }
 
-    /**
-     * @test
-     *
-     * @dataProvider getInvalidSkipConditions
-     */
+    
+    #[DataProvider('getInvalidSkipConditions')]
+    #[Test]
     public function it_does_nothing_when_conditions_are_not_met(bool $isUp, bool $isMigrationSkip, bool $skipped): void
     {
         $this->dependencyFactory->getMetadataStorage()->shouldNotBeCalled();
@@ -67,7 +67,7 @@ final class MigrationSkipListenerTest extends TestCase
         ));
     }
 
-    /** @test */
+    #[Test]
     public function it_completed_the_skipped_migration(): void
     {
         $this->dependencyFactory->getMetadataStorage()->shouldBeCalled();
