@@ -40,7 +40,6 @@ final class ShipmentWorkflowTest extends KernelTestCase
         $this->shipment->setOrder($this->order);
     }
 
-    
     #[DataProvider('availableTransitionsFromReadyState')]
     #[Test]
     public function it_applies_all_available_transitions_for_create_state(string $transition, string $expectedStatus): void

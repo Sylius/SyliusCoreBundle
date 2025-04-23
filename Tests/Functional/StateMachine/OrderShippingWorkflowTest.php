@@ -22,7 +22,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 final class OrderShippingWorkflowTest extends KernelTestCase
 {
-    
     #[DataProvider('availableTransitionsFromReadyState')]
     #[Test]
     public function it_applies_all_available_transitions_for_ready_status(string $transition, string $expectedStatus): void

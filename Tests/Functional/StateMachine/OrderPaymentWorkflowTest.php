@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Functional\StateMachine;
 
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Core\Model\Order;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -32,7 +32,6 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
         $this->assertSame('awaiting_payment', $order->getPaymentState());
     }
 
-    
     #[DataProvider('availableTransitionsForAwaitingPaymentState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_payment_awaiting_payment_state(
@@ -47,7 +46,6 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $order->getPaymentState());
     }
 
-    
     #[DataProvider('availableTransitionsForPartiallyAuthorizedState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_payment_partially_authorized_state(
@@ -62,7 +60,6 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $order->getPaymentState());
     }
 
-    
     #[DataProvider('availableTransitionsForAuthorizedState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_payment_authorized_state(
@@ -77,7 +74,6 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $order->getPaymentState());
     }
 
-    
     #[DataProvider('availableTransitionsForPartiallyPaidState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_payment_partially_paid_state(
@@ -92,7 +88,6 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $order->getPaymentState());
     }
 
-    
     #[DataProvider('availableTransitionsForPaidState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_payment_paid_state(
@@ -107,7 +102,6 @@ final class OrderPaymentWorkflowTest extends KernelTestCase
         $this->assertSame($expectedStatus, $order->getPaymentState());
     }
 
-    
     #[DataProvider('availableTransitionsForPartiallyRefundedState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_partially_refunded_state(

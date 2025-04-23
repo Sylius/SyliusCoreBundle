@@ -41,7 +41,6 @@ final class PaymentWorkflowTest extends KernelTestCase
         $this->payment->setOrder($this->order);
     }
 
-    
     #[DataProvider('availableTransitions')]
     #[Test]
     public function it_applies_all_available_transitions(

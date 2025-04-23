@@ -39,7 +39,6 @@ final class PaymentRequestWorkflowTest extends KernelTestCase
         );
     }
 
-    
     #[DataProvider('availableTransitions')]
     #[Test]
     public function it_applies_all_available_transitions(

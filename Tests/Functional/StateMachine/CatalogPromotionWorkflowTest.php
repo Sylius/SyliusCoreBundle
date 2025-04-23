@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\Functional\StateMachine;
 
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Core\Model\CatalogPromotion;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -44,7 +44,6 @@ final class CatalogPromotionWorkflowTest extends KernelTestCase
         $this->assertSame('processing', $catalogPromotion->getState());
     }
 
-    
     #[DataProvider('availableTransitionsForProcessingState')]
     #[Test]
     public function it_applies_all_available_transition_for_catalog_promotion_processing_status(

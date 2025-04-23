@@ -50,7 +50,6 @@ final class OrderWorkflowTest extends KernelTestCase
         $this->order = $order;
     }
 
-    
     #[DataProvider('availableTransitionsForOrder')]
     #[Test]
     public function it_applies_all_available_transitions_for_order(

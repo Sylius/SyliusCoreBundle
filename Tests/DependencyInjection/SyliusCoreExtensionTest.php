@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\DependencyInjection;
 
-use PHPUnit\Framework\Attributes\Test;
 use Doctrine\Bundle\MigrationsBundle\DependencyInjection\DoctrineMigrationsExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
+use PHPUnit\Framework\Attributes\Test;
 use Sylius\Bundle\CoreBundle\Attribute\AsCatalogPromotionApplicatorCriteria;
 use Sylius\Bundle\CoreBundle\Attribute\AsCatalogPromotionPriceCalculator;
 use Sylius\Bundle\CoreBundle\Attribute\AsEntityObserver;

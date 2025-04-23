@@ -59,7 +59,6 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
         self::getContainer()->set('sylius.repository.order_sequence', $sequenceRepository);
     }
 
-    
     #[DataProvider('availableTransitionsForCartState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_cart_state(
@@ -78,7 +77,6 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
         $this->assertSame($expectedState, $order->getCheckoutState());
     }
 
-    
     #[DataProvider('availableTransitionsForAddressedState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_addressed_state(string $transition, string $expectedState): void
@@ -93,7 +91,6 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
         $this->assertSame($expectedState, $order->getCheckoutState());
     }
 
-    
     #[DataProvider('availableTransitionsForShippingSelectedState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_shipping_selected_state(string $transition, string $expectedState): void
@@ -108,7 +105,6 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
         $this->assertSame($expectedState, $order->getCheckoutState());
     }
 
-    
     #[DataProvider('availableTransitionsForShippingSkippedState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_shipping_skipped_state(string $transition, string $expectedState): void
@@ -123,7 +119,6 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
         $this->assertSame($expectedState, $order->getCheckoutState());
     }
 
-    
     #[DataProvider('availableTransitionsForPaymentSkippedState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_payment_skipped_state(string $transition, string $expectedState): void
@@ -138,7 +133,6 @@ final class OrderCheckoutWorkflowTest extends KernelTestCase
         $this->assertSame($expectedState, $order->getCheckoutState());
     }
 
-    
     #[DataProvider('availableTransitionsForPaymentSelectedState')]
     #[Test]
     public function it_applies_all_available_transitions_for_order_checkout_payment_selected_state(string $transition, string $expectedState): void

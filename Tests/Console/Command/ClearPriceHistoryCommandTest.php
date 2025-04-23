@@ -37,7 +37,6 @@ final class ClearPriceHistoryCommandTest extends TestCase
         $this->commandTester = new CommandTester(new ClearPriceHistoryCommand($this->remover));
     }
 
-    
     #[DataProvider('getInvalidDays')]
     #[Test]
     public function it_does_not_clear_pricing_history_when_number_of_days_is_invalid(mixed $days): void
@@ -53,7 +52,6 @@ final class ClearPriceHistoryCommandTest extends TestCase
         );
     }
 
-    
     #[DataProvider('getValidDays')]
     #[Test]
     public function it_clears_pricing_history_when_non_interactive(int|string $days): void

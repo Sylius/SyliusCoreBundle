@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Tests\EventListener;
 
-use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\EventListener\CircularDependencyBreakingErrorListener;
 use Symfony\Component\HttpFoundation\Request;

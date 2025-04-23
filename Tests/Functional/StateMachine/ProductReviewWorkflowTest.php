@@ -21,7 +21,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 final class ProductReviewWorkflowTest extends KernelTestCase
 {
-    
     #[DataProvider('availableTransitionsForNewStatus')]
     #[Test]
     public function it_applies_all_available_transitions_for_new_status(string $transition, string $expectedStatus): void
