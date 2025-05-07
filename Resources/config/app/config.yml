@@ -61,7 +61,7 @@ doctrine:
                         MONTH: Sylius\Bundle\CoreBundle\Doctrine\DQL\Month
                         WEEK: Sylius\Bundle\CoreBundle\Doctrine\DQL\Week
                         YEAR: Sylius\Bundle\CoreBundle\Doctrine\DQL\Year
-                        CAST: Oro\ORM\Query\AST\Functions\Cast
+                        CAST: Sylius\Bundle\CoreBundle\Doctrine\DQL\Cast
 
 flysystem:
     storages:
