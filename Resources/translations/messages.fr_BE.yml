@@ -1,6 +1,3 @@
-# This file is part of the Sylius package.
-# (c) Sylius Sp. z o.o.
-
 sylius:
     email:
         admin_password_reset:
@@ -186,7 +183,7 @@ sylius:
             tracked_help: Si cette option est activée, Sylius gardera une trace du stock et cessera de vendre le produit une fois que le stock aura atteint 0.
         attribute:
             product_attribute_value:
-                attribute: Attribut 
+                attribute: Attribut
                 value: Valeur
         guest:
             email: Courriel
@@ -245,11 +242,11 @@ sylius:
             header: Système de fichiers
             cache:
                 header: Cache
-                help: "Pour définir des autorisations exécute : sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX %path% && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx %path%"
+                help: "Pour définir des autorisations exécutez : sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX %path% && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx %path%"
             exists: Existe
             logs:
                 header: logs
-                help: "Pour définir des autorisations exécute : sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX %path% && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx %path%"
+                help: "Pour définir des autorisations exécutez : sudo setfacl -R -m u:www-data:rwX -m u:`whoami`:rwX %path% && sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx %path%"
             not_exists: N'existe pas
             not_writable: pas accessible en écriture
             parameters:
