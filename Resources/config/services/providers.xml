@@ -50,6 +50,7 @@
         <service id="sylius.provider.statistics.sales" class="Sylius\Component\Core\Statistics\Provider\SalesStatisticsProvider">
             <argument type="service" id="sylius.registry.statistics.orders_totals_providers" />
             <argument>%sylius_core.orders_statistics.intervals_map%</argument>
+            <argument type="tagged_iterator" tag="sylius.statistics.provider_registry" />
         </service>
         <service id="Sylius\Component\Core\Statistics\Provider\SalesStatisticsProviderInterface" alias="sylius.provider.statistics.sales" />
 
@@ -66,6 +67,21 @@
         <service id="sylius.provider.statistics.orders_totals.year" class="Sylius\Component\Core\Statistics\Provider\OrdersTotals\YearBasedOrdersTotalProvider">
             <argument type="service" id="sylius.repository.order" />
             <tag name="sylius.statistics.orders_totals_provider" type="year" />
+        </service>
+
+        <service id="sylius.provider.statistics.orders_count.day" class="Sylius\Component\Core\Statistics\Provider\OrdersCount\DayBasedOrdersCountProvider">
+            <argument type="service" id="sylius.repository.order" />
+            <tag name="sylius.statistics.orders_count_provider" type="day" />
+        </service>
+
+        <service id="sylius.provider.statistics.orders_count.month" class="Sylius\Component\Core\Statistics\Provider\OrdersCount\MonthBasedOrdersCountProvider">
+            <argument type="service" id="sylius.repository.order" />
+            <tag name="sylius.statistics.orders_count_provider" type="month" />
+        </service>
+
+        <service id="sylius.provider.statistics.orders_count.year" class="Sylius\Component\Core\Statistics\Provider\OrdersCount\YearBasedOrdersCountProvider">
+            <argument type="service" id="sylius.repository.order" />
+            <tag name="sylius.statistics.orders_count_provider" type="year" />
         </service>
     </services>
 </container>
