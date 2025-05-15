@@ -317,7 +317,7 @@ class OrderRepository extends BaseOrderRepository implements OrderRepositoryInte
         array $groupBy,
     ): array {
         $queryBuilder = $this->createPaidOrdersInChannelPlacedWithinDateRangeQueryBuilder($channel, $startDate, $endDate);
-        $queryBuilder->select('COUNT(o) AS orders_count');
+        $queryBuilder->select('COUNT(o) AS paid_orders_count');
 
         foreach ($groupBy as $name => $select) {
             $queryBuilder
