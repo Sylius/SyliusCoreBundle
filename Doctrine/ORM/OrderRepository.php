@@ -564,4 +564,17 @@ class OrderRepository extends BaseOrderRepository implements OrderRepositoryInte
             ->setParameter('startDate', $startDate)
             ->setParameter('endDate', $endDate);
     }
+
+    public function countNewByChannel(ChannelInterface $channel): int
+    {
+        return $this->createQueryBuilder('o')
+            ->select('COUNT(o.id)')
+            ->andWhere('o.state = :state')
+            ->andWhere('o.channel = :channel')
+            ->setParameter('state', OrderInterface::STATE_NEW)
+            ->setParameter('channel', $channel)
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
 }
