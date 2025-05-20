@@ -27,15 +27,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProductReviewExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     public function __construct(
-        private ReviewFactoryInterface $productReviewFactory,
-        private ProductRepositoryInterface $productRepository,
-        private CustomerRepositoryInterface $customerRepository,
-        private StateMachineInterface $stateMachine,
+        protected readonly ReviewFactoryInterface $productReviewFactory,
+        protected readonly ProductRepositoryInterface $productRepository,
+        protected readonly CustomerRepositoryInterface $customerRepository,
+        protected readonly StateMachineInterface $stateMachine,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();

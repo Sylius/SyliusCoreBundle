@@ -32,9 +32,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ShippingMethodExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     /**
      * @param FactoryInterface<ShippingMethodInterface> $shippingMethodFactory
@@ -44,12 +44,12 @@ class ShippingMethodExampleFactory extends AbstractExampleFactory implements Exa
      * @param RepositoryInterface<TaxCategoryInterface> $taxCategoryRepository
      */
     public function __construct(
-        private FactoryInterface $shippingMethodFactory,
-        private RepositoryInterface $zoneRepository,
-        private RepositoryInterface $shippingCategoryRepository,
-        private RepositoryInterface $localeRepository,
-        private ChannelRepositoryInterface $channelRepository,
-        private RepositoryInterface $taxCategoryRepository,
+        protected readonly FactoryInterface $shippingMethodFactory,
+        protected readonly RepositoryInterface $zoneRepository,
+        protected readonly RepositoryInterface $shippingCategoryRepository,
+        protected readonly RepositoryInterface $localeRepository,
+        protected readonly ChannelRepositoryInterface $channelRepository,
+        protected readonly RepositoryInterface $taxCategoryRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
