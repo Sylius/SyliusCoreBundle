@@ -272,10 +272,10 @@ sylius:
                 auto_start_help: Définissez 'session.auto_start = Off' dans votre fichier php.ini
             short_open_tag: short_open_tag
             timezone: fuseau horaire
-            timezone_help: Définissez 'date.timezone' dans votre php.ini (ex: date.timezone = "America/Montreal")
+            timezone_help: Définissez 'date.timezone' dans votre php.ini (ex date.timezone = "America/Montreal")
             timezone_deprecated:
                 header: Fuseau horaire obsolète
-                help: Le fuseau horaire %timezone% est déconseillé. Modifiez votre php.ini (liste: http://php.net/manual/fr/timezones.others.php)
+                help: Le fuseau horaire %timezone% est déconseillé. Modifiez votre php.ini (liste http://php.net/manual/fr/timezones.others.php)
             version: Version de PHP
             version_recommended: Version PHP recommandée
             version_help: Sylius recommande la version %recommended% de PHP. La vôtre est %current%. Veuillez mettre à jour.
