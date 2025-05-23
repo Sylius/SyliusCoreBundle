@@ -30,6 +30,7 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 final class HasAllPricesDefinedValidatorTest extends TestCase
 {
     private ExecutionContextInterface&MockObject $executionContext;
+
     private HasAllPricesDefinedValidator $validator;
 
     protected function setUp(): void

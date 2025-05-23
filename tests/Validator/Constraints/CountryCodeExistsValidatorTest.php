@@ -26,7 +26,7 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 final class CountryCodeExistsValidatorTest extends TestCase
 {
-    private RepositoryInterface&MockObject $countryRepository;
+    private MockObject&RepositoryInterface $countryRepository;
 
     private ExecutionContextInterface&MockObject $executionContext;
 

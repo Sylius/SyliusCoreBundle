@@ -26,7 +26,7 @@ use Sylius\Component\Core\Model\ProductVariantInterface;
 
 final class OrderInventoryOperatorTest extends TestCase
 {
-    private OrderInventoryOperatorInterface&MockObject $decoratedOperator;
+    private MockObject&OrderInventoryOperatorInterface $decoratedOperator;
 
     private EntityManagerInterface&MockObject $productVariantManager;
 
@@ -38,7 +38,7 @@ final class OrderInventoryOperatorTest extends TestCase
         $this->productVariantManager = $this->createMock(EntityManagerInterface::class);
         $this->orderInventoryOperator = new OrderInventoryOperator(
             $this->decoratedOperator,
-            $this->productVariantManager
+            $this->productVariantManager,
         );
     }
 

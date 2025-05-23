@@ -28,11 +28,11 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final class CheckoutRedirectListenerTest extends TestCase
 {
-    private RequestStack&MockObject $requestStack;
+    private MockObject&RequestStack $requestStack;
 
     private CheckoutStateUrlGeneratorInterface&MockObject $checkoutStateUrlGenerator;
 
-    private RequestMatcherInterface&MockObject $requestMatcher;
+    private MockObject&RequestMatcherInterface $requestMatcher;
 
     private CheckoutRedirectListener $checkoutRedirectListener;
 

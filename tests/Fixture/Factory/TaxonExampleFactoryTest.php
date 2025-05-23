@@ -28,11 +28,11 @@ final class TaxonExampleFactoryTest extends TestCase
 {
     private FactoryInterface&MockObject $taxonFactory;
 
-    private TaxonRepositoryInterface&MockObject $taxonRepository;
+    private MockObject&TaxonRepositoryInterface $taxonRepository;
 
-    private RepositoryInterface&MockObject $localeRepository;
+    private MockObject&RepositoryInterface $localeRepository;
 
-    private TaxonSlugGeneratorInterface&MockObject $taxonSlugGenerator;
+    private MockObject&TaxonSlugGeneratorInterface $taxonSlugGenerator;
 
     private TaxonExampleFactory $factory;
 

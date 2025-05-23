@@ -27,7 +27,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 final class ResendOrderConfirmationEmailWithValidOrderStateValidatorTest extends TestCase
 {
-    private RepositoryInterface&MockObject $orderRepository;
+    private MockObject&RepositoryInterface $orderRepository;
 
     private ExecutionContextInterface&MockObject $context;
 
@@ -40,7 +40,7 @@ final class ResendOrderConfirmationEmailWithValidOrderStateValidatorTest extends
 
         $this->validator = new ResendOrderConfirmationEmailWithValidOrderStateValidator(
             $this->orderRepository,
-            [OrderInterface::STATE_NEW]
+            [OrderInterface::STATE_NEW],
         );
         $this->validator->initialize($this->context);
     }

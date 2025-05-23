@@ -26,7 +26,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 final class BatchedApplyLowestPriceOnChannelPricingsCommandDispatcherTest extends TestCase
 {
-    private RepositoryInterface&MockObject $channelPricingRepository;
+    private MockObject&RepositoryInterface $channelPricingRepository;
 
     private MessageBusInterface&MockObject $commandBus;
 
@@ -40,7 +40,7 @@ final class BatchedApplyLowestPriceOnChannelPricingsCommandDispatcherTest extend
         $this->dispatcher = new BatchedApplyLowestPriceOnChannelPricingsCommandDispatcher(
             $this->channelPricingRepository,
             $this->commandBus,
-            2
+            2,
         );
     }
 
@@ -48,7 +48,7 @@ final class BatchedApplyLowestPriceOnChannelPricingsCommandDispatcherTest extend
     {
         $this->assertInstanceOf(
             ApplyLowestPriceOnChannelPricingsCommandDispatcherInterface::class,
-            $this->dispatcher
+            $this->dispatcher,
         );
     }
 
@@ -87,6 +87,7 @@ final class BatchedApplyLowestPriceOnChannelPricingsCommandDispatcherTest extend
             ->willReturnCallback(function ($command) use (&$dispatchedCommands) {
                 $this->assertInstanceOf(ApplyLowestPriceOnChannelPricings::class, $command);
                 $dispatchedCommands[] = $command;
+
                 return new Envelope($command);
             })
         ;

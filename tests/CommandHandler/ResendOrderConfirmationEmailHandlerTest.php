@@ -25,9 +25,9 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 final class ResendOrderConfirmationEmailHandlerTest extends TestCase
 {
-    private OrderEmailManagerInterface&MockObject $orderEmailManager;
+    private MockObject&OrderEmailManagerInterface $orderEmailManager;
 
-    private RepositoryInterface&MockObject $orderRepository;
+    private MockObject&RepositoryInterface $orderRepository;
 
     private ResendOrderConfirmationEmailHandler $handler;
 
@@ -38,7 +38,7 @@ final class ResendOrderConfirmationEmailHandlerTest extends TestCase
 
         $this->handler = new ResendOrderConfirmationEmailHandler(
             $this->orderEmailManager,
-            $this->orderRepository
+            $this->orderRepository,
         );
     }
 

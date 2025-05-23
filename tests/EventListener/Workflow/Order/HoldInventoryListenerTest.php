@@ -23,7 +23,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class HoldInventoryListenerTest extends TestCase
 {
-    private OrderInventoryOperatorInterface&MockObject $orderInventoryOperator;
+    private MockObject&OrderInventoryOperatorInterface $orderInventoryOperator;
 
     private HoldInventoryListener $listener;
 

@@ -23,7 +23,8 @@ use Symfony\Component\Workflow\Marking;
 
 final class SaveCustomerAddressesListenerTest extends TestCase
 {
-    private OrderAddressesSaverInterface&MockObject $orderAddressesSaver;
+    private MockObject&OrderAddressesSaverInterface $orderAddressesSaver;
+
     private SaveCustomerAddressesListener $listener;
 
     protected function setUp(): void

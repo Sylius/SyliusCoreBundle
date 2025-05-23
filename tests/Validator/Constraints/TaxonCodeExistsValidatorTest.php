@@ -27,7 +27,7 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 final class TaxonCodeExistsValidatorTest extends TestCase
 {
-    private TaxonRepositoryInterface&MockObject $taxonRepository;
+    private MockObject&TaxonRepositoryInterface $taxonRepository;
 
     private ExecutionContextInterface&MockObject $context;
 

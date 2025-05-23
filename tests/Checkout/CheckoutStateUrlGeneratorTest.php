@@ -24,7 +24,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 final class CheckoutStateUrlGeneratorTest extends TestCase
 {
-    private RouterInterface&MockObject $router;
+    private MockObject&RouterInterface $router;
 
     private CheckoutStateUrlGeneratorInterface $urlGenerator;
 

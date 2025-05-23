@@ -26,7 +26,7 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 final class ZoneCodeExistsValidatorTest extends TestCase
 {
-    private RepositoryInterface&MockObject $zoneRepository;
+    private MockObject&RepositoryInterface $zoneRepository;
 
     private ExecutionContextInterface&MockObject $executionContext;
 

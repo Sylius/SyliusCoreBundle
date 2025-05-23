@@ -24,7 +24,7 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class PasswordUpdaterListenerTest extends TestCase
 {
-    private PasswordUpdaterInterface&MockObject $passwordUpdater;
+    private MockObject&PasswordUpdaterInterface $passwordUpdater;
 
     private PasswordUpdaterListener $passwordUpdaterListener;
 

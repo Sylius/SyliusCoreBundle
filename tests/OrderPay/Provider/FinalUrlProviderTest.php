@@ -23,7 +23,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class FinalUrlProviderTest extends TestCase
 {
-    private RouteParametersProcessorInterface&MockObject $routeParametersProcessor;
+    private MockObject&RouteParametersProcessorInterface $routeParametersProcessor;
 
     private FinalUrlProvider $provider;
 
@@ -49,7 +49,7 @@ final class FinalUrlProviderTest extends TestCase
                 'final_route',
                 [],
                 UrlGeneratorInterface::ABSOLUTE_PATH,
-                ['payment' => null, 'order' => null]
+                ['payment' => null, 'order' => null],
             )
             ->willReturn('/final_route')
         ;
@@ -71,7 +71,7 @@ final class FinalUrlProviderTest extends TestCase
                 'final_route',
                 [],
                 UrlGeneratorInterface::ABSOLUTE_PATH,
-                ['payment' => $payment, 'order' => null]
+                ['payment' => $payment, 'order' => null],
             )
             ->willReturn('/final_route')
         ;
@@ -93,7 +93,7 @@ final class FinalUrlProviderTest extends TestCase
                 'final_route',
                 [],
                 UrlGeneratorInterface::ABSOLUTE_PATH,
-                ['payment' => $payment, 'order' => null]
+                ['payment' => $payment, 'order' => null],
             )
             ->willReturn('/final_route')
         ;
@@ -115,7 +115,7 @@ final class FinalUrlProviderTest extends TestCase
                 'retry_route',
                 [],
                 UrlGeneratorInterface::ABSOLUTE_PATH,
-                ['payment' => $payment, 'order' => null]
+                ['payment' => $payment, 'order' => null],
             )
             ->willReturn('/retry_route')
         ;

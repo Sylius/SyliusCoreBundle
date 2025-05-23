@@ -38,17 +38,17 @@ final class UserProviderTest extends TestCase
 
     private FactoryInterface&MockObject $userFactory;
 
-    private UserRepositoryInterface&MockObject $userRepository;
+    private MockObject&UserRepositoryInterface $userRepository;
 
     private FactoryInterface&MockObject $oauthFactory;
 
-    private ObjectManager&MockObject $userManager;
+    private MockObject&ObjectManager $userManager;
 
     private CanonicalizerInterface&MockObject $canonicalizer;
 
     private CustomerRepositoryInterface&MockObject $customerRepository;
 
-    private RepositoryInterface&MockObject $oauthRepository;
+    private MockObject&RepositoryInterface $oauthRepository;
 
     private UserProvider $provider;
 

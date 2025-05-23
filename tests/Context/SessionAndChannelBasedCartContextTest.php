@@ -38,7 +38,7 @@ final class SessionAndChannelBasedCartContextTest extends TestCase
         $this->channelContext = $this->createMock(ChannelContextInterface::class);
         $this->cartContext = new SessionAndChannelBasedCartContext(
             $this->cartStorage,
-            $this->channelContext
+            $this->channelContext,
         );
     }
 

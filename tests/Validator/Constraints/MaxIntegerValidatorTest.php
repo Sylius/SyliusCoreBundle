@@ -23,6 +23,7 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 final class MaxIntegerValidatorTest extends TestCase
 {
     private ExecutionContextInterface&MockObject $context;
+
     private MaxIntegerValidator $validator;
 
     protected function setUp(): void

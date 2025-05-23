@@ -24,7 +24,7 @@ use Symfony\Component\Form\DataTransformerInterface;
 
 final class TaxonsToCodesTransformerTest extends TestCase
 {
-    private TaxonRepositoryInterface&MockObject $taxonRepository;
+    private MockObject&TaxonRepositoryInterface $taxonRepository;
 
     private TaxonsToCodesTransformer $transformer;
 

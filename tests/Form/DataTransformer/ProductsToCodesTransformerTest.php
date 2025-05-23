@@ -24,7 +24,7 @@ use Symfony\Component\Form\DataTransformerInterface;
 
 final class ProductsToCodesTransformerTest extends TestCase
 {
-    private ProductRepositoryInterface&MockObject $productRepository;
+    private MockObject&ProductRepositoryInterface $productRepository;
 
     private ProductsToCodesTransformer $transformer;
 

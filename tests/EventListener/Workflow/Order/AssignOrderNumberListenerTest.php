@@ -23,7 +23,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class AssignOrderNumberListenerTest extends TestCase
 {
-    private OrderNumberAssignerInterface&MockObject $orderNumberAssigner;
+    private MockObject&OrderNumberAssignerInterface $orderNumberAssigner;
 
     private AssignOrderNumberListener $listener;
 

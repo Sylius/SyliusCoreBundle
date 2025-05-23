@@ -29,7 +29,7 @@ use Symfony\Component\Messenger\Stamp\DispatchAfterCurrentBusStamp;
 
 final class RequestResetPasswordEmailHandlerTest extends TestCase
 {
-    private UserRepositoryInterface&MockObject $userRepository;
+    private MockObject&UserRepositoryInterface $userRepository;
 
     private GeneratorInterface&MockObject $generator;
 
@@ -49,7 +49,7 @@ final class RequestResetPasswordEmailHandlerTest extends TestCase
             $this->userRepository,
             $this->generator,
             $this->clock,
-            $this->messageBus
+            $this->messageBus,
         );
     }
 

@@ -32,7 +32,7 @@ final class CustomerAndChannelBasedCartContextTest extends TestCase
 
     private ChannelContextInterface&MockObject $channelContext;
 
-    private OrderRepositoryInterface&MockObject $orderRepository;
+    private MockObject&OrderRepositoryInterface $orderRepository;
 
     private CustomerAndChannelBasedCartContext $cartContext;
 
@@ -44,7 +44,7 @@ final class CustomerAndChannelBasedCartContextTest extends TestCase
         $this->cartContext = new CustomerAndChannelBasedCartContext(
             $this->customerContext,
             $this->channelContext,
-            $this->orderRepository
+            $this->orderRepository,
         );
     }
 

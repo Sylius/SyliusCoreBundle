@@ -31,11 +31,11 @@ final class PostgreSQLDefaultSchemaListenerTest extends TestCase
 
     private GenerateSchemaEventArgs&MockObject $args;
 
-    private PostgreSQLSchemaManager&MockObject $pgSchemaManager;
+    private MockObject&PostgreSQLSchemaManager $pgSchemaManager;
 
-    private MySQLSchemaManager&MockObject $mySqlSchemaManager;
+    private MockObject&MySQLSchemaManager $mySqlSchemaManager;
 
-    private Schema&MockObject $schema;
+    private MockObject&Schema $schema;
 
     private PostgreSQLDefaultSchemaListener $listener;
 

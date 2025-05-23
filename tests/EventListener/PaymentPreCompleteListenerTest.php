@@ -27,7 +27,7 @@ use Sylius\Resource\Symfony\EventDispatcher\GenericEvent;
 
 final class PaymentPreCompleteListenerTest extends TestCase
 {
-    private OrderItemAvailabilityCheckerInterface&MockObject $orderItemAvailabilityChecker;
+    private MockObject&OrderItemAvailabilityCheckerInterface $orderItemAvailabilityChecker;
 
     private PaymentPreCompleteListener $listener;
 

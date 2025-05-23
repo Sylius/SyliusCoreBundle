@@ -24,7 +24,7 @@ final class RouteParametersProcessorTest extends TestCase
 {
     private ExpressionLanguage&MockObject $expressionLanguage;
 
-    private RouterInterface&MockObject $router;
+    private MockObject&RouterInterface $router;
 
     private RouteParametersProcessor $processor;
 
@@ -35,7 +35,7 @@ final class RouteParametersProcessorTest extends TestCase
 
         $this->processor = new RouteParametersProcessor(
             $this->expressionLanguage,
-            $this->router
+            $this->router,
         );
     }
 

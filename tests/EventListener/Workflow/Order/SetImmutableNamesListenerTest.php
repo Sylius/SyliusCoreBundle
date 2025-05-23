@@ -23,7 +23,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class SetImmutableNamesListenerTest extends TestCase
 {
-    private OrderItemNamesSetterInterface&MockObject $orderItemNamesSetter;
+    private MockObject&OrderItemNamesSetterInterface $orderItemNamesSetter;
 
     private SetImmutableNamesListener $listener;
 

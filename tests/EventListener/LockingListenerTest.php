@@ -27,7 +27,7 @@ final class LockingListenerTest extends TestCase
 {
     private EntityManagerInterface&MockObject $manager;
 
-    private ProductVariantResolverInterface&MockObject $variantResolver;
+    private MockObject&ProductVariantResolverInterface $variantResolver;
 
     private LockingListener $lockingListener;
 

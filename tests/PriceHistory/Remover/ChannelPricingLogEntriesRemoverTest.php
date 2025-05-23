@@ -29,7 +29,7 @@ final class ChannelPricingLogEntriesRemoverTest extends TestCase
 {
     private ChannelPricingLogEntryRepositoryInterface&MockObject $repository;
 
-    private ObjectManager&MockObject $manager;
+    private MockObject&ObjectManager $manager;
 
     private ClockInterface&MockObject $clock;
 
@@ -48,7 +48,7 @@ final class ChannelPricingLogEntriesRemoverTest extends TestCase
             $this->manager,
             $this->clock,
             $this->eventDispatcher,
-            1
+            1,
         );
     }
 

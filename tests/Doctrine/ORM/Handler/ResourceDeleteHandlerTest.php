@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Tests\Sylius\Bundle\CoreBundle\Doctrine\ORM\Handler;
 
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\MockObject\MockObject;
-use Sylius\Bundle\CoreBundle\Doctrine\ORM\Handler\ResourceDeleteHandler;
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
+use Sylius\Bundle\CoreBundle\Doctrine\ORM\Handler\ResourceDeleteHandler;
 use Sylius\Bundle\ResourceBundle\Controller\ResourceDeleteHandlerInterface;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 use Sylius\Resource\Exception\DeleteHandlingException;
@@ -26,7 +26,7 @@ use Sylius\Resource\Model\ResourceInterface;
 
 final class ResourceDeleteHandlerTest extends TestCase
 {
-    private ResourceDeleteHandlerInterface&MockObject $decoratedHandler;
+    private MockObject&ResourceDeleteHandlerInterface $decoratedHandler;
 
     private EntityManagerInterface&MockObject $entityManager;
 
@@ -84,7 +84,8 @@ final class ResourceDeleteHandlerTest extends TestCase
         $repository = $this->createMock(RepositoryInterface::class);
         $resource = $this->createMock(ResourceInterface::class);
 
-        $ormException = new class('ORM error') extends ORMException {};
+        $ormException = new class('ORM error') extends ORMException {
+        };
 
         $this->entityManager->expects(self::once())->method('beginTransaction');
 

@@ -23,7 +23,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class ProcessCartListenerTest extends TestCase
 {
-    private OrderProcessorInterface&MockObject $orderProcessor;
+    private MockObject&OrderProcessorInterface $orderProcessor;
 
     private ProcessCartListener $listener;
 

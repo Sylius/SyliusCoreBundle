@@ -25,7 +25,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 final class CustomerContextTest extends TestCase
 {
-    private TokenStorageInterface&MockObject $tokenStorage;
+    private MockObject&TokenStorageInterface $tokenStorage;
 
     private AuthorizationCheckerInterface&MockObject $authorizationChecker;
 
@@ -37,7 +37,7 @@ final class CustomerContextTest extends TestCase
         $this->authorizationChecker = $this->createMock(AuthorizationCheckerInterface::class);
         $this->customerContext = new CustomerContext(
             $this->tokenStorage,
-            $this->authorizationChecker
+            $this->authorizationChecker,
         );
     }
 

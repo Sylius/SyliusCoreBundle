@@ -26,7 +26,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class CancelPaymentListenerTest extends TestCase
 {
-    private StateMachineInterface&MockObject $stateMachine;
+    private MockObject&StateMachineInterface $stateMachine;
 
     private CancelPaymentListener $listener;
 
@@ -86,10 +86,10 @@ final class CancelPaymentListenerTest extends TestCase
             ->with(
                 $this->logicalOr(
                     $this->identicalTo($payment1),
-                    $this->identicalTo($payment2)
+                    $this->identicalTo($payment2),
                 ),
                 PaymentTransitions::GRAPH,
-                PaymentTransitions::TRANSITION_CANCEL
+                PaymentTransitions::TRANSITION_CANCEL,
             )
         ;
 

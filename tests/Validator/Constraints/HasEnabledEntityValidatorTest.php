@@ -33,7 +33,7 @@ final class HasEnabledEntityValidatorTest extends TestCase
 {
     private ManagerRegistry&MockObject $registry;
 
-    private PropertyAccessorInterface&MockObject $accessor;
+    private MockObject&PropertyAccessorInterface $accessor;
 
     private ExecutionContextInterface&MockObject $contextMock;
 

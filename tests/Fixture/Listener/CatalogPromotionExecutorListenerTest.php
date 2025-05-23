@@ -98,6 +98,7 @@ final class CatalogPromotionExecutorListenerTest extends TestCase
                 if ($command instanceof UpdateCatalogPromotionState) {
                     $dispatchedCommands[] = $command;
                 }
+
                 return new Envelope($command);
             })
         ;
@@ -111,13 +112,13 @@ final class CatalogPromotionExecutorListenerTest extends TestCase
             $reflection = new \ReflectionObject($command);
             $property = $reflection->getProperty('code');
             $property->setAccessible(true);
+
             return $property->getValue($command);
         }, $dispatchedCommands)
         ;
 
         $this->assertEqualsCanonicalizing(['WINTER', 'WINTER', 'AUTUMN', 'AUTUMN'], $dispatchedCodes);
     }
-
 
     public function testDoesNotTriggerCatalogPromotionProcessingAfterAnyOtherFixtureExecution(): void
     {
@@ -138,4 +139,3 @@ final class CatalogPromotionExecutorListenerTest extends TestCase
         $this->listener->afterFixture($event, []);
     }
 }
-

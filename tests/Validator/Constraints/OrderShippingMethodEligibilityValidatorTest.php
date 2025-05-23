@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Tests\Sylius\Bundle\CoreBundle\Validator\Constraints;
 
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\MockObject\MockObject;
-use Sylius\Bundle\CoreBundle\Validator\Constraints\OrderShippingMethodEligibilityValidator;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\Validator\Constraints\OrderShippingMethodEligibility;
+use Sylius\Bundle\CoreBundle\Validator\Constraints\OrderShippingMethodEligibilityValidator;
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\ShipmentInterface;
@@ -30,8 +30,10 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 final class OrderShippingMethodEligibilityValidatorTest extends TestCase
 {
-    private ShippingMethodEligibilityCheckerInterface&MockObject $eligibilityChecker;
+    private MockObject&ShippingMethodEligibilityCheckerInterface $eligibilityChecker;
+
     private ExecutionContextInterface&MockObject $context;
+
     private OrderShippingMethodEligibilityValidator $validator;
 
     protected function setUp(): void
@@ -87,7 +89,7 @@ final class OrderShippingMethodEligibilityValidatorTest extends TestCase
             ->method('addViolation')
             ->willReturnCallback(static function (string $message, array $params) {
                 static $calls = 0;
-                $calls++;
+                ++$calls;
                 if ($calls === 1) {
                     TestCase::assertSame('sylius.order.shipping_method_not_available', $message);
                     TestCase::assertSame(['%shippingMethodName%' => 'Shipping method one'], $params);

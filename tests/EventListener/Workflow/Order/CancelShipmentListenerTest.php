@@ -26,7 +26,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class CancelShipmentListenerTest extends TestCase
 {
-    private StateMachineInterface&MockObject $stateMachine;
+    private MockObject&StateMachineInterface $stateMachine;
 
     private CancelShipmentListener $listener;
 
@@ -86,10 +86,10 @@ final class CancelShipmentListenerTest extends TestCase
             ->with(
                 $this->logicalOr(
                     $this->identicalTo($shipment1),
-                    $this->identicalTo($shipment2)
+                    $this->identicalTo($shipment2),
                 ),
                 ShipmentTransitions::GRAPH,
-                ShipmentTransitions::TRANSITION_CANCEL
+                ShipmentTransitions::TRANSITION_CANCEL,
             )
         ;
 

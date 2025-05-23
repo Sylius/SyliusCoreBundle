@@ -24,7 +24,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class ApplyCreateTransitionOnOrderListenerTest extends TestCase
 {
-    private StateMachineInterface&MockObject $compositeStateMachine;
+    private MockObject&StateMachineInterface $compositeStateMachine;
 
     private ApplyCreateTransitionOnOrderListener $listener;
 

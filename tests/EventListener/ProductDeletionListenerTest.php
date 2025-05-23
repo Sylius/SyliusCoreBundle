@@ -20,11 +20,10 @@ use Sylius\Bundle\CoreBundle\EventListener\ProductDeletionListener;
 use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Core\Promotion\Checker\ProductInPromotionRuleCheckerInterface;
 use Sylius\Resource\Symfony\EventDispatcher\GenericEvent;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 final class ProductDeletionListenerTest extends TestCase
 {
-    private ProductInPromotionRuleCheckerInterface&MockObject $productInPromotionRuleChecker;
+    private MockObject&ProductInPromotionRuleCheckerInterface $productInPromotionRuleChecker;
 
     private ProductDeletionListener $productDeletionListener;
 

@@ -22,7 +22,7 @@ use Sylius\Component\Product\Model\ProductOptionValueInterface;
 
 final class ProductOptionValueDeletionListenerTest extends TestCase
 {
-    private ProductVariantRepositoryInterface&MockObject $productVariantRepository;
+    private MockObject&ProductVariantRepositoryInterface $productVariantRepository;
 
     private ProductOptionValueDeletionListener $productOptionValueDeletionListener;
 

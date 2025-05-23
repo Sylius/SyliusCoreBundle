@@ -26,7 +26,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class ProcessOrderListenerTest extends TestCase
 {
-    private OrderProcessorInterface&MockObject $orderProcessor;
+    private MockObject&OrderProcessorInterface $orderProcessor;
 
     private ProcessOrderListener $processOrderListener;
 

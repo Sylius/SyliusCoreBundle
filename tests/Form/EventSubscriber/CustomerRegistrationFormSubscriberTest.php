@@ -26,7 +26,7 @@ use Symfony\Component\Form\FormInterface;
 
 final class CustomerRegistrationFormSubscriberTest extends TestCase
 {
-    private RepositoryInterface&MockObject $customerRepository;
+    private MockObject&RepositoryInterface $customerRepository;
 
     private CustomerRegistrationFormSubscriber $customerRegistrationFormSubscriber;
 
@@ -45,7 +45,7 @@ final class CustomerRegistrationFormSubscriberTest extends TestCase
     {
         $this->assertSame(
             [FormEvents::PRE_SUBMIT => 'preSubmit'],
-            $this->customerRegistrationFormSubscriber->getSubscribedEvents()
+            $this->customerRegistrationFormSubscriber->getSubscribedEvents(),
         );
     }
 

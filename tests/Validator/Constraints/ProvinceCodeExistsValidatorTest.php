@@ -26,8 +26,10 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 final class ProvinceCodeExistsValidatorTest extends TestCase
 {
-    private RepositoryInterface&MockObject $provinceRepository;
+    private MockObject&RepositoryInterface $provinceRepository;
+
     private ExecutionContextInterface&MockObject $context;
+
     private ProvinceCodeExistsValidator $validator;
 
     protected function setUp(): void

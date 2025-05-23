@@ -23,7 +23,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class DecrementPromotionUsagesListenerTest extends TestCase
 {
-    private OrderPromotionsUsageModifierInterface&MockObject $orderPromotionsUsageModifier;
+    private MockObject&OrderPromotionsUsageModifierInterface $orderPromotionsUsageModifier;
 
     private DecrementPromotionUsagesListener $listener;
 

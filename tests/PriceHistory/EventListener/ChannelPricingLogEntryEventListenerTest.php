@@ -23,7 +23,7 @@ use Sylius\Component\Core\Model\ChannelPricingLogEntryInterface;
 
 final class ChannelPricingLogEntryEventListenerTest extends TestCase
 {
-    private ProductLowestPriceBeforeDiscountProcessorInterface&MockObject $lowestPriceProcessor;
+    private MockObject&ProductLowestPriceBeforeDiscountProcessorInterface $lowestPriceProcessor;
 
     private ChannelPricingLogEntryEventListener $channelPricingLogEntryEventListener;
 

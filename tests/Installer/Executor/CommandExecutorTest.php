@@ -26,7 +26,7 @@ final class CommandExecutorTest extends TestCase
 {
     private InputInterface&MockObject $input;
 
-    private OutputInterface&MockObject $output;
+    private MockObject&OutputInterface $output;
 
     private Application&MockObject $application;
 
@@ -61,13 +61,13 @@ final class CommandExecutorTest extends TestCase
             ->method('run')
             ->with(
                 $this->callback(function (ArrayInput $input) {
-                    return $input->getFirstArgument() === 'command'
-                        && $input->getParameterOption('--no-debug') === true
-                        && $input->getParameterOption('--env') === 'dev'
-                        && $input->hasParameterOption('--verbose')
-                        && !$input->hasParameterOption('--no-interaction');
+                    return $input->getFirstArgument() === 'command' &&
+                        $input->getParameterOption('--no-debug') === true &&
+                        $input->getParameterOption('--env') === 'dev' &&
+                        $input->hasParameterOption('--verbose') &&
+                        !$input->hasParameterOption('--no-interaction');
                 }),
-                $this->isInstanceOf(NullOutput::class)
+                $this->isInstanceOf(NullOutput::class),
             )
             ->willReturn(0)
         ;
@@ -96,13 +96,13 @@ final class CommandExecutorTest extends TestCase
             ->method('run')
             ->with(
                 $this->callback(function (ArrayInput $input) {
-                    return $input->getFirstArgument() === 'command'
-                        && $input->getParameterOption('--no-debug') === true
-                        && $input->getParameterOption('--env') === 'dev'
-                        && $input->hasParameterOption('--verbose')
-                        && $input->hasParameterOption('--no-interaction');
+                    return $input->getFirstArgument() === 'command' &&
+                        $input->getParameterOption('--no-debug') === true &&
+                        $input->getParameterOption('--env') === 'dev' &&
+                        $input->hasParameterOption('--verbose') &&
+                        $input->hasParameterOption('--no-interaction');
                 }),
-                $this->isInstanceOf(NullOutput::class)
+                $this->isInstanceOf(NullOutput::class),
             )
             ->willReturn(0)
         ;

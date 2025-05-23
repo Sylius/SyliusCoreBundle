@@ -25,8 +25,10 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 final class CartItemQuantityRangeValidatorTest extends TestCase
 {
-    private PropertyAccessorInterface&MockObject $propertyAccessor;
+    private MockObject&PropertyAccessorInterface $propertyAccessor;
+
     private ExecutionContextInterface&MockObject $executionContext;
+
     private CartItemQuantityRangeValidator $validator;
 
     protected function setUp(): void
@@ -80,7 +82,7 @@ final class CartItemQuantityRangeValidatorTest extends TestCase
 
         $constraint = new CartItemQuantityRange(
             notInRangeMessage: 'sylius.cart_item.quantity.not_in_range',
-            min: 1
+            min: 1,
         );
 
         $this->validator->validate(18, $constraint);

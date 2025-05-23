@@ -24,7 +24,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class SellOrderInventoryListenerTest extends TestCase
 {
-    private OrderInventoryOperatorInterface&MockObject $orderInventoryOperator;
+    private MockObject&OrderInventoryOperatorInterface $orderInventoryOperator;
 
     private SellOrderInventoryListener $listener;
 

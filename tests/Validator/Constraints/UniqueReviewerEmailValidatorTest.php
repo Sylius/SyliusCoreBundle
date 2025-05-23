@@ -29,9 +29,9 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 final class UniqueReviewerEmailValidatorTest extends TestCase
 {
-    private UserRepositoryInterface&MockObject $userRepository;
+    private MockObject&UserRepositoryInterface $userRepository;
 
-    private TokenStorageInterface&MockObject $tokenStorage;
+    private MockObject&TokenStorageInterface $tokenStorage;
 
     private AuthorizationCheckerInterface&MockObject $authorizationChecker;
 
@@ -49,7 +49,7 @@ final class UniqueReviewerEmailValidatorTest extends TestCase
         $this->validator = new UniqueReviewerEmailValidator(
             $this->userRepository,
             $this->tokenStorage,
-            $this->authorizationChecker
+            $this->authorizationChecker,
         );
 
         $this->validator->initialize($this->executionContext);

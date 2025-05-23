@@ -37,7 +37,7 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
 {
     private ChannelRepositoryInterface&MockObject $channelRepository;
 
-    private PropertyAccessorInterface&MockObject $propertyAccessor;
+    private MockObject&PropertyAccessorInterface $propertyAccessor;
 
     private ExecutionContextInterface&MockObject $executionContext;
 
@@ -81,7 +81,8 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         ]));
     }
 
-    public function testItValidatesTheValueChannelsExistence(): void {
+    public function testItValidatesTheValueChannelsExistence(): void
+    {
         $violationBuilder = $this->createMock(ConstraintViolationBuilderInterface::class);
         $channelsAware = $this->createMock(ChannelsAwareInterface::class);
         $form = $this->createMock(Form::class);
@@ -91,7 +92,7 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         $channelsAware->method('getChannels')->willReturn(new ArrayCollection());
 
         $this->channelRepository->method('findAllWithBasicData')->willReturn([
-            ['code' => 'WEB'], ['code' => 'MOBILE']
+            ['code' => 'WEB'], ['code' => 'MOBILE'],
         ]);
 
         $constraints = [new NotBlank(), new Type('numeric')];
@@ -119,7 +120,8 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         $this->validator->validate($value, $constraint);
     }
 
-    public function testItRetrievesAnObjectFromValueAndValidatesCollectionsForLocalChannels(): void {
+    public function testItRetrievesAnObjectFromValueAndValidatesCollectionsForLocalChannels(): void
+    {
         $validator = $this->createMock(ValidatorInterface::class);
         $contextualValidator = $this->createMock(ContextualValidatorInterface::class);
         $channelsAware = $this->createMock(ChannelsAwareInterface::class);
@@ -130,7 +132,7 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         $channelsAware->method('getChannels')->willReturn(new ArrayCollection());
 
         $this->channelRepository->method('findAllWithBasicData')->willReturn([
-            ['code' => 'WEB'], ['code' => 'MOBILE']
+            ['code' => 'WEB'], ['code' => 'MOBILE'],
         ]);
 
         $constraints = [new NotBlank(), new Type('numeric')];
@@ -149,7 +151,8 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         ]));
     }
 
-    public function testItValidatesCollectionsForChannelsFromValue(): void {
+    public function testItValidatesCollectionsForChannelsFromValue(): void
+    {
         $validator = $this->createMock(ValidatorInterface::class);
         $contextualValidator = $this->createMock(ContextualValidatorInterface::class);
         $channelsAware = $this->createMock(ChannelsAwareInterface::class);
@@ -159,7 +162,7 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         $channelsAware->method('getChannels')->willReturn(new ArrayCollection());
 
         $this->channelRepository->method('findAllWithBasicData')->willReturn([
-            ['code' => 'WEB'], ['code' => 'MOBILE']
+            ['code' => 'WEB'], ['code' => 'MOBILE'],
         ]);
 
         $constraints = [new NotBlank(), new Type('numeric')];
@@ -178,7 +181,8 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         ]));
     }
 
-    public function testItValidatesCollectionsForLocalChannelsAndFromValue(): void {
+    public function testItValidatesCollectionsForLocalChannelsAndFromValue(): void
+    {
         $validator = $this->createMock(ValidatorInterface::class);
         $contextualValidator = $this->createMock(ContextualValidatorInterface::class);
         $channelsAware = $this->createMock(ChannelsAwareInterface::class);
@@ -190,7 +194,7 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         $channelsAware->method('getChannels')->willReturn(new ArrayCollection([$channel]));
 
         $this->channelRepository->method('findAllWithBasicData')->willReturn([
-            ['code' => 'WEB'], ['code' => 'MOBILE']
+            ['code' => 'WEB'], ['code' => 'MOBILE'],
         ]);
 
         $constraints = [new NotBlank(), new Type('numeric')];
@@ -209,7 +213,8 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         ]));
     }
 
-    public function testItDoesNothingWhenLocalCollectionIfChannelsIsEmpty(): void {
+    public function testItDoesNothingWhenLocalCollectionIfChannelsIsEmpty(): void
+    {
         $channelsAware = $this->createMock(ChannelsAwareInterface::class);
 
         $channelsAware->method('getChannels')->willReturn(new ArrayCollection());
@@ -227,12 +232,13 @@ final class ChannelCodeCollectionValidatorTest extends TestCase
         ]));
     }
 
-    public function testItValidatesCollectionsForAllChannels(): void {
+    public function testItValidatesCollectionsForAllChannels(): void
+    {
         $validator = $this->createMock(ValidatorInterface::class);
         $contextualValidator = $this->createMock(ContextualValidatorInterface::class);
 
         $this->channelRepository->method('findAllWithBasicData')->willReturn([
-            ['code' => 'WEB'], ['code' => 'MOBILE']
+            ['code' => 'WEB'], ['code' => 'MOBILE'],
         ]);
 
         $constraints = [new NotBlank(), new Type('numeric')];

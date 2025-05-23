@@ -27,7 +27,7 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 final class ProductVariantCodeExistsValidatorTest extends TestCase
 {
-    private ProductVariantRepositoryInterface&MockObject $productVariantRepository;
+    private MockObject&ProductVariantRepositoryInterface $productVariantRepository;
 
     private ExecutionContextInterface&MockObject $context;
 

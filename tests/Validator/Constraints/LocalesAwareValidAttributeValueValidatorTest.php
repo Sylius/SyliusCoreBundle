@@ -27,9 +27,9 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 final class LocalesAwareValidAttributeValueValidatorTest extends TestCase
 {
-    private ServiceRegistryInterface&MockObject $attributeTypeRegistry;
+    private MockObject&ServiceRegistryInterface $attributeTypeRegistry;
 
-    private TranslationLocaleProviderInterface&MockObject $localeProvider;
+    private MockObject&TranslationLocaleProviderInterface $localeProvider;
 
     private ExecutionContextInterface&MockObject $context;
 

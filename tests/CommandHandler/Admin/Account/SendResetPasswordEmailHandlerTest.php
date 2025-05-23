@@ -24,9 +24,9 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 final class SendResetPasswordEmailHandlerTest extends TestCase
 {
-    private UserRepositoryInterface&MockObject $userRepository;
+    private MockObject&UserRepositoryInterface $userRepository;
 
-    private ResetPasswordEmailManagerInterface&MockObject $resetPasswordEmailManager;
+    private MockObject&ResetPasswordEmailManagerInterface $resetPasswordEmailManager;
 
     private SendResetPasswordEmailHandler $handler;
 
@@ -36,7 +36,7 @@ final class SendResetPasswordEmailHandlerTest extends TestCase
         $this->resetPasswordEmailManager = $this->createMock(ResetPasswordEmailManagerInterface::class);
         $this->handler = new SendResetPasswordEmailHandler(
             $this->userRepository,
-            $this->resetPasswordEmailManager
+            $this->resetPasswordEmailManager,
         );
     }
 

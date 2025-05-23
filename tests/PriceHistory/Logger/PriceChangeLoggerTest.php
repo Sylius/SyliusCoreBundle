@@ -27,7 +27,7 @@ final class PriceChangeLoggerTest extends TestCase
 {
     private ChannelPricingLogEntryFactoryInterface&MockObject $logEntryFactory;
 
-    private ObjectManager&MockObject $logEntryManager;
+    private MockObject&ObjectManager $logEntryManager;
 
     private ClockInterface&MockObject $clock;
 

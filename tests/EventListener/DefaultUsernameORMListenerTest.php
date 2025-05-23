@@ -26,11 +26,17 @@ use Sylius\Component\Core\Model\ShopUserInterface;
 final class DefaultUsernameORMListenerTest extends TestCase
 {
     private DefaultUsernameORMListener $listener;
-    private OnFlushEventArgs&MockObject $onFlushEventArgs;
+
+    private MockObject&OnFlushEventArgs $onFlushEventArgs;
+
     private EntityManagerInterface&MockObject $entityManager;
-    private UnitOfWork&MockObject $unitOfWork;
+
+    private MockObject&UnitOfWork $unitOfWork;
+
     private CustomerInterface&MockObject $customer;
-    private ShopUserInterface&MockObject $user;
+
+    private MockObject&ShopUserInterface $user;
+
     private ClassMetadata&MockObject $userMetadata;
 
     protected function setUp(): void

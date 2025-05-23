@@ -28,15 +28,15 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 final class TaxonDeletionListenerTest extends TestCase
 {
-    private RequestStack&MockObject $requestStack;
+    private MockObject&RequestStack $requestStack;
 
     private ChannelRepositoryInterface&MockObject $channelRepository;
 
-    private TaxonInPromotionRuleCheckerInterface&MockObject $taxonInPromotionRuleChecker;
+    private MockObject&TaxonInPromotionRuleCheckerInterface $taxonInPromotionRuleChecker;
 
-    private TaxonAwareRuleUpdaterInterface&MockObject $hasTaxonRuleUpdater;
+    private MockObject&TaxonAwareRuleUpdaterInterface $hasTaxonRuleUpdater;
 
-    private TaxonAwareRuleUpdaterInterface&MockObject $taxonAwareRuleUpdater;
+    private MockObject&TaxonAwareRuleUpdaterInterface $taxonAwareRuleUpdater;
 
     private TaxonDeletionListener $taxonDeletionListener;
 
@@ -153,7 +153,7 @@ final class TaxonDeletionListenerTest extends TestCase
                 [
                     'message' => 'sylius.promotion.update_rules',
                     'parameters' => ['%codes%' => 'christmas, holiday'],
-                ]
+                ],
             )
         ;
 

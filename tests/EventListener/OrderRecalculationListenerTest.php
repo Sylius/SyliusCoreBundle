@@ -24,7 +24,7 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class OrderRecalculationListenerTest extends TestCase
 {
-    private OrderProcessorInterface&MockObject $orderProcessor;
+    private MockObject&OrderProcessorInterface $orderProcessor;
 
     private OrderRecalculationListener $orderRecalculationListener;
 

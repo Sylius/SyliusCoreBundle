@@ -25,7 +25,7 @@ use Sylius\Component\Core\Model\OrderInterface;
 
 final class CreateLogEntryOnPriceChangeObserverTest extends TestCase
 {
-    private PriceChangeLoggerInterface&MockObject $priceChangeLogger;
+    private MockObject&PriceChangeLoggerInterface $priceChangeLogger;
 
     private CreateLogEntryOnPriceChangeObserver $createLogEntryOnPriceChangeObserver;
 

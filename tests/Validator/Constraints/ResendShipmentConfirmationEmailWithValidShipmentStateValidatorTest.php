@@ -27,7 +27,7 @@ use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 final class ResendShipmentConfirmationEmailWithValidShipmentStateValidatorTest extends TestCase
 {
-    private RepositoryInterface&MockObject $shipmentRepository;
+    private MockObject&RepositoryInterface $shipmentRepository;
 
     private ExecutionContextInterface&MockObject $context;
 

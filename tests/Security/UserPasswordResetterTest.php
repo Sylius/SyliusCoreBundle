@@ -24,9 +24,9 @@ use Sylius\Component\User\Security\PasswordUpdaterInterface;
 
 final class UserPasswordResetterTest extends TestCase
 {
-    private UserRepositoryInterface&MockObject $userRepository;
+    private MockObject&UserRepositoryInterface $userRepository;
 
-    private PasswordUpdaterInterface&MockObject $passwordUpdater;
+    private MockObject&PasswordUpdaterInterface $passwordUpdater;
 
     private UserPasswordResetter $userPasswordResetter;
 
@@ -37,7 +37,7 @@ final class UserPasswordResetterTest extends TestCase
         $this->userPasswordResetter = new UserPasswordResetter(
             $this->userRepository,
             $this->passwordUpdater,
-            'P5D'
+            'P5D',
         );
     }
 
@@ -58,7 +58,7 @@ final class UserPasswordResetterTest extends TestCase
 
         $user->expects($this->once())
             ->method('isPasswordRequestNonExpired')
-            ->with($this->callback(fn(\DateInterval $interval) => $interval->format('%d') === '5'))
+            ->with($this->callback(fn (\DateInterval $interval) => $interval->format('%d') === '5'))
             ->willReturn(true)
         ;
 
@@ -91,7 +91,7 @@ final class UserPasswordResetterTest extends TestCase
 
         $user->expects($this->once())
             ->method('isPasswordRequestNonExpired')
-            ->with($this->callback(fn(\DateInterval $interval) => $interval->format('%d') === '5'))
+            ->with($this->callback(fn (\DateInterval $interval) => $interval->format('%d') === '5'))
             ->willReturn(false)
         ;
 

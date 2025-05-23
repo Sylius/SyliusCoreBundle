@@ -22,7 +22,7 @@ use Sylius\Resource\Model\ResourceInterface;
 
 final class CompositeStateMachineTest extends TestCase
 {
-    private StateMachineInterface&MockObject $stateMachine;
+    private MockObject&StateMachineInterface $stateMachine;
 
     private CompositeStateMachine $compositeStateMachine;
 

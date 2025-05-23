@@ -22,7 +22,7 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 final class ResetPasswordHandlerTest extends TestCase
 {
-    private UserPasswordResetterInterface&MockObject $userPasswordResetter;
+    private MockObject&UserPasswordResetterInterface $userPasswordResetter;
 
     private ResetPasswordHandler $handler;
 

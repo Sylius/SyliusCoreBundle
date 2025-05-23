@@ -24,9 +24,9 @@ use Sylius\Component\Core\Taxation\Strategy\TaxCalculationStrategyInterface;
 
 final class TaxCalculationStrategyTest extends TestCase
 {
-    private OrderTaxesApplicatorInterface&MockObject $applicatorOne;
+    private MockObject&OrderTaxesApplicatorInterface $applicatorOne;
 
-    private OrderTaxesApplicatorInterface&MockObject $applicatorTwo;
+    private MockObject&OrderTaxesApplicatorInterface $applicatorTwo;
 
     private TaxCalculationStrategy $strategy;
 

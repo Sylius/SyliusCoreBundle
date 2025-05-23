@@ -24,7 +24,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class RequestOrderPaymentListenerTest extends TestCase
 {
-    private StateMachineInterface&MockObject $compositeStateMachine;
+    private MockObject&StateMachineInterface $compositeStateMachine;
 
     private RequestOrderPaymentListener $listener;
 
@@ -55,7 +55,7 @@ final class RequestOrderPaymentListenerTest extends TestCase
             ->with(
                 $order,
                 OrderPaymentTransitions::GRAPH,
-                OrderPaymentTransitions::TRANSITION_REQUEST_PAYMENT
+                OrderPaymentTransitions::TRANSITION_REQUEST_PAYMENT,
             )
             ->willReturn(false)
         ;
@@ -76,7 +76,7 @@ final class RequestOrderPaymentListenerTest extends TestCase
             ->with(
                 $order,
                 OrderPaymentTransitions::GRAPH,
-                OrderPaymentTransitions::TRANSITION_REQUEST_PAYMENT
+                OrderPaymentTransitions::TRANSITION_REQUEST_PAYMENT,
             )
             ->willReturn(true)
         ;
@@ -84,9 +84,10 @@ final class RequestOrderPaymentListenerTest extends TestCase
         $this->compositeStateMachine
             ->expects($this->once())
             ->method('apply')
-            ->with($order,
+            ->with(
+                $order,
                 OrderPaymentTransitions::GRAPH,
-                OrderPaymentTransitions::TRANSITION_REQUEST_PAYMENT
+                OrderPaymentTransitions::TRANSITION_REQUEST_PAYMENT,
             )
         ;
 

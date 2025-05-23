@@ -26,7 +26,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class CreatePaymentListenerTest extends TestCase
 {
-    private StateMachineInterface&MockObject $stateMachine;
+    private MockObject&StateMachineInterface $stateMachine;
 
     private CreatePaymentListener $listener;
 
@@ -76,7 +76,7 @@ final class CreatePaymentListenerTest extends TestCase
 
         $this->stateMachine
             ->method('can')
-            ->willReturnCallback(fn($payment, $graph, $transition) => in_array($payment, [$payment1, $payment2], true))
+            ->willReturnCallback(fn ($payment, $graph, $transition) => in_array($payment, [$payment1, $payment2], true))
         ;
 
         $this->stateMachine
@@ -85,10 +85,10 @@ final class CreatePaymentListenerTest extends TestCase
             ->with(
                 $this->logicalOr(
                     $this->identicalTo($payment1),
-                    $this->identicalTo($payment2)
+                    $this->identicalTo($payment2),
                 ),
                 PaymentTransitions::GRAPH,
-                PaymentTransitions::TRANSITION_CREATE
+                PaymentTransitions::TRANSITION_CREATE,
             )
         ;
 

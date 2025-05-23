@@ -25,7 +25,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class AssignShippingDateListenerTest extends TestCase
 {
-    private ShippingDateAssignerInterface&MockObject $shippingDateAssignerMock;
+    private MockObject&ShippingDateAssignerInterface $shippingDateAssignerMock;
 
     private AssignShippingDateListener $assignShippingDateListener;
 

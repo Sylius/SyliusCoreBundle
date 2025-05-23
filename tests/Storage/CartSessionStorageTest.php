@@ -26,9 +26,9 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 final class CartSessionStorageTest extends TestCase
 {
-    private RequestStack&MockObject $requestStack;
+    private MockObject&RequestStack $requestStack;
 
-    private OrderRepositoryInterface&MockObject $orderRepository;
+    private MockObject&OrderRepositoryInterface $orderRepository;
 
     private CartSessionStorage $cartSessionStorage;
 
@@ -40,7 +40,7 @@ final class CartSessionStorageTest extends TestCase
         $this->cartSessionStorage = new CartSessionStorage(
             $this->requestStack,
             'session_key_name',
-            $this->orderRepository
+            $this->orderRepository,
         );
     }
 
@@ -117,4 +117,3 @@ final class CartSessionStorageTest extends TestCase
         $this->cartSessionStorage->removeForChannel($channel);
     }
 }
-

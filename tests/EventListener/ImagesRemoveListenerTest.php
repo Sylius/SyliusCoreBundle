@@ -37,18 +37,17 @@ final class ImagesRemoveListenerTest extends TestCase
 
     private ImagesRemoveListener $listener;
 
+    private MockObject&OnFlushEventArgs $onFlushEvent;
 
-    private OnFlushEventArgs&MockObject $onFlushEvent;
-
-    private PostFlushEventArgs&MockObject $postFlushEvent;
+    private MockObject&PostFlushEventArgs $postFlushEvent;
 
     private EntityManagerInterface&MockObject $entityManager;
 
-    private UnitOfWork&MockObject $unitOfWork;
+    private MockObject&UnitOfWork $unitOfWork;
 
     private ImageInterface&MockObject $image;
 
-    private ProductInterface&MockObject $product;
+    private MockObject&ProductInterface $product;
 
     private FilterConfiguration&MockObject $filterConfiguration;
 

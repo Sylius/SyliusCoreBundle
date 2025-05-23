@@ -24,7 +24,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class CancelOrderShippingListenerTest extends TestCase
 {
-    private StateMachineInterface&MockObject $stateMachine;
+    private MockObject&StateMachineInterface $stateMachine;
 
     private CancelOrderShippingListener $listener;
 

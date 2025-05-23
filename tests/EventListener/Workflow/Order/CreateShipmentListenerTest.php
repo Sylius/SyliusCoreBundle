@@ -26,7 +26,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class CreateShipmentListenerTest extends TestCase
 {
-    private StateMachineInterface&MockObject $stateMachine;
+    private MockObject&StateMachineInterface $stateMachine;
 
     private CreateShipmentListener $listener;
 
@@ -76,8 +76,8 @@ final class CreateShipmentListenerTest extends TestCase
 
         $this->stateMachine
             ->method('can')
-            ->willReturnCallback(fn($subject, $graph, $transition) =>
-            in_array($subject, [$shipment1, $shipment2], true)
+            ->willReturnCallback(
+                fn ($subject, $graph, $transition) => in_array($subject, [$shipment1, $shipment2], true),
             )
         ;
 
@@ -87,10 +87,10 @@ final class CreateShipmentListenerTest extends TestCase
             ->with(
                 $this->logicalOr(
                     $this->identicalTo($shipment1),
-                    $this->identicalTo($shipment2)
+                    $this->identicalTo($shipment2),
                 ),
                 ShipmentTransitions::GRAPH,
-                ShipmentTransitions::TRANSITION_CREATE
+                ShipmentTransitions::TRANSITION_CREATE,
             )
         ;
 

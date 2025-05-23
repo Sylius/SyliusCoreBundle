@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Tests\Sylius\Bundle\CoreBundle\Provider;
 
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\Provider\ChannelBasedDefaultTaxZoneProvider;
 use Sylius\Component\Addressing\Model\ZoneInterface;

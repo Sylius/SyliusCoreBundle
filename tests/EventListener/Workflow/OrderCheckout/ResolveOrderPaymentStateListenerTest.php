@@ -23,7 +23,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class ResolveOrderPaymentStateListenerTest extends TestCase
 {
-    private StateResolverInterface&MockObject $orderPaymentStateResolver;
+    private MockObject&StateResolverInterface $orderPaymentStateResolver;
 
     private ResolveOrderPaymentStateListener $listener;
 

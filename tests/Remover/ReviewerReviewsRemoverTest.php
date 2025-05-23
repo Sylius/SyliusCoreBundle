@@ -26,11 +26,11 @@ use Sylius\Component\Review\Model\ReviewInterface;
 
 final class ReviewerReviewsRemoverTest extends TestCase
 {
-    private RepositoryInterface&MockObject $reviewRepository;
+    private MockObject&RepositoryInterface $reviewRepository;
 
-    private ObjectManager&MockObject $reviewManager;
+    private MockObject&ObjectManager $reviewManager;
 
-    private ReviewableRatingUpdaterInterface&MockObject $averageRatingUpdater;
+    private MockObject&ReviewableRatingUpdaterInterface $averageRatingUpdater;
 
     private ReviewerReviewsRemover $remover;
 
@@ -43,7 +43,7 @@ final class ReviewerReviewsRemoverTest extends TestCase
         $this->remover = new ReviewerReviewsRemover(
             $this->reviewRepository,
             $this->reviewManager,
-            $this->averageRatingUpdater
+            $this->averageRatingUpdater,
         );
     }
 

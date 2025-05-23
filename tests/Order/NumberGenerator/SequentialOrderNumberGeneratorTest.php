@@ -26,7 +26,7 @@ use Sylius\Resource\Factory\FactoryInterface;
 
 final class SequentialOrderNumberGeneratorTest extends TestCase
 {
-    private RepositoryInterface&MockObject $sequenceRepository;
+    private MockObject&RepositoryInterface $sequenceRepository;
 
     private FactoryInterface&MockObject $sequenceFactory;
 
@@ -42,7 +42,7 @@ final class SequentialOrderNumberGeneratorTest extends TestCase
         $this->sequentialOrderNumberGenerator = new SequentialOrderNumberGenerator(
             $this->sequenceRepository,
             $this->sequenceFactory,
-            $this->sequenceManager
+            $this->sequenceManager,
         );
     }
 

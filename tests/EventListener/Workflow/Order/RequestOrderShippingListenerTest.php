@@ -24,7 +24,7 @@ use Symfony\Component\Workflow\Marking;
 
 final class RequestOrderShippingListenerTest extends TestCase
 {
-    private StateMachineInterface&MockObject $compositeStateMachine;
+    private MockObject&StateMachineInterface $compositeStateMachine;
 
     private RequestOrderShippingListener $listener;
 
@@ -55,7 +55,7 @@ final class RequestOrderShippingListenerTest extends TestCase
             ->with(
                 $order,
                 OrderShippingTransitions::GRAPH,
-                OrderShippingTransitions::TRANSITION_REQUEST_SHIPPING
+                OrderShippingTransitions::TRANSITION_REQUEST_SHIPPING,
             )
             ->willReturn(false)
         ;
@@ -76,7 +76,7 @@ final class RequestOrderShippingListenerTest extends TestCase
             ->with(
                 $order,
                 OrderShippingTransitions::GRAPH,
-                OrderShippingTransitions::TRANSITION_REQUEST_SHIPPING
+                OrderShippingTransitions::TRANSITION_REQUEST_SHIPPING,
             )
             ->willReturn(true)
         ;
@@ -87,7 +87,7 @@ final class RequestOrderShippingListenerTest extends TestCase
             ->with(
                 $order,
                 OrderShippingTransitions::GRAPH,
-                OrderShippingTransitions::TRANSITION_REQUEST_SHIPPING
+                OrderShippingTransitions::TRANSITION_REQUEST_SHIPPING,
             )
         ;
 

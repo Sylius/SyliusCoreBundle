@@ -29,9 +29,9 @@ final class ProductTaxonToTaxonTransformerTest extends TestCase
 {
     private FactoryInterface&MockObject $productTaxonFactory;
 
-    private RepositoryInterface&MockObject $productTaxonRepository;
+    private MockObject&RepositoryInterface $productTaxonRepository;
 
-    private ProductInterface&MockObject $product;
+    private MockObject&ProductInterface $product;
 
     private ProductTaxonToTaxonTransformer $productTaxonToTaxonTransformer;
 
@@ -43,7 +43,7 @@ final class ProductTaxonToTaxonTransformerTest extends TestCase
         $this->productTaxonToTaxonTransformer = new ProductTaxonToTaxonTransformer(
             $this->productTaxonFactory,
             $this->productTaxonRepository,
-            $this->product
+            $this->product,
         );
     }
 

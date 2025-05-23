@@ -85,7 +85,7 @@ final class ProcessLowestPricesOnChannelPriceHistoryConfigChangeObserverTest ext
     {
         $this->assertSame(
             ['lowestPriceForDiscountedProductsCheckingPeriod'],
-            $this->observer->observedFields()
+            $this->observer->observedFields(),
         );
     }
 

@@ -28,6 +28,7 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 final class ProductImageVariantsBelongToOwnerValidatorTest extends TestCase
 {
     private ExecutionContextInterface&MockObject $context;
+
     private ProductImageVariantsBelongToOwnerValidator $validator;
 
     protected function setUp(): void
@@ -77,7 +78,7 @@ final class ProductImageVariantsBelongToOwnerValidatorTest extends TestCase
             ->method('addViolation')
             ->with(
                 $constraint->message,
-                ['%productVariantCode%' => 'GREEN_SHIRT', '%ownerCode%' => 'MUG']
+                ['%productVariantCode%' => 'GREEN_SHIRT', '%ownerCode%' => 'MUG'],
             )
         ;
 

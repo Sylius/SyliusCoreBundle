@@ -29,7 +29,7 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 final class TranslationForExistingLocalesValidatorTest extends TestCase
 {
-    private RepositoryInterface&MockObject $localeRepository;
+    private MockObject&RepositoryInterface $localeRepository;
 
     private ExecutionContextInterface&MockObject $context;
 

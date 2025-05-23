@@ -26,7 +26,7 @@ use Sylius\Resource\Model\ResourceInterface;
 
 final class ResourceUpdateHandlerTest extends TestCase
 {
-    private ResourceUpdateHandlerInterface&MockObject $decoratedUpdater;
+    private MockObject&ResourceUpdateHandlerInterface $decoratedUpdater;
 
     private EntityManagerInterface&MockObject $entityManager;
 

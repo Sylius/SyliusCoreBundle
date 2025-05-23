@@ -23,7 +23,7 @@ use Sylius\Component\Order\Processor\OrderProcessorInterface;
 
 final class OrderPromotionsIntegrityCheckerTest extends TestCase
 {
-    private OrderProcessorInterface&MockObject $orderProcessor;
+    private MockObject&OrderProcessorInterface $orderProcessor;
 
     private OrderPromotionsIntegrityChecker $checker;
 
@@ -42,7 +42,7 @@ final class OrderPromotionsIntegrityCheckerTest extends TestCase
             ->method('getPromotions')
             ->willReturnOnConsecutiveCalls(
                 new ArrayCollection([$promotion]),
-                new ArrayCollection([$promotion])
+                new ArrayCollection([$promotion]),
             )
         ;
 
@@ -67,7 +67,7 @@ final class OrderPromotionsIntegrityCheckerTest extends TestCase
             ->method('getPromotions')
             ->willReturnOnConsecutiveCalls(
                 new ArrayCollection([$oldPromotion]),
-                new ArrayCollection([$newPromotion])
+                new ArrayCollection([$newPromotion]),
             )
         ;
 

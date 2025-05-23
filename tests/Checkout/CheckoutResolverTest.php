@@ -31,9 +31,9 @@ final class CheckoutResolverTest extends TestCase
 
     private CheckoutStateUrlGeneratorInterface&MockObject $urlGenerator;
 
-    private RequestMatcherInterface&MockObject $requestMatcher;
+    private MockObject&RequestMatcherInterface $requestMatcher;
 
-    private StateMachineInterface&MockObject $stateMachine;
+    private MockObject&StateMachineInterface $stateMachine;
 
     private CheckoutResolver $checkoutResolver;
 

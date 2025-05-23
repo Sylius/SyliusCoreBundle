@@ -28,7 +28,7 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 final class MailerListenerTest extends TestCase
 {
-    private SenderInterface&MockObject $emailSender;
+    private MockObject&SenderInterface $emailSender;
 
     private ChannelContextInterface&MockObject $channelContext;
 
@@ -117,7 +117,7 @@ final class MailerListenerTest extends TestCase
                     'user' => $user,
                     'channel' => $this->channel,
                     'localeCode' => 'en_US',
-                ]
+                ],
             )
         ;
 
@@ -152,7 +152,7 @@ final class MailerListenerTest extends TestCase
                     'user' => $user,
                     'channel' => $this->channel,
                     'localeCode' => 'en_US',
-                ]
+                ],
             )
         ;
 
@@ -176,7 +176,7 @@ final class MailerListenerTest extends TestCase
                     'user' => $shopUser,
                     'channel' => $this->channel,
                     'localeCode' => 'en_US',
-                ]
+                ],
             )
         ;
 

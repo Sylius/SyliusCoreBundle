@@ -25,11 +25,11 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final class UriBasedSectionProviderTest extends TestCase
 {
-    private RequestStack&MockObject $requestStack;
+    private MockObject&RequestStack $requestStack;
 
-    private UriBasedSectionResolverInterface&MockObject $firstSectionResolver;
+    private MockObject&UriBasedSectionResolverInterface $firstSectionResolver;
 
-    private UriBasedSectionResolverInterface&MockObject $secondSectionResolver;
+    private MockObject&UriBasedSectionResolverInterface $secondSectionResolver;
 
     private UriBasedSectionProvider $uriBasedSectionProvider;
 

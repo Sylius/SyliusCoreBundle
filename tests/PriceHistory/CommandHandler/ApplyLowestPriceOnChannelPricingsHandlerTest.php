@@ -23,9 +23,9 @@ use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 
 final class ApplyLowestPriceOnChannelPricingsHandlerTest extends TestCase
 {
-    private ProductLowestPriceBeforeDiscountProcessorInterface&MockObject $processor;
+    private MockObject&ProductLowestPriceBeforeDiscountProcessorInterface $processor;
 
-    private RepositoryInterface&MockObject $channelPricingRepository;
+    private MockObject&RepositoryInterface $channelPricingRepository;
 
     private ApplyLowestPriceOnChannelPricingsHandler $handler;
 
