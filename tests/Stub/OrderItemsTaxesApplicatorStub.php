@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Tests\Stub;
+namespace Tests\Sylius\Bundle\CoreBundle\Stub;
 
 use Sylius\Bundle\CoreBundle\Attribute\AsOrderItemsTaxesApplicator;
 use Sylius\Component\Addressing\Model\ZoneInterface;
