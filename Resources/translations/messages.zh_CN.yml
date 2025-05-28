@@ -30,7 +30,7 @@ sylius:
             billing_data:
                 city: 城市
                 company: 公司
-                country: test
+                country: 国家
                 postcode: 邮编
                 street: 街道
             contact_email: 联系邮件
@@ -197,8 +197,8 @@ sylius:
         settings:
             header: PHP 版本和设置
             any: 任何
-            detect_unicode: detect_unicode
-            magic_quotes_gpc: magic_quotes_gpc
+            detect_unicode: 检测Unicode
+            magic_quotes_gpc: 魔术引号GPC
             non_deprecated: 非弃用
             off: false
             on: true
