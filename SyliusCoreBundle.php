@@ -26,7 +26,6 @@ use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\BackwardsCompatibility
 use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\BackwardsCompatibility\Symfony6PrivateServicesPass;
 use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\CheckStatisticsOrdersTotalsProviderTypePass;
 use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\CircularDependencyBreakingErrorListenerPass;
-use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\FixMinkProxyPass;
 use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\IgnoreAnnotationsPass;
 use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\LazyCacheWarmupPass;
 use Sylius\Bundle\CoreBundle\DependencyInjection\Compiler\OverrideResourceControllerStateMachinePass;
@@ -95,7 +94,6 @@ final class SyliusCoreBundle extends AbstractResourceBundle
         $container->addCompilerPass(new TranslatableEntityLocalePass());
         $container->addCompilerPass(new CheckStatisticsOrdersTotalsProviderTypePass());
         $container->addCompilerPass(new OverrideResourceControllerStateMachinePass(), priority: -1024);
-        $container->addCompilerPass(new FixMinkProxyPass());
     }
 
     protected function getModelNamespace(): string
