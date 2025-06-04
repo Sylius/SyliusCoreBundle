@@ -26,18 +26,18 @@ use Sylius\Bundle\CoreBundle\Attribute\AsProductVariantMapProvider;
 use Sylius\Bundle\CoreBundle\Attribute\AsTaxCalculationStrategy;
 use Sylius\Bundle\CoreBundle\Attribute\AsUriBasedSectionResolver;
 use Sylius\Bundle\CoreBundle\DependencyInjection\SyliusCoreExtension;
-use Sylius\Bundle\CoreBundle\Tests\Stub\CatalogPromotionApplicatorCriteriaStub;
-use Sylius\Bundle\CoreBundle\Tests\Stub\CatalogPromotionPriceCalculatorStub;
-use Sylius\Bundle\CoreBundle\Tests\Stub\EntityObserverStub;
-use Sylius\Bundle\CoreBundle\Tests\Stub\OrderItemsTaxesApplicatorStub;
-use Sylius\Bundle\CoreBundle\Tests\Stub\OrderItemUnitsTaxesApplicatorStub;
-use Sylius\Bundle\CoreBundle\Tests\Stub\OrdersTotalsProviderStub;
-use Sylius\Bundle\CoreBundle\Tests\Stub\ProductVariantMapProviderStub;
-use Sylius\Bundle\CoreBundle\Tests\Stub\TaxCalculationStrategyStub;
-use Sylius\Bundle\CoreBundle\Tests\Stub\UriBasedSectionResolverStub;
 use Sylius\Component\Core\Filesystem\Adapter\FilesystemAdapterInterface;
 use SyliusLabs\DoctrineMigrationsExtraBundle\DependencyInjection\SyliusLabsDoctrineMigrationsExtraExtension;
 use Symfony\Component\DependencyInjection\Definition;
+use Tests\Sylius\Bundle\CoreBundle\Stub\CatalogPromotionApplicatorCriteriaStub;
+use Tests\Sylius\Bundle\CoreBundle\Stub\CatalogPromotionPriceCalculatorStub;
+use Tests\Sylius\Bundle\CoreBundle\Stub\EntityObserverStub;
+use Tests\Sylius\Bundle\CoreBundle\Stub\OrderItemsTaxesApplicatorStub;
+use Tests\Sylius\Bundle\CoreBundle\Stub\OrderItemUnitsTaxesApplicatorStub;
+use Tests\Sylius\Bundle\CoreBundle\Stub\OrdersTotalsProviderStub;
+use Tests\Sylius\Bundle\CoreBundle\Stub\ProductVariantMapProviderStub;
+use Tests\Sylius\Bundle\CoreBundle\Stub\TaxCalculationStrategyStub;
+use Tests\Sylius\Bundle\CoreBundle\Stub\UriBasedSectionResolverStub;
 
 final class SyliusCoreExtensionTest extends AbstractExtensionTestCase
 {

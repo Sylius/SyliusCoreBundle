@@ -45,7 +45,7 @@ final class HasEnabledEntityValidatorTest extends TestCase
         $this->accessor = $this->createMock(PropertyAccessorInterface::class);
         $this->contextMock = $this->createMock(ExecutionContextInterface::class);
         $this->hasEnabledEntityValidator = new HasEnabledEntityValidator($this->registry, $this->accessor);
-        $this->initialize($this->contextMock);
+        $this->hasEnabledEntityValidator->initialize($this->contextMock);
     }
 
     public function testThrowsExceptionWhenConstraintIsNotAHasEnabledEntity(): void

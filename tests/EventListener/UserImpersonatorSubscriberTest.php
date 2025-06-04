@@ -82,7 +82,7 @@ final class UserImpersonatorSubscriberTest extends TestCase
 
         $this->subscriber->unimpersonate($event);
 
-        $this->expectNotToPerformAssertions();
+        $this->addToAssertionCount(1);
     }
 
     public function testDoesNothingWhenFirewallIsNotSet(): void
