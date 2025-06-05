@@ -275,7 +275,7 @@ sylius:
                 auto_start_help: "php.ini에서 'session.auto_start = Off'로 설정"
             short_open_tag: 'short_open_tag'
             timezone: '타임존'
-            timezone_help: "'php.ini에서 \'date.timezone\' 설정 (예: date.timezone = "Asia/Seoul")'"
+            timezone_help: 'php.ini에서 "date.timezone" 설정 (예: date.timezone = "Asia/Seoul")'
             timezone_deprecated:
                 header: '지원 중단된 타임존'
                 help: '타임존 %timezone% 은(는) 지원 중단되었습니다. php.ini를 수정하십시오 (지원 중단 타임존 목록 http://php.net/manual/en/timezones.others.php).'
