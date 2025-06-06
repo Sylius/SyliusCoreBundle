@@ -60,7 +60,7 @@ class AddressExampleFactory extends AbstractExampleFactory implements ExampleFac
             ->setDefault('street', fn (Options $options): string => $this->faker->streetAddress)
             ->setDefault('city', fn (Options $options): string => $this->faker->city)
             ->setDefault('postcode', fn (Options $options): string => $this->faker->postcode)
-            ->setDefault('country_code', function (): string {
+            ->setDefault('country_code', function (Options $options): string {
                 /** @var CountryInterface[] $countries */
                 $countries = $this->countryRepository->findAll();
                 shuffle($countries);
