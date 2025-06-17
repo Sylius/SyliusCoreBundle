@@ -263,7 +263,7 @@ sylius:
             header: 'Versiunea PHP și setări'
             any: 'orice'
             detect_unicode: 'detect_unicode'
-            detect_unicode_help: 'Setați \'detect_unicode = Off\' în fișierul php.ini'
+            detect_unicode_help: 'Setați "detect_unicode = Off" în fișierul php.ini'
             magic_quotes_gpc: 'magic_quotes_gpc'
             non_deprecated: 'neînvechit'
             off: 'dezactivat'
@@ -271,10 +271,10 @@ sylius:
             register_globals: 'register_globals'
             session:
                 auto_start: 'session.auto_start'
-                auto_start_help: 'Setați \'session.auto_start  = Off\' în fișierul php.ini'
+                auto_start_help: 'Setați "session.auto_start  = Off" în fișierul php.ini'
             short_open_tag: 'short_open_tag'
             timezone: 'timezone'
-            timezone_help: 'Setați \'date.timezone\' în fișierul php.ini (ex. date.timezone = "Europe/Amsterdam")'
+            timezone_help: 'Setați "date.timezone" în fișierul php.ini (ex. date.timezone = "Europe/Amsterdam")'
             timezone_deprecated:
                 header: 'Timezone învechit'
                 help: 'Timezone %timezone% este învechit. Remediați fișierul php.ini (lista zonelor învechite: http://php.net/manual/en/timezones.others.php).'
