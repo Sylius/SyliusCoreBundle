@@ -186,7 +186,7 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
     public function findOneByChannelAndCode(ChannelInterface $channel, string $code): ?ProductInterface
     {
         $product = $this->createQueryBuilder('o')
-            ->where('o.code = :code')
+            ->andWhere('o.code = :code')
             ->andWhere(':channel MEMBER OF o.channels')
             ->andWhere('o.enabled = :enabled')
             ->setParameter('channel', $channel)
@@ -212,7 +212,7 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
     public function findOneByCode(string $code): ?ProductInterface
     {
         return $this->createQueryBuilder('o')
-            ->where('o.code = :code')
+            ->andWhere('o.code = :code')
             ->setParameter('code', $code)
             ->getQuery()
             ->getOneOrNullResult()
@@ -222,7 +222,7 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
     public function findOneByIdHydrated(mixed $id): ?ProductInterface
     {
         $product = $this->createQueryBuilder('o')
-            ->where('o.id = :id')
+            ->andWhere('o.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
             ->getOneOrNullResult()
@@ -264,7 +264,7 @@ class ProductRepository extends BaseProductRepository implements ProductReposito
             ->addSelect('association')
             ->leftJoin('o.associations', 'association')
             ->innerJoin('association.associatedProducts', 'associatedProduct', 'WITH', 'associatedProduct.enabled = :enabled')
-            ->where('o.code = :code')
+            ->andWhere('o.code = :code')
             ->andWhere(':channel MEMBER OF o.channels')
             ->andWhere('o.enabled = :enabled')
             ->setParameter('channel', $channel)
