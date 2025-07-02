@@ -115,12 +115,7 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
-                /** @var string $words */
-                $words = $this->faker->words(3, true);
-
-                return $words;
-            })
+            ->setDefault('name', fn (Options $options): string => $this->faker->words(3, true))
 
             ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
 
