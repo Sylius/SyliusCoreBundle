@@ -94,7 +94,7 @@ sylius:
             contact_email: 'Contact e-mail'
             contact_phone_number: 'Contact telefoonnummer'
             countries: 'Landen'
-            currencies: 'Valuta's'
+            currencies: "Valuta's"
             currency_base: 'Basisvaluta'
             account_verification_required: 'Is accountverificatie vereist?'
             hostname: 'Hostname'
