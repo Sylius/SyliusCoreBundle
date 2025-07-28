@@ -45,9 +45,9 @@ use Webmozart\Assert\Assert;
 
 class ProductExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     /**
      * @param FactoryInterface<ProductInterface> $productFactory
@@ -64,22 +64,22 @@ class ProductExampleFactory extends AbstractExampleFactory implements ExampleFac
      * @param RepositoryInterface<TaxCategoryInterface>|null $taxCategoryRepository
      */
     public function __construct(
-        private FactoryInterface $productFactory,
-        private FactoryInterface $productVariantFactory,
-        private FactoryInterface $channelPricingFactory,
-        private ProductVariantGeneratorInterface $variantGenerator,
-        private FactoryInterface $productAttributeValueFactory,
-        private FactoryInterface $productImageFactory,
-        private FactoryInterface $productTaxonFactory,
-        private ImageUploaderInterface $imageUploader,
-        private SlugGeneratorInterface $slugGenerator,
-        private RepositoryInterface $taxonRepository,
-        private RepositoryInterface $productAttributeRepository,
-        private RepositoryInterface $productOptionRepository,
-        private RepositoryInterface $channelRepository,
-        private RepositoryInterface $localeRepository,
-        private ?RepositoryInterface $taxCategoryRepository = null,
-        private ?FileLocatorInterface $fileLocator = null,
+        protected readonly FactoryInterface $productFactory,
+        protected readonly FactoryInterface $productVariantFactory,
+        protected readonly FactoryInterface $channelPricingFactory,
+        protected readonly ProductVariantGeneratorInterface $variantGenerator,
+        protected readonly FactoryInterface $productAttributeValueFactory,
+        protected readonly FactoryInterface $productImageFactory,
+        protected readonly FactoryInterface $productTaxonFactory,
+        protected readonly ImageUploaderInterface $imageUploader,
+        protected readonly SlugGeneratorInterface $slugGenerator,
+        protected readonly RepositoryInterface $taxonRepository,
+        protected readonly RepositoryInterface $productAttributeRepository,
+        protected readonly RepositoryInterface $productOptionRepository,
+        protected readonly RepositoryInterface $channelRepository,
+        protected readonly RepositoryInterface $localeRepository,
+        protected readonly ?RepositoryInterface $taxCategoryRepository = null,
+        protected readonly ?FileLocatorInterface $fileLocator = null,
     ) {
         if ($this->taxCategoryRepository === null) {
             trigger_deprecation(

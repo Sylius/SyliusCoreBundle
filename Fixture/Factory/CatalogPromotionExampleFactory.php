@@ -29,20 +29,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CatalogPromotionExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     /**
      * @param FactoryInterface<CatalogPromotionInterface> $catalogPromotionFactory
      * @param RepositoryInterface<LocaleInterface> $localeRepository
      */
     public function __construct(
-        private FactoryInterface $catalogPromotionFactory,
-        private RepositoryInterface $localeRepository,
-        private ChannelRepositoryInterface $channelRepository,
-        private ExampleFactoryInterface $catalogPromotionScopeExampleFactory,
-        private ExampleFactoryInterface $catalogPromotionActionExampleFactory,
+        protected readonly FactoryInterface $catalogPromotionFactory,
+        protected readonly RepositoryInterface $localeRepository,
+        protected readonly ChannelRepositoryInterface $channelRepository,
+        protected readonly ExampleFactoryInterface $catalogPromotionScopeExampleFactory,
+        protected readonly ExampleFactoryInterface $catalogPromotionActionExampleFactory,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
