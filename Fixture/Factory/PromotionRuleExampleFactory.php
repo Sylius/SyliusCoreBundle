@@ -16,7 +16,7 @@ namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 use Faker\Factory;
 use Faker\Generator;
 use Sylius\Component\Core\Factory\PromotionRuleFactoryInterface;
-use Sylius\Component\Promotion\Checker\Rule\CartQuantityRuleChecker;
+use Sylius\Component\Core\Promotion\Checker\Rule\CartQuantityRuleChecker;
 use Sylius\Component\Promotion\Model\PromotionRuleInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,8 +27,10 @@ class PromotionRuleExampleFactory extends AbstractExampleFactory implements Exam
 
     protected OptionsResolver $optionsResolver;
 
-    public function __construct(protected readonly PromotionRuleFactoryInterface $promotionRuleFactory)
-    {
+    /** @param PromotionRuleFactoryInterface<PromotionRuleInterface> $promotionRuleFactory */
+    public function __construct(
+        protected readonly PromotionRuleFactoryInterface $promotionRuleFactory,
+    ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -58,7 +60,7 @@ class PromotionRuleExampleFactory extends AbstractExampleFactory implements Exam
             ->setNormalizer('configuration', function (Options $options, array $configuration): array {
                 foreach ($configuration as $channelCode => $channelConfiguration) {
                     if (isset($channelConfiguration['amount'])) {
-                        $configuration[$channelCode]['amount'] = (int) ($configuration[$channelCode]['amount'] * 100);
+                        $configuration[$channelCode]['amount'] = (int) ($channelConfiguration['amount'] * 100);
                     }
                 }
 

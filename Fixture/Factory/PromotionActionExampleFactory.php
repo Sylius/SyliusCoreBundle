@@ -27,6 +27,7 @@ class PromotionActionExampleFactory extends AbstractExampleFactory implements Ex
 
     protected OptionsResolver $optionsResolver;
 
+    /** @param PromotionActionFactoryInterface<PromotionActionInterface> $promotionActionFactory */
     public function __construct(protected readonly PromotionActionFactoryInterface $promotionActionFactory)
     {
         $this->faker = Factory::create();

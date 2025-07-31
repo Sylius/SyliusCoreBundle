@@ -28,8 +28,9 @@ class ShippingCategoryExampleFactory extends AbstractExampleFactory implements E
     protected OptionsResolver $optionsResolver;
 
     /** @param FactoryInterface<ShippingCategoryInterface> $shippingCategoryFactory */
-    public function __construct(protected readonly FactoryInterface $shippingCategoryFactory)
-    {
+    public function __construct(
+        protected readonly FactoryInterface $shippingCategoryFactory,
+    ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
