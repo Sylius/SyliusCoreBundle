@@ -29,9 +29,9 @@ use Webmozart\Assert\Assert;
 
 class AddressExampleFactory extends AbstractExampleFactory
 {
-    protected Generator $faker;
+    private Generator $faker;
 
-    protected OptionsResolver $optionsResolver;
+    private OptionsResolver $optionsResolver;
 
     /**
      * @param FactoryInterface<AddressInterface> $addressFactory
@@ -39,9 +39,9 @@ class AddressExampleFactory extends AbstractExampleFactory
      * @param RepositoryInterface<CustomerInterface> $customerRepository
      */
     public function __construct(
-        protected readonly FactoryInterface $addressFactory,
-        protected readonly RepositoryInterface $countryRepository,
-        protected readonly RepositoryInterface $customerRepository,
+        private FactoryInterface $addressFactory,
+        private RepositoryInterface $countryRepository,
+        private RepositoryInterface $customerRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();

@@ -27,9 +27,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    protected Generator $faker;
+    private Generator $faker;
 
-    protected OptionsResolver $optionsResolver;
+    private OptionsResolver $optionsResolver;
 
     /**
      * @param FactoryInterface<ShopUserInterface> $shopUserFactory
@@ -37,9 +37,9 @@ class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFa
      * @param RepositoryInterface<CustomerGroupInterface> $customerGroupRepository
      */
     public function __construct(
-        protected readonly FactoryInterface $shopUserFactory,
-        protected readonly FactoryInterface $customerFactory,
-        protected readonly RepositoryInterface $customerGroupRepository,
+        private FactoryInterface $shopUserFactory,
+        private FactoryInterface $customerFactory,
+        private RepositoryInterface $customerGroupRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();

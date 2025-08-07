@@ -35,14 +35,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    protected Generator $faker;
+    private Generator $faker;
 
-    protected OptionsResolver $optionsResolver;
+    private OptionsResolver $optionsResolver;
 
-    protected ?TaxonRepositoryInterface $taxonRepository;
+    private ?TaxonRepositoryInterface $taxonRepository;
 
     /** @var FactoryInterface<ShopBillingDataInterface>|null */
-    protected ?FactoryInterface $shopBillingDataFactory;
+    private ?FactoryInterface $shopBillingDataFactory;
 
     /**
      * @param RepositoryInterface<LocaleInterface> $localeRepository
@@ -51,10 +51,10 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
      * @param FactoryInterface<ShopBillingDataInterface>|null $shopBillingDataFactory
      */
     public function __construct(
-        protected readonly ChannelFactoryInterface $channelFactory,
-        protected readonly RepositoryInterface $localeRepository,
-        protected readonly RepositoryInterface $currencyRepository,
-        protected readonly RepositoryInterface $zoneRepository,
+        private ChannelFactoryInterface $channelFactory,
+        private RepositoryInterface $localeRepository,
+        private RepositoryInterface $currencyRepository,
+        private RepositoryInterface $zoneRepository,
         ?TaxonRepositoryInterface $taxonRepository = null,
         ?FactoryInterface $shopBillingDataFactory = null,
     ) {

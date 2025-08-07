@@ -26,9 +26,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProductOptionExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    protected Generator $faker;
+    private Generator $faker;
 
-    protected OptionsResolver $optionsResolver;
+    private OptionsResolver $optionsResolver;
 
     /**
      * @param FactoryInterface<ProductOptionInterface> $productOptionFactory
@@ -36,9 +36,9 @@ class ProductOptionExampleFactory extends AbstractExampleFactory implements Exam
      * @param RepositoryInterface<LocaleInterface> $localeRepository
      */
     public function __construct(
-        protected readonly FactoryInterface $productOptionFactory,
-        protected readonly FactoryInterface $productOptionValueFactory,
-        protected readonly RepositoryInterface $localeRepository,
+        private FactoryInterface $productOptionFactory,
+        private FactoryInterface $productOptionValueFactory,
+        private RepositoryInterface $localeRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();

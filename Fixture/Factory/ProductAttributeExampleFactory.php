@@ -25,18 +25,18 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProductAttributeExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    protected Generator $faker;
+    private Generator $faker;
 
-    protected OptionsResolver $optionsResolver;
+    private OptionsResolver $optionsResolver;
 
     /**
      * @param RepositoryInterface<LocaleInterface> $localeRepository
      * @param array<string, string> $attributeTypes
      */
     public function __construct(
-        protected readonly AttributeFactoryInterface $productAttributeFactory,
-        protected readonly RepositoryInterface $localeRepository,
-        protected readonly array $attributeTypes,
+        private AttributeFactoryInterface $productAttributeFactory,
+        private RepositoryInterface $localeRepository,
+        private array $attributeTypes,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
