@@ -53,7 +53,7 @@ sylius:
                 subject: 'E-mailadres verificatie'
     form:
         block:
-            body: 'Body'
+            body: 'Inhoud'
             id: 'ID'
             title: 'Titel'
         cart:
@@ -126,7 +126,7 @@ sylius:
             payment_state: 'Betalingsstatus'
             channel: 'Alle kanalen'
         page:
-            body: 'Body'
+            body: 'Inhoud'
             id: 'ID'
             title: 'Titel'
         product:
