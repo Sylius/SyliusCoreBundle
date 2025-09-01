@@ -23,12 +23,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TaxCategoryExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     /** @param FactoryInterface<TaxCategoryInterface> $taxCategoryFactory */
-    public function __construct(private FactoryInterface $taxCategoryFactory)
+    public function __construct(protected readonly FactoryInterface $taxCategoryFactory)
     {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
