@@ -48,5 +48,11 @@
                  form-type="Sylius\Bundle\CoreBundle\Form\Type\Shipping\Rule\ChannelBasedOrderTotalLessThanOrEqualConfigurationType"/>
         </service>
         <service id="sylius.checker.shipping_method_rule.order_total_less_than_or_equal" alias="sylius.shipping_method_rule_checker.order_total_less_than_or_equal" />
+
+        <service id="sylius.zone_shipping_method_eligibility_checker"
+                 class="Sylius\Component\Core\Shipping\Checker\Eligibility\ZoneEligibilityChecker">
+            <argument type="service" id="sylius.zone_matcher"/>
+            <tag name="sylius.shipping_method_eligibility_checker"/>
+        </service>
     </services>
 </container>
