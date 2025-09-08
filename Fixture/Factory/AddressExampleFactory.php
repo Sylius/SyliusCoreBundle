@@ -30,9 +30,9 @@ use Webmozart\Assert\Assert;
 /** @implements ExampleFactoryInterface<AddressInterface> */
 class AddressExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     /**
      * @param FactoryInterface<AddressInterface> $addressFactory
@@ -40,9 +40,9 @@ class AddressExampleFactory extends AbstractExampleFactory implements ExampleFac
      * @param RepositoryInterface<CustomerInterface> $customerRepository
      */
     public function __construct(
-        private readonly FactoryInterface $addressFactory,
-        private readonly RepositoryInterface $countryRepository,
-        private readonly RepositoryInterface $customerRepository,
+        protected readonly FactoryInterface $addressFactory,
+        protected readonly RepositoryInterface $countryRepository,
+        protected readonly RepositoryInterface $customerRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -60,7 +60,7 @@ class AddressExampleFactory extends AbstractExampleFactory implements ExampleFac
             ->setDefault('street', fn (Options $options): string => $this->faker->streetAddress)
             ->setDefault('city', fn (Options $options): string => $this->faker->city)
             ->setDefault('postcode', fn (Options $options): string => $this->faker->postcode)
-            ->setDefault('country_code', function (): string {
+            ->setDefault('country_code', function (Options $options): string {
                 /** @var CountryInterface[] $countries */
                 $countries = $this->countryRepository->findAll();
                 shuffle($countries);

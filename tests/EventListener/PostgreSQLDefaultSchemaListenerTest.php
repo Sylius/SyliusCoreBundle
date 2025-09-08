@@ -75,11 +75,15 @@ final class PostgreSQLDefaultSchemaListenerTest extends TestCase
         ]);
 
         $calledNamespaces = [];
-        $this->schema->expects($this->exactly(2))
+        $schema = $this->schema;
+        $this->schema
+            ->expects($this->exactly(2))
             ->method('createNamespace')
             ->with($this->isType('string'))
-            ->willReturnCallback(function (string $namespace) use (&$calledNamespaces) {
+            ->willReturnCallback(function (string $namespace) use (&$calledNamespaces, $schema) {
                 $calledNamespaces[] = $namespace;
+
+                return $schema;
             })
         ;
 

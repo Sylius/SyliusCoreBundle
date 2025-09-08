@@ -35,9 +35,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /** @implements ExampleFactoryInterface<ChannelInterface> */
 class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     /**
      * @param ChannelFactoryInterface<ChannelInterface> $channelFactory
@@ -48,12 +48,12 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
      * @param FactoryInterface<ShopBillingDataInterface> $shopBillingDataFactory
      */
     public function __construct(
-        private readonly ChannelFactoryInterface $channelFactory,
-        private readonly RepositoryInterface $localeRepository,
-        private readonly RepositoryInterface $currencyRepository,
-        private readonly RepositoryInterface $zoneRepository,
-        private readonly TaxonRepositoryInterface $taxonRepository,
-        private readonly FactoryInterface $shopBillingDataFactory,
+        protected readonly ChannelFactoryInterface $channelFactory,
+        protected readonly RepositoryInterface $localeRepository,
+        protected readonly RepositoryInterface $currencyRepository,
+        protected readonly RepositoryInterface $zoneRepository,
+        protected readonly TaxonRepositoryInterface $taxonRepository,
+        protected readonly FactoryInterface $shopBillingDataFactory,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -110,12 +110,7 @@ class ChannelExampleFactory extends AbstractExampleFactory implements ExampleFac
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
-                /** @var string $words */
-                $words = $this->faker->words(3, true);
-
-                return $words;
-            })
+            ->setDefault('name', fn (Options $options): string => $this->faker->words(3, true))
             ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
             ->setDefault('hostname', fn (Options $options): string => $options['code'] . '.localhost')
             ->setDefault('color', fn (Options $options): string => $this->faker->hexColor)

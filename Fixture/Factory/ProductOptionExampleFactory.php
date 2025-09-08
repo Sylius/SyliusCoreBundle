@@ -27,9 +27,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /** @implements ExampleFactoryInterface<ProductOptionInterface> */
 class ProductOptionExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     /**
      * @param FactoryInterface<ProductOptionInterface> $productOptionFactory
@@ -37,9 +37,9 @@ class ProductOptionExampleFactory extends AbstractExampleFactory implements Exam
      * @param RepositoryInterface<LocaleInterface> $localeRepository
      */
     public function __construct(
-        private readonly FactoryInterface $productOptionFactory,
-        private readonly FactoryInterface $productOptionValueFactory,
-        private readonly RepositoryInterface $localeRepository,
+        protected readonly FactoryInterface $productOptionFactory,
+        protected readonly FactoryInterface $productOptionValueFactory,
+        protected readonly RepositoryInterface $localeRepository,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -83,12 +83,7 @@ class ProductOptionExampleFactory extends AbstractExampleFactory implements Exam
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
-                /** @var string $words */
-                $words = $this->faker->words(3, true);
-
-                return $words;
-            })
+            ->setDefault('name', fn (Options $options): string => $this->faker->words(3, true))
             ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
             ->setDefault('values', null)
             ->setDefault('values', function (Options $options, ?array $values): array {

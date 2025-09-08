@@ -24,13 +24,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /** @implements ExampleFactoryInterface<ShippingCategoryInterface> */
 class ShippingCategoryExampleFactory extends AbstractExampleFactory implements ExampleFactoryInterface
 {
-    private Generator $faker;
+    protected Generator $faker;
 
-    private OptionsResolver $optionsResolver;
+    protected OptionsResolver $optionsResolver;
 
     /** @param FactoryInterface<ShippingCategoryInterface> $shippingCategoryFactory */
     public function __construct(
-        private readonly FactoryInterface $shippingCategoryFactory,
+        protected readonly FactoryInterface $shippingCategoryFactory,
     ) {
         $this->faker = Factory::create();
         $this->optionsResolver = new OptionsResolver();
@@ -55,12 +55,7 @@ class ShippingCategoryExampleFactory extends AbstractExampleFactory implements E
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('name', function (): string {
-                /** @var string $words */
-                $words = $this->faker->words(3, true);
-
-                return $words;
-            })
+            ->setDefault('name', fn (Options $options): string => $this->faker->words(3, true))
             ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
             ->setDefault('description', fn (Options $options): string => $this->faker->paragraph)
         ;
