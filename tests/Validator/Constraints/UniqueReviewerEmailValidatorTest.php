@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Tests\Sylius\Bundle\CoreBundle\Validator\Constraints;
 
+use Symfony\Component\Validator\ConstraintValidator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\Validator\Constraints\UniqueReviewerEmail;
@@ -57,7 +58,7 @@ final class UniqueReviewerEmailValidatorTest extends TestCase
 
     public function testExtendsConstraintValidatorClass(): void
     {
-        $this->assertInstanceOf(\Symfony\Component\Validator\ConstraintValidator::class, $this->validator);
+        $this->assertInstanceOf(ConstraintValidator::class, $this->validator);
     }
 
     public function testValidatesIfUserWithGivenEmailIsAlreadyRegistered(): void
