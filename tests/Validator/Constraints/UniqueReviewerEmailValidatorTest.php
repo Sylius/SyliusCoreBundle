@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Tests\Sylius\Bundle\CoreBundle\Validator\Constraints;
 
-use Symfony\Component\Validator\ConstraintValidator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\Validator\Constraints\UniqueReviewerEmail;
@@ -25,6 +24,7 @@ use Sylius\Component\User\Repository\UserRepositoryInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 

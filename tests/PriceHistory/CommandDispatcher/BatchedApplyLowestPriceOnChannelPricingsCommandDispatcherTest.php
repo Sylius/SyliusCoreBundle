@@ -71,7 +71,7 @@ final class BatchedApplyLowestPriceOnChannelPricingsCommandDispatcherTest extend
 
         $this->channelPricingRepository
             ->method('findBy')
-            ->willReturnCallback(fn($criteria, $orderBy, $limit, $offset) => match ($offset) {
+            ->willReturnCallback(fn ($criteria, $orderBy, $limit, $offset) => match ($offset) {
                 0 => [$cp1, $cp2],
                 2 => [$cp3, $cp4],
                 4 => [$cp5],

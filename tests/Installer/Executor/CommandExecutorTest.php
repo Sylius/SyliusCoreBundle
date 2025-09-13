@@ -60,7 +60,7 @@ final class CommandExecutorTest extends TestCase
             ->expects($this->once())
             ->method('run')
             ->with(
-                $this->callback(fn(ArrayInput $input) => $input->getFirstArgument() === 'command' &&
+                $this->callback(fn (ArrayInput $input) => $input->getFirstArgument() === 'command' &&
                     $input->getParameterOption('--no-debug') === true &&
                     $input->getParameterOption('--env') === 'dev' &&
                     $input->hasParameterOption('--verbose') &&
@@ -93,7 +93,7 @@ final class CommandExecutorTest extends TestCase
             ->expects($this->once())
             ->method('run')
             ->with(
-                $this->callback(fn(ArrayInput $input) => $input->getFirstArgument() === 'command' &&
+                $this->callback(fn (ArrayInput $input) => $input->getFirstArgument() === 'command' &&
                     $input->getParameterOption('--no-debug') === true &&
                     $input->getParameterOption('--env') === 'dev' &&
                     $input->hasParameterOption('--verbose') &&

@@ -58,7 +58,7 @@ final class InForTaxonsScopeVariantCheckerTest extends TestCase
 
         $this->taxonRepository
             ->method('findOneBy')
-            ->willReturnCallback(fn(array $criteria) => match ($criteria['code']) {
+            ->willReturnCallback(fn (array $criteria) => match ($criteria['code']) {
                 'FIRST_TAXON' => $firstTaxon,
                 'SECOND_TAXON' => $secondTaxon,
                 'THIRD_TAXON' => $thirdTaxon,
