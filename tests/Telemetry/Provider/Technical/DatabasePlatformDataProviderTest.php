@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Tests\Telemetry\Provider\Technical;
+namespace Tests\Sylius\Bundle\CoreBundle\Telemetry\Provider\Technical;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Platforms\MySQLPlatform;

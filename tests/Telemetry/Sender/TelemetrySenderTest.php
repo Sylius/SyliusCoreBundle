@@ -11,11 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Tests\Telemetry\Sender;
+namespace Tests\Sylius\Bundle\CoreBundle\Telemetry\Sender;
 
 use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\Telemetry\Sender\TelemetrySender;
-use Sylius\Component\Core\Telemetry\Sender\TelemetrySenderInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 

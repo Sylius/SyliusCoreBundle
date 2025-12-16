@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Tests\Telemetry\EventListener;
+namespace Tests\Sylius\Bundle\CoreBundle\Telemetry\EventListener;
 
 use PHPUnit\Framework\TestCase;
 use Sylius\Bundle\CoreBundle\Telemetry\EventListener\TelemetryListener;

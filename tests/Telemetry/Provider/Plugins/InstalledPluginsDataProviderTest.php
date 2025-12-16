@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Tests\Telemetry\Provider\Plugins;
+namespace Tests\Sylius\Bundle\CoreBundle\Telemetry\Provider\Plugins;
 
 use Composer\InstalledVersions;
 use PHPUnit\Framework\TestCase;

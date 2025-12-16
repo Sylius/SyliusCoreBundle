@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Tests\Telemetry\Generator;
+namespace Tests\Sylius\Bundle\CoreBundle\Telemetry\Generator;
 
 use PHPUnit\Framework\TestCase;
 use Sylius\Component\Core\Telemetry\Generator\InstallationIdGenerator;

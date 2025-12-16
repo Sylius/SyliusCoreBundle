@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Sylius\Bundle\CoreBundle\Tests\Telemetry\Cache;
+namespace Tests\Sylius\Bundle\CoreBundle\Telemetry\Cache;
 
 use PHPUnit\Framework\TestCase;
 use Sylius\Component\Core\Telemetry\Cache\TelemetryCache;
